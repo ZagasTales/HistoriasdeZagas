@@ -1,0 +1,103 @@
+								if(tipoAcc4.equals("Cloak")){
+									if(posesionAcc4.equals("Normal")){
+									
+									accesorie4=new Cloak(acc4,descripcionAcc4,false,false,null);
+									}
+									
+									if(posesionAcc4.equals("Posesión")){
+										ArrayList<String> pos=new ArrayList<String>();
+										pos.add(prop1Acc4);
+										pos.add(prop2Acc4);
+										pos.add(prop3Acc4);
+										Possesions poss=new Possesions(pos);
+										accesorie4=new Cloak(acc4,descripcionAcc4,true,false,poss);
+										}
+									
+									if(posesionAcc4.equals("Legendario")){
+										ArrayList<String> pos=new ArrayList<String>();
+										pos.add(prop1Acc4);
+										pos.add(prop2Acc4);
+										pos.add(prop3Acc4);
+										Possesions poss=new Possesions(pos);
+										accesorie4=new Cloak(acc4,descripcionAcc4,false,true,poss);
+										}
+								}
+								
+								
+								
+								if(tipoAcc4.equals("Earrings")){
+									if(posesionAcc4.equals("Normal")){
+									
+									accesorie4=new Earrings(acc4,descripcionAcc4,false,false,null);
+									}
+									
+									if(posesionAcc4.equals("Posesión")){
+										ArrayList<String> pos=new ArrayList<String>();
+										pos.add(prop1Acc4);
+										pos.add(prop2Acc4);
+										pos.add(prop3Acc4);
+										Possesions poss=new Possesions(pos);
+										accesorie4=new Earrings(acc4,descripcionAcc4,true,false,poss);
+										}
+									
+									if(posesionAcc4.equals("Legendario")){
+										ArrayList<String> pos=new ArrayList<String>();
+										pos.add(prop1Acc4);
+										pos.add(prop2Acc4);
+										pos.add(prop3Acc4);
+										Possesions poss=new Possesions(pos);
+										accesorie4=new Earrings(acc4,descripcionAcc4,false,true,poss);
+										}
+								}
+								
+								if(tipoAcc4.equals("Necklace")){
+									if(posesionAcc4.equals("Normal")){
+									
+									accesorie4=new Necklace(acc4,descripcionAcc4,false,false,null);
+									}
+									
+									if(posesionAcc4.equals("Posesión")){
+										ArrayList<String> pos=new ArrayList<String>();
+										pos.add(prop1Acc4);
+										pos.add(prop2Acc4);
+										pos.add(prop3Acc4);
+										Possesions poss=new Possesions(pos);
+										accesorie4=new Necklace(acc4,descripcionAcc4,true,false,poss);
+										}
+									
+									if(posesionAcc4.equals("Legendario")){
+										ArrayList<String> pos=new ArrayList<String>();
+										pos.add(prop1Acc4);
+										pos.add(prop2Acc4);
+										pos.add(prop3Acc4);
+										Possesions poss=new Possesions(pos);
+										accesorie4=new Necklace(acc4,descripcionAcc4,false,true,poss);
+										}
+								}
+								
+								if(tipoAcc4.equals("Rings")){
+									if(posesionAcc4.equals("Normal")){
+									
+									accesorie4=new Rings(acc4,descripcionAcc4,false,false,null);
+									}
+									
+									if(posesionAcc4.equals("Posesión")){
+										ArrayList<String> pos=new ArrayList<String>();
+										pos.add(prop1Acc4);
+										pos.add(prop2Acc4);
+										pos.add(prop3Acc4);
+										Possesions poss=new Possesions(pos);
+										accesorie4=new Rings(acc4,descripcionAcc4,true,false,poss);
+										}
+									
+									if(posesionAcc4.equals("Legendario")){
+										ArrayList<String> pos=new ArrayList<String>();
+										pos.add(prop1Acc4);
+										pos.add(prop2Acc4);
+										pos.add(prop3Acc4);
+										Possesions poss=new Possesions(pos);
+										accesorie4=new Rings(acc4,descripcionAcc4,false,true,poss);
+										}
+								}
+								
+								
