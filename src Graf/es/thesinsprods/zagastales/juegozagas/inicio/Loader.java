@@ -61,6 +61,9 @@ public class Loader {
 
 	private JFrame frmHistoriasDeZagas;
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public JFrame getFrmHistoriasDeZagas() {
 		return frmHistoriasDeZagas;
 	}

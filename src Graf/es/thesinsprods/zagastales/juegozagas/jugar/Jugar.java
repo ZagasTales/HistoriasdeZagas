@@ -118,6 +118,19 @@ public class Jugar {
 		final JButton btnNewButton = new JButton("CREAR  PARTIDA");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				CrearPartida window;
+				try {
+					window = new CrearPartida();
+					window.getFrame().setVisible(true);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+						| SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			
+				frmHistoriasDeZagas.dispose();
+				
 			}
 		});
 
