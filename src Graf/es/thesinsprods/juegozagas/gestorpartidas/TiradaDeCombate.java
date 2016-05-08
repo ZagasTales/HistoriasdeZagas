@@ -76,8 +76,7 @@ public class TiradaDeCombate {
 		frmHistoriasDeZagas.setIconImage(Toolkit.getDefaultToolkit().getImage(TiradaDeCombate.class.getResource("/images/Historias de Zagas, logo.png")));
 		frmHistoriasDeZagas.setResizable(false);
 		frmHistoriasDeZagas.setBounds(100, 100, 558, 530);
-		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmHistoriasDeZagas.setLocationRelativeTo(null);
+		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmHistoriasDeZagas.getContentPane().setLayout(null);
 		
 		JLabel lblTirada = new JLabel("Tirada:");
@@ -220,8 +219,7 @@ public class TiradaDeCombate {
 			public void actionPerformed(ActionEvent e) {
 				
 				frmHistoriasDeZagas.dispose();
-				GestorMain window=new GestorMain();
-				window.getFrmHistoriasDeZagas().setVisible(true);
+	
 			}
 		});
 		btnVolver.setBorderPainted(false);

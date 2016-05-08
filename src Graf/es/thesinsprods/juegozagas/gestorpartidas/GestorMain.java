@@ -1,6 +1,7 @@
 package es.thesinsprods.juegozagas.gestorpartidas;
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -17,6 +18,8 @@ import javax.swing.ImageIcon;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
@@ -77,7 +80,6 @@ public class GestorMain {
 				
 				TiradaDeCombate window=new TiradaDeCombate();
 				window.getFrame().setVisible(true);
-				frmHistoriasDeZagas.dispose();
 			}
 		});
 		btnTiradaDeCombate.setBorderPainted(false);
@@ -105,6 +107,18 @@ public class GestorMain {
 		frmHistoriasDeZagas.getContentPane().add(btnTiradaDeCombate);
 		
 		final JButton btnTiradasEnfrentadas = new JButton("Informaci\u00F3n Tiradas Enfrentadas");
+		btnTiradasEnfrentadas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				File habilidades= new File("./htmls/Tiradas Enfrentada.html");
+				try {
+					Desktop.getDesktop().open(habilidades);
+				} catch (IOException e3) {
+					// TODO Auto-generated catch block
+					e3.printStackTrace();
+				}
+				
+			}
+		});
 		btnTiradasEnfrentadas.setIcon(new ImageIcon(GestorMain.class.getResource("/images/botonesInicio.png")));
 		btnTiradasEnfrentadas.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnTiradasEnfrentadas.setFont(mf.MyFont(0, 17));
@@ -299,6 +313,19 @@ public class GestorMain {
 		frmHistoriasDeZagas.getContentPane().add(btnVolver);
 		
 		final JButton btnHabilidadesYSus = new JButton("Habilidades y sus Atributos");
+		btnHabilidadesYSus.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				File habilidades= new File("./htmls/Habilidades y Atributos.html");
+				try {
+					Desktop.getDesktop().open(habilidades);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		});
 		btnHabilidadesYSus.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -320,6 +347,17 @@ public class GestorMain {
 		frmHistoriasDeZagas.getContentPane().add(btnHabilidadesYSus);
 		
 		final JButton btnArmera = new JButton("Armer\u00EDa");
+		btnArmera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				File armeria= new File("./htmls/Armeria.html");
+				try {
+					Desktop.getDesktop().open(armeria);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		btnArmera.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -341,6 +379,18 @@ public class GestorMain {
 		frmHistoriasDeZagas.getContentPane().add(btnArmera);
 		
 		final JButton btnConocimientosMgicos = new JButton("Conocimientos M\u00E1gicos");
+		btnConocimientosMgicos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				File habilidades= new File("./htmls/Conocimientosmagicos.html");
+				try {
+					Desktop.getDesktop().open(habilidades);
+				} catch (IOException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+				
+			}
+		});
 		btnConocimientosMgicos.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
