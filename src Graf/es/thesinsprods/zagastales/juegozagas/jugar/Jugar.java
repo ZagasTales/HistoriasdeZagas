@@ -177,9 +177,9 @@ public class Jugar {
 				
 				else{
 					
-					OfflineConCon window;
+					BuscarPartida window;
 					try {
-						window = new OfflineConCon();
+						window = new BuscarPartida();
 						window.getFrame().setVisible(true);
 						frmHistoriasDeZagas.dispose();
 					} catch (ClassNotFoundException | InstantiationException

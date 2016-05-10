@@ -56,7 +56,7 @@ import es.thesinsprods.zagastales.characters.skills.MagicSkills;
 import es.thesinsprods.zagastales.characters.skills.SkillOutOfBoundsException;
 import es.thesinsprods.zagastales.characters.skills.SkillPoints;
 import es.thesinsprods.zagastales.juegozagas.inicio.Loader;
-import es.thesinsprods.zagastales.juegozagas.jugar.offline.FichaPersonaje2.IncomingReader;
+import es.thesinsprods.zagastales.juegozagas.jugar.offline.VentanaJugadores.IncomingReader;
 
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
@@ -770,7 +770,7 @@ public class JugarOnline {
 		panel_6.add(btnAlterarEstado);
 		
 		JButton btnModificarEquipo = new JButton("Modificar Equipo");
-		btnModificarEquipo.setBounds(0, 203, 187, 31);
+		btnModificarEquipo.setBounds(10, 190, 187, 31);
 		panel_6.add(btnModificarEquipo);
 		
 		JPanel panel_7 = new JPanel();
