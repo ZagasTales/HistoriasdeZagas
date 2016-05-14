@@ -103,7 +103,7 @@ public class JugarOnline {
 		this.frmHistoriasDeZagas = frame;
 	}
 
-	private JFrame frmHistoriasDeZagas;
+	public static JFrame frmHistoriasDeZagas;
 	 String username, address = "";
 	    ArrayList<String> users = new ArrayList();
 	    int port = 2222;

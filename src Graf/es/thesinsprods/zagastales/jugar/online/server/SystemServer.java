@@ -18,7 +18,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import es.thesinsprods.resources.db.ConexionDBOnline;
+import es.thesinsprods.zagastales.juegozagas.inicio.Inicio;
 import es.thesinsprods.zagastales.juegozagas.jugar.CrearPartida;
+import es.thesinsprods.zagastales.juegozagas.jugar.offline.JugarOnline;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -219,7 +221,11 @@ public class SystemServer {
 			        tellEveryone("El servidor se está cerrando, todos los usuarios serán desconectados.\n:Chat");
 			        textArea.append("Detiendo servidor... \n");
 			        tabla.executeQuery("DELETE FROM PARTIDAS WHERE NOMBRE='"+CrearPartida.nombre+"'");
-		            Thread.sleep(3000);                 
+		            Thread.sleep(3000);   
+		            frame.dispose();
+		            JugarOnline.frmHistoriasDeZagas.dispose();
+		            Inicio window= new Inicio ();
+		            window.getFrmHistoriasDeZagas().setVisible(true);
 		        } 
 		        catch(InterruptedException ex) {Thread.currentThread().interrupt();} catch (SQLException e1) {
 					// TODO Auto-generated catch block
@@ -228,7 +234,7 @@ public class SystemServer {
 		        
 	
 		        
-		       System.exit(0);
+		
 		    
 				
 			}

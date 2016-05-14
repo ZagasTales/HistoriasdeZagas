@@ -2419,6 +2419,15 @@ public static String ip;
 		frame.getContentPane().add(button_10);
 		
 		JButton btnVolver = new JButton("Volver");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				frame.dispose();
+				Jugar window=new Jugar();
+				window.getFrmHistoriasDeZagas().setVisible(true);
+				
+			}
+		});
 		btnVolver.setBounds(689, 519, 138, 31);
 		frame.getContentPane().add(btnVolver);
 		
@@ -2428,6 +2437,78 @@ public static String ip;
 		
 		
 		scrollPane.setViewportView(textArea);
+		
+		JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				partidas=9;
+				if(0 < nombre.size()){
+					label.setText(nombre.get(0));
+					}
+					else{
+						label.setText("");
+					}
+					if(1 < nombre.size()){
+					label_1.setText(nombre.get(1));}
+					else{
+						label_1.setText("");
+					}
+					if(2 < nombre.size()){
+					label_2.setText(nombre.get(2));}
+					else{
+						label_2.setText("");
+						
+					}
+					if(3 < nombre.size()){
+					label_3.setText(nombre.get(3));}
+					else{
+						label_3.setText("");
+						
+					}
+					if(4 < nombre.size()){
+					label_4.setText(nombre.get(4));}
+					else{
+						label_4.setText("");
+						
+					}
+					if(5 < nombre.size()){
+					label_5.setText(nombre.get(5));}
+					else{
+						label_5.setText("");
+						
+					}
+					if(6 < nombre.size()){
+					label_6.setText(nombre.get(6));}
+					else{
+						label_6.setText("");
+						
+					}
+					if(7 < nombre.size()){
+					label_7.setText(nombre.get(7));}
+					else{
+						label_7.setText("");
+						
+					}
+					if(8 < nombre.size()){
+					label_8.setText(nombre.get(8));}
+					else{
+						label_8.setText("");
+						
+					}
+					if(9 < nombre.size()){
+					label_9.setText(nombre.get(9));}
+					else{
+						label_9.setText("");
+						
+					}
+				
+					button_9.setEnabled(false);
+				
+			}
+		});
+		btnActualizar.setBounds(185, 519, 119, 31);
+		frame.getContentPane().add(btnActualizar);
 		
 			
 		if(0 < nombre.size()){

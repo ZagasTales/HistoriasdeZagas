@@ -48,6 +48,7 @@ import es.thesinsprods.zagastales.characters.skills.KnowledgeSkills;
 import es.thesinsprods.zagastales.characters.skills.MagicSkills;
 import es.thesinsprods.zagastales.characters.skills.SkillOutOfBoundsException;
 import es.thesinsprods.zagastales.characters.skills.SkillPoints;
+import es.thesinsprods.zagastales.juegozagas.inicio.Inicio;
 import es.thesinsprods.zagastales.juegozagas.inicio.Loader;
 import es.thesinsprods.zagastales.juegozagas.jugar.BuscarPartida;
 
@@ -1809,9 +1810,11 @@ public class VentanaJugadores {
 					
 				}
 				tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+(jugadores-1)+"");
-				Disconnect();
 				sendDisconnect();
-				System.exit(0);
+				Disconnect();
+				frame.dispose();
+				Inicio window = new Inicio();
+				window.getFrmHistoriasDeZagas().setVisible(true);
 					
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
