@@ -15,10 +15,13 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.IOException;
 import java.awt.Toolkit;
 
 public class TiradaDeCombate {
@@ -360,6 +363,18 @@ public class TiradaDeCombate {
 		btnHabilidadesYSus.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnHabilidadesYSus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				
+				File habilidades= new File("./htmls/Habilidades y Atributos.html");
+				try {
+					Desktop.getDesktop().open(habilidades);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			
+				
 			}
 		});
 		
@@ -374,6 +389,16 @@ public class TiradaDeCombate {
 		final JButton btnArmera = new JButton("Armer\u00EDa");
 		btnArmera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+
+				File armeria= new File("./htmls/Armeria.html");
+				try {
+					Desktop.getDesktop().open(armeria);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			
 			}
 		});
 		btnArmera.addMouseListener(new MouseAdapter() {
@@ -413,6 +438,17 @@ public class TiradaDeCombate {
 		btnConocimientosMgicos.setFont(mf.MyFont(0, 15));
 		btnConocimientosMgicos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
+				File habilidades= new File("./htmls/Conocimientosmagicos.html");
+				try {
+					Desktop.getDesktop().open(habilidades);
+				} catch (IOException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+				
+			
+				
 			}
 		});
 		btnConocimientosMgicos.setIcon(new ImageIcon(TiradaDeCombate.class.getResource("/images/botones-ayuda-gestor.png")));
@@ -456,7 +492,23 @@ public class TiradaDeCombate {
 		textField_5.setBounds(377, 282, 86, 20);
 		frmHistoriasDeZagas.getContentPane().add(textField_5);
 		
-		final JButton btnResultadosTirada = new JButton("Resultados Enfrentamiento");
+		final JButton btnResultadosTirada = new JButton("Información Tiradas Enfrentadas");
+		btnResultadosTirada.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+					File habilidades= new File("./htmls/Tiradas Enfrentada.html");
+					try {
+						Desktop.getDesktop().open(habilidades);
+					} catch (IOException e3) {
+						// TODO Auto-generated catch block
+						e3.printStackTrace();
+					}
+					
+				
+			
+				
+			}
+		});
 		btnResultadosTirada.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {

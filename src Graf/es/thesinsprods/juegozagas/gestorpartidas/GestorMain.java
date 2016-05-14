@@ -155,6 +155,9 @@ public class GestorMain {
 						   null,  // null para icono defecto
 						   new Object[] { "d20", "d12", "d10","d8","d6","d4" }, 
 						   "opcion 1");
+				seleccion=seleccion+"";
+				
+			
 				
 				if(seleccion.equals("d20")){
 					JOptionPane.showOptionDialog(
@@ -221,8 +224,8 @@ public class GestorMain {
 							   null,    
 							   new Object[] { "OK" },   
 							   "opcion 1");
-				}
 				
+				}
 			}
 		});
 		btnTiradasAleatorias.setIcon(new ImageIcon(GestorMain.class.getResource("/images/botonesInicio.png")));
@@ -339,7 +342,7 @@ public class GestorMain {
 		btnHabilidadesYSus.setOpaque(false);
 		btnHabilidadesYSus.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnHabilidadesYSus.setForeground(Color.WHITE);
-		btnHabilidadesYSus.setFont(new Font("Morpheus", Font.PLAIN, 17));
+		btnHabilidadesYSus.setFont(mf.MyFont(0, 17));
 		btnHabilidadesYSus.setFocusPainted(false);
 		btnHabilidadesYSus.setContentAreaFilled(false);
 		btnHabilidadesYSus.setBorderPainted(false);
@@ -371,7 +374,7 @@ public class GestorMain {
 		btnArmera.setOpaque(false);
 		btnArmera.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnArmera.setForeground(Color.WHITE);
-		btnArmera.setFont(new Font("Morpheus", Font.PLAIN, 17));
+		btnArmera.setFont(mf.MyFont(0, 17));
 		btnArmera.setFocusPainted(false);
 		btnArmera.setContentAreaFilled(false);
 		btnArmera.setBorderPainted(false);
@@ -404,7 +407,7 @@ public class GestorMain {
 		btnConocimientosMgicos.setOpaque(false);
 		btnConocimientosMgicos.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnConocimientosMgicos.setForeground(Color.WHITE);
-		btnConocimientosMgicos.setFont(new Font("Morpheus", Font.PLAIN, 17));
+		btnConocimientosMgicos.setFont(mf.MyFont(0, 17));
 		btnConocimientosMgicos.setFocusPainted(false);
 		btnConocimientosMgicos.setContentAreaFilled(false);
 		btnConocimientosMgicos.setBorderPainted(false);
