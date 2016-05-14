@@ -33,6 +33,7 @@ import java.awt.event.ActionEvent;
 public class CrearPartida {
 	MorpheusFont mf=new MorpheusFont();
 	private JFrame frame;
+	public static String nombre="";
 	public JFrame getFrame() {
 		return frame;
 	}
@@ -135,6 +136,7 @@ public class CrearPartida {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String nombre=textField_1.getText();
+				CrearPartida.nombre=nombre;
 				String contrasena=textField.getText();
 				String descripcion=textArea.getText();
 				String ip_publica=getIP();

@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
 
 public class BuscarPartida {
 
@@ -79,14 +80,14 @@ public static String ip;
 		final Statement tabla=p.createStatement();
 		final ArrayList<String> nombre = new ArrayList<String>();
 		ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS");
-	
+		final JTextArea textArea = new JTextArea();
 		while(rs.next()){
 			
 			nombre.add(rs.getString("NOMBRE"));
 			
 		}
 		frame = new JFrame();
-		frame.setBounds(100, 100, 500, 600);
+		frame.setBounds(100, 100, 853, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -146,42 +147,317 @@ public static String ip;
 		frame.getContentPane().add(label_9);
 		
 		JButton btnNewButton = new JButton("Descripci\u00F3n");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				try {
+					String descripcion="";
+					ResultSet rs = tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label.getText()+"'");
+					
+					while (rs.next()){
+					
+						descripcion= rs.getString("DESCRIPCION");
+						
+						
+					}
+					
+					textArea.setText(descripcion);
+					
+				
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		});
 		btnNewButton.setBounds(191, 53, 119, 31);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton button = new JButton("Descripci\u00F3n");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				
+				try {
+					String descripcion="";
+					ResultSet rs = tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_1.getText()+"'");
+					
+					while (rs.next()){
+					
+						descripcion= rs.getString("DESCRIPCION");
+						
+						
+					}
+					
+					textArea.setText(descripcion);
+					
+				
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			
+			}
+		});
 		button.setBounds(191, 95, 119, 31);
 		frame.getContentPane().add(button);
 		
 		JButton button_1 = new JButton("Descripci\u00F3n");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				
+				try {
+					String descripcion="";
+					ResultSet rs = tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_2.getText()+"'");
+					
+					while (rs.next()){
+					
+						descripcion= rs.getString("DESCRIPCION");
+						
+						
+					}
+					
+					textArea.setText(descripcion);
+					
+				
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			
+				
+			}
+		});
 		button_1.setBounds(191, 137, 119, 31);
 		frame.getContentPane().add(button_1);
 		
 		JButton button_2 = new JButton("Descripci\u00F3n");
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				
+				try {
+					String descripcion="";
+					ResultSet rs = tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_3.getText()+"'");
+					
+					while (rs.next()){
+					
+						descripcion= rs.getString("DESCRIPCION");
+						
+						
+					}
+					
+					textArea.setText(descripcion);
+					
+				
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			
+			}
+		});
 		button_2.setBounds(191, 179, 119, 31);
 		frame.getContentPane().add(button_2);
 		
 		JButton button_3 = new JButton("Descripci\u00F3n");
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+
+				
+				try {
+					String descripcion="";
+					ResultSet rs = tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_4.getText()+"'");
+					
+					while (rs.next()){
+					
+						descripcion= rs.getString("DESCRIPCION");
+						
+						
+					}
+					
+					textArea.setText(descripcion);
+					
+				
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			
+			
+			}
+		});
 		button_3.setBounds(191, 221, 119, 31);
 		frame.getContentPane().add(button_3);
 		
 		JButton button_4 = new JButton("Descripci\u00F3n");
+		button_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+
+				
+				try {
+					String descripcion="";
+					ResultSet rs = tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_5.getText()+"'");
+					
+					while (rs.next()){
+					
+						descripcion= rs.getString("DESCRIPCION");
+						
+						
+					}
+					
+					textArea.setText(descripcion);
+					
+				
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			
+			
+			}
+		});
 		button_4.setBounds(191, 263, 119, 31);
 		frame.getContentPane().add(button_4);
 		
 		JButton button_5 = new JButton("Descripci\u00F3n");
+		button_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+
+				
+				try {
+					String descripcion="";
+					ResultSet rs = tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_6.getText()+"'");
+					
+					while (rs.next()){
+					
+						descripcion= rs.getString("DESCRIPCION");
+						
+						
+					}
+					
+					textArea.setText(descripcion);
+					
+				
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			
+			
+			}
+		});
 		button_5.setBounds(191, 305, 119, 31);
 		frame.getContentPane().add(button_5);
 		
 		JButton button_6 = new JButton("Descripci\u00F3n");
+		button_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+
+				
+				try {
+					String descripcion="";
+					ResultSet rs = tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_7.getText()+"'");
+					
+					while (rs.next()){
+					
+						descripcion= rs.getString("DESCRIPCION");
+						
+						
+					}
+					
+					textArea.setText(descripcion);
+					
+				
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			
+			
+			}
+		});
 		button_6.setBounds(191, 347, 119, 31);
 		frame.getContentPane().add(button_6);
 		
 		JButton button_7 = new JButton("Descripci\u00F3n");
+		button_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+
+
+				
+				try {
+					String descripcion="";
+					ResultSet rs = tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_8.getText()+"'");
+					
+					while (rs.next()){
+					
+						descripcion= rs.getString("DESCRIPCION");
+						
+						
+					}
+					
+					textArea.setText(descripcion);
+					
+				
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			
+			
+				
+			}
+		});
 		button_7.setBounds(191, 389, 119, 31);
 		frame.getContentPane().add(button_7);
 		
 		JButton button_8 = new JButton("Descripci\u00F3n");
+		button_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+
+
+				
+				try {
+					String descripcion="";
+					ResultSet rs = tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_9.getText()+"'");
+					
+					while (rs.next()){
+					
+						descripcion= rs.getString("DESCRIPCION");
+						
+						
+					}
+					
+					textArea.setText(descripcion);
+					
+				
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			
+			
+				
+			}
+		});
 		button_8.setBounds(191, 431, 119, 31);
 		frame.getContentPane().add(button_8);
 		
@@ -209,6 +485,7 @@ public static String ip;
 							jmax=rs.getInt("JUGADORESMAX");
 							jdentro=rs.getInt("JUGADORES");
 							password=rs.getString("CONTRASEÑA");
+							
 						
 							if(jdentro<jmax){
 								
@@ -223,6 +500,7 @@ public static String ip;
 										
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label.getText()+"'");
 										frame.dispose();
 										
 									}
@@ -241,6 +519,7 @@ public static String ip;
 									
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label.getText()+"'");
 									frame.dispose();
 									
 								}
@@ -260,10 +539,101 @@ public static String ip;
 					} catch (SQLException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
 					}
 					
 				}
-			
+				
+	if (JOptionPane.NO_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_PUBLICA");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+		nombrePart=label.getText();
 				
 			}
 		});
@@ -271,38 +641,1631 @@ public static String ip;
 		frame.getContentPane().add(btnConexin);
 		
 		JButton btnConexin_1 = new JButton("Conexi\u00F3n");
+		btnConexin_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				
+				int jmax=0;
+				int jdentro=0;
+				String password="";
+				int seleccion = JOptionPane.showOptionDialog(
+						frame,
+						"¿Compartes la red con el master?.",
+						"¡Atención!", JOptionPane.YES_NO_OPTION,
+						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
+								"No" }, // null para YES, NO y CANCEL
+						"opcion 1");
+				if (JOptionPane.YES_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_1.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_LOCAL");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_1.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_1.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+				
+	if (JOptionPane.NO_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_1.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_PUBLICA");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_1.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_1.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+			
+	nombrePart=label_1.getText();
+			
+			}
+		});
 		btnConexin_1.setBounds(341, 95, 119, 31);
 		frame.getContentPane().add(btnConexin_1);
 		
 		JButton btnConexin_2 = new JButton("Conexi\u00F3n");
+		btnConexin_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+
+				
+				int jmax=0;
+				int jdentro=0;
+				String password="";
+				int seleccion = JOptionPane.showOptionDialog(
+						frame,
+						"¿Compartes la red con el master?.",
+						"¡Atención!", JOptionPane.YES_NO_OPTION,
+						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
+								"No" }, // null para YES, NO y CANCEL
+						"opcion 1");
+				if (JOptionPane.YES_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_2.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_LOCAL");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_2.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_2.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+				
+	if (JOptionPane.NO_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_2.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_PUBLICA");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_2.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_2.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+			
+			
+	nombrePart=label_2.getText();
+	
+			}
+		});
 		btnConexin_2.setBounds(341, 137, 119, 31);
 		frame.getContentPane().add(btnConexin_2);
 		
 		JButton btnConexin_3 = new JButton("Conexi\u00F3n");
+		btnConexin_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+
+				
+				int jmax=0;
+				int jdentro=0;
+				String password="";
+				int seleccion = JOptionPane.showOptionDialog(
+						frame,
+						"¿Compartes la red con el master?.",
+						"¡Atención!", JOptionPane.YES_NO_OPTION,
+						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
+								"No" }, // null para YES, NO y CANCEL
+						"opcion 1");
+				if (JOptionPane.YES_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_3.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_LOCAL");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_3.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_3.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+				
+	if (JOptionPane.NO_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_3.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_PUBLICA");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_3.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_3.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+			
+	nombrePart=label_3.getText();			
+	
+			}
+		});
 		btnConexin_3.setBounds(341, 179, 119, 31);
 		frame.getContentPane().add(btnConexin_3);
 		
 		JButton btnConexin_4 = new JButton("Conexi\u00F3n");
+		btnConexin_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+
+				
+				int jmax=0;
+				int jdentro=0;
+				String password="";
+				int seleccion = JOptionPane.showOptionDialog(
+						frame,
+						"¿Compartes la red con el master?.",
+						"¡Atención!", JOptionPane.YES_NO_OPTION,
+						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
+								"No" }, // null para YES, NO y CANCEL
+						"opcion 1");
+				if (JOptionPane.YES_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_4.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_LOCAL");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_4.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_4.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+				
+	if (JOptionPane.NO_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_4.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_PUBLICA");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_4.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_4.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+			
+	nombrePart=label_4.getText();
+				
+			}
+		});
 		btnConexin_4.setBounds(341, 221, 119, 31);
 		frame.getContentPane().add(btnConexin_4);
 		
 		JButton btnConexin_5 = new JButton("Conexi\u00F3n");
+		btnConexin_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				int jmax=0;
+				int jdentro=0;
+				String password="";
+				int seleccion = JOptionPane.showOptionDialog(
+						frame,
+						"¿Compartes la red con el master?.",
+						"¡Atención!", JOptionPane.YES_NO_OPTION,
+						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
+								"No" }, // null para YES, NO y CANCEL
+						"opcion 1");
+				if (JOptionPane.YES_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_5.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_LOCAL");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_5.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_5.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+				
+	if (JOptionPane.NO_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_5.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_PUBLICA");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_5.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_5.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+			
+				
+	nombrePart=label_5.getText();
+				
+			}
+		});
 		btnConexin_5.setBounds(341, 263, 119, 31);
 		frame.getContentPane().add(btnConexin_5);
 		
 		JButton btnConexin_6 = new JButton("Conexi\u00F3n");
+		btnConexin_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				
+				int jmax=0;
+				int jdentro=0;
+				String password="";
+				int seleccion = JOptionPane.showOptionDialog(
+						frame,
+						"¿Compartes la red con el master?.",
+						"¡Atención!", JOptionPane.YES_NO_OPTION,
+						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
+								"No" }, // null para YES, NO y CANCEL
+						"opcion 1");
+				if (JOptionPane.YES_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_6.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_LOCAL");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_6.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_6.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+				
+	if (JOptionPane.NO_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_6.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_PUBLICA");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_6.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_6.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+			
+	nombrePart=label_6.getText();
+				
+			}
+		});
 		btnConexin_6.setBounds(341, 305, 119, 31);
 		frame.getContentPane().add(btnConexin_6);
 		
 		JButton btnConexin_7 = new JButton("Conexi\u00F3n");
+		btnConexin_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+
+				
+				int jmax=0;
+				int jdentro=0;
+				String password="";
+				int seleccion = JOptionPane.showOptionDialog(
+						frame,
+						"¿Compartes la red con el master?.",
+						"¡Atención!", JOptionPane.YES_NO_OPTION,
+						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
+								"No" }, // null para YES, NO y CANCEL
+						"opcion 1");
+				if (JOptionPane.YES_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_7.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_LOCAL");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_7.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_7.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+				
+	if (JOptionPane.NO_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_7.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_PUBLICA");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_7.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_7.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+			
+	nombrePart=label_7.getText();
+			}
+		});
 		btnConexin_7.setBounds(341, 347, 119, 31);
 		frame.getContentPane().add(btnConexin_7);
 		
 		JButton btnConexin_8 = new JButton("Conexi\u00F3n");
+		btnConexin_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+
+				
+				int jmax=0;
+				int jdentro=0;
+				String password="";
+				int seleccion = JOptionPane.showOptionDialog(
+						frame,
+						"¿Compartes la red con el master?.",
+						"¡Atención!", JOptionPane.YES_NO_OPTION,
+						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
+								"No" }, // null para YES, NO y CANCEL
+						"opcion 1");
+				if (JOptionPane.YES_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_8.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_LOCAL");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_8.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_8.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+				
+	if (JOptionPane.NO_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_8.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_PUBLICA");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_8.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_8.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+			
+				
+	nombrePart=label_8.getText();		
+	
+			}
+		});
 		btnConexin_8.setBounds(341, 389, 119, 31);
 		frame.getContentPane().add(btnConexin_8);
 		
 		JButton btnConexin_9 = new JButton("Conexi\u00F3n");
+		btnConexin_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+
+				
+				int jmax=0;
+				int jdentro=0;
+				String password="";
+				int seleccion = JOptionPane.showOptionDialog(
+						frame,
+						"¿Compartes la red con el master?.",
+						"¡Atención!", JOptionPane.YES_NO_OPTION,
+						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
+								"No" }, // null para YES, NO y CANCEL
+						"opcion 1");
+				if (JOptionPane.YES_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_9.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_LOCAL");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_9.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_9.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+				
+	if (JOptionPane.NO_OPTION == seleccion) {
+					
+					try {
+						ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+label_9.getText()+"'");
+						while(rs.next()){
+							
+							ip=rs.getString("IP_PUBLICA");
+							jmax=rs.getInt("JUGADORESMAX");
+							jdentro=rs.getInt("JUGADORES");
+							password=rs.getString("CONTRASEÑA");
+						
+							if(jdentro<jmax){
+								
+								if(password != null){
+								
+									String seleccion3 = JOptionPane.showInputDialog(
+									   frame,
+									   "Introduce la contraseña",
+									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
+								
+									if(seleccion3.equals(password)){
+										
+										VentanaJugadores window=new VentanaJugadores();
+										window.getFrame().setVisible(true);
+										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_9.getText()+"'");
+										frame.dispose();
+										
+									}
+									else{
+										
+										int seleccion2 = JOptionPane.showOptionDialog(
+												frame,
+												"Contraseña Incorrecta",
+												"Error de Conexión",
+												JOptionPane.YES_NO_OPTION,
+												JOptionPane.PLAIN_MESSAGE, null,
+												new Object[] { "Aceptar" }, "opcion 1");
+									}
+								}
+								else{
+									
+									VentanaJugadores window=new VentanaJugadores();
+									window.getFrame().setVisible(true);
+									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_9.getText()+"'");
+									frame.dispose();
+									
+								}
+							}
+							else{
+								
+								int seleccion2 = JOptionPane.showOptionDialog(
+										frame,
+										"Partida completa",
+										"Error de Conexión",
+										JOptionPane.YES_NO_OPTION,
+										JOptionPane.PLAIN_MESSAGE, null,
+										new Object[] { "Aceptar" }, "opcion 1");
+							}
+							
+						}
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ClassNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (InstantiationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IllegalAccessException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+			
+				
+	nombrePart=label.getText();
+			}
+		});
 		btnConexin_9.setBounds(341, 431, 119, 31);
 		frame.getContentPane().add(btnConexin_9);
 		
@@ -456,8 +2419,15 @@ public static String ip;
 		frame.getContentPane().add(button_10);
 		
 		JButton btnVolver = new JButton("Volver");
-		btnVolver.setBounds(172, 519, 138, 31);
+		btnVolver.setBounds(689, 519, 138, 31);
 		frame.getContentPane().add(btnVolver);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(504, 53, 323, 455);
+		frame.getContentPane().add(scrollPane);
+		
+		
+		scrollPane.setViewportView(textArea);
 		
 			
 		if(0 < nombre.size()){
