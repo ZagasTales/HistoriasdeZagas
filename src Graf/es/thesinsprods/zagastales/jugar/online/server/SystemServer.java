@@ -19,8 +19,9 @@ import javax.swing.JTextArea;
 
 import es.thesinsprods.resources.db.ConexionDBOnline;
 import es.thesinsprods.zagastales.juegozagas.inicio.Inicio;
+import es.thesinsprods.zagastales.juegozagas.inicio.Loader;
 import es.thesinsprods.zagastales.juegozagas.jugar.CrearPartida;
-import es.thesinsprods.zagastales.juegozagas.jugar.offline.JugarOnline;
+import es.thesinsprods.zagastales.juegozagas.jugar.JugarOnline;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -66,14 +67,14 @@ public class SystemServer {
 	       @Override
 	       public void run() 
 	       {
-	            String message, connect = "Connect", disconnect = "Disconnect", chat = "Chat" ;
+	            String message, connect = "Connect", disconnect = "Desconectado", chat = "Chat" ;
 	            String[] data;
 
 	            try 
 	            {
 	                while ((message = reader.readLine()) != null) 
 	                {
-	                    textArea.append("Received: " + message + "\n");
+	                    textArea.append("Recibido: " + message + "\n");
 	                    data = message.split(":");
 	                    
 	                    for (String token:data) 
@@ -88,7 +89,7 @@ public class SystemServer {
 	                    } 
 	                    else if (data[2].equals(disconnect)) 
 	                    {
-	                        tellEveryone((data[0] + ":has disconnected." + ":" + chat));
+	                        tellEveryone((data[0] + ": Se ha desconectado." + ":" + chat));
 	                        userRemove(data[0]);
 	                    } 
 	                    else if (data[2].equals(chat)) 
@@ -220,14 +221,14 @@ public class SystemServer {
 		        {
 			        tellEveryone("El servidor se está cerrando, todos los usuarios serán desconectados.\n:Chat");
 			        textArea.append("Detiendo servidor... \n");
-			        tabla.executeQuery("DELETE FROM PARTIDAS WHERE NOMBRE='"+CrearPartida.nombre+"'");
-		            Thread.sleep(3000);   
+			        tabla.executeQuery("DELETE FROM PARTIDAS WHERE USUARIO='"+Loader.usuario+"'");
+	
 		            frame.dispose();
 		            JugarOnline.frmHistoriasDeZagas.dispose();
 		            Inicio window= new Inicio ();
 		            window.getFrmHistoriasDeZagas().setVisible(true);
 		        } 
-		        catch(InterruptedException ex) {Thread.currentThread().interrupt();} catch (SQLException e1) {
+		        catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}

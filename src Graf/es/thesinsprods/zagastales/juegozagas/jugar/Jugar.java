@@ -40,7 +40,6 @@ import es.thesinsprods.zagastales.juegozagas.creadorpnjs.Armas;
 import es.thesinsprods.zagastales.juegozagas.creadorpnjs.Start;
 import es.thesinsprods.zagastales.juegozagas.inicio.Inicio;
 import es.thesinsprods.zagastales.juegozagas.inicio.Loader;
-import es.thesinsprods.zagastales.juegozagas.jugar.offline.OfflineConCon;
 import es.thesinsprods.zagastales.jugar.minijuegos.Minijuegos;
 import es.thesinsprods.zagastales.perfil.Perfil;
 
@@ -290,7 +289,7 @@ public class Jugar {
 		btnHistoria.setOpaque(false);
 		btnHistoria.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnHistoria.setForeground(Color.WHITE);
-		btnHistoria.setFont(new Font("Morpheus", Font.PLAIN, 17));
+		btnHistoria.setFont(mf.MyFont(0, 17));
 		btnHistoria.setFocusPainted(false);
 		btnHistoria.setContentAreaFilled(false);
 		btnHistoria.setBorderPainted(false);

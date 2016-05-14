@@ -145,11 +145,15 @@ public class AyudaPrincipal {
 		});
 		
 		JButton btnGestorDeJuego = new JButton("GESTOR DE JUEGO");
+		btnGestorDeJuego.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnGestorDeJuego.setIcon(new ImageIcon(AyudaPrincipal.class.getResource("/images/botonesInicio.png")));
 		btnGestorDeJuego.setOpaque(false);
 		btnGestorDeJuego.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnGestorDeJuego.setForeground(Color.WHITE);
-		btnGestorDeJuego.setFont(new Font("Morpheus", Font.PLAIN, 13));
+		btnGestorDeJuego.setFont(mf.MyFont(0, 13));
 		btnGestorDeJuego.setFocusPainted(false);
 		btnGestorDeJuego.setContentAreaFilled(false);
 		btnGestorDeJuego.setBorder(null);

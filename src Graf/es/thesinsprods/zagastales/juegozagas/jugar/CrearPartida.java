@@ -1,6 +1,7 @@
 package es.thesinsprods.zagastales.juegozagas.jugar;
 
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -10,7 +11,7 @@ import org.omg.CORBA.portable.InputStream;
 
 import es.thesinsprods.resources.db.ConexionDBOnline;
 import es.thesinsprods.resources.font.MorpheusFont;
-import es.thesinsprods.zagastales.juegozagas.jugar.offline.JugarOnline;
+import es.thesinsprods.zagastales.juegozagas.inicio.Loader;
 import es.thesinsprods.zagastales.jugar.online.server.SystemServer;
 
 import javax.swing.JTextArea;
@@ -29,21 +30,27 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import javax.swing.SwingConstants;
+import javax.swing.JPasswordField;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.Toolkit;
 
 public class CrearPartida {
 	MorpheusFont mf=new MorpheusFont();
-	private JFrame frame;
+	private JFrame frmHistoriasDeZagas;
 	public static String nombre="";
 	public JFrame getFrame() {
-		return frame;
+		return frmHistoriasDeZagas;
 	}
 
 	public void setFrame(JFrame frame) {
-		this.frame = frame;
+		this.frmHistoriasDeZagas = frame;
 	}
-
-	private JTextField textField;
 	private JTextField textField_1;
+	private JPasswordField passwordField;
 
 	
 	/**
@@ -54,7 +61,7 @@ public class CrearPartida {
 			public void run() {
 				try {
 					CrearPartida window = new CrearPartida();
-					window.frame.setVisible(true);
+					window.frmHistoriasDeZagas.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -87,57 +94,88 @@ public class CrearPartida {
 		final Connection p = con.accederDB();
 		final Statement tabla=p.createStatement();
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 446, 323);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmHistoriasDeZagas = new JFrame();
+		frmHistoriasDeZagas.setTitle("Historias de Zagas");
+		frmHistoriasDeZagas.setIconImage(Toolkit.getDefaultToolkit().getImage(CrearPartida.class.getResource("/images/Historias de Zagas, logo.png")));
+		frmHistoriasDeZagas.setBounds(100, 100, 475, 323);
+		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmHistoriasDeZagas.getContentPane().setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setBounds(10, 11, 46, 14);
-		frame.getContentPane().add(lblNombre);
+		lblNombre.setForeground(Color.WHITE);
+		lblNombre.setFont(mf.MyFont(0, 12));
+		lblNombre.setBounds(10, 11, 84, 14);
+		frmHistoriasDeZagas.getContentPane().add(lblNombre);
 		
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a:");
+		lblContrasea.setForeground(Color.WHITE);
+		lblContrasea.setFont(mf.MyFont(0, 12));
 		lblContrasea.setBounds(10, 36, 84, 14);
-		frame.getContentPane().add(lblContrasea);
+		frmHistoriasDeZagas.getContentPane().add(lblContrasea);
 		
 		JLabel lblDescripcin = new JLabel("Descripci\u00F3n:");
+		lblDescripcin.setFont(mf.MyFont(0, 12));
+		lblDescripcin.setForeground(Color.WHITE);
 		lblDescripcin.setBounds(10, 86, 84, 14);
-		frame.getContentPane().add(lblDescripcin);
-		
-		textField = new JTextField();
-		textField.setBounds(75, 33, 140, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		frmHistoriasDeZagas.getContentPane().add(lblDescripcin);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(75, 5, 140, 20);
-		frame.getContentPane().add(textField_1);
+		textField_1.setBounds(100, 8, 140, 20);
+		frmHistoriasDeZagas.getContentPane().add(textField_1);
+		textField_1.setFont(mf.MyFont(0, 12));
 		textField_1.setColumns(10);
 		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(100, 35, 140, 20);
+		frmHistoriasDeZagas.getContentPane().add(passwordField);
+		
 		final JTextArea textArea = new JTextArea();
+		textArea.setFont(mf.MyFont(0, 12));
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
-		textArea.setBounds(10, 111, 414, 164);
-		frame.getContentPane().add(textArea);
+		textArea.setBounds(10, 111, 439, 164);
+		frmHistoriasDeZagas.getContentPane().add(textArea);
 		
 		
 		JLabel lblJugadoresMximos = new JLabel("M\u00E1ximo de Jugadores:");
+		lblJugadoresMximos.setFont(mf.MyFont(0,12));
+		lblJugadoresMximos.setForeground(Color.WHITE);
 		lblJugadoresMximos.setBounds(10, 61, 151, 14);
-		frame.getContentPane().add(lblJugadoresMximos);
+		frmHistoriasDeZagas.getContentPane().add(lblJugadoresMximos);
 		
 		final JComboBox comboBox = new JComboBox();
 		comboBox.setMaximumRowCount(10);
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		comboBox.setBounds(144, 60, 46, 17);
-		frame.getContentPane().add(comboBox);
+		frmHistoriasDeZagas.getContentPane().add(comboBox);
 		
-		JButton btnNewButton = new JButton("Crear");
+		final JButton btnNewButton = new JButton("Crear");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				
+				btnNewButton.setIcon(new ImageIcon(CrearPartida.class.getResource("/images/boton crear partida2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				
+				btnNewButton.setIcon(new ImageIcon(CrearPartida.class.getResource("/images/boton crear partida1.png")));
+			}
+		});
+		 btnNewButton.setOpaque(false);
+		 btnNewButton.setHorizontalTextPosition(SwingConstants.CENTER);
+		 btnNewButton.setForeground(Color.WHITE);
+		 btnNewButton.setFont(mf.MyFont(0, 15));
+		 btnNewButton.setContentAreaFilled(false);
+		 btnNewButton.setBorder(null);
+		btnNewButton.setIcon(new ImageIcon(CrearPartida.class.getResource("/images/boton crear partida1.png")));
+		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String nombre=textField_1.getText();
 				CrearPartida.nombre=nombre;
-				String contrasena=textField.getText();
+				String contrasena=passwordField.getText();
 				String descripcion=textArea.getText();
 				String ip_publica=getIP();
 				int maxj=Integer.parseInt(comboBox.getSelectedItem().toString());
@@ -146,13 +184,13 @@ public class CrearPartida {
 					thisIp = InetAddress.getLocalHost();
 					  String ip_local = thisIp.getHostAddress().toString();
 						try {
-							tabla.executeQuery("INSERT INTO PARTIDAS VALUES('"+nombre+"','"+contrasena+"','"+descripcion+"',"+maxj+",0,'"+ip_publica+"','"+ip_local+"')");
+							tabla.executeQuery("INSERT INTO PARTIDAS VALUES('"+nombre+"','"+contrasena+"','"+descripcion+"',"+maxj+",0,'"+ip_publica+"','"+ip_local+"','"+Loader.usuario+")");
 						} catch (SQLException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 				
-						frame.dispose();
+						frmHistoriasDeZagas.dispose();
 						SystemServer window2=new SystemServer();
 						window2.getFrame().setVisible(true);
 						JugarOnline window= new JugarOnline();
@@ -183,8 +221,13 @@ public class CrearPartida {
 				
 			}
 		});
-		btnNewButton.setBounds(225, 11, 199, 89);
-		frame.getContentPane().add(btnNewButton);
+		btnNewButton.setBounds(250, 11, 199, 89);
+		frmHistoriasDeZagas.getContentPane().add(btnNewButton);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(CrearPartida.class.getResource("/images/background-start.jpg")));
+		label.setBounds(0, 0, 459, 284);
+		frmHistoriasDeZagas.getContentPane().add(label);
 
 	}
 	
@@ -206,7 +249,6 @@ public class CrearPartida {
 	 
 	       return ip;
 	    }
-	
 }
 
 
