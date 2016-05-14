@@ -53,6 +53,7 @@ public class ModificadoresNPC {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.setTitle("Historias de Zagas");
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(InfoExtras.class.getResource("/images/Historias de Zagas, logo.png")));
 		frame.setResizable(false);

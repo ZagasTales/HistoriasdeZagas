@@ -63,6 +63,7 @@ public class AyudaEquipoNPC {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.setTitle("Historias de Zagas");
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(
 				AyudaCreacionNPC.class
@@ -187,7 +188,7 @@ public class AyudaEquipoNPC {
 				.getResource("/images/boton a\u00F1adir.png")));
 		btnPosesiones.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnPosesiones.setForeground(Color.WHITE);
-		btnPosesiones.setFont(new Font("Morpheus", Font.PLAIN, 13));
+		btnPosesiones.setFont(mf.MyFont(0, 13));
 		btnPosesiones.setFocusPainted(false);
 		btnPosesiones.setContentAreaFilled(false);
 		btnPosesiones.setBorderPainted(false);

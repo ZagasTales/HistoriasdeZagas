@@ -61,6 +61,7 @@ public class AyudaAtributos {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.setTitle("Historias de Zagas");
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(
 				AyudaCreacionPNJ.class

@@ -37,6 +37,7 @@ import javax.swing.JPasswordField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Toolkit;
+import javax.swing.JScrollPane;
 
 public class CrearPartida {
 	MorpheusFont mf=new MorpheusFont();
@@ -95,10 +96,11 @@ public class CrearPartida {
 		final Statement tabla=p.createStatement();
 		
 		frmHistoriasDeZagas = new JFrame();
+		frmHistoriasDeZagas.setResizable(false);
 		frmHistoriasDeZagas.setTitle("Historias de Zagas");
 		frmHistoriasDeZagas.setIconImage(Toolkit.getDefaultToolkit().getImage(CrearPartida.class.getResource("/images/Historias de Zagas, logo.png")));
-		frmHistoriasDeZagas.setBounds(100, 100, 475, 323);
-		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmHistoriasDeZagas.setBounds(100, 100, 464, 315);
+		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmHistoriasDeZagas.getContentPane().setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
@@ -129,13 +131,6 @@ public class CrearPartida {
 		passwordField.setBounds(100, 35, 140, 20);
 		frmHistoriasDeZagas.getContentPane().add(passwordField);
 		
-		final JTextArea textArea = new JTextArea();
-		textArea.setFont(mf.MyFont(0, 12));
-		textArea.setLineWrap(true);
-		textArea.setWrapStyleWord(true);
-		textArea.setBounds(10, 111, 439, 164);
-		frmHistoriasDeZagas.getContentPane().add(textArea);
-		
 		
 		JLabel lblJugadoresMximos = new JLabel("M\u00E1ximo de Jugadores:");
 		lblJugadoresMximos.setFont(mf.MyFont(0,12));
@@ -148,7 +143,7 @@ public class CrearPartida {
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		comboBox.setBounds(144, 60, 46, 17);
 		frmHistoriasDeZagas.getContentPane().add(comboBox);
-		
+		final JTextArea textArea = new JTextArea();
 		final JButton btnNewButton = new JButton("Crear");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -224,9 +219,48 @@ public class CrearPartida {
 		btnNewButton.setBounds(250, 11, 199, 89);
 		frmHistoriasDeZagas.getContentPane().add(btnNewButton);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 111, 439, 120);
+		frmHistoriasDeZagas.getContentPane().add(scrollPane);
+		
+		
+		scrollPane.setViewportView(textArea);
+		textArea.setFont(mf.MyFont(0, 12));
+		textArea.setLineWrap(true);
+		textArea.setWrapStyleWord(true);
+		
+		final JButton button = new JButton("Volver");
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				button.setIcon(new ImageIcon(CrearPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+				
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				button.setIcon(new ImageIcon(CrearPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+				
+			}
+		});
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmHistoriasDeZagas.dispose();
+				Jugar window= new Jugar();
+				window.getFrmHistoriasDeZagas().setVisible(true);
+			}
+		});
+		button.setIcon(new ImageIcon(CrearPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+		button.setHorizontalTextPosition(SwingConstants.CENTER);
+		button.setForeground(Color.WHITE);
+		button.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		button.setContentAreaFilled(false);
+		button.setBorderPainted(false);
+		button.setBounds(172, 244, 111, 31);
+		frmHistoriasDeZagas.getContentPane().add(button);
+		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(CrearPartida.class.getResource("/images/background-start.jpg")));
-		label.setBounds(0, 0, 459, 284);
+		label.setBounds(0, 0, 469, 294);
 		frmHistoriasDeZagas.getContentPane().add(label);
 
 	}

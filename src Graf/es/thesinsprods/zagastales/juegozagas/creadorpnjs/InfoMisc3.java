@@ -78,7 +78,7 @@ public class InfoMisc3 {
 		frame.setTitle("Historias de Zagas");
 		frame.setBounds(100, 100, 380, 301);
 		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.setResizable(false);
 		frame.getContentPane().setLayout(null);
 

@@ -110,7 +110,7 @@ public class CrearCuenta {
 						.getResource("/images/Historias de Zagas, logo.png")));
 		frmHistoriasDeZagas.setTitle("Historias de Zagas");
 		frmHistoriasDeZagas.setBounds(100, 100, 560, 400);
-		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmHistoriasDeZagas.setLocationRelativeTo(null);
 		frmHistoriasDeZagas.getContentPane().setLayout(null);
 		final Connection con = p.accederDB();

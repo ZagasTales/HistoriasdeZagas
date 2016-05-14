@@ -172,7 +172,7 @@ public class Resumen {
 						.getResource("/images/Historias de Zagas, logo.png")));
 		frmHistoriasDeZagas.setTitle("Historias de Zagas");
 		frmHistoriasDeZagas.setBounds(100, 100, 648, 715);
-		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmHistoriasDeZagas.setLocationRelativeTo(null);
 		frmHistoriasDeZagas.getContentPane().setLayout(null);
 		dinero = 300;

@@ -143,7 +143,7 @@ public class StartNPC {
 		frmHistoriasDeZagas.setTitle("Historias de Zagas");
 		frmHistoriasDeZagas.setBounds(100, 100, 584, 532);
 		frmHistoriasDeZagas.setLocationRelativeTo(null);
-		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmHistoriasDeZagas.setResizable(false);
 
 		frmHistoriasDeZagas.getContentPane().setLayout(null);

@@ -63,6 +63,7 @@ public class AyudaCreacionNPC {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.setTitle("Historias de Zagas");
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(
 				AyudaCreacionNPC.class
@@ -353,7 +354,7 @@ public class AyudaCreacionNPC {
 		btnPoderesExtrasModifcadores.setOpaque(false);
 		btnPoderesExtrasModifcadores.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnPoderesExtrasModifcadores.setForeground(Color.WHITE);
-		btnPoderesExtrasModifcadores.setFont(new Font("Morpheus", Font.PLAIN, 13));
+		btnPoderesExtrasModifcadores.setFont(mf.MyFont(0, 13));
 		btnPoderesExtrasModifcadores.setFocusPainted(false);
 		btnPoderesExtrasModifcadores.setContentAreaFilled(false);
 		btnPoderesExtrasModifcadores.setBorder(null);

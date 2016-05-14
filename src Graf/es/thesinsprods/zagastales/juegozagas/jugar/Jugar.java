@@ -109,7 +109,7 @@ public class Jugar {
 								Armas.class
 										.getResource("/images/Historias de Zagas, logo.png")));
 		frmHistoriasDeZagas.setBounds(100, 100, 439, 272);
-		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmHistoriasDeZagas.getContentPane().setLayout(null);
 		frmHistoriasDeZagas.setLocationRelativeTo(null);
 		frmHistoriasDeZagas.setResizable(false);

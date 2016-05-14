@@ -64,13 +64,14 @@ public class AyudaPrincipal {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.setTitle("Historias de Zagas");
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(
 				AyudaCreacionPNJ.class
 						.getResource("/images/Historias de Zagas, logo.png")));
 
 		frame.setResizable(false);
-		frame.setBounds(100, 100, 438, 273);
+		frame.setBounds(100, 100, 438, 316);
 		frame.getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		frame.getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -144,7 +145,17 @@ public class AyudaPrincipal {
 			}
 		});
 		
-		JButton btnGestorDeJuego = new JButton("GESTOR DE JUEGO");
+		final JButton btnGestorDeJuego = new JButton("GESTOR DE JUEGO");
+		btnGestorDeJuego.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				btnGestorDeJuego.setIcon(new ImageIcon(AyudaPrincipal.class.getResource("/images/botonesInicio2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				btnGestorDeJuego.setIcon(new ImageIcon(AyudaPrincipal.class.getResource("/images/botonesInicio.png")));
+			}
+		});
 		btnGestorDeJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
@@ -207,12 +218,38 @@ public class AyudaPrincipal {
 		btnSeleccinDePrivilegios.setOpaque(false);
 		btnSeleccinDePrivilegios.setBounds(10, 199, 414, 34);
 		contentPanel.add(btnSeleccinDePrivilegios);
+		
+		final JButton btnCerrar = new JButton("Cerrar");
+		btnCerrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
+		btnCerrar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				btnCerrar.setIcon(new ImageIcon(AyudaPrincipal.class.getResource("/images/botonesInicio2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				btnCerrar.setIcon(new ImageIcon(AyudaPrincipal.class.getResource("/images/botonesInicio.png")));
+			}
+		});
+		btnCerrar.setIcon(new ImageIcon(AyudaPrincipal.class.getResource("/images/botonesInicio.png")));
+		btnCerrar.setOpaque(false);
+		btnCerrar.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnCerrar.setForeground(Color.WHITE);
+		btnCerrar.setFont(mf.MyFont(0, 13));
+		btnCerrar.setFocusPainted(false);
+		btnCerrar.setContentAreaFilled(false);
+		btnCerrar.setBorder(null);
+		btnCerrar.setBounds(10, 244, 414, 34);
+		contentPanel.add(btnCerrar);
 
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(AyudaPrincipal.class
 				.getResource("/images/background-creadornpcs.jpg")));
-		label.setBounds(0, 0, 434, 248);
+		label.setBounds(0, 0, 434, 287);
 		contentPanel.add(label);
 	}
-
 }

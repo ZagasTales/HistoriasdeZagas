@@ -14,6 +14,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import es.thesinsprods.resources.db.ConexionDBOnline;
+import es.thesinsprods.resources.font.MorpheusFont;
 
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
@@ -25,22 +26,26 @@ import javax.swing.JTextArea;
 import java.awt.Color;
 import javax.swing.ImageIcon;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.Toolkit;
 
 public class BuscarPartida {
 
-	private JFrame frame;
+	private JFrame frmHistoriasDeZagas;
 public JFrame getFrame() {
-		return frame;
+		return frmHistoriasDeZagas;
 	}
 
 	public void setFrame(JFrame frame) {
-		this.frame = frame;
+		this.frmHistoriasDeZagas = frame;
 	}
 
 public static int partidas=9;
 public static String nombrePart;
 public static String ip;
 public static String master;
+MorpheusFont mf = new MorpheusFont();
 	/**
 	 * Launch the application.
 	 */
@@ -49,7 +54,7 @@ public static String master;
 			public void run() {
 				try {
 					BuscarPartida window = new BuscarPartida();
-					window.frame.setVisible(true);
+					window.frmHistoriasDeZagas.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -85,169 +90,181 @@ public static String master;
 		final ArrayList<String> masters = new ArrayList<String>();
 		ResultSet rs=tabla.executeQuery("SELECT * FROM PARTIDAS");
 		final JTextArea textArea = new JTextArea();
-		textArea.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		textArea.setFont(mf.MyFont(0,12));
 		while(rs.next()){
 			
 			nombre.add(rs.getString("NOMBRE"));
 			masters.add(rs.getString("USUARIO"));
 			
 		}
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.setBounds(100, 100, 892, 590);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmHistoriasDeZagas = new JFrame();
+		frmHistoriasDeZagas.setIconImage(Toolkit.getDefaultToolkit().getImage(BuscarPartida.class.getResource("/images/Historias de Zagas, logo.png")));
+		frmHistoriasDeZagas.setTitle("Historias de Zagas");
+		frmHistoriasDeZagas.setResizable(false);
+		frmHistoriasDeZagas.setBounds(100, 100, 892, 590);
+		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frmHistoriasDeZagas.getContentPane().setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre:");
-		lblNombre.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		lblNombre.setFont(mf.MyFont(0,12));
 		lblNombre.setForeground(Color.WHITE);
 		lblNombre.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNombre.setBounds(10, 11, 111, 31);
-		frame.getContentPane().add(lblNombre);
+		frmHistoriasDeZagas.getContentPane().add(lblNombre);
 		
 		final JLabel label = new JLabel("---");
-		label.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label.setFont(mf.MyFont(0,12));
 		label.setForeground(Color.WHITE);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setBounds(10, 53, 111, 31);
-		frame.getContentPane().add(label);
+		frmHistoriasDeZagas.getContentPane().add(label);
 		
 		final JLabel label_1 = new JLabel("---");
-		label_1.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_1.setFont(mf.MyFont(0,12));
 		label_1.setForeground(Color.WHITE);
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
 		label_1.setBounds(10, 95, 111, 31);
-		frame.getContentPane().add(label_1);
+		frmHistoriasDeZagas.getContentPane().add(label_1);
 		
 		final JLabel label_2 = new JLabel("---");
-		label_2.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_2.setFont(mf.MyFont(0,12));
 		label_2.setForeground(Color.WHITE);
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
 		label_2.setBounds(10, 137, 111, 31);
-		frame.getContentPane().add(label_2);
+		frmHistoriasDeZagas.getContentPane().add(label_2);
 		
 		final JLabel label_3 = new JLabel("---");
-		label_3.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_3.setFont(mf.MyFont(0,12));
 		label_3.setForeground(Color.WHITE);
 		label_3.setHorizontalAlignment(SwingConstants.CENTER);
 		label_3.setBounds(10, 179, 111, 31);
-		frame.getContentPane().add(label_3);
+		frmHistoriasDeZagas.getContentPane().add(label_3);
 		
 		final JLabel label_4 = new JLabel("---");
-		label_4.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_4.setFont(mf.MyFont(0,12));
 		label_4.setForeground(Color.WHITE);
 		label_4.setHorizontalAlignment(SwingConstants.CENTER);
 		label_4.setBounds(10, 221, 111, 31);
-		frame.getContentPane().add(label_4);
+		frmHistoriasDeZagas.getContentPane().add(label_4);
 		
 		final JLabel label_5 = new JLabel("---");
-		label_5.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_5.setFont(mf.MyFont(0,12));
 		label_5.setForeground(Color.WHITE);
 		label_5.setHorizontalAlignment(SwingConstants.CENTER);
 		label_5.setBounds(10, 263, 111, 31);
-		frame.getContentPane().add(label_5);
+		frmHistoriasDeZagas.getContentPane().add(label_5);
 		
 		final JLabel label_6 = new JLabel("---");
-		label_6.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_6.setFont(mf.MyFont(0,12));
 		label_6.setForeground(Color.WHITE);
 		label_6.setHorizontalAlignment(SwingConstants.CENTER);
 		label_6.setBounds(10, 305, 111, 31);
-		frame.getContentPane().add(label_6);
+		frmHistoriasDeZagas.getContentPane().add(label_6);
 		
 		final JLabel label_7 = new JLabel("---");
-		label_7.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_7.setFont(mf.MyFont(0,12));
 		label_7.setForeground(Color.WHITE);
 		label_7.setHorizontalAlignment(SwingConstants.CENTER);
 		label_7.setBounds(10, 347, 111, 31);
-		frame.getContentPane().add(label_7);
+		frmHistoriasDeZagas.getContentPane().add(label_7);
 		
 		final JLabel label_8 = new JLabel("---");
-		label_8.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_8.setFont(mf.MyFont(0,12));
 		label_8.setForeground(Color.WHITE);
 		label_8.setHorizontalAlignment(SwingConstants.CENTER);
 		label_8.setBounds(10, 389, 111, 31);
-		frame.getContentPane().add(label_8);
+		frmHistoriasDeZagas.getContentPane().add(label_8);
 		
 		final JLabel label_9 = new JLabel("---");
-		label_9.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_9.setFont(mf.MyFont(0,12));
 		label_9.setForeground(Color.WHITE);
 		label_9.setHorizontalAlignment(SwingConstants.CENTER);
 		label_9.setBounds(10, 431, 111, 31);
-		frame.getContentPane().add(label_9);
+		frmHistoriasDeZagas.getContentPane().add(label_9);
 		
 
 		 final JLabel label_11 = new JLabel("---");
-		 label_11.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		 label_11.setFont(mf.MyFont(0,12));
 		 label_11.setForeground(Color.WHITE);
 		label_11.setHorizontalAlignment(SwingConstants.CENTER);
 		label_11.setBounds(146, 53, 111, 31);
-		frame.getContentPane().add(label_11);
+		frmHistoriasDeZagas.getContentPane().add(label_11);
 		
 		final JLabel label_12 = new JLabel("---");
-		label_12.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_12.setFont(mf.MyFont(0,12));
 		label_12.setForeground(Color.WHITE);
 		label_12.setHorizontalAlignment(SwingConstants.CENTER);
 		label_12.setBounds(146, 95, 111, 31);
-		frame.getContentPane().add(label_12);
+		frmHistoriasDeZagas.getContentPane().add(label_12);
 		
 		final JLabel label_13 = new JLabel("---");
-		label_13.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_13.setFont(mf.MyFont(0,12));
 		label_13.setForeground(Color.WHITE);
 		label_13.setHorizontalAlignment(SwingConstants.CENTER);
 		label_13.setBounds(146, 137, 111, 31);
-		frame.getContentPane().add(label_13);
+		frmHistoriasDeZagas.getContentPane().add(label_13);
 		
 		final JLabel label_14 = new JLabel("---");
-		label_14.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_14.setFont(mf.MyFont(0,12));
 		label_14.setForeground(Color.WHITE);
 		label_14.setHorizontalAlignment(SwingConstants.CENTER);
 		label_14.setBounds(146, 179, 111, 31);
-		frame.getContentPane().add(label_14);
+		frmHistoriasDeZagas.getContentPane().add(label_14);
 		
 		final JLabel label_15 = new JLabel("---");
-		label_15.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_15.setFont(mf.MyFont(0,12));
 		label_15.setForeground(Color.WHITE);
 		label_15.setHorizontalAlignment(SwingConstants.CENTER);
 		label_15.setBounds(146, 221, 111, 31);
-		frame.getContentPane().add(label_15);
+		frmHistoriasDeZagas.getContentPane().add(label_15);
 		
 		final JLabel label_16 = new JLabel("---");
-		label_16.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_16.setFont(mf.MyFont(0,12));
 		label_16.setForeground(Color.WHITE);
 		label_16.setHorizontalAlignment(SwingConstants.CENTER);
 		label_16.setBounds(146, 263, 111, 31);
-		frame.getContentPane().add(label_16);
+		frmHistoriasDeZagas.getContentPane().add(label_16);
 		
 		final JLabel label_17 = new JLabel("---");
-		label_17.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_17.setFont(mf.MyFont(0,12));
 		label_17.setForeground(Color.WHITE);
 		label_17.setHorizontalAlignment(SwingConstants.CENTER);
 		label_17.setBounds(146, 305, 111, 31);
-		frame.getContentPane().add(label_17);
+		frmHistoriasDeZagas.getContentPane().add(label_17);
 		
 		final JLabel label_18 = new JLabel("---");
-		label_18.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_18.setFont(mf.MyFont(0,12));
 		label_18.setForeground(Color.WHITE);
 		label_18.setHorizontalAlignment(SwingConstants.CENTER);
 		label_18.setBounds(146, 347, 111, 31);
-		frame.getContentPane().add(label_18);
+		frmHistoriasDeZagas.getContentPane().add(label_18);
 		
 		final JLabel label_19 = new JLabel("---");
-		label_19.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_19.setFont(mf.MyFont(0,12));
 		label_19.setForeground(Color.WHITE);
 		label_19.setHorizontalAlignment(SwingConstants.CENTER);
 		label_19.setBounds(146, 389, 111, 31);
-		frame.getContentPane().add(label_19);
+		frmHistoriasDeZagas.getContentPane().add(label_19);
 		
 		final JLabel label_20 = new JLabel("---");
-		label_20.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		label_20.setFont(mf.MyFont(0,12));
 		label_20.setForeground(Color.WHITE);
 		label_20.setHorizontalAlignment(SwingConstants.CENTER);
 		label_20.setBounds(146, 431, 111, 31);
-		frame.getContentPane().add(label_20);
+		frmHistoriasDeZagas.getContentPane().add(label_20);
 		
-		JButton btnNewButton = new JButton("Descripci\u00F3n");
-		btnNewButton.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton btnNewButton = new JButton("Descripci\u00F3n");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnNewButton.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				btnNewButton.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		btnNewButton.setFont(mf.MyFont(0,12));
 		btnNewButton.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		btnNewButton.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnNewButton.setContentAreaFilled(false);
@@ -278,10 +295,20 @@ public static String master;
 			}
 		});
 		btnNewButton.setBounds(288, 53, 111, 31);
-		frame.getContentPane().add(btnNewButton);
+		frmHistoriasDeZagas.getContentPane().add(btnNewButton);
 		
-		JButton button = new JButton("Descripci\u00F3n");
-		button.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton button = new JButton("Descripci\u00F3n");
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				button.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		button.setFont(mf.MyFont(0,12));
 		button.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		button.setHorizontalTextPosition(SwingConstants.CENTER);
 		button.setContentAreaFilled(false);
@@ -314,10 +341,21 @@ public static String master;
 			}
 		});
 		button.setBounds(288, 95, 111, 31);
-		frame.getContentPane().add(button);
+		frmHistoriasDeZagas.getContentPane().add(button);
 		
-		JButton button_1 = new JButton("Descripci\u00F3n");
-		button_1.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton button_1 = new JButton("Descripci\u00F3n");
+		button_1.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_1.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				button_1.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		button_1.setFont(mf.MyFont(0,12));
 		button_1.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		button_1.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_1.setContentAreaFilled(false);
@@ -351,10 +389,20 @@ public static String master;
 			}
 		});
 		button_1.setBounds(288, 137, 111, 31);
-		frame.getContentPane().add(button_1);
+		frmHistoriasDeZagas.getContentPane().add(button_1);
 		
-		JButton button_2 = new JButton("Descripci\u00F3n");
-		button_2.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton button_2 = new JButton("Descripci\u00F3n");
+		button_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_2.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				button_2.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		button_2.setFont(mf.MyFont(0,12));
 		button_2.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		button_2.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_2.setContentAreaFilled(false);
@@ -387,10 +435,20 @@ public static String master;
 			}
 		});
 		button_2.setBounds(288, 179, 111, 31);
-		frame.getContentPane().add(button_2);
+		frmHistoriasDeZagas.getContentPane().add(button_2);
 		
-		JButton button_3 = new JButton("Descripci\u00F3n");
-		button_3.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton button_3 = new JButton("Descripci\u00F3n");
+		button_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_3.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				button_3.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		button_3.setFont(mf.MyFont(0,12));
 		button_3.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		button_3.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_3.setContentAreaFilled(false);
@@ -425,10 +483,20 @@ public static String master;
 			}
 		});
 		button_3.setBounds(288, 221, 111, 31);
-		frame.getContentPane().add(button_3);
+		frmHistoriasDeZagas.getContentPane().add(button_3);
 		
-		JButton button_4 = new JButton("Descripci\u00F3n");
-		button_4.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton button_4 = new JButton("Descripci\u00F3n");
+		button_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_4.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				button_4.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		button_4.setFont(mf.MyFont(0,12));
 		button_4.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		button_4.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_4.setContentAreaFilled(false);
@@ -463,10 +531,20 @@ public static String master;
 			}
 		});
 		button_4.setBounds(288, 263, 111, 31);
-		frame.getContentPane().add(button_4);
+		frmHistoriasDeZagas.getContentPane().add(button_4);
 		
-		JButton button_5 = new JButton("Descripci\u00F3n");
-		button_5.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton button_5 = new JButton("Descripci\u00F3n");
+		button_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_5.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				button_5.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		button_5.setFont(mf.MyFont(0,12));
 		button_5.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		button_5.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_5.setContentAreaFilled(false);
@@ -501,10 +579,20 @@ public static String master;
 			}
 		});
 		button_5.setBounds(288, 305, 111, 31);
-		frame.getContentPane().add(button_5);
+		frmHistoriasDeZagas.getContentPane().add(button_5);
 		
-		JButton button_6 = new JButton("Descripci\u00F3n");
-		button_6.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton button_6 = new JButton("Descripci\u00F3n");
+		button_6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_6.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				button_6.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		button_6.setFont(mf.MyFont(0,12));
 		button_6.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		button_6.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_6.setContentAreaFilled(false);
@@ -539,10 +627,20 @@ public static String master;
 			}
 		});
 		button_6.setBounds(288, 347, 111, 31);
-		frame.getContentPane().add(button_6);
+		frmHistoriasDeZagas.getContentPane().add(button_6);
 		
-		JButton button_7 = new JButton("Descripci\u00F3n");
-		button_7.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton button_7 = new JButton("Descripci\u00F3n");
+		button_7.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_7.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				button_7.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		button_7.setFont(mf.MyFont(0,12));
 		button_7.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		button_7.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_7.setContentAreaFilled(false);
@@ -579,10 +677,20 @@ public static String master;
 			}
 		});
 		button_7.setBounds(288, 389, 111, 31);
-		frame.getContentPane().add(button_7);
+		frmHistoriasDeZagas.getContentPane().add(button_7);
 		
-		JButton button_8 = new JButton("Descripci\u00F3n");
-		button_8.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton button_8 = new JButton("Descripci\u00F3n");
+		button_8.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_8.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				button_8.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		button_8.setFont(mf.MyFont(0,12));
 		button_8.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		button_8.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_8.setContentAreaFilled(false);
@@ -619,10 +727,20 @@ public static String master;
 			}
 		});
 		button_8.setBounds(288, 431, 111, 31);
-		frame.getContentPane().add(button_8);
+		frmHistoriasDeZagas.getContentPane().add(button_8);
 		
-		JButton btnConexin = new JButton("Conexi\u00F3n");
-		btnConexin.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton btnConexin = new JButton("Conexi\u00F3n");
+		btnConexin.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnConexin.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				btnConexin.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		btnConexin.setFont(mf.MyFont(0,12));
 		btnConexin.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		btnConexin.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnConexin.setContentAreaFilled(false);
@@ -635,7 +753,7 @@ public static String master;
 				int jdentro=0;
 				String password="";
 				int seleccion = JOptionPane.showOptionDialog(
-						frame,
+						frmHistoriasDeZagas,
 						"¿Compartes la red con el master?.",
 						"¡Atención!", JOptionPane.YES_NO_OPTION,
 						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
@@ -658,7 +776,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña","",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -667,13 +785,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label.getText()+"' AND USUARIO='"+label_11.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -686,14 +804,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label.getText()+"' AND USUARIO='"+label_11.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -737,7 +855,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña","",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -746,13 +864,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label.getText()+"' AND USUARIO='"+label_11.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -765,14 +883,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label.getText()+"' AND USUARIO='"+label_11.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -804,10 +922,20 @@ public static String master;
 			}
 		});
 		btnConexin.setBounds(438, 53, 111, 31);
-		frame.getContentPane().add(btnConexin);
+		frmHistoriasDeZagas.getContentPane().add(btnConexin);
 		
-		JButton btnConexin_1 = new JButton("Conexi\u00F3n");
-		btnConexin_1.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton btnConexin_1 = new JButton("Conexi\u00F3n");
+		btnConexin_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnConexin_1.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				btnConexin_1.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		btnConexin_1.setFont(mf.MyFont(0,12));
 		btnConexin_1.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		btnConexin_1.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnConexin_1.setContentAreaFilled(false);
@@ -821,7 +949,7 @@ public static String master;
 				int jdentro=0;
 				String password="";
 				int seleccion = JOptionPane.showOptionDialog(
-						frame,
+						frmHistoriasDeZagas,
 						"¿Compartes la red con el master?.",
 						"¡Atención!", JOptionPane.YES_NO_OPTION,
 						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
@@ -843,7 +971,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -852,13 +980,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_1.getText()+"' AND USUARIO='"+label_12.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -871,14 +999,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_1.getText()+"' AND USUARIO='"+label_12.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -922,7 +1050,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -931,13 +1059,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_1.getText()+"' AND USUARIO='"+label_12.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -950,14 +1078,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_1.getText()+"' AND USUARIO='"+label_12.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -990,10 +1118,20 @@ public static String master;
 			}
 		});
 		btnConexin_1.setBounds(438, 95, 111, 31);
-		frame.getContentPane().add(btnConexin_1);
+		frmHistoriasDeZagas.getContentPane().add(btnConexin_1);
 		
-		JButton btnConexin_2 = new JButton("Conexi\u00F3n");
-		btnConexin_2.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton btnConexin_2 = new JButton("Conexi\u00F3n");
+		btnConexin_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnConexin_2.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				btnConexin_2.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		btnConexin_2.setFont(mf.MyFont(0,12));
 		btnConexin_2.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		btnConexin_2.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnConexin_2.setContentAreaFilled(false);
@@ -1008,7 +1146,7 @@ public static String master;
 				int jdentro=0;
 				String password="";
 				int seleccion = JOptionPane.showOptionDialog(
-						frame,
+						frmHistoriasDeZagas,
 						"¿Compartes la red con el master?.",
 						"¡Atención!", JOptionPane.YES_NO_OPTION,
 						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
@@ -1030,7 +1168,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -1039,13 +1177,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_2.getText()+"' AND USUARIO='"+label_13.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -1058,14 +1196,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_2.getText()+"' AND USUARIO='"+label_13.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -1109,7 +1247,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -1118,13 +1256,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_2.getText()+"' AND USUARIO='"+label_13.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -1137,14 +1275,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_2.getText()+"' AND USUARIO='"+label_13.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -1178,10 +1316,20 @@ public static String master;
 			}
 		});
 		btnConexin_2.setBounds(438, 137, 111, 31);
-		frame.getContentPane().add(btnConexin_2);
+		frmHistoriasDeZagas.getContentPane().add(btnConexin_2);
 		
-		JButton btnConexin_3 = new JButton("Conexi\u00F3n");
-		btnConexin_3.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton btnConexin_3 = new JButton("Conexi\u00F3n");
+		btnConexin_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnConexin_3.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				btnConexin_3.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		btnConexin_3.setFont(mf.MyFont(0,12));
 		btnConexin_3.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		btnConexin_3.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnConexin_3.setContentAreaFilled(false);
@@ -1196,7 +1344,7 @@ public static String master;
 				int jdentro=0;
 				String password="";
 				int seleccion = JOptionPane.showOptionDialog(
-						frame,
+						frmHistoriasDeZagas,
 						"¿Compartes la red con el master?.",
 						"¡Atención!", JOptionPane.YES_NO_OPTION,
 						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
@@ -1218,7 +1366,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -1227,13 +1375,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_3.getText()+"' AND USUARIO='"+label_14.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -1246,14 +1394,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_3.getText()+"' AND USUARIO='"+label_14.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -1297,7 +1445,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -1306,13 +1454,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_3.getText()+"' AND USUARIO='"+label_14.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -1325,14 +1473,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_3.getText()+"' AND USUARIO='"+label_14.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -1365,10 +1513,20 @@ public static String master;
 			}
 		});
 		btnConexin_3.setBounds(438, 179, 111, 31);
-		frame.getContentPane().add(btnConexin_3);
+		frmHistoriasDeZagas.getContentPane().add(btnConexin_3);
 		
-		JButton btnConexin_4 = new JButton("Conexi\u00F3n");
-		btnConexin_4.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton btnConexin_4 = new JButton("Conexi\u00F3n");
+		btnConexin_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnConexin_4.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				btnConexin_4.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		btnConexin_4.setFont(mf.MyFont(0,12));
 		btnConexin_4.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		btnConexin_4.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnConexin_4.setContentAreaFilled(false);
@@ -1383,7 +1541,7 @@ public static String master;
 				int jdentro=0;
 				String password="";
 				int seleccion = JOptionPane.showOptionDialog(
-						frame,
+						frmHistoriasDeZagas,
 						"¿Compartes la red con el master?.",
 						"¡Atención!", JOptionPane.YES_NO_OPTION,
 						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
@@ -1405,7 +1563,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -1414,13 +1572,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_4.getText()+"' AND USUARIO='"+label_15.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -1433,14 +1591,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_4.getText()+"' AND USUARIO='"+label_15.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -1484,7 +1642,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -1493,13 +1651,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_4.getText()+"' AND USUARIO='"+label_15.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -1512,14 +1670,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_4.getText()+"' AND USUARIO='"+label_15.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -1552,10 +1710,20 @@ public static String master;
 			}
 		});
 		btnConexin_4.setBounds(438, 221, 111, 31);
-		frame.getContentPane().add(btnConexin_4);
+		frmHistoriasDeZagas.getContentPane().add(btnConexin_4);
 		
-		JButton btnConexin_5 = new JButton("Conexi\u00F3n");
-		btnConexin_5.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton btnConexin_5 = new JButton("Conexi\u00F3n");
+		btnConexin_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnConexin_5.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				btnConexin_5.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		btnConexin_5.setFont(mf.MyFont(0,12));
 		btnConexin_5.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		btnConexin_5.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnConexin_5.setContentAreaFilled(false);
@@ -1569,7 +1737,7 @@ public static String master;
 				int jdentro=0;
 				String password="";
 				int seleccion = JOptionPane.showOptionDialog(
-						frame,
+						frmHistoriasDeZagas,
 						"¿Compartes la red con el master?.",
 						"¡Atención!", JOptionPane.YES_NO_OPTION,
 						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
@@ -1591,7 +1759,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -1600,13 +1768,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_5.getText()+"' AND USUARIO='"+label_16.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -1619,14 +1787,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_5.getText()+"' AND USUARIO='"+label_16.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -1670,7 +1838,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -1679,13 +1847,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_5.getText()+"' AND USUARIO='"+label_16.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -1698,14 +1866,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_5.getText()+"' AND USUARIO='"+label_16.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -1739,10 +1907,20 @@ public static String master;
 			}
 		});
 		btnConexin_5.setBounds(438, 263, 111, 31);
-		frame.getContentPane().add(btnConexin_5);
+		frmHistoriasDeZagas.getContentPane().add(btnConexin_5);
 		
-		JButton btnConexin_6 = new JButton("Conexi\u00F3n");
-		btnConexin_6.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton btnConexin_6 = new JButton("Conexi\u00F3n");
+		btnConexin_6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnConexin_6.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				btnConexin_6.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		btnConexin_6.setFont(mf.MyFont(0,12));
 		btnConexin_6.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		btnConexin_6.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnConexin_6.setContentAreaFilled(false);
@@ -1756,7 +1934,7 @@ public static String master;
 				int jdentro=0;
 				String password="";
 				int seleccion = JOptionPane.showOptionDialog(
-						frame,
+						frmHistoriasDeZagas,
 						"¿Compartes la red con el master?.",
 						"¡Atención!", JOptionPane.YES_NO_OPTION,
 						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
@@ -1778,7 +1956,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -1787,13 +1965,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_6.getText()+"' AND USUARIO='"+label_17.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -1806,14 +1984,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_6.getText()+"' AND USUARIO='"+label_17.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -1857,7 +2035,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -1866,13 +2044,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_6.getText()+"' AND USUARIO='"+label_17.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -1885,14 +2063,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_6.getText()+"' AND USUARIO='"+label_17.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -1925,10 +2103,20 @@ public static String master;
 			}
 		});
 		btnConexin_6.setBounds(438, 305, 111, 31);
-		frame.getContentPane().add(btnConexin_6);
+		frmHistoriasDeZagas.getContentPane().add(btnConexin_6);
 		
-		JButton btnConexin_7 = new JButton("Conexi\u00F3n");
-		btnConexin_7.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton btnConexin_7 = new JButton("Conexi\u00F3n");
+		btnConexin_7.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnConexin_7.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				btnConexin_7.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		btnConexin_7.setFont(mf.MyFont(0,12));
 		btnConexin_7.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		btnConexin_7.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnConexin_7.setContentAreaFilled(false);
@@ -1943,7 +2131,7 @@ public static String master;
 				int jdentro=0;
 				String password="";
 				int seleccion = JOptionPane.showOptionDialog(
-						frame,
+						frmHistoriasDeZagas,
 						"¿Compartes la red con el master?.",
 						"¡Atención!", JOptionPane.YES_NO_OPTION,
 						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
@@ -1965,7 +2153,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -1974,13 +2162,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_7.getText()+"' AND USUARIO='"+label_18.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -1993,14 +2181,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_7.getText()+"' AND USUARIO='"+label_18.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -2044,7 +2232,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -2053,13 +2241,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_7.getText()+"' AND USUARIO='"+label_18.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -2072,14 +2260,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_7.getText()+"' AND USUARIO='"+label_18.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -2111,10 +2299,20 @@ public static String master;
 			}
 		});
 		btnConexin_7.setBounds(438, 347, 111, 31);
-		frame.getContentPane().add(btnConexin_7);
+		frmHistoriasDeZagas.getContentPane().add(btnConexin_7);
 		
-		JButton btnConexin_8 = new JButton("Conexi\u00F3n");
-		btnConexin_8.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton btnConexin_8 = new JButton("Conexi\u00F3n");
+		btnConexin_8.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnConexin_8.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				btnConexin_8.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		btnConexin_8.setFont(mf.MyFont(0,12));
 		btnConexin_8.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		btnConexin_8.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnConexin_8.setContentAreaFilled(false);
@@ -2129,7 +2327,7 @@ public static String master;
 				int jdentro=0;
 				String password="";
 				int seleccion = JOptionPane.showOptionDialog(
-						frame,
+						frmHistoriasDeZagas,
 						"¿Compartes la red con el master?.",
 						"¡Atención!", JOptionPane.YES_NO_OPTION,
 						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
@@ -2151,7 +2349,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -2160,13 +2358,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_8.getText()+"' AND USUARIO='"+label_19.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -2179,14 +2377,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_8.getText()+"' AND USUARIO='"+label_19.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -2230,7 +2428,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -2239,13 +2437,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_8.getText()+"' AND USUARIO='"+label_19.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -2258,14 +2456,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_8.getText()+"' AND USUARIO='"+label_19.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -2299,10 +2497,20 @@ public static String master;
 			}
 		});
 		btnConexin_8.setBounds(438, 389, 111, 31);
-		frame.getContentPane().add(btnConexin_8);
+		frmHistoriasDeZagas.getContentPane().add(btnConexin_8);
 		
-		JButton btnConexin_9 = new JButton("Conexi\u00F3n");
-		btnConexin_9.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton btnConexin_9 = new JButton("Conexi\u00F3n");
+		btnConexin_9.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnConexin_9.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				btnConexin_9.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		btnConexin_9.setFont(mf.MyFont(0,12));
 		btnConexin_9.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		btnConexin_9.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnConexin_9.setContentAreaFilled(false);
@@ -2318,7 +2526,7 @@ public static String master;
 				int jdentro=0;
 				String password="";
 				int seleccion = JOptionPane.showOptionDialog(
-						frame,
+						frmHistoriasDeZagas,
 						"¿Compartes la red con el master?.",
 						"¡Atención!", JOptionPane.YES_NO_OPTION,
 						JOptionPane.PLAIN_MESSAGE, null, new Object[] { "Si",
@@ -2340,7 +2548,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -2349,13 +2557,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_9.getText()+"' AND USUARIO='"+label_20.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -2368,14 +2576,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_9.getText()+"' AND USUARIO='"+label_20.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -2419,7 +2627,7 @@ public static String master;
 								if(password != null){
 								
 									String seleccion3 = JOptionPane.showInputDialog(
-									   frame,
+									   frmHistoriasDeZagas,
 									   "Introduce la contraseña",
 									   JOptionPane.PLAIN_MESSAGE);  // el icono sera un iterrogante
 								
@@ -2428,13 +2636,13 @@ public static String master;
 										VentanaJugadores window=new VentanaJugadores();
 										window.getFrame().setVisible(true);
 										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_9.getText()+"' AND USUARIO='"+label_20.getText()+"'");
-										frame.dispose();
+										frmHistoriasDeZagas.dispose();
 										
 									}
 									else{
 										
 										int seleccion2 = JOptionPane.showOptionDialog(
-												frame,
+												frmHistoriasDeZagas,
 												"Contraseña Incorrecta",
 												"Error de Conexión",
 												JOptionPane.YES_NO_OPTION,
@@ -2447,14 +2655,14 @@ public static String master;
 									VentanaJugadores window=new VentanaJugadores();
 									window.getFrame().setVisible(true);
 									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_9.getText()+"' AND USUARIO='"+label_20.getText()+"'");
-									frame.dispose();
+									frmHistoriasDeZagas.dispose();
 									
 								}
 							}
 							else{
 								
 								int seleccion2 = JOptionPane.showOptionDialog(
-										frame,
+										frmHistoriasDeZagas,
 										"Partida completa",
 										"Error de Conexión",
 										JOptionPane.YES_NO_OPTION,
@@ -2487,10 +2695,20 @@ public static String master;
 			}
 		});
 		btnConexin_9.setBounds(438, 431, 111, 31);
-		frame.getContentPane().add(btnConexin_9);
+		frmHistoriasDeZagas.getContentPane().add(btnConexin_9);
 		
 		final JButton button_9 = new JButton("");
-		button_9.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		button_9.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				button_9.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/boton atras2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				button_9.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/boton atras.png")));
+			}
+		});
+		button_9.setFont(mf.MyFont(0,12));
 		button_9.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/boton atras.png")));
 		button_9.setContentAreaFilled(false);
 		button_9.setBorderPainted(false);
@@ -2583,10 +2801,20 @@ public static String master;
 			}
 		});
 		button_9.setBounds(10, 519, 111, 31);
-		frame.getContentPane().add(button_9);
+		frmHistoriasDeZagas.getContentPane().add(button_9);
 		
 		JButton button_10 = new JButton("");
-		button_10.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		button_10.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				button_9.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/boton continuar2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				button_9.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/boton continuar.png")));
+			}
+		});
+		button_10.setFont(mf.MyFont(0,12));
 		button_10.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/boton continuar.png")));
 		button_10.setContentAreaFilled(false);
 		button_10.setBorderPainted(false);
@@ -2677,10 +2905,20 @@ public static String master;
 			}
 		});
 		button_10.setBounds(438, 519, 111, 31);
-		frame.getContentPane().add(button_10);
+		frmHistoriasDeZagas.getContentPane().add(button_10);
 		
-		JButton btnVolver = new JButton("Volver");
-		btnVolver.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton btnVolver = new JButton("Volver");
+		btnVolver.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				btnVolver.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				btnVolver.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		btnVolver.setFont(mf.MyFont(0,12));
 		btnVolver.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		btnVolver.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnVolver.setContentAreaFilled(false);
@@ -2689,31 +2927,41 @@ public static String master;
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				frame.dispose();
+				frmHistoriasDeZagas.dispose();
 				Jugar window=new Jugar();
 				window.getFrmHistoriasDeZagas().setVisible(true);
 				
 			}
 		});
-		btnVolver.setBounds(736, 519, 138, 31);
-		frame.getContentPane().add(btnVolver);
+		btnVolver.setBounds(763, 519, 111, 31);
+		frmHistoriasDeZagas.getContentPane().add(btnVolver);
 		
 		JLabel lblUsuario = new JLabel("Master:");
-		lblUsuario.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		lblUsuario.setFont(mf.MyFont(0,12));
 		lblUsuario.setForeground(Color.WHITE);
 		lblUsuario.setHorizontalAlignment(SwingConstants.CENTER);
 		lblUsuario.setBounds(146, 11, 111, 31);
-		frame.getContentPane().add(lblUsuario);
+		frmHistoriasDeZagas.getContentPane().add(lblUsuario);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(593, 53, 281, 455);
-		frame.getContentPane().add(scrollPane);
+		frmHistoriasDeZagas.getContentPane().add(scrollPane);
 		
 		
 		scrollPane.setViewportView(textArea);
 		
-		JButton btnActualizar = new JButton("Actualizar");
-		btnActualizar.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		final JButton btnActualizar = new JButton("Actualizar");
+		btnActualizar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				btnActualizar.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				btnActualizar.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
+			}
+		});
+		btnActualizar.setFont(mf.MyFont(0,12));
 		btnActualizar.setHorizontalTextPosition(SwingConstants.CENTER);
 		btnActualizar.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		btnActualizar.setForeground(Color.WHITE);
@@ -2822,12 +3070,12 @@ public static String master;
 			}
 		});
 		btnActualizar.setBounds(219, 519, 111, 31);
-		frame.getContentPane().add(btnActualizar);
+		frmHistoriasDeZagas.getContentPane().add(btnActualizar);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/background-buscarp.jpg")));
 		lblNewLabel.setBounds(0, 0, 884, 561);
-		frame.getContentPane().add(lblNewLabel);
+		frmHistoriasDeZagas.getContentPane().add(lblNewLabel);
 		
 		
 			

@@ -707,7 +707,7 @@ public class JugarOnline {
 		panel_3.add(btnConfig);
 		
 		JPanel panel_4 = new JPanel();
-		tabbedPane_1.addTab("Sistema", null, panel_4, null);
+		tabbedPane_1.addTab("Partida", null, panel_4, null);
 		panel_4.setLayout(null);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();

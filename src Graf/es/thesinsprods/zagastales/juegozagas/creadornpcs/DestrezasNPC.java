@@ -93,7 +93,7 @@ public class DestrezasNPC {
 						.getResource("/images/Historias de Zagas, logo.png")));
 		frame.setBounds(100, 100, 474, 376);
 		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.setResizable(false);
 		frame.getContentPane().setLayout(null);
 
