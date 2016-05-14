@@ -240,7 +240,7 @@ public class DatosPersonaje {
 						.getResource("/images/Historias de Zagas, logo.png")));
 		frame.setTitle("Historias de Zagas");
 		frame.setBounds(100, 100, 648, 715);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setLayout(null);
 

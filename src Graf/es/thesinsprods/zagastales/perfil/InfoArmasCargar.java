@@ -67,6 +67,7 @@ public class InfoArmasCargar {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.setResizable(false);
 		frame.setTitle("Historias de Zagas");
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(

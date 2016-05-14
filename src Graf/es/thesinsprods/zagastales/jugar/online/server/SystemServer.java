@@ -219,7 +219,7 @@ public class SystemServer {
 			
 		        try 
 		        {
-			        tellEveryone("El servidor se está cerrando, todos los usuarios serán desconectados.\n:Chat");
+			        tellEveryone("Server:El servidor se está cerrando, todos los usuarios serán desconectados.:Chat");
 			        textArea.append("Detiendo servidor... \n");
 			        tabla.executeQuery("DELETE FROM PARTIDAS WHERE USUARIO='"+Loader.usuario+"'");
 	

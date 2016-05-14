@@ -126,7 +126,7 @@ public class InfoExtrasCargar {
 		label.setIcon(new ImageIcon(InfoExtrasCargar.class.getResource("/images/background-panteon.jpg")));
 		label.setBounds(0, 0, 373, 307);
 		frame.getContentPane().add(label);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 	}
 
 }
