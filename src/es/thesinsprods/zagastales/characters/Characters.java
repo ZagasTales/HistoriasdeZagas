@@ -35,6 +35,14 @@ public class Characters {
 	private Atributes atributes;
 	private CombatSkills combatSkills;
 	private KnowledgeSkills knowledgeSkills;
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
 	private MagicSkills magicSkills;
 	private KnowHowSkills knowhowSkills;
 	private Blessing blessing;
@@ -158,6 +166,7 @@ public class Characters {
 	private String modificadores;
 	private String poderes;
 	private int nivel;
+	private String estado;
 	public String getDescription() {
 		return description;
 	}
@@ -217,6 +226,7 @@ public class Characters {
 		this.extras =extras;
 		this.modificadores= modificadores;
 		this.poderes=poderes;
+		this.estado= "Normal";
 	}
 
 	public String getExtras() {
