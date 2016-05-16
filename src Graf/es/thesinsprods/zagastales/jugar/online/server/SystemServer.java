@@ -149,7 +149,7 @@ public class SystemServer {
 			public void run() {
 				try {
 					SystemServer window = new SystemServer();
-					window.frame.setVisible(true);
+					window.frame.setVisible(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -222,7 +222,6 @@ public class SystemServer {
 			        tellEveryone("Server:El servidor se está cerrando, todos los usuarios serán desconectados.:Chat");
 			        textArea.append("Detiendo servidor... \n");
 			        tabla.executeQuery("DELETE FROM PARTIDAS WHERE USUARIO='"+Loader.usuario+"'");
-	
 		            frame.dispose();
 		            JugarOnline.frmHistoriasDeZagas.dispose();
 		            Inicio window= new Inicio ();
@@ -251,6 +250,8 @@ public class SystemServer {
 		});
 		btnLimpiar.setBounds(169, 227, 89, 23);
 		frame.getContentPane().add(btnLimpiar);
+
+		
 	}
 	
 	  public void userAdd (String data) 

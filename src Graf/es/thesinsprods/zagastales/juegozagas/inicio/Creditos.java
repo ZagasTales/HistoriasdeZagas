@@ -16,6 +16,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.BevelBorder;
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Creditos {
 
@@ -78,7 +84,7 @@ public class Creditos {
 		panel_2.setBackground(new Color(57, 33, 16));
 		panel_2.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null,
 				null));
-		panel_2.setBounds(0, 578, 434, 15);
+		panel_2.setBounds(0, 577, 434, 15);
 		frmHistoriasDeZagas.getContentPane().add(panel_2);
 
 		JPanel panel = new JPanel();
@@ -141,17 +147,47 @@ public class Creditos {
 		txtZagastales.setColumns(10);
 		txtZagastales.setBounds(224, 21, 210, 34);
 		frmHistoriasDeZagas.getContentPane().add(txtZagastales);
+		
+		final JButton btnVolver = new JButton("VOLVER");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frmHistoriasDeZagas.dispose();
+				Inicio window= new Inicio();
+				window.getFrmHistoriasDeZagas().setVisible(true);
+			}
+		});
+		btnVolver.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnVolver.setIcon(new ImageIcon(Creditos.class.getResource("/images/botonesInicio2.png")));
+			}
+			public void mouseReleased(MouseEvent arg0) {
+				btnVolver.setIcon(new ImageIcon(Creditos.class.getResource("/images/botonesInicio.png")));
+			}
+		});
+		btnVolver.setIcon(new ImageIcon(Creditos.class.getResource("/images/botonesInicio.png")));
+		btnVolver.setOpaque(false);
+		btnVolver.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnVolver.setForeground(Color.WHITE);
+		btnVolver.setFont(mf.MyFont(0, 17));
+		btnVolver.setFocusPainted(false);
+		btnVolver.setContentAreaFilled(false);
+		btnVolver.setBorderPainted(false);
+		btnVolver.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null,
+						null));
+		btnVolver.setBackground(new Color(139, 69, 19));
+		btnVolver.setBounds(7, 603, 414, 34);
+		frmHistoriasDeZagas.getContentPane().add(btnVolver);
 
 		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon(Creditos.class
-				.getResource("/images/background-creditos.jpg")));
-		label.setBounds(0, 11, 434, 571);
+		label.setIcon(new ImageIcon(Creditos.class.getResource("/images/background-creditos.jpg")));
+		label.setBounds(0, 11, 434, 634);
 		frmHistoriasDeZagas.getContentPane().add(label);
 		frmHistoriasDeZagas.setIconImage(Toolkit.getDefaultToolkit().getImage(
 				Creditos.class
 						.getResource("/images/Historias de Zagas, logo.png")));
 		frmHistoriasDeZagas.setTitle("Historias de Zagas");
-		frmHistoriasDeZagas.setBounds(100, 100, 434, 621);
-		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmHistoriasDeZagas.setBounds(100, 100, 434, 674);
+		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 	}
 }

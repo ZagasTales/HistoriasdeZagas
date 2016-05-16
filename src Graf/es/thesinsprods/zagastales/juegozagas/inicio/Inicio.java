@@ -109,6 +109,10 @@ public class Inicio {
 		frmHistoriasDeZagas.setResizable(false);
 
 		final JButton btnNewButton = new JButton("JUGAR");
+		if (Loader.usuario.equals("")) {
+			btnNewButton.setEnabled(false);
+
+		}
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Jugar window = new Jugar();

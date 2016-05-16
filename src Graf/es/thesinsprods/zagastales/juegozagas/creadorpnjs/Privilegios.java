@@ -159,7 +159,7 @@ public class Privilegios {
 
 				}
 				if (privilegio1.getSelectedIndex() == 1) {
-					if (Start.character.getRace().getRace() != ("Alto Elfo")) {
+					if (!Start.character.getRace().getRace().equals("Alto Elfo")) {
 
 						priv.set(0, "Afinidad Arcana");
 
@@ -375,7 +375,7 @@ public class Privilegios {
 
 				}
 				if (privilegio2.getSelectedIndex() == 1) {
-					if (Start.character.getRace().getRace() != ("Alto Elfo")) {
+					if (!Start.character.getRace().getRace().equals("Alto Elfo")) {
 
 						priv.set(1, "Afinidad Arcana");
 
@@ -494,7 +494,7 @@ public class Privilegios {
 					txtpriv3.setText("");
 				}
 				if (privilegio3.getSelectedIndex() == 1) {
-					if (Start.character.getRace().getRace() != ("Alto Elfo")) {
+					if (!Start.character.getRace().getRace().equals("Alto Elfo")) {
 
 						priv.set(2, "Afinidad Arcana");
 
@@ -614,7 +614,7 @@ public class Privilegios {
 
 				}
 				if (privilegio4.getSelectedIndex() == 1) {
-					if (Start.character.getRace().getRace() != ("Alto Elfo")) {
+					if (!Start.character.getRace().getRace().equals("Alto Elfo")) {
 
 						priv.set(3, "Afinidad Arcana");
 
@@ -735,7 +735,7 @@ public class Privilegios {
 
 				}
 				if (privilegio5.getSelectedIndex() == 1) {
-					if (Start.character.getRace().getRace() != ("Alto Elfo")) {
+					if (!Start.character.getRace().getRace().equals("Alto Elfo")) {
 
 						priv.set(4, "Afinidad Arcana");
 

@@ -179,7 +179,7 @@ public class CrearPartida {
 					thisIp = InetAddress.getLocalHost();
 					  String ip_local = thisIp.getHostAddress().toString();
 						try {
-							tabla.executeQuery("INSERT INTO PARTIDAS VALUES('"+nombre+"','"+contrasena+"','"+descripcion+"',"+maxj+",0,'"+ip_publica+"','"+ip_local+"','"+Loader.usuario+")");
+							tabla.executeQuery("INSERT INTO PARTIDAS VALUES('"+nombre+"','"+contrasena+"','"+descripcion+"',"+maxj+",0,'"+ip_publica+"','"+ip_local+"','"+Loader.usuario+"')");
 						} catch (SQLException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -187,7 +187,7 @@ public class CrearPartida {
 				
 						frmHistoriasDeZagas.dispose();
 						SystemServer window2=new SystemServer();
-						window2.getFrame().setVisible(true);
+						window2.getFrame().setVisible(false);
 						JugarOnline window= new JugarOnline();
 						window.getFrame().setVisible(true);
 					
@@ -252,7 +252,7 @@ public class CrearPartida {
 		button.setIcon(new ImageIcon(CrearPartida.class.getResource("/images/botones-inicio-ayuda.png")));
 		button.setHorizontalTextPosition(SwingConstants.CENTER);
 		button.setForeground(Color.WHITE);
-		button.setFont(new Font("Morpheus", Font.PLAIN, 12));
+		button.setFont(mf.MyFont(0, 12));
 		button.setContentAreaFilled(false);
 		button.setBorderPainted(false);
 		button.setBounds(172, 244, 111, 31);

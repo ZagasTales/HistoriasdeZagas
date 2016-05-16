@@ -40,6 +40,7 @@ import es.thesinsprods.zagastales.characters.skills.MagicSkills;
 import es.thesinsprods.zagastales.characters.skills.SkillOutOfBoundsException;
 import es.thesinsprods.zagastales.characters.skills.SkillPoints;
 import es.thesinsprods.zagastales.juegozagas.ayuda.pnjs.AyudaPrivilegios;
+import es.thesinsprods.zagastales.juegozagas.creadorpnjs.Start;
 import es.thesinsprods.zagastales.juegozagas.inicio.Inicio;
 
 import java.awt.Toolkit;
@@ -157,7 +158,7 @@ public class PrivilegiosNPC {
 
 				}
 				if (privilegio1.getSelectedIndex() == 1) {
-					if (StartNPC.character.getRace().getRace() != ("Alto Elfo")) {
+					if (!StartNPC.character.getRace().getRace().equals("Alto Elfo")) {
 
 						priv.set(0, "Afinidad Arcana");
 
@@ -757,7 +758,7 @@ public class PrivilegiosNPC {
 
 				}
 				if (privilegio2.getSelectedIndex() == 1) {
-					if (StartNPC.character.getRace().getRace() != ("Alto Elfo")) {
+					if (!StartNPC.character.getRace().getRace().equals("Alto Elfo")) {
 
 						priv.set(1, "Afinidad Arcana");
 
@@ -1259,7 +1260,7 @@ public class PrivilegiosNPC {
 					txtpriv3.setText("");
 				}
 				if (privilegio3.getSelectedIndex() == 1) {
-					if (StartNPC.character.getRace().getRace() != ("Alto Elfo")) {
+					if (!StartNPC.character.getRace().getRace().equals("Alto Elfo")) {
 
 						priv.set(2, "Afinidad Arcana");
 
@@ -1762,7 +1763,7 @@ public class PrivilegiosNPC {
 
 				}
 				if (privilegio4.getSelectedIndex() == 1) {
-					if (StartNPC.character.getRace().getRace() != ("Alto Elfo")) {
+					if (!StartNPC.character.getRace().getRace().equals("Alto Elfo")) {
 
 						priv.set(3, "Afinidad Arcana");
 
@@ -2266,7 +2267,7 @@ public class PrivilegiosNPC {
 
 				}
 				if (privilegio5.getSelectedIndex() == 1) {
-					if (StartNPC.character.getRace().getRace() != ("Alto Elfo")) {
+					if (!StartNPC.character.getRace().getRace().equals("Alto Elfo")) {
 
 						priv.set(4, "Afinidad Arcana");
 

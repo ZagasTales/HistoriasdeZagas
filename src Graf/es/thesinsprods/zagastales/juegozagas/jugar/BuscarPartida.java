@@ -15,6 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 import es.thesinsprods.resources.db.ConexionDBOnline;
 import es.thesinsprods.resources.font.MorpheusFont;
+import es.thesinsprods.zagastales.juegozagas.jugar.jugador.VentanaJugadores;
 
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
@@ -2800,18 +2801,18 @@ MorpheusFont mf = new MorpheusFont();
 			
 			}
 		});
-		button_9.setBounds(10, 519, 111, 31);
+		button_9.setBounds(10, 519, 95, 40);
 		frmHistoriasDeZagas.getContentPane().add(button_9);
 		
-		JButton button_10 = new JButton("");
+		final JButton button_10 = new JButton("");
 		button_10.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				button_9.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/boton continuar2.png")));
+				button_10.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/boton continuar2.png")));
 			}
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				button_9.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/boton continuar.png")));
+				button_10.setIcon(new ImageIcon(BuscarPartida.class.getResource("/images/boton continuar.png")));
 			}
 		});
 		button_10.setFont(mf.MyFont(0,12));
@@ -2904,7 +2905,7 @@ MorpheusFont mf = new MorpheusFont();
 				button_9.setEnabled(true);
 			}
 		});
-		button_10.setBounds(438, 519, 111, 31);
+		button_10.setBounds(438, 519, 95, 40);
 		frmHistoriasDeZagas.getContentPane().add(button_10);
 		
 		final JButton btnVolver = new JButton("Volver");

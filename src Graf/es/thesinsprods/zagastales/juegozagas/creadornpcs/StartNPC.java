@@ -286,6 +286,7 @@ public class StartNPC {
 										"Eres un alto elfo, la afinindad arcana es innata en ti",
 										"", JOptionPane.ERROR_MESSAGE);
 						cmbxRaza.setSelectedIndex(0);
+						btnContinuar.setEnabled(false);
 					} else {
 						character.setRace(race);
 						if (character.getRace().equals(race)) {

@@ -55,8 +55,10 @@ import es.thesinsprods.zagastales.characters.skills.KnowledgeSkills;
 import es.thesinsprods.zagastales.characters.skills.MagicSkills;
 import es.thesinsprods.zagastales.characters.skills.SkillOutOfBoundsException;
 import es.thesinsprods.zagastales.characters.skills.SkillPoints;
+import es.thesinsprods.zagastales.juegozagas.inicio.Inicio;
 import es.thesinsprods.zagastales.juegozagas.inicio.Loader;
-import es.thesinsprods.zagastales.juegozagas.jugar.VentanaJugadores.IncomingReader;
+import es.thesinsprods.zagastales.juegozagas.jugar.jugador.VentanaJugadores.IncomingReader;
+import es.thesinsprods.zagastales.jugar.online.server.SystemServer;
 
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
@@ -135,7 +137,6 @@ public class JugarOnline {
 	public static Characters npc9=null;
 	public static Characters npc10=null;
 	private JTextField textField;
-	private JTextField textField_1;
 	
 	
 	  public class IncomingReader implements Runnable
@@ -620,7 +621,7 @@ public class JugarOnline {
 		frmHistoriasDeZagas.getContentPane().add(tabbedPane_1);
 		
 		JPanel panel_3 = new JPanel();
-		tabbedPane_1.addTab("General", null, panel_3, null);
+		tabbedPane_1.addTab("Chat", null, panel_3, null);
 		panel_3.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -702,36 +703,23 @@ public class JugarOnline {
 		btnNewButton.setBounds(443, 310, 86, 35);
 		panel_3.add(btnNewButton);
 		
-		JButton btnConfig = new JButton("Config");
+		JButton btnConfig = new JButton("Cerrar");
+		btnConfig.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmHistoriasDeZagas.dispose();
+				Inicio window = new Inicio();
+				writer.println("Server:El servidor se está cerrando, todos los usuarios serán desconectados.:Chat");
+				 try {
+					tabla.executeQuery("DELETE FROM PARTIDAS WHERE USUARIO='"+Loader.usuario+"'");
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				window.getFrmHistoriasDeZagas().setVisible(true);
+			}
+		});
 		btnConfig.setBounds(527, 310, 86, 35);
 		panel_3.add(btnConfig);
-		
-		JPanel panel_4 = new JPanel();
-		tabbedPane_1.addTab("Partida", null, panel_4, null);
-		panel_4.setLayout(null);
-		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(0, 0, 613, 310);
-		panel_4.add(scrollPane_1);
-		
-		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setEditable(false);
-		textArea_1.setWrapStyleWord(true);
-		textArea_1.setLineWrap(true);
-		scrollPane_1.setViewportView(textArea_1);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(0, 310, 444, 35);
-		panel_4.add(textField_1);
-		
-		JButton button_31 = new JButton("Enviar");
-		button_31.setBounds(443, 310, 86, 35);
-		panel_4.add(button_31);
-		
-		JButton button_32 = new JButton("Config");
-		button_32.setBounds(527, 310, 86, 35);
-		panel_4.add(button_32);
 		
 		JPanel panel_5 = new JPanel();
 		panel_5.setBounds(0, 26, 207, 283);
@@ -782,10 +770,11 @@ public class JugarOnline {
 		panel_7.setBounds(414, 26, 207, 283);
 		frmHistoriasDeZagas.getContentPane().add(panel_7);
 		
-		JLabel label_1 = new JLabel("???");
-		label_1.setHorizontalAlignment(SwingConstants.CENTER);
-		label_1.setBounds(0, 0, 207, 46);
-		panel_7.add(label_1);
+		JLabel lblRecompensas = new JLabel("Recompensas");
+		lblRecompensas.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRecompensas.setBounds(0, 0, 207, 46);
+		panel_7.add(lblRecompensas);
+	
 		
 		JButton btnDarExperiencia = new JButton("Dar Experiencia");
 		btnDarExperiencia.setBounds(10, 70, 187, 31);
