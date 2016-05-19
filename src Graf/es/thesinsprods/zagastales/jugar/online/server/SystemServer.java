@@ -37,7 +37,9 @@ public class SystemServer {
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
-
+	final ConexionDBOnline con = new ConexionDBOnline();
+	final Connection p = con.accederDB();
+	final Statement tabla=p.createStatement();
 	ArrayList clientOutputStreams;
 	   ArrayList<String> users;
 		JTextArea textArea = new JTextArea();
@@ -67,7 +69,7 @@ public class SystemServer {
 	       @Override
 	       public void run() 
 	       {
-	            String message, connect = "Connect", disconnect = "Desconectado", chat = "Chat" ;
+	            String message, cerrar="Cerrar", cargar="Cargar", connect = "Connect", disconnect = "Desconectado", chat = "Chat" ;
 	            String[] data;
 
 	            try 
@@ -81,8 +83,22 @@ public class SystemServer {
 	                    {
 	                        textArea.append(token + "\n");
 	                    }
-
-	                    if (data[2].equals(connect)) 
+	                    if(data[2].equals(cargar)){
+	                    	tellEveryone((data[0] + ":" + data[1] + ":" + cargar + ":" + chat));
+	                    	
+	                    }
+	                    else if (data[2].equals(cerrar)){
+	                    		System.out.println("Cerrando");
+         						tellEveryone("Server:ssdfsdjfsd:Cerrar");
+	         			        tellEveryone("Server:El servidor se está cerrando, todos los usuarios serán desconectados.:Chat");
+	         			        textArea.append("Detiendo servidor... \n");
+	         			        tabla.executeQuery("DELETE FROM PARTIDAS WHERE USUARIO='"+Loader.usuario+"'");
+	         		            frame.dispose();
+	         		            JugarOnline.frmHistoriasDeZagas.dispose();
+	         		            Inicio window= new Inicio ();
+	         		            window.getFrmHistoriasDeZagas().setVisible(true);
+	                    }
+	                    else if (data[2].equals(connect)) 
 	                    {
 	                        tellEveryone((data[0] + ":" + data[1] + ":" + chat));
 	                        userAdd(data[0]);
@@ -149,7 +165,7 @@ public class SystemServer {
 			public void run() {
 				try {
 					SystemServer window = new SystemServer();
-					window.frame.setVisible(false);
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -183,9 +199,6 @@ public class SystemServer {
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		final ConexionDBOnline con = new ConexionDBOnline();
-		final Connection p = con.accederDB();
-		final Statement tabla=p.createStatement();
 		
 		Arrancar();
 		JScrollPane scrollPane = new JScrollPane();
@@ -219,6 +232,7 @@ public class SystemServer {
 			
 		        try 
 		        {
+					tellEveryone("Server:ssdfsdjfsd:Cerrar");
 			        tellEveryone("Server:El servidor se está cerrando, todos los usuarios serán desconectados.:Chat");
 			        textArea.append("Detiendo servidor... \n");
 			        tabla.executeQuery("DELETE FROM PARTIDAS WHERE USUARIO='"+Loader.usuario+"'");

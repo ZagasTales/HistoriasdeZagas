@@ -1,0 +1,169 @@
+package es.thesinsprods.zagastales.juegozagas.jugar.jugador;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.Color;
+import javax.swing.border.BevelBorder;
+
+import es.thesinsprods.resources.font.MorpheusFont;
+
+import javax.swing.ImageIcon;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class PrivilegiosJugadores {
+
+	private JFrame frmHistoriasDeZagas;
+	public JFrame getFrame() {
+		return frmHistoriasDeZagas;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frmHistoriasDeZagas = frame;
+	}
+	MorpheusFont mf = new MorpheusFont ();
+	private final JLabel lblNewLabel_2 = new JLabel("");
+	
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					PrivilegiosJugadores window = new PrivilegiosJugadores();
+					window.frmHistoriasDeZagas.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public PrivilegiosJugadores() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmHistoriasDeZagas = new JFrame();
+		frmHistoriasDeZagas.setResizable(false);
+		frmHistoriasDeZagas.setTitle("Historias de Zagas");
+		frmHistoriasDeZagas.setIconImage(Toolkit.getDefaultToolkit().getImage(PrivilegiosJugadores.class.getResource("/images/Historias de Zagas, logo.png")));
+		frmHistoriasDeZagas.setBounds(100, 100, 348, 365);
+		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frmHistoriasDeZagas.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Privilegios");
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(mf.MyFont(0, 36));
+		lblNewLabel.setBounds(10, 11, 324, 60);
+		frmHistoriasDeZagas.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		if(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(0)!=null){
+			lblNewLabel_1.setText(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(0)+"");
+			
+		}
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setForeground(Color.WHITE);
+		lblNewLabel_1.setFont(mf.MyFont(0,18));
+		lblNewLabel_1.setBounds(10, 82, 322, 30);
+		frmHistoriasDeZagas.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblDestreza = new JLabel("");
+		if(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(1)!=null){
+			lblDestreza.setText(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(1)+"");
+			
+		}
+		lblDestreza.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDestreza.setForeground(Color.WHITE);
+		lblDestreza.setFont(mf.MyFont(0,18));
+		lblDestreza.setBounds(10, 123, 322, 30);
+		frmHistoriasDeZagas.getContentPane().add(lblDestreza);
+		
+		JLabel lblResistencia = new JLabel("");
+		if(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(2)!=null){
+			lblResistencia.setText(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(2)+"");
+			
+		}
+		lblResistencia.setHorizontalAlignment(SwingConstants.CENTER);
+		lblResistencia.setForeground(Color.WHITE);
+		lblResistencia.setFont(mf.MyFont(0,18));
+		lblResistencia.setBounds(10, 164, 322, 30);
+		frmHistoriasDeZagas.getContentPane().add(lblResistencia);
+		
+		JLabel lblResistenciaMgica = new JLabel("");
+		if(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(3)!=null){
+			lblResistenciaMgica.setText(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(3)+"");
+			
+		}
+		lblResistenciaMgica.setHorizontalAlignment(SwingConstants.CENTER);
+		lblResistenciaMgica.setForeground(Color.WHITE);
+		lblResistenciaMgica.setFont(mf.MyFont(0,18));
+		lblResistenciaMgica.setBounds(10, 205, 322, 30);
+		frmHistoriasDeZagas.getContentPane().add(lblResistenciaMgica);
+		
+		JLabel lblInteligencia = new JLabel("");
+		if(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(4)!=null){
+			lblInteligencia.setText(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(4)+"");
+			
+		}
+		lblInteligencia.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInteligencia.setForeground(Color.WHITE);
+		lblInteligencia.setFont(mf.MyFont(0,18));
+		lblInteligencia.setBounds(10, 246, 322, 30);
+		frmHistoriasDeZagas.getContentPane().add(lblInteligencia);
+		
+		final JButton button = new JButton("");
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				button.setIcon(new ImageIcon(PrivilegiosJugadores.class.getResource("/images/boton atras2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				button.setIcon(new ImageIcon(PrivilegiosJugadores.class.getResource("/images/boton atras.png")));
+			}
+		});
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmHistoriasDeZagas.dispose();
+				
+			}
+		});
+		button.setIcon(new ImageIcon(PrivilegiosJugadores.class.getResource("/images/boton atras.png")));
+		button.setOpaque(false);
+		button.setForeground(Color.WHITE);
+		button.setFocusPainted(false);
+		button.setContentAreaFilled(false);
+		button.setBorderPainted(false);
+		button.setBorder(new BevelBorder(BevelBorder.RAISED, null, null,
+
+						null, null));
+		button.setBackground(new Color(139, 69, 19));
+		button.setBounds(10, 287, 105, 35);
+		frmHistoriasDeZagas.getContentPane().add(button);
+		lblNewLabel_2.setIcon(new ImageIcon(PrivilegiosJugadores.class.getResource("/images/background-jugar.jpg")));
+		lblNewLabel_2.setBounds(0, 0, 344, 430);
+		frmHistoriasDeZagas.getContentPane().add(lblNewLabel_2);
+	}
+}

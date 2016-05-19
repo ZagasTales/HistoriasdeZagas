@@ -113,70 +113,70 @@ MorpheusFont mf = new MorpheusFont();
 		lblNombre.setBounds(10, 11, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(lblNombre);
 		
-		final JLabel label = new JLabel("---");
+		final JLabel label = new JLabel("");
 		label.setFont(mf.MyFont(0,12));
 		label.setForeground(Color.WHITE);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setBounds(10, 53, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label);
 		
-		final JLabel label_1 = new JLabel("---");
+		final JLabel label_1 = new JLabel("");
 		label_1.setFont(mf.MyFont(0,12));
 		label_1.setForeground(Color.WHITE);
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
 		label_1.setBounds(10, 95, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label_1);
 		
-		final JLabel label_2 = new JLabel("---");
+		final JLabel label_2 = new JLabel("");
 		label_2.setFont(mf.MyFont(0,12));
 		label_2.setForeground(Color.WHITE);
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
 		label_2.setBounds(10, 137, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label_2);
 		
-		final JLabel label_3 = new JLabel("---");
+		final JLabel label_3 = new JLabel("");
 		label_3.setFont(mf.MyFont(0,12));
 		label_3.setForeground(Color.WHITE);
 		label_3.setHorizontalAlignment(SwingConstants.CENTER);
 		label_3.setBounds(10, 179, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label_3);
 		
-		final JLabel label_4 = new JLabel("---");
+		final JLabel label_4 = new JLabel("");
 		label_4.setFont(mf.MyFont(0,12));
 		label_4.setForeground(Color.WHITE);
 		label_4.setHorizontalAlignment(SwingConstants.CENTER);
 		label_4.setBounds(10, 221, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label_4);
 		
-		final JLabel label_5 = new JLabel("---");
+		final JLabel label_5 = new JLabel("");
 		label_5.setFont(mf.MyFont(0,12));
 		label_5.setForeground(Color.WHITE);
 		label_5.setHorizontalAlignment(SwingConstants.CENTER);
 		label_5.setBounds(10, 263, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label_5);
 		
-		final JLabel label_6 = new JLabel("---");
+		final JLabel label_6 = new JLabel("");
 		label_6.setFont(mf.MyFont(0,12));
 		label_6.setForeground(Color.WHITE);
 		label_6.setHorizontalAlignment(SwingConstants.CENTER);
 		label_6.setBounds(10, 305, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label_6);
 		
-		final JLabel label_7 = new JLabel("---");
+		final JLabel label_7 = new JLabel("");
 		label_7.setFont(mf.MyFont(0,12));
 		label_7.setForeground(Color.WHITE);
 		label_7.setHorizontalAlignment(SwingConstants.CENTER);
 		label_7.setBounds(10, 347, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label_7);
 		
-		final JLabel label_8 = new JLabel("---");
+		final JLabel label_8 = new JLabel("");
 		label_8.setFont(mf.MyFont(0,12));
 		label_8.setForeground(Color.WHITE);
 		label_8.setHorizontalAlignment(SwingConstants.CENTER);
 		label_8.setBounds(10, 389, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label_8);
 		
-		final JLabel label_9 = new JLabel("---");
+		final JLabel label_9 = new JLabel("");
 		label_9.setFont(mf.MyFont(0,12));
 		label_9.setForeground(Color.WHITE);
 		label_9.setHorizontalAlignment(SwingConstants.CENTER);
@@ -184,70 +184,70 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(label_9);
 		
 
-		 final JLabel label_11 = new JLabel("---");
+		 final JLabel label_11 = new JLabel("");
 		 label_11.setFont(mf.MyFont(0,12));
 		 label_11.setForeground(Color.WHITE);
 		label_11.setHorizontalAlignment(SwingConstants.CENTER);
 		label_11.setBounds(146, 53, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label_11);
 		
-		final JLabel label_12 = new JLabel("---");
+		final JLabel label_12 = new JLabel("");
 		label_12.setFont(mf.MyFont(0,12));
 		label_12.setForeground(Color.WHITE);
 		label_12.setHorizontalAlignment(SwingConstants.CENTER);
 		label_12.setBounds(146, 95, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label_12);
 		
-		final JLabel label_13 = new JLabel("---");
+		final JLabel label_13 = new JLabel("");
 		label_13.setFont(mf.MyFont(0,12));
 		label_13.setForeground(Color.WHITE);
 		label_13.setHorizontalAlignment(SwingConstants.CENTER);
 		label_13.setBounds(146, 137, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label_13);
 		
-		final JLabel label_14 = new JLabel("---");
+		final JLabel label_14 = new JLabel("");
 		label_14.setFont(mf.MyFont(0,12));
 		label_14.setForeground(Color.WHITE);
 		label_14.setHorizontalAlignment(SwingConstants.CENTER);
 		label_14.setBounds(146, 179, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label_14);
 		
-		final JLabel label_15 = new JLabel("---");
+		final JLabel label_15 = new JLabel("");
 		label_15.setFont(mf.MyFont(0,12));
 		label_15.setForeground(Color.WHITE);
 		label_15.setHorizontalAlignment(SwingConstants.CENTER);
 		label_15.setBounds(146, 221, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label_15);
 		
-		final JLabel label_16 = new JLabel("---");
+		final JLabel label_16 = new JLabel("");
 		label_16.setFont(mf.MyFont(0,12));
 		label_16.setForeground(Color.WHITE);
 		label_16.setHorizontalAlignment(SwingConstants.CENTER);
 		label_16.setBounds(146, 263, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label_16);
 		
-		final JLabel label_17 = new JLabel("---");
+		final JLabel label_17 = new JLabel("");
 		label_17.setFont(mf.MyFont(0,12));
 		label_17.setForeground(Color.WHITE);
 		label_17.setHorizontalAlignment(SwingConstants.CENTER);
 		label_17.setBounds(146, 305, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label_17);
 		
-		final JLabel label_18 = new JLabel("---");
+		final JLabel label_18 = new JLabel("");
 		label_18.setFont(mf.MyFont(0,12));
 		label_18.setForeground(Color.WHITE);
 		label_18.setHorizontalAlignment(SwingConstants.CENTER);
 		label_18.setBounds(146, 347, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label_18);
 		
-		final JLabel label_19 = new JLabel("---");
+		final JLabel label_19 = new JLabel("");
 		label_19.setFont(mf.MyFont(0,12));
 		label_19.setForeground(Color.WHITE);
 		label_19.setHorizontalAlignment(SwingConstants.CENTER);
 		label_19.setBounds(146, 389, 111, 31);
 		frmHistoriasDeZagas.getContentPane().add(label_19);
 		
-		final JLabel label_20 = new JLabel("---");
+		final JLabel label_20 = new JLabel("");
 		label_20.setFont(mf.MyFont(0,12));
 		label_20.setForeground(Color.WHITE);
 		label_20.setHorizontalAlignment(SwingConstants.CENTER);

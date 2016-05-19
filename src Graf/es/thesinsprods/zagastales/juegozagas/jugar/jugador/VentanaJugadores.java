@@ -73,6 +73,9 @@ import java.awt.Toolkit;
 public class VentanaJugadores {
 	public static Characters personaje=null;
 	MorpheusFont mf = new MorpheusFont();
+	final ConexionDBOnline con = new ConexionDBOnline();
+	final Connection p = con.accederDB();
+	final Statement tabla=p.createStatement();
 	private JFrame frmHistoriasDeZagas;
 	public JFrame getFrame() {
 		return frmHistoriasDeZagas;
@@ -103,7 +106,7 @@ public class VentanaJugadores {
 	        public void run() 
 	        {
 	            String[] data;
-	            String stream, done = "Done", connect = "Connect", disconnect = "Desconectado", chat = "Chat";
+	            String stream, done = "Done", connect = "Connect", disconnect = "Desconectado", chat = "Chat", cerrar= "Cerrar";
 
 	            try 
 	            {
@@ -130,6 +133,39 @@ public class VentanaJugadores {
 	                        //users.setText("");
 	                        writeUsers();
 	                        users.clear();
+	                     }
+	                     else if (data[2].equals(cerrar)){
+	                    	 JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"El master ha finalizado la partida.",
+										"", JOptionPane.PLAIN_MESSAGE);
+	                    	 
+
+	         				
+	         				try {
+	         					int jugadores=0;
+	         				ResultSet rs =	tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+BuscarPartida.nombrePart+"'");
+	         				
+	         				while (rs.next()){
+	         					
+	         					jugadores=rs.getInt("JUGADORES");
+	         					
+	         				}
+	         				tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+(jugadores-1)+"");
+	         				sendDisconnect();
+	         				Disconnect();
+	         				frmHistoriasDeZagas.dispose();
+	         				Inicio window = new Inicio();
+	         				window.getFrmHistoriasDeZagas().setVisible(true);
+	         					
+	         				} catch (SQLException e1) {
+	         					// TODO Auto-generated catch block
+	         					e1.printStackTrace();
+	         				}
+	         				
+	         			
+	                    	 
 	                     }
 	                }
 	           }catch(Exception ex) { }
@@ -183,9 +219,7 @@ public class VentanaJugadores {
 		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmHistoriasDeZagas.getContentPane().setLayout(null);
 		Conectar();
-		final ConexionDBOnline con = new ConexionDBOnline();
-		final Connection p = con.accederDB();
-		final Statement tabla=p.createStatement();
+
 		
 		try {
 			ResultSet rs = tabla.executeQuery("SELECT * FROM PERSONAJE WHERE NOMBRE_DE_USUARIO='"+Loader.usuario+"'");
@@ -1719,6 +1753,7 @@ public class VentanaJugadores {
 								atributos,combate,conocimiento,magia,destrezas,blessing,privs,reves,camp,armor,equipment,weapon1,weapon2,weapon3,weapon4,
 								misc1,misc2,misc3,misc4,accesorie1,accesorie2,accesorie3,accesorie4,experiencia,nivel,dinero,extras,modificadores,poderes);
 						VentanaJugadores.personaje=intermedio;
+						Cargar(VentanaJugadores.personaje.getName());
 		}
 		catch (SQLException e1) {
 			// TODO Auto-generated catch block
@@ -2001,6 +2036,14 @@ public class VentanaJugadores {
 		frmHistoriasDeZagas.getContentPane().add(button);
 		
 		final JButton button_1 = new JButton("Extras");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				ExtrasJugadores window = new ExtrasJugadores();
+				window.getFrmHistoriasDeZagas().setVisible(true);
+				
+			}
+		});
 		button_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -2030,7 +2073,27 @@ public class VentanaJugadores {
 						frmHistoriasDeZagas, "Seleccione opcion",
 						"Cargar Personaje", JOptionPane.PLAIN_MESSAGE,
 						null,personaje,null);
-				
+				seleccion=seleccion+"";
+				if(seleccion.equals("Combate")){
+					
+					CombateJugadores window = new CombateJugadores();
+					window.getFrame().setVisible(true);
+				}
+				if(seleccion.equals("Conocimientos")){
+					
+					ConocimientosJugadores window = new ConocimientosJugadores();
+					window.getFrmHistoriasDeZagas().setVisible(true);
+				}
+				if(seleccion.equals("Magia")){
+					
+					MagiaJugadores window = new MagiaJugadores();
+					window.getFrmHistoriasDeZagas().setVisible(true);
+				}
+				if(seleccion.equals("Destrezas")){
+					
+					DestrezasJugadores window = new DestrezasJugadores();
+					window.getFrame().setVisible(true);
+				}
 				
 				
 				
@@ -2057,6 +2120,13 @@ public class VentanaJugadores {
 		frmHistoriasDeZagas.getContentPane().add(button_2);
 		
 		final JButton button_3 = new JButton("Privilegios");
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				PrivilegiosJugadores window = new PrivilegiosJugadores();
+				window.getFrame().setVisible(true);
+			}
+		});
 		button_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -2099,6 +2169,13 @@ public class VentanaJugadores {
 		frmHistoriasDeZagas.getContentPane().add(button_4);
 		
 		final JButton button_5 = new JButton("Reveses");
+		button_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				RevesesJugadores window = new RevesesJugadores();
+				window.getFrame().setVisible(true);
+			}
+		});
 		button_5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -2151,6 +2228,14 @@ public class VentanaJugadores {
 		frmHistoriasDeZagas.getContentPane().add(button_6);
 		
 		final JButton button_7 = new JButton("Descripci\u00F3n");
+		button_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				DescripcionJugadores window = new DescripcionJugadores();
+				window.getFrame().setVisible(true);
+				
+			}
+		});
 		button_7.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -2172,6 +2257,10 @@ public class VentanaJugadores {
 		frmHistoriasDeZagas.getContentPane().add(button_7);
 		
 		final JButton btnInformacin = new JButton("Informaci\u00F3n");
+		btnInformacin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnInformacin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -2325,5 +2414,14 @@ public class VentanaJugadores {
         }
     
     }
+    
+    public void Cargar(String nombre){
+        String cargar = (username+ ":"+ nombre+ ":Cargar");
+        try{
+          writer.println(cargar);
+          writer.flush();
+        } catch (Exception e){
+        }
+        }
 }
 

@@ -76,7 +76,7 @@ public class AtributosJugadores {
 		frmHistoriasDeZagas.setTitle("Historias de Zagas");
 		frmHistoriasDeZagas.setIconImage(Toolkit.getDefaultToolkit().getImage(AtributosJugadores.class.getResource("/images/Historias de Zagas, logo.png")));
 		frmHistoriasDeZagas.setBounds(100, 100, 348, 453);
-		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmHistoriasDeZagas.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Atributos");
@@ -142,14 +142,6 @@ public class AtributosJugadores {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmHistoriasDeZagas.dispose();
-				try {
-					VentanaJugadores window = new VentanaJugadores();
-					window.getFrame().setVisible(true);
-				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
-						| SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
 				
 			}
 		});
