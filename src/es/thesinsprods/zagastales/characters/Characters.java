@@ -227,6 +227,7 @@ public class Characters {
 		this.modificadores= modificadores;
 		this.poderes=poderes;
 		this.estado= "Normal";
+		this.description = description;
 	}
 
 	public String getExtras() {
