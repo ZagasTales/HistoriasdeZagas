@@ -119,6 +119,7 @@ public class ExtrasJugadores {
 		frmHistoriasDeZagas.getContentPane().add(scrollPane);
 		
 		final JTextArea textArea = new JTextArea();
+		textArea.setEditable(false);
 		textArea.setWrapStyleWord(true);
 		textArea.setLineWrap(true);
 		textArea.setText(VentanaJugadores.personaje.getPoderes());
@@ -130,6 +131,7 @@ public class ExtrasJugadores {
 		frmHistoriasDeZagas.getContentPane().add(scrollPane_1);
 		
 		final JTextArea textArea_2 = new JTextArea();
+		textArea_2.setEditable(false);
 		textArea_2.setWrapStyleWord(true);
 		textArea_2.setLineWrap(true);
 		scrollPane_1.setViewportView(textArea_2);
@@ -141,6 +143,7 @@ public class ExtrasJugadores {
 		frmHistoriasDeZagas.getContentPane().add(scrollPane_2);
 		
 		final JTextArea textArea_1 = new JTextArea();
+		textArea_1.setEditable(false);
 		textArea_1.setWrapStyleWord(true);
 		textArea_1.setLineWrap(true);
 		scrollPane_2.setViewportView(textArea_1);

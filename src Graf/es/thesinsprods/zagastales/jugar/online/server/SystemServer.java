@@ -21,7 +21,7 @@ import es.thesinsprods.resources.db.ConexionDBOnline;
 import es.thesinsprods.zagastales.juegozagas.inicio.Inicio;
 import es.thesinsprods.zagastales.juegozagas.inicio.Loader;
 import es.thesinsprods.zagastales.juegozagas.jugar.CrearPartida;
-import es.thesinsprods.zagastales.juegozagas.jugar.JugarOnline;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.JugarOnline;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -69,7 +69,7 @@ public class SystemServer {
 	       @Override
 	       public void run() 
 	       {
-	            String message, cerrar="Cerrar", cargar="Cargar", connect = "Connect", disconnect = "Desconectado", chat = "Chat" ;
+	            String message,darHab="darHab",darExp="darExp" ,darAtr="darAtr",modificarEq = "ModificarEq",modificarSEM="ModificarSEM" ,alterarE= "Alterar",cerrar="Cerrar", cargar="Cargar", connect = "Connect", disconnect = "Desconectado", chat = "Chat" , limpiar="LimpiaLista";
 	            String[] data;
 
 	            try 
@@ -84,9 +84,35 @@ public class SystemServer {
 	                        textArea.append(token + "\n");
 	                    }
 	                    if(data[2].equals(cargar)){
-	                    	tellEveryone((data[0] + ":" + data[1] + ":" + cargar + ":" + chat));
+	                    	tellEveryone((data[0] + ":" + data[1] + ":" + cargar));
 	                    	
 	                    }
+	                    else if(data[2].equals(alterarE)){
+	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + alterarE));
+	                    	
+	                    }
+	                    else if(data[2].equals(darExp)){
+	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + darExp));
+	                    	
+	                    }
+	                    else if(data[2].equals(darHab)){
+	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + darHab + ":"+ data[3] + ":" + data[4]));
+	                    	
+	                    }
+	                    else if(data[2].equals(darAtr)){
+	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + darAtr + ":"+ data[3]));
+	                    	
+	                    }
+	                    
+	                    
+	                    else if(data[2].equals(modificarSEM)){
+	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + modificarSEM + ":" + data[3]));
+	                    }
+	                    else if(data[2].equals(limpiar)){
+	                    	
+	                    	tellEveryone ((data[0]+":"+data[1]+":"+limpiar));
+	                    }
+	                    
 	                    else if (data[2].equals(cerrar)){
 	                    		System.out.println("Cerrando");
          						tellEveryone("Server:ssdfsdjfsd:Cerrar");
@@ -95,8 +121,7 @@ public class SystemServer {
 	         			        tabla.executeQuery("DELETE FROM PARTIDAS WHERE USUARIO='"+Loader.usuario+"'");
 	         		            frame.dispose();
 	         		            JugarOnline.frmHistoriasDeZagas.dispose();
-	         		            Inicio window= new Inicio ();
-	         		            window.getFrmHistoriasDeZagas().setVisible(true);
+	     
 	                    }
 	                    else if (data[2].equals(connect)) 
 	                    {
@@ -238,8 +263,7 @@ public class SystemServer {
 			        tabla.executeQuery("DELETE FROM PARTIDAS WHERE USUARIO='"+Loader.usuario+"'");
 		            frame.dispose();
 		            JugarOnline.frmHistoriasDeZagas.dispose();
-		            Inicio window= new Inicio ();
-		            window.getFrmHistoriasDeZagas().setVisible(true);
+		     
 		        } 
 		        catch (SQLException e1) {
 					// TODO Auto-generated catch block

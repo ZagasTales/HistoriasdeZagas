@@ -12,6 +12,7 @@ import org.omg.CORBA.portable.InputStream;
 import es.thesinsprods.resources.db.ConexionDBOnline;
 import es.thesinsprods.resources.font.MorpheusFont;
 import es.thesinsprods.zagastales.juegozagas.inicio.Loader;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.JugarOnline;
 import es.thesinsprods.zagastales.jugar.online.server.SystemServer;
 
 import javax.swing.JTextArea;

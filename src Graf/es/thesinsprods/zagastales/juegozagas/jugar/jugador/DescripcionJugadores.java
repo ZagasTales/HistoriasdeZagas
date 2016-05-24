@@ -72,7 +72,7 @@ public class DescripcionJugadores {
 		JLabel lblNewLabel = new JLabel("Descripci\u00F3n");
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Morpheus", Font.PLAIN, 36));
+		lblNewLabel.setFont(mf.MyFont(0, 36));
 		lblNewLabel.setBounds(10, 11, 424, 69);
 		frmHistoriasDeZagas.getContentPane().add(lblNewLabel);
 		
@@ -83,8 +83,8 @@ public class DescripcionJugadores {
 		JTextArea textArea = new JTextArea();
 		textArea.setEditable(false);
 		String descripcionF = VentanaJugadores.personaje.getDescription();
-		
-		textArea.setText(descripcionF);
+		if(!descripcionF.equals("") || !descripcionF.equals("null")){
+		textArea.setText(descripcionF);}
 		textArea.setFont(mf.MyFont(0, 12));
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
