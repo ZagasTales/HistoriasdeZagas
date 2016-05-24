@@ -67,7 +67,7 @@ public class RevesesJugadores {
 		frmHistoriasDeZagas.setResizable(false);
 		frmHistoriasDeZagas.setTitle("Historias de Zagas");
 		frmHistoriasDeZagas.setIconImage(Toolkit.getDefaultToolkit().getImage(RevesesJugadores.class.getResource("/images/Historias de Zagas, logo.png")));
-		frmHistoriasDeZagas.setBounds(100, 100, 348, 365);
+		frmHistoriasDeZagas.setBounds(100, 100, 348, 322);
 		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmHistoriasDeZagas.getContentPane().setLayout(null);
 		
@@ -79,9 +79,10 @@ public class RevesesJugadores {
 		frmHistoriasDeZagas.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		if(VentanaJugadores.personaje.getSetbacks().getReves().get(0)!=null){
+		if(!VentanaJugadores.personaje.getSetbacks().getReves().get(0).equals(null)){
+			if(!VentanaJugadores.personaje.getSetbacks().getReves().get(0).equals("null")){
 			lblNewLabel_1.setText(VentanaJugadores.personaje.getSetbacks().getReves().get(0)+"");
-			
+			}
 		}
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setForeground(Color.WHITE);
@@ -90,9 +91,10 @@ public class RevesesJugadores {
 		frmHistoriasDeZagas.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblDestreza = new JLabel("");
-		if(VentanaJugadores.personaje.getSetbacks().getReves().get(1)!=null){
+		if(!VentanaJugadores.personaje.getSetbacks().getReves().get(1).equals(null)){
+			if(!VentanaJugadores.personaje.getSetbacks().getReves().get(1).equals("null")){
 			lblDestreza.setText(VentanaJugadores.personaje.getSetbacks().getReves().get(1)+"");
-			
+			}
 		}
 		lblDestreza.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDestreza.setForeground(Color.WHITE);
@@ -101,9 +103,10 @@ public class RevesesJugadores {
 		frmHistoriasDeZagas.getContentPane().add(lblDestreza);
 		
 		JLabel lblResistencia = new JLabel("");
-		if(VentanaJugadores.personaje.getSetbacks().getReves().get(2)!=null){
+		if(!VentanaJugadores.personaje.getSetbacks().getReves().get(2).equals(null)){
+			if(!VentanaJugadores.personaje.getSetbacks().getReves().get(2).equals("null")){
 			lblResistencia.setText(VentanaJugadores.personaje.getSetbacks().getReves().get(2)+"");
-			
+			}
 		}
 		lblResistencia.setHorizontalAlignment(SwingConstants.CENTER);
 		lblResistencia.setForeground(Color.WHITE);
@@ -112,9 +115,10 @@ public class RevesesJugadores {
 		frmHistoriasDeZagas.getContentPane().add(lblResistencia);
 		
 		JLabel lblResistenciaMgica = new JLabel("");
-		if(VentanaJugadores.personaje.getSetbacks().getReves().get(3)!=null){
+		if(!VentanaJugadores.personaje.getSetbacks().getReves().get(3).equals(null)){
+			if(!VentanaJugadores.personaje.getSetbacks().getReves().get(3).equals("null")){
 			lblResistenciaMgica.setText(VentanaJugadores.personaje.getSetbacks().getReves().get(3)+"");
-			
+			}
 		}
 		lblResistenciaMgica.setHorizontalAlignment(SwingConstants.CENTER);
 		lblResistenciaMgica.setForeground(Color.WHITE);
@@ -122,16 +126,6 @@ public class RevesesJugadores {
 		lblResistenciaMgica.setBounds(10, 205, 322, 30);
 		frmHistoriasDeZagas.getContentPane().add(lblResistenciaMgica);
 		
-		JLabel lblInteligencia = new JLabel("");
-		if(VentanaJugadores.personaje.getSetbacks().getReves().get(4)!=null){
-			lblInteligencia.setText(VentanaJugadores.personaje.getSetbacks().getReves().get(4)+"");
-			
-		}
-		lblInteligencia.setHorizontalAlignment(SwingConstants.CENTER);
-		lblInteligencia.setForeground(Color.WHITE);
-		lblInteligencia.setFont(mf.MyFont(0,18));
-		lblInteligencia.setBounds(10, 246, 322, 30);
-		frmHistoriasDeZagas.getContentPane().add(lblInteligencia);
 		
 		final JButton button = new JButton("");
 		button.addMouseListener(new MouseAdapter() {
@@ -160,7 +154,7 @@ public class RevesesJugadores {
 
 						null, null));
 		button.setBackground(new Color(139, 69, 19));
-		button.setBounds(10, 287, 105, 35);
+		button.setBounds(10, 246, 105, 35);
 		frmHistoriasDeZagas.getContentPane().add(button);
 		lblNewLabel_2.setIcon(new ImageIcon(RevesesJugadores.class.getResource("/images/background-jugar.jpg")));
 		lblNewLabel_2.setBounds(0, 0, 344, 430);

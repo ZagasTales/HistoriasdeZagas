@@ -80,8 +80,9 @@ public class PrivilegiosJugadores {
 		
 		JLabel lblNewLabel_1 = new JLabel("");
 		if(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(0)!=null){
+			if(!VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(0).equals("null")){
 			lblNewLabel_1.setText(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(0)+"");
-			
+			}
 		}
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setForeground(Color.WHITE);
@@ -90,9 +91,10 @@ public class PrivilegiosJugadores {
 		frmHistoriasDeZagas.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblDestreza = new JLabel("");
-		if(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(1)!=null){
+		if(!VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(1).equals(null)){
+			if(!VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(1).equals("null")){
 			lblDestreza.setText(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(1)+"");
-			
+			}
 		}
 		lblDestreza.setHorizontalAlignment(SwingConstants.CENTER);
 		lblDestreza.setForeground(Color.WHITE);
@@ -101,9 +103,10 @@ public class PrivilegiosJugadores {
 		frmHistoriasDeZagas.getContentPane().add(lblDestreza);
 		
 		JLabel lblResistencia = new JLabel("");
-		if(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(2)!=null){
+		if(!VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(2).equals(null)){
+			if(!VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(2).equals("null")){
 			lblResistencia.setText(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(2)+"");
-			
+			}
 		}
 		lblResistencia.setHorizontalAlignment(SwingConstants.CENTER);
 		lblResistencia.setForeground(Color.WHITE);
@@ -112,9 +115,10 @@ public class PrivilegiosJugadores {
 		frmHistoriasDeZagas.getContentPane().add(lblResistencia);
 		
 		JLabel lblResistenciaMgica = new JLabel("");
-		if(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(3)!=null){
+		if(!VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(3).equals(null)){
+			if(!VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(3).equals("null")){
 			lblResistenciaMgica.setText(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(3)+"");
-			
+			}
 		}
 		lblResistenciaMgica.setHorizontalAlignment(SwingConstants.CENTER);
 		lblResistenciaMgica.setForeground(Color.WHITE);
@@ -123,9 +127,10 @@ public class PrivilegiosJugadores {
 		frmHistoriasDeZagas.getContentPane().add(lblResistenciaMgica);
 		
 		JLabel lblInteligencia = new JLabel("");
-		if(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(4)!=null){
+		if(!VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(4).equals(null)){
+			if(!VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(4).equals("null")){
 			lblInteligencia.setText(VentanaJugadores.personaje.getPrivileges().getPrivilegio().get(4)+"");
-			
+			}
 		}
 		lblInteligencia.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInteligencia.setForeground(Color.WHITE);

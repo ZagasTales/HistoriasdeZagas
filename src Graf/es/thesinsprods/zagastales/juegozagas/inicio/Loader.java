@@ -581,7 +581,7 @@ public class Loader {
 			lblEntrarSinConexin.setBounds(263, 338, 160, 14);
 			frmHistoriasDeZagas.getContentPane().add(lblEntrarSinConexin);
 			
-			final JButton btnEntrar2 = new JButton("Entrar");
+			final JButton btnEntrar2 = new JButton("Offline");
 			btnEntrar2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 

@@ -2,6 +2,7 @@ package es.thesinsprods.zagastales.juegozagas.jugar.jugador;
 
 import java.awt.EventQueue;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -64,6 +65,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.Desktop;
+
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
@@ -77,6 +80,9 @@ public class VentanaJugadores {
 	final Connection p = con.accederDB();
 	final Statement tabla=p.createStatement();
 	private JFrame frmHistoriasDeZagas;
+	JProgressBar progressBar = new JProgressBar();
+	JProgressBar progressBar_2 = new JProgressBar();
+	JProgressBar progressBar_1 = new JProgressBar();
 	public JFrame getFrame() {
 		return frmHistoriasDeZagas;
 	}
@@ -106,7 +112,7 @@ public class VentanaJugadores {
 	        public void run() 
 	        {
 	            String[] data;
-	            String stream, done = "Done", connect = "Connect", disconnect = "Desconectado", chat = "Chat", cerrar= "Cerrar";
+	            String stream, darHab="darHab",darExp="darExp" ,darAtr="darAtr",modificarEq = "ModificarEq",modificarSEM="ModificarSEM" ,alterarE= "Alterar",done = "Done", connect = "Connect", disconnect = "Desconectado", chat = "Chat", cerrar= "Cerrar";
 
 	            try 
 	            {
@@ -123,6 +129,201 @@ public class VentanaJugadores {
 	                     {
 	                        textArea.removeAll();
 	                        userAdd(data[0]);
+	                     } 
+	                     else if (data[2].equals(alterarE))
+	                     {
+	                        if(data[0].equals(VentanaJugadores.personaje.getName())){
+	                        	VentanaJugadores.personaje.setEstado(data[1]);
+	           
+	                        }
+	                     } 
+	                     else if (data[2].equals(darExp))
+	                     {
+	                        if(data[0].equals(personaje.getName())){
+	                        	int cantidad=personaje.getExperience()+Integer.parseInt(data[1]);
+								tabla.executeQuery("UPDATE PERSONAJE SET EXPERIENCIA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+     							personaje.setExperience(cantidad);
+     							textField_1.setText(cantidad+"");
+	                        }
+	                     } 
+	                     else if (data[2].equals(darAtr))
+	                     {
+	                        if(data[0].equals(personaje.getName())){
+	                        	if(data[3].equals("Fuerza")){
+	                        		int cantidad=personaje.getAtributes().getStrength()+Integer.parseInt(data[1]);
+								tabla.executeQuery("UPDATE PERSONAJE SET FUERZA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+     							personaje.getAtributes().setStrength(cantidad);
+								}
+	                        	else if(data[3].equals("Carisma")){	  
+	                        		int cantidad=personaje.getAtributes().getCharisma()+Integer.parseInt(data[1]);
+								tabla.executeQuery("UPDATE PERSONAJE SET CARISMA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+     							personaje.getAtributes().setCharisma(cantidad);
+	                        	}
+	                        	else if(data[3].equals("Resistencia")){	        
+	                        		int cantidad=personaje.getAtributes().getResistance()+Integer.parseInt(data[1]);
+								tabla.executeQuery("UPDATE PERSONAJE SET RESISTENCIA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+     							personaje.getAtributes().setResistance(cantidad);
+	                        	}
+	                        	else if(data[3].equals("Percepción")){	   
+	                        		int cantidad=personaje.getAtributes().getPerception()+Integer.parseInt(data[1]);
+								tabla.executeQuery("UPDATE PERSONAJE SET PERCEPCION="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+								personaje.getAtributes().setPerception(cantidad);
+	                        	}
+	                        	else if(data[3].equals("Inteligencia")){	
+	                        		int cantidad=personaje.getAtributes().getIntelligence()+Integer.parseInt(data[1]);
+								tabla.executeQuery("UPDATE PERSONAJE SET INTELIGENCIA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+								personaje.getAtributes().setIntelligence(cantidad);
+	                        	}
+	                        	else if(data[3].equals("Destreza")){	
+	                        		int cantidad=personaje.getAtributes().getDexterity()+Integer.parseInt(data[1]);
+								tabla.executeQuery("UPDATE PERSONAJE SET DESTREZA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+								personaje.getAtributes().setDexterity(cantidad);
+								}
+	                        	else if(data[3].equals("Resistencia Mágica")){	
+	                        		int cantidad=personaje.getAtributes().getMagicres()+Integer.parseInt(data[1]);
+								tabla.executeQuery("UPDATE PERSONAJE SET RESISTENCIA_MAGICA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+								personaje.getAtributes().setMagicres(cantidad);
+	                        	}
+	                        }
+	                     }
+	                     else if (data[2].equals(darHab))
+	                     {
+	                    	 if(data[0].equals(personaje.getName())){
+		                        	if(data[3].equals("Combate")){
+		                        		if(data[4].equals("Armas de Una Mano")){int cantidad=personaje.getCombatSkills().getOneHanded()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET ARMAS_DE_UNA_MANO="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getCombatSkills().setOneHanded(cantidad);
+		                        		}
+		                        		else if(data[4].equals("Armas de Dos Manos")){int cantidad=personaje.getCombatSkills().getTwoHanded()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET ARMAS_DE_DOS_MANOS="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getCombatSkills().setTwoHanded(cantidad);
+										}
+		                        		else if(data[4].equals("Armas de Asta")){int cantidad=personaje.getCombatSkills().getPole()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET ARMAS_DE_ASTA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getCombatSkills().setPole(cantidad);
+										}
+		                        		else if(data[4].equals("Armas a Distancia")){int cantidad=personaje.getCombatSkills().getRanged()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET ARMAS_A_DISTANCIA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getCombatSkills().setRanged(cantidad);
+										}
+		                        		else if(data[4].equals("Bloquear")){int cantidad=personaje.getCombatSkills().getBlock()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET BLOQUEAR="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getCombatSkills().setBlock(cantidad);
+										}
+		                        		else if(data[4].equals("Esquivar")){int cantidad=personaje.getCombatSkills().getDodge()+Integer.parseInt(data[1]);
+		    							tabla.executeQuery("UPDATE PERSONAJE SET ESQUIVAR="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+		    							personaje.getCombatSkills().setDodge(cantidad);
+		                        		}
+									}
+		                        	else if(data[3].equals("Conocimientos")){
+		                        		if(data[4].equals("Arte de la Guerra")){int cantidad=personaje.getKnowledgeSkills().getArtofWar()+Integer.parseInt(data[1]);
+		    							tabla.executeQuery("UPDATE PERSONAJE SET ARTE_DE_LA_GUERRA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+		    							personaje.getKnowledgeSkills().setArtofWar(cantidad);
+		                        		}
+		                        		else if(data[4].equals("Diplomacia")){int cantidad=personaje.getKnowledgeSkills().getDiplomacy()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET DIPLOMACIA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getKnowledgeSkills().setDiplomacy(cantidad);
+		                        		}
+		                        		else if(data[4].equals("Etiqueta")){int cantidad=personaje.getKnowledgeSkills().getEtiquette()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET ETIQUETA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getKnowledgeSkills().setEtiquette(cantidad);
+		                        		}
+		                        		else if(data[4].equals("Medicina")){int cantidad=personaje.getKnowledgeSkills().getMedicine()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET MEDICINA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getKnowledgeSkills().setMedicine(cantidad);
+		                        		}
+		                        		else if(data[4].equals("Ocultismo")){int cantidad=personaje.getKnowledgeSkills().getOccultism()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET OCULTISMO="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getKnowledgeSkills().setOccultism(cantidad);
+										}
+		                        		else if(data[4].equals("Investigación")){int cantidad=personaje.getKnowledgeSkills().getResearch()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET INVESTIGACION="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getKnowledgeSkills().setResearch(cantidad);
+										}
+		                        		else if(data[4].equals("Negociación")){int cantidad=personaje.getKnowledgeSkills().getNegotiation()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET NEGOCIACION="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getKnowledgeSkills().setNegotiation(cantidad);
+										}
+		                        		else if(data[4].equals("Conocimientos Secretos")){int cantidad=personaje.getKnowledgeSkills().getSecretKnowledge()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET CONOCIMIENTOS_SECRETOS="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getKnowledgeSkills().setSecretKnowledge(cantidad);
+										}
+		                        	}
+		                        	else if(data[3].equals("Magia")){
+		                        		if(data[4].equals("Fuego")){int cantidad=personaje.getMagicSkills().getFire()+Integer.parseInt(data[1]);
+		    							tabla.executeQuery("UPDATE PERSONAJE SET FUEGO="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+		    							personaje.getMagicSkills().setFire(cantidad);
+		                        		}
+		                        		else if(data[4].equals("Agua")){int cantidad=personaje.getMagicSkills().getWater()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET AGUA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getMagicSkills().setWater(cantidad);
+		                        		}
+		                        		else if(data[4].equals("Tierra")){int cantidad=personaje.getMagicSkills().getEarth()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET TIERRA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getMagicSkills().setEarth(cantidad);
+		                        		}
+		                        		else if(data[4].equals("Viento")){int cantidad=personaje.getMagicSkills().getWind()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET VIENTO="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getMagicSkills().setWind(cantidad);
+		                        		}
+		                        		else if(data[4].equals("Druídica")){int cantidad=personaje.getMagicSkills().getDruidic()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET DRUIDICA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getMagicSkills().setDruidic(cantidad);
+										}
+		                        		else if(data[4].equals("Blanca")){int cantidad=personaje.getMagicSkills().getWhite()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET BLANCA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getMagicSkills().setWhite(cantidad);
+										}
+		                        		else if(data[4].equals("Negra")){int cantidad=personaje.getMagicSkills().getBlack()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET NEGRA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getMagicSkills().setBlack(cantidad);
+										}
+		                        		else if(data[4].equals("Arcana")){int cantidad=personaje.getMagicSkills().getArcane()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET ARCANA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getMagicSkills().setArcane(cantidad);
+										}
+		                        	}
+		                        	else if(data[3].equals("Destrezas")){
+		                        		if(data[4].equals("Atletismo")){int cantidad=personaje.getKnowhowSkills().getAthletics()+Integer.parseInt(data[1]);
+		    							tabla.executeQuery("UPDATE PERSONAJE SET ATLETISMO="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+		    							personaje.getKnowhowSkills().setAthletics(cantidad);
+		                        		}
+		                        		else if(data[4].equals("Supervivencia")){int cantidad=personaje.getKnowhowSkills().getSurvival()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET SUPERVIVENCIA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getKnowhowSkills().setSurvival(cantidad);
+		                        		}
+		                        		else if(data[4].equals("Equitación")){int cantidad=personaje.getKnowhowSkills().getEquitation()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET EQUITACION="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getKnowhowSkills().setEquitation(cantidad);
+		                        		}
+		                        		else if(data[4].equals("Trampas")){int cantidad=personaje.getKnowhowSkills().getTraps()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET TRAMPAS="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getKnowhowSkills().setTraps(cantidad);
+		                        		}
+		                        		else if(data[4].equals("Sigilo")){int cantidad=personaje.getKnowhowSkills().getStealth()+Integer.parseInt(data[1]);
+										tabla.executeQuery("UPDATE PERSONAJE SET SIGILO="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+										personaje.getKnowhowSkills().setStealth(cantidad);
+										}
+		                        	}
+		                        	
+		                        }
+	                     }
+	                     else if (data[2].equals(modificarSEM))
+	                     {
+	                        if(data[0].equals(VentanaJugadores.personaje.getName())){
+	                        	if(data[3].equals("Salud")){
+	                        		int cantidad=personaje.getLife()+Integer.parseInt(data[1]);
+    								tabla.executeQuery("UPDATE PERSONAJE SET SALUD="+data[1]+" WHERE NOMBRE='"+data[0]+"'");
+         							personaje.setLife(cantidad);
+	                        		
+	                        	}
+	                        	else if(data[3].equals("Energia")){int cantidad=personaje.getEndurance()+Integer.parseInt(data[1]);
+	                        										tabla.executeQuery("UPDATE PERSONAJE SET ENERGIA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+	                        										personaje.setEndurance(cantidad);}
+	                        	else if(data[3].equals("Mana")){int cantidad=personaje.getMana()+Integer.parseInt(data[1]);
+	                        									tabla.executeQuery("UPDATE PERSONAJE SET MANA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+	                        									personaje.setMana(cantidad);}
+	                        }
 	                     } 
 	                     else if (data[2].equals(disconnect)) 
 	                     {
@@ -215,7 +416,7 @@ public class VentanaJugadores {
 		frmHistoriasDeZagas.setTitle("Historias de Zagas");
 		frmHistoriasDeZagas.setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaJugadores.class.getResource("/images/Historias de Zagas, logo.png")));
 		frmHistoriasDeZagas.setResizable(false);
-		frmHistoriasDeZagas.setBounds(100, 100, 590, 736);
+		frmHistoriasDeZagas.setBounds(100, 100, 590, 683);
 		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmHistoriasDeZagas.getContentPane().setLayout(null);
 		Conectar();
@@ -226,7 +427,7 @@ public class VentanaJugadores {
 			ArrayList <Object> personajes=new ArrayList<Object>();
 			while (rs.next()){
 				
-				personajes.add(rs.getString("NOMBRE"));
+				personajes.add(""+rs.getString("NOMBRE"));
 				
 			}
 			
@@ -237,19 +438,19 @@ public class VentanaJugadores {
 					null,personaje,null);
 			
 			rs=tabla.executeQuery("SELECT * FROM PERSONAJE WHERE NOMBRE='"+seleccion+"'");
-			Armor armor = null;
-			Weapons weapon1 = null;
-			Weapons weapon2 = null;
-			Weapons weapon3= null;
-			Weapons weapon4= null;
-			Misc misc1 = null;
-			Misc misc2= null;
-			Misc misc3= null;
-			Misc misc4= null;
-			Accesories accesorie1= null;
-			Accesories accesorie2= null;
-			Accesories accesorie3= null;
-			Accesories accesorie4= null;
+			Armor armor = new Armor ("", "",false,false, null);
+			Weapons weapon1 = new Weapons("", "", false, false, null, "");
+			Weapons weapon2 = new Weapons("", "", false, false, null, "");
+			Weapons weapon3= new Weapons("", "", false, false, null, "");
+			Weapons weapon4= new Weapons("", "", false, false, null, "");
+			Misc misc1 = new Misc("","",false,false,null);
+			Misc misc2= new Misc("","",false,false,null);
+			Misc misc3= new Misc("","",false,false,null);
+			Misc misc4= new Misc("","",false,false,null);
+			Accesories accesorie1= new Accesories("","",false,false,null);
+			Accesories accesorie2= new Accesories("","",false,false,null);
+			Accesories accesorie3= new Accesories("","",false,false,null);
+			Accesories accesorie4= new Accesories("","",false,false,null);
 			
 			String armadura = "";
 			 String descripcionArm = "";
@@ -409,21 +610,21 @@ public class VentanaJugadores {
 				int campeon = 0;
 				
 						while (rs.next()) {
-					nombre = rs.getString("NOMBRE");
+					nombre = ""+rs.getString("NOMBRE");
 					edad = rs.getInt("EDAD");
-					raza = rs.getString("RAZA");
-					descripcionF = rs.getString("DESCRIPCION_FISICA");
+					raza = ""+rs.getString("RAZA");
+					descripcionF = ""+rs.getString("DESCRIPCION_FISICA");
 					;
-					bendicion = rs.getString("BENDICION");
-					privilegio1 = rs.getString("PRIVILEGIO1");
-					privilegio2 = rs.getString("PRIVILEGIO2");
-					privilegio3 = rs.getString("PRIVILEGIO3");
-					privilegio4 = rs.getString("PRIVILEGIO4");
-					privilegio5 = rs.getString("PRIVILEGIO5");
-					reves1 = rs.getString("REVES1");
-					reves2 = rs.getString("REVES2");
-					reves3 = rs.getString("REVES3");
-					reves4 = rs.getString("REVES4");
+					bendicion = ""+rs.getString("BENDICION");
+					privilegio1 = ""+rs.getString("PRIVILEGIO1");
+					privilegio2 = ""+rs.getString("PRIVILEGIO2");
+					privilegio3 = ""+rs.getString("PRIVILEGIO3");
+					privilegio4 = ""+rs.getString("PRIVILEGIO4");
+					privilegio5 = ""+rs.getString("PRIVILEGIO5");
+					reves1 = ""+rs.getString("REVES1");
+					reves2 = ""+rs.getString("REVES2");
+					reves3 = ""+rs.getString("REVES3");
+					reves4 = ""+rs.getString("REVES4");
 					fuerza = rs.getInt("FUERZA");
 					destreza = rs.getInt("DESTREZA");
 					resistencia = rs.getInt("RESISTENCIA");
@@ -458,106 +659,106 @@ public class VentanaJugadores {
 					equitacion = rs.getInt("EQUITACION");
 					trampas = rs.getInt("TRAMPAS");
 					sigilo = rs.getInt("SIGILO");
-					armadura = rs.getString("ARMADURA");
-					descripcionArm = rs.getString("DESCRIPCION_ARMADURA");
-					posesionArm = rs.getString("POSESION_ARMADURA");
-					prop1Arm = rs.getString("PROPIEDAD1_ARMADURA");
-					prop2Arm = rs.getString("PROPIEDAD2_ARMADURA");
-					prop3Arm = rs.getString("PROPIEDAD3_ARMADURA");
-					weap1 = rs.getString("ARMA1");
-					descripcionWeap1 = rs.getString("DESCRIPCION_ARMA1");
-					posesionWeap1 = rs.getString("POSESION_ARMA1");
-					prop1Weap1 = rs.getString("PROPIEDAD1_ARMA1");
-					prop2Weap1 = rs.getString("PROPIEDAD2_ARMA1");
-					prop3Weap1 = rs.getString("PROPIEDAD3_ARMA1");
-					weap2 = rs.getString("ARMA2");
-					descripcionWeap2 = rs.getString("DESCRIPCION_ARMA2");
-					posesionWeap2 = rs.getString("POSESION_ARMA2");
-					prop1Weap2 = rs.getString("PROPIEDAD1_ARMA2");
-					prop2Weap2 = rs.getString("PROPIEDAD2_ARMA2");
-					prop3Weap2 = rs.getString("PROPIEDAD3_ARMA2");
-					weap3 = rs.getString("ARMA3");
-					descripcionWeap3 = rs.getString("DESCRIPCION_ARMA3");
-					posesionWeap3 = rs.getString("POSESION_ARMA3");
-					prop1Weap3 = rs.getString("PROPIEDAD1_ARMA3");
-					prop2Weap3 = rs.getString("PROPIEDAD2_ARMA3");
-					prop3Weap3 = rs.getString("PROPIEDAD3_ARMA3");
-					weap4 = rs.getString("ARMA4");
-					descripcionWeap4 = rs.getString("DESCRIPCION_ARMA4");
-					posesionWeap4 = rs.getString("POSESION_ARMA4");
-					prop1Weap4 = rs.getString("PROPIEDAD1_ARMA4");
-					prop2Weap4 = rs.getString("PROPIEDAD2_ARMA4");
-					prop3Weap4 = rs.getString("PROPIEDAD3_ARMA4");
-					obj1 = rs.getString("OBJETO1");
-					descripcionObj1 = rs.getString("DESCRIPCION_OBJETO1");
-					posesionObj1 = rs.getString("POSESION_OBJETO1");
-					prop1Obj1 = rs.getString("PROPIEDAD1_OBJETO1");
-					prop2Obj1 = rs.getString("PROPIEDAD2_OBJETO1");
-					prop3Obj1 = rs.getString("PROPIEDAD3_OBJETO1");
-					obj2 = rs.getString("OBJETO2");
-					descripcionObj2 = rs.getString("DESCRIPCION_OBJETO2");
-					posesionObj2 = rs.getString("POSESION_OBJETO2");
-					prop1Obj2 = rs.getString("PROPIEDAD1_OBJETO2");
-					prop2Obj2 = rs.getString("PROPIEDAD2_OBJETO2");
-					prop3Obj2 = rs.getString("PROPIEDAD3_OBJETO2");
-					obj3 = rs.getString("OBJETO3");
-					descripcionObj3 = rs.getString("DESCRIPCION_OBJETO3");
-					posesionObj3 = rs.getString("POSESION_OBJETO3");
-					prop1Obj3 = rs.getString("PROPIEDAD1_OBJETO3");
-					prop2Obj3 = rs.getString("PROPIEDAD2_OBJETO3");
-					prop3Obj3 = rs.getString("PROPIEDAD3_OBJETO3");
-					obj4 = rs.getString("OBJETO4");
-					descripcionObj4 = rs.getString("DESCRIPCION_OBJETO4");
-					posesionObj4 = rs.getString("POSESION_OBJETO4");
-					prop1Obj4 = rs.getString("PROPIEDAD1_OBJETO4");
-					prop2Obj4 = rs.getString("PROPIEDAD2_OBJETO4");
-					prop3Obj4 = rs.getString("PROPIEDAD3_OBJETO4");
-					acc1 = rs.getString("ACCESORIO1");
-					descripcionAcc1 = rs.getString("DESCRIPCION_ACCESORIO1");
-					posesionAcc1 = rs.getString("POSESION_ACCESORIO1");
-					prop1Acc1 = rs.getString("PROPIEDAD1_ACCESORIO1");
-					prop2Acc1 = rs.getString("PROPIEDAD2_ACCESORIO1");
-					prop3Acc1 = rs.getString("PROPIEDAD3_ACCESORIO1");
-					acc2 = rs.getString("ACCESORIO2");
-					descripcionAcc2 = rs.getString("DESCRIPCION_ACCESORIO2");
-					posesionAcc2 = rs.getString("POSESION_ACCESORIO2");
-					prop1Acc2 = rs.getString("PROPIEDAD1_ACCESORIO2");
-					prop2Acc2 = rs.getString("PROPIEDAD2_ACCESORIO2");
-					prop3Acc2 = rs.getString("PROPIEDAD3_ACCESORIO2");
-					acc3 = rs.getString("ACCESORIO3");
-					descripcionAcc3 = rs.getString("DESCRIPCION_ACCESORIO3");
-					posesionAcc3 = rs.getString("POSESION_ACCESORIO3");
-					prop1Acc3 = rs.getString("PROPIEDAD1_ACCESORIO3");
-					prop2Acc3 = rs.getString("PROPIEDAD2_ACCESORIO3");
-					prop3Acc3 = rs.getString("PROPIEDAD3_ACCESORIO3");
-					acc4 = rs.getString("ACCESORIO4");
-					descripcionAcc4 = rs.getString("DESCRIPCION_ACCESORIO4");
-					posesionAcc4 = rs.getString("POSESION_ACCESORIO4");
-					prop1Acc4 = rs.getString("PROPIEDAD1_ACCESORIO4");
-					prop2Acc4 = rs.getString("PROPIEDAD2_ACCESORIO4");
-					prop3Acc4 = rs.getString("PROPIEDAD3_ACCESORIO4");
-					tipoWeap1 = rs.getString("TIPOARMA1");
-					tipoWeap2 = rs.getString("TIPOARMA2");
-					tipoWeap3 = rs.getString("TIPOARMA3");
-					tipoWeap4 = rs.getString("TIPOARMA4");
-					tipoAcc1 = rs.getString("TIPOACC1");
-					tipoAcc2 = rs.getString("TIPOACC2");
-					tipoAcc3 = rs.getString("TIPOACC3");
-					tipoAcc4 = rs.getString("TIPOACC4");
-					arrojadizaWeap1 = rs.getString("SUBCLASE_ARMA1");
-					arrojadizaWeap2 = rs.getString("SUBCLASE_ARMA2");
-					arrojadizaWeap3 = rs.getString("SUBCLASE_ARMA3");
-					arrojadizaWeap4 = rs.getString("SUBCLASE_ARMA4");
+					armadura = ""+rs.getString("ARMADURA");
+					descripcionArm = ""+rs.getString("DESCRIPCION_ARMADURA");
+					posesionArm = ""+rs.getString("POSESION_ARMADURA");
+					prop1Arm = ""+rs.getString("PROPIEDAD1_ARMADURA");
+					prop2Arm = ""+rs.getString("PROPIEDAD2_ARMADURA");
+					prop3Arm = ""+rs.getString("PROPIEDAD3_ARMADURA");
+					weap1 = ""+rs.getString("ARMA1");
+					descripcionWeap1 = ""+rs.getString("DESCRIPCION_ARMA1");
+					posesionWeap1 = ""+rs.getString("POSESION_ARMA1");
+					prop1Weap1 = ""+rs.getString("PROPIEDAD1_ARMA1");
+					prop2Weap1 = ""+rs.getString("PROPIEDAD2_ARMA1");
+					prop3Weap1 = ""+rs.getString("PROPIEDAD3_ARMA1");
+					weap2 = ""+rs.getString("ARMA2");
+					descripcionWeap2 = ""+rs.getString("DESCRIPCION_ARMA2");
+					posesionWeap2 = ""+rs.getString("POSESION_ARMA2");
+					prop1Weap2 = ""+rs.getString("PROPIEDAD1_ARMA2");
+					prop2Weap2 = ""+rs.getString("PROPIEDAD2_ARMA2");
+					prop3Weap2 = ""+rs.getString("PROPIEDAD3_ARMA2");
+					weap3 = ""+rs.getString("ARMA3");
+					descripcionWeap3 = ""+rs.getString("DESCRIPCION_ARMA3");
+					posesionWeap3 = ""+rs.getString("POSESION_ARMA3");
+					prop1Weap3 = ""+rs.getString("PROPIEDAD1_ARMA3");
+					prop2Weap3 = ""+rs.getString("PROPIEDAD2_ARMA3");
+					prop3Weap3 = ""+rs.getString("PROPIEDAD3_ARMA3");
+					weap4 = ""+rs.getString("ARMA4");
+					descripcionWeap4 = ""+rs.getString("DESCRIPCION_ARMA4");
+					posesionWeap4 = ""+rs.getString("POSESION_ARMA4");
+					prop1Weap4 = ""+rs.getString("PROPIEDAD1_ARMA4");
+					prop2Weap4 = ""+rs.getString("PROPIEDAD2_ARMA4");
+					prop3Weap4 = ""+rs.getString("PROPIEDAD3_ARMA4");
+					obj1 = ""+rs.getString("OBJETO1");
+					descripcionObj1 = ""+rs.getString("DESCRIPCION_OBJETO1");
+					posesionObj1 = ""+rs.getString("POSESION_OBJETO1");
+					prop1Obj1 = ""+rs.getString("PROPIEDAD1_OBJETO1");
+					prop2Obj1 = ""+rs.getString("PROPIEDAD2_OBJETO1");
+					prop3Obj1 = ""+rs.getString("PROPIEDAD3_OBJETO1");
+					obj2 = ""+rs.getString("OBJETO2");
+					descripcionObj2 = ""+rs.getString("DESCRIPCION_OBJETO2");
+					posesionObj2 = ""+rs.getString("POSESION_OBJETO2");
+					prop1Obj2 = ""+rs.getString("PROPIEDAD1_OBJETO2");
+					prop2Obj2 = ""+rs.getString("PROPIEDAD2_OBJETO2");
+					prop3Obj2 = ""+rs.getString("PROPIEDAD3_OBJETO2");
+					obj3 = ""+rs.getString("OBJETO3");
+					descripcionObj3 = ""+rs.getString("DESCRIPCION_OBJETO3");
+					posesionObj3 = ""+rs.getString("POSESION_OBJETO3");
+					prop1Obj3 = ""+rs.getString("PROPIEDAD1_OBJETO3");
+					prop2Obj3 = ""+rs.getString("PROPIEDAD2_OBJETO3");
+					prop3Obj3 = ""+rs.getString("PROPIEDAD3_OBJETO3");
+					obj4 = ""+rs.getString("OBJETO4");
+					descripcionObj4 = ""+rs.getString("DESCRIPCION_OBJETO4");
+					posesionObj4 = ""+rs.getString("POSESION_OBJETO4");
+					prop1Obj4 = ""+rs.getString("PROPIEDAD1_OBJETO4");
+					prop2Obj4 = ""+rs.getString("PROPIEDAD2_OBJETO4");
+					prop3Obj4 = ""+rs.getString("PROPIEDAD3_OBJETO4");
+					acc1 = ""+rs.getString("ACCESORIO1");
+					descripcionAcc1 = ""+rs.getString("DESCRIPCION_ACCESORIO1");
+					posesionAcc1 = ""+rs.getString("POSESION_ACCESORIO1");
+					prop1Acc1 = ""+rs.getString("PROPIEDAD1_ACCESORIO1");
+					prop2Acc1 = ""+rs.getString("PROPIEDAD2_ACCESORIO1");
+					prop3Acc1 = ""+rs.getString("PROPIEDAD3_ACCESORIO1");
+					acc2 = ""+rs.getString("ACCESORIO2");
+					descripcionAcc2 = ""+rs.getString("DESCRIPCION_ACCESORIO2");
+					posesionAcc2 = ""+rs.getString("POSESION_ACCESORIO2");
+					prop1Acc2 = ""+rs.getString("PROPIEDAD1_ACCESORIO2");
+					prop2Acc2 = ""+rs.getString("PROPIEDAD2_ACCESORIO2");
+					prop3Acc2 = ""+rs.getString("PROPIEDAD3_ACCESORIO2");
+					acc3 = ""+rs.getString("ACCESORIO3");
+					descripcionAcc3 = ""+rs.getString("DESCRIPCION_ACCESORIO3");
+					posesionAcc3 = ""+rs.getString("POSESION_ACCESORIO3");
+					prop1Acc3 = ""+rs.getString("PROPIEDAD1_ACCESORIO3");
+					prop2Acc3 = ""+rs.getString("PROPIEDAD2_ACCESORIO3");
+					prop3Acc3 = ""+rs.getString("PROPIEDAD3_ACCESORIO3");
+					acc4 = ""+rs.getString("ACCESORIO4");
+					descripcionAcc4 = ""+rs.getString("DESCRIPCION_ACCESORIO4");
+					posesionAcc4 = ""+rs.getString("POSESION_ACCESORIO4");
+					prop1Acc4 = ""+rs.getString("PROPIEDAD1_ACCESORIO4");
+					prop2Acc4 = ""+rs.getString("PROPIEDAD2_ACCESORIO4");
+					prop3Acc4 = ""+rs.getString("PROPIEDAD3_ACCESORIO4");
+					tipoWeap1 = ""+rs.getString("TIPOARMA1");
+					tipoWeap2 = ""+rs.getString("TIPOARMA2");
+					tipoWeap3 = ""+rs.getString("TIPOARMA3");
+					tipoWeap4 = ""+rs.getString("TIPOARMA4");
+					tipoAcc1 = ""+rs.getString("TIPOACC1");
+					tipoAcc2 = ""+rs.getString("TIPOACC2");
+					tipoAcc3 = ""+rs.getString("TIPOACC3");
+					tipoAcc4 = ""+rs.getString("TIPOACC4");
+					arrojadizaWeap1 = ""+rs.getString("SUBCLASE_ARMA1");
+					arrojadizaWeap2 = ""+rs.getString("SUBCLASE_ARMA2");
+					arrojadizaWeap3 = ""+rs.getString("SUBCLASE_ARMA3");
+					arrojadizaWeap4 = ""+rs.getString("SUBCLASE_ARMA4");
 					salud = rs.getInt("SALUD");
 					mana = rs.getInt("MANA");
 					energia = rs.getInt("ENERGIA");
 					experiencia = rs.getInt("EXPERIENCIA");
 					sino = rs.getInt("SINO");
 					nivel = rs.getInt("NIVEL");
-					extras=rs.getString("EXTRAS");
+					extras=""+rs.getString("EXTRAS");
 					dinero=rs.getInt("DINERO");
-					modificadores=rs.getString("MODIFICADORES");
-					poderes=rs.getString("PODERES");
+					modificadores=""+rs.getString("MODIFICADORES");
+					poderes=""+rs.getString("PODERES");
 					exptotal=rs.getInt("EXPTOTAL");
 					campeon=rs.getInt("CAMPEON");
 					
@@ -1807,7 +2008,7 @@ public class VentanaJugadores {
 				}
 			}
 		});
-		textField.setBounds(10, 668, 402, 29);
+		textField.setBounds(10, 610, 402, 29);
 		frmHistoriasDeZagas.getContentPane().add(textField);
 		textField.setColumns(10);
 		
@@ -1854,11 +2055,11 @@ public class VentanaJugadores {
 		    
 			}
 		});
-		btnNewButton.setBounds(422, 668, 71, 29);
+		btnNewButton.setBounds(422, 610, 71, 29);
 		frmHistoriasDeZagas.getContentPane().add(btnNewButton);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 329, 564, 328);
+		scrollPane.setBounds(10, 329, 564, 270);
 		frmHistoriasDeZagas.getContentPane().add(scrollPane);
 		textArea.setEditable(false);
 		
@@ -1900,6 +2101,8 @@ public class VentanaJugadores {
 					
 				}
 				tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+(jugadores-1)+"");
+				writer.println("Hola:"+personaje.getName()+":LimpiaLista");
+				writer.flush();
 				sendDisconnect();
 				Disconnect();
 				frmHistoriasDeZagas.dispose();
@@ -1913,7 +2116,7 @@ public class VentanaJugadores {
 				
 			}
 		});
-		btnCerrar.setBounds(503, 668, 71, 29);
+		btnCerrar.setBounds(503, 610, 71, 29);
 		frmHistoriasDeZagas.getContentPane().add(btnCerrar);
 		
 		JLabel label = new JLabel((String) null);
@@ -1977,7 +2180,7 @@ public class VentanaJugadores {
 		frmHistoriasDeZagas.getContentPane().add(textField_1);
 		
 		
-		JProgressBar progressBar = new JProgressBar();
+
 		progressBar.setForeground(Color.RED);
 		progressBar.setMaximum(personaje.getLife());
 		progressBar.setValue(personaje.getLife());
@@ -1986,8 +2189,7 @@ public class VentanaJugadores {
 		progressBar.setBackground(Color.WHITE);
 		progressBar.setBounds(85, 120, 200, 14);
 		frmHistoriasDeZagas.getContentPane().add(progressBar);
-		
-		JProgressBar progressBar_2 = new JProgressBar();
+	
 		progressBar_2.setValue(personaje.getEndurance());
 		progressBar_2.setStringPainted(true);
 		progressBar_2.setMaximum(personaje.getEndurance());
@@ -1997,7 +2199,7 @@ public class VentanaJugadores {
 		progressBar_2.setBounds(85, 145, 200, 14);
 		frmHistoriasDeZagas.getContentPane().add(progressBar_2);
 		
-		JProgressBar progressBar_1 = new JProgressBar();
+
 		progressBar_1.setValue(personaje.getMana());
 		progressBar_1.setStringPainted(true);
 		progressBar_1.setMaximum(personaje.getMana());
@@ -2070,8 +2272,8 @@ public class VentanaJugadores {
 				
 				Object[] personaje={"Combate","Conocimientos","Magia","Destrezas"};
 				Object seleccion = JOptionPane.showInputDialog(
-						frmHistoriasDeZagas, "Seleccione opcion",
-						"Cargar Personaje", JOptionPane.PLAIN_MESSAGE,
+						frmHistoriasDeZagas, "Seleccione una opcion",
+						"Ver Habilidades", JOptionPane.PLAIN_MESSAGE,
 						null,personaje,null);
 				seleccion=seleccion+"";
 				if(seleccion.equals("Combate")){
@@ -2148,6 +2350,14 @@ public class VentanaJugadores {
 		frmHistoriasDeZagas.getContentPane().add(button_3);
 		
 		final JButton button_4 = new JButton("Equipo");
+		button_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				EquipoJugadores window = new EquipoJugadores();
+				window.getFrame().setVisible(true);
+			}
+		});
 		button_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -2259,6 +2469,55 @@ public class VentanaJugadores {
 		final JButton btnInformacin = new JButton("Informaci\u00F3n");
 		btnInformacin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				Object[] personaje={"Habilidades y sus Atributos","Armería","Conocimientos Mágicos","Tiradas Enfrentadas"};
+				Object seleccion = JOptionPane.showInputDialog(
+						frmHistoriasDeZagas, "Seleccione opcion",
+						"Cargar Personaje", JOptionPane.PLAIN_MESSAGE,
+						null,personaje,null);
+				seleccion=seleccion+"";
+				if(seleccion.equals("Habilidades y sus Atributos")){
+					
+
+					
+					File habilidades= new File("./htmls/Habilidades y Atributos.html");
+					try {
+						Desktop.getDesktop().open(habilidades);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				
+				}
+				if(seleccion.equals("Armería")){
+					File armeria= new File("./htmls/Armeria.html");
+					try {
+						Desktop.getDesktop().open(armeria);
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+				if(seleccion.equals("Conocimientos Mágicos")){
+					File habilidades= new File("./htmls/Conocimientosmagicos.html");
+					try {
+						Desktop.getDesktop().open(habilidades);
+					} catch (IOException e2) {
+						// TODO Auto-generated catch block
+						e2.printStackTrace();
+					}
+					
+				}
+				if(seleccion.equals("Tiradas Enfrentadas")){
+					File habilidades= new File("./htmls/Tiradas Enfrentada.html");
+					try {
+						Desktop.getDesktop().open(habilidades);
+					} catch (IOException e3) {
+						// TODO Auto-generated catch block
+						e3.printStackTrace();
+					}
+					
+				}
 			}
 		});
 		btnInformacin.addMouseListener(new MouseAdapter() {
