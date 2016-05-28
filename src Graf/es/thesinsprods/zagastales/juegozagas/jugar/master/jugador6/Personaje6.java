@@ -82,6 +82,10 @@ public class Personaje6 {
 	final Connection p = con.accederDB();
 	final Statement tabla=p.createStatement();
 	private JFrame frmHistoriasDeZagas;
+	public static int saludM;
+	public static int energiaM;
+	public static int manaM;
+	
 	JProgressBar progressBar = new JProgressBar();
 	JProgressBar progressBar_2 = new JProgressBar();
 	JProgressBar progressBar_1 = new JProgressBar();
@@ -212,7 +216,7 @@ public class Personaje6 {
 		
 
 		progressBar.setForeground(Color.RED);
-		progressBar.setMaximum(JugarOnline.personaje6.getLife());
+		progressBar.setMaximum(saludM);
 		progressBar.setValue(JugarOnline.personaje6.getLife());
 		progressBar.setString(progressBar.getValue()+"/"+progressBar.getMaximum());
 		progressBar.setStringPainted(true);
@@ -222,7 +226,7 @@ public class Personaje6 {
 	
 		progressBar_2.setValue(JugarOnline.personaje6.getEndurance());
 		progressBar_2.setStringPainted(true);
-		progressBar_2.setMaximum(JugarOnline.personaje6.getEndurance());
+		progressBar_2.setMaximum(energiaM);
 		progressBar_2.setString(progressBar_2.getValue()+"/"+progressBar_2.getMaximum());
 		progressBar_2.setForeground(new Color(0, 128, 0));
 		progressBar_2.setBackground(Color.WHITE);
@@ -232,7 +236,7 @@ public class Personaje6 {
 
 		progressBar_1.setValue(JugarOnline.personaje6.getMana());
 		progressBar_1.setStringPainted(true);
-		progressBar_1.setMaximum(JugarOnline.personaje6.getMana());
+		progressBar_1.setMaximum(manaM);
 		progressBar_1.setString(progressBar_1.getValue()+"/"+progressBar_1.getMaximum());
 		progressBar_1.setForeground(Color.BLUE);
 		progressBar_1.setBackground(Color.WHITE);
@@ -519,7 +523,8 @@ public class Personaje6 {
 		button_8.setFocusPainted(false);
 		button_8.setContentAreaFilled(false);
 		button_8.setBorderPainted(false);
-		button_8.setBorder(new BevelBorder(BevelBorder.RAISED, null, null,
+		button_8.setBorder(new BevelBorder(BevelBorder.RAISED, null, null,
+
 						null, null));
 		button_8.setBackground(new Color(139, 69, 19));
 		button_8.setBounds(10, 261, 99, 45);
