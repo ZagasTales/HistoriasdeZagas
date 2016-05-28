@@ -1,4 +1,4 @@
-package es.thesinsprods.zagastales.juegozagas.jugar.master.jugador9;
+package es.thesinsprods.zagastales.juegozagas.jugar.master.npc1;
 
 import java.awt.EventQueue;
 import java.io.BufferedReader;
@@ -75,7 +75,7 @@ import java.awt.event.MouseEvent;
 import java.awt.Toolkit;
 import javax.swing.border.BevelBorder;
 
-public class Personaje9 {
+public class NPC1 {
 
 	MorpheusFont mf = new MorpheusFont();
 	final ConexionDBOnline con = new ConexionDBOnline();
@@ -113,7 +113,7 @@ public class Personaje9 {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Personaje9 window = new Personaje9();
+					NPC1 window = new NPC1();
 					window.frmHistoriasDeZagas.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -130,7 +130,7 @@ public class Personaje9 {
 	 * @throws InstantiationException 
 	 * @throws ClassNotFoundException 
 	 */
-	public Personaje9() throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, SQLException {
+	public NPC1() throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, SQLException {
 		initialize();
 	}
 
@@ -145,7 +145,7 @@ public class Personaje9 {
 	private void initialize() throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, SQLException {
 		frmHistoriasDeZagas = new JFrame();
 		frmHistoriasDeZagas.setTitle("Historias de Zagas");
-		frmHistoriasDeZagas.setIconImage(Toolkit.getDefaultToolkit().getImage(Personaje9.class.getResource("/images/Historias de Zagas, logo.png")));
+		frmHistoriasDeZagas.setIconImage(Toolkit.getDefaultToolkit().getImage(NPC1.class.getResource("/images/Historias de Zagas, logo.png")));
 		frmHistoriasDeZagas.setResizable(false);
 		frmHistoriasDeZagas.setBounds(100, 100, 590, 346);
 		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -155,7 +155,7 @@ public class Personaje9 {
 		
 		JLabel label = new JLabel((String) null);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setText(JugarOnline.personaje9.getName());
+		label.setText(JugarOnline.npc1.getName());
 		label.setForeground(Color.WHITE);
 		label.setFont(mf.MyFont(0, 32));
 		label.setBounds(25, 11, 549, 53);
@@ -163,13 +163,13 @@ public class Personaje9 {
 		
 		JLabel label_1 = new JLabel((String) null);
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
-		label_1.setText(JugarOnline.personaje9.getRace().getRace());
+		label_1.setText(JugarOnline.npc1.getRace().getRace());
 		label_1.setForeground(Color.WHITE);
 		label_1.setFont(mf.MyFont(0, 20));
 		label_1.setBounds(25, 75, 256, 26);
 		frmHistoriasDeZagas.getContentPane().add(label_1);
 		
-		JLabel label_2 = new JLabel("Nivel: "+JugarOnline.personaje9.getNivel());
+		JLabel label_2 = new JLabel("Nivel: "+JugarOnline.npc1.getNivel());
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
 		label_2.setForeground(Color.WHITE);
 		label_2.setFont(mf.MyFont(0, 20));
@@ -194,7 +194,7 @@ public class Personaje9 {
 		label_5.setBounds(10, 170, 46, 14);
 		frmHistoriasDeZagas.getContentPane().add(label_5);
 		
-		JLabel label_6 = new JLabel("Edad: "+JugarOnline.personaje9.getAge());
+		JLabel label_6 = new JLabel("Edad: "+JugarOnline.npc1.getAge());
 		label_6.setForeground(Color.WHITE);
 		label_6.setFont(mf.MyFont(0, 16));
 		label_6.setBounds(10, 195, 105, 14);
@@ -208,7 +208,7 @@ public class Personaje9 {
 		
 		textField_1 = new JTextField();
 		textField_1.setEditable(false);
-		textField_1.setText(""+JugarOnline.personaje9.getExperience());
+		textField_1.setText(""+JugarOnline.npc1.getExperience());
 		textField_1.setColumns(10);
 		textField_1.setBounds(102, 220, 60, 20);
 		frmHistoriasDeZagas.getContentPane().add(textField_1);
@@ -217,14 +217,14 @@ public class Personaje9 {
 
 		progressBar.setForeground(Color.RED);
 		progressBar.setMaximum(saludM);
-		progressBar.setValue(JugarOnline.personaje9.getLife());
+		progressBar.setValue(JugarOnline.npc1.getLife());
 		progressBar.setString(progressBar.getValue()+"/"+progressBar.getMaximum());
 		progressBar.setStringPainted(true);
 		progressBar.setBackground(Color.WHITE);
 		progressBar.setBounds(85, 120, 200, 14);
 		frmHistoriasDeZagas.getContentPane().add(progressBar);
 	
-		progressBar_2.setValue(JugarOnline.personaje9.getEndurance());
+		progressBar_2.setValue(JugarOnline.npc1.getEndurance());
 		progressBar_2.setStringPainted(true);
 		progressBar_2.setMaximum(energiaM);
 		progressBar_2.setString(progressBar_2.getValue()+"/"+progressBar_2.getMaximum());
@@ -234,7 +234,7 @@ public class Personaje9 {
 		frmHistoriasDeZagas.getContentPane().add(progressBar_2);
 		
 
-		progressBar_1.setValue(JugarOnline.personaje9.getMana());
+		progressBar_1.setValue(JugarOnline.npc1.getMana());
 		progressBar_1.setStringPainted(true);
 		progressBar_1.setMaximum(manaM);
 		progressBar_1.setString(progressBar_1.getValue()+"/"+progressBar_1.getMaximum());
@@ -254,15 +254,15 @@ public class Personaje9 {
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				button.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj2.png")));
+				button.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj2.png")));
 			}
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				button.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj1.png")));
+				button.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj1.png")));
 			}
 		});
 		button.setFont(mf.MyFont(0,11));
-		button.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj1.png")));
+		button.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj1.png")));
 		button.setFocusPainted(false);
 		button.setContentAreaFilled(false);
 		button.setBorderPainted(false);
@@ -283,15 +283,15 @@ public class Personaje9 {
 		button_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				button_1.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj2.png")));
+				button_1.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj2.png")));
 			}
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				button_1.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj1.png")));
+				button_1.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj1.png")));
 			}
 		});
 		button_1.setFont(mf.MyFont(0,11));
-		button_1.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj1.png")));
+		button_1.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj1.png")));
 		button_1.setFocusPainted(false);
 		button_1.setContentAreaFilled(false);
 		button_1.setBorderPainted(false);
@@ -338,15 +338,15 @@ public class Personaje9 {
 		button_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				button_2.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj2.png")));
+				button_2.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj2.png")));
 			}
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				button_2.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj1.png")));
+				button_2.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj1.png")));
 			}
 		});
 		button_2.setFont(mf.MyFont(0,11));
-		button_2.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj1.png")));
+		button_2.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj1.png")));
 		button_2.setFocusPainted(false);
 		button_2.setContentAreaFilled(false);
 		button_2.setBorderPainted(false);
@@ -366,15 +366,15 @@ public class Personaje9 {
 		button_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				button_3.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj2.png")));
+				button_3.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj2.png")));
 			}
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				button_3.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj1.png")));
+				button_3.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj1.png")));
 			}
 		});
 		button_3.setFont(mf.MyFont(0,11));
-		button_3.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj1.png")));
+		button_3.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj1.png")));
 		button_3.setFocusPainted(false);
 		button_3.setContentAreaFilled(false);
 		button_3.setBorderPainted(false);
@@ -395,15 +395,15 @@ public class Personaje9 {
 		button_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				button_4.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj2.png")));
+				button_4.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj2.png")));
 			}
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				button_4.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj1.png")));
+				button_4.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj1.png")));
 			}
 		});
 		button_4.setFont(mf.MyFont(0,11));
-		button_4.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj1.png")));
+		button_4.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj1.png")));
 		button_4.setFocusPainted(false);
 		button_4.setContentAreaFilled(false);
 		button_4.setBorderPainted(false);
@@ -423,15 +423,15 @@ public class Personaje9 {
 		button_5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				button_5.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj2.png")));
+				button_5.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj2.png")));
 			}
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				button_5.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj1.png")));
+				button_5.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj1.png")));
 			}
 		});
 		button_5.setFont(mf.MyFont(0,11));
-		button_5.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj1.png")));
+		button_5.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj1.png")));
 		button_5.setFocusPainted(false);
 		button_5.setContentAreaFilled(false);
 		button_5.setBorderPainted(false);
@@ -447,22 +447,22 @@ public class Personaje9 {
 				JOptionPane
 				.showMessageDialog(
 						frmHistoriasDeZagas,
-						"El estado del personaje es: "+JugarOnline.personaje9.getEstado(),
+						"El estado del personaje es: "+JugarOnline.npc1.getEstado(),
 						"", JOptionPane.PLAIN_MESSAGE);
 			}
 		});
 		button_6.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				button_6.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj2.png")));
+				button_6.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj2.png")));
 			}
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				button_6.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj1.png")));
+				button_6.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj1.png")));
 			}
 		});
 		button_6.setFont(mf.MyFont(0,11));
-		button_6.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj1.png")));
+		button_6.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj1.png")));
 		button_6.setFocusPainted(false);
 		button_6.setContentAreaFilled(false);
 		button_6.setBorderPainted(false);
@@ -483,15 +483,15 @@ public class Personaje9 {
 		button_7.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				button_7.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj2.png")));
+				button_7.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj2.png")));
 			}
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				button_7.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj1.png")));
+				button_7.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj1.png")));
 			}
 		});
 		button_7.setFont(mf.MyFont(0,11));
-		button_7.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton fichas pj1.png")));
+		button_7.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton fichas pj1.png")));
 		button_7.setFocusPainted(false);
 		button_7.setContentAreaFilled(false);
 		button_7.setBorderPainted(false);
@@ -504,11 +504,11 @@ public class Personaje9 {
 		button_8.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
-				button_8.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton atras2.png")));
+				button_8.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton atras2.png")));
 			}
 			@Override
 			public void mouseReleased(MouseEvent arg0) {
-				button_8.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton atras.png")));
+				button_8.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton atras.png")));
 			}
 		});
 		button_8.addActionListener(new ActionListener() {
@@ -516,7 +516,7 @@ public class Personaje9 {
 				frmHistoriasDeZagas.dispose();
 			}
 		});
-		button_8.setIcon(new ImageIcon(Personaje9.class.getResource("/images/boton atras.png")));
+		button_8.setIcon(new ImageIcon(NPC1.class.getResource("/images/boton atras.png")));
 		button_8.setOpaque(false);
 		button_8.setForeground(Color.WHITE);
 		button_8.setFont(new Font("Morpheus", Font.PLAIN, 15));
@@ -531,7 +531,7 @@ public class Personaje9 {
 		frmHistoriasDeZagas.getContentPane().add(button_8);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(Personaje9.class.getResource("/images/background-ventanajugadores.jpg")));
+		lblNewLabel.setIcon(new ImageIcon(NPC1.class.getResource("/images/background-ventanajugadores.jpg")));
 		lblNewLabel.setBounds(0, 0, 584, 708);
 		frmHistoriasDeZagas.getContentPane().add(lblNewLabel);
 	
