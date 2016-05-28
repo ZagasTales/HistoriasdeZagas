@@ -55,10 +55,28 @@ import es.thesinsprods.zagastales.characters.skills.KnowledgeSkills;
 import es.thesinsprods.zagastales.characters.skills.MagicSkills;
 import es.thesinsprods.zagastales.characters.skills.SkillOutOfBoundsException;
 import es.thesinsprods.zagastales.characters.skills.SkillPoints;
+import es.thesinsprods.zagastales.diceroll.DiceRoll;
 import es.thesinsprods.zagastales.juegozagas.inicio.Inicio;
 import es.thesinsprods.zagastales.juegozagas.inicio.Loader;
 import es.thesinsprods.zagastales.juegozagas.jugar.jugador.VentanaJugadores.IncomingReader;
 import es.thesinsprods.zagastales.juegozagas.jugar.master.jugador1.Personaje1;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.jugador2.Personaje2;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.jugador3.Personaje3;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.jugador4.Personaje4;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.jugador5.Personaje5;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.jugador6.Personaje6;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.jugador7.Personaje7;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.jugador8.Personaje8;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.jugador9.Personaje9;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.npc1.NPC1;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.npc2.NPC2;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.npc3.NPC3;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.npc4.NPC4;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.npc5.NPC5;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.npc6.NPC6;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.npc7.NPC7;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.npc8.NPC8;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.npc9.NPC9;
 import es.thesinsprods.zagastales.jugar.online.server.SystemServer;
 
 import javax.swing.JPanel;
@@ -148,6 +166,7 @@ public class JugarOnline {
 	public static Characters npc8=null;
 	public static Characters npc9=null;
 	private JTextField textField;
+	public static int saludMax;
 	ArrayList<String> jugadores = new ArrayList<String>();
 	ArrayList<String> npcs = new ArrayList<String>();
 	ArrayList<String> npcGenerico = new ArrayList<String>();
@@ -1692,12 +1711,19 @@ public class JugarOnline {
 	         						button.setText(data[1]);
 	         						personaje1=intermedio;
 	         						jugadores.add(personaje1.getName());
-	         					}
+	         						Personaje1.saludM=personaje1.getLife();
+	         						Personaje1.manaM=personaje1.getMana();
+	         						Personaje1.energiaM=personaje1.getEndurance();
+	         								}
 	         					else{ if(button_1.getText().equals("")){
 	         					
 	         						button_1.setText(data[1]);
 	         						personaje2=intermedio;
-	         						jugadores.add(personaje2.getName());
+	         						jugadores.add(personaje2.getName());		
+	         						Personaje2.saludM=personaje1.getLife();
+	         						Personaje2.manaM=personaje1.getMana();
+	         						Personaje2.energiaM=personaje1.getEndurance();
+	         						
 	         						
 	         					}
 	         					else{
@@ -1706,6 +1732,9 @@ public class JugarOnline {
 	         							button_2.setText(data[1]);
 	         							personaje3=intermedio;
 	         							jugadores.add(personaje3.getName());
+	         							Personaje3.saludM=personaje1.getLife();
+		         						Personaje3.manaM=personaje1.getMana();
+		         						Personaje3.energiaM=personaje1.getEndurance();
 	         						}
 	         					
 	         						else{if(button_3.getText().equals("")){
@@ -1713,24 +1742,37 @@ public class JugarOnline {
 	         							button_3.setText(data[1]);
 	         							personaje4=intermedio;
 	         							jugadores.add(personaje4.getName());
+	         							Personaje4.saludM=personaje1.getLife();
+		         						Personaje4.manaM=personaje1.getMana();
+		         						Personaje4.energiaM=personaje1.getEndurance();
 	         						}
 	         						else{if(button_4.getText().equals("")){
 	         							
 	         							button_4.setText(data[1]);
 	         							personaje5=intermedio;
 	         							jugadores.add(personaje5.getName());
+	         							Personaje5.saludM=personaje1.getLife();
+		         						Personaje5.manaM=personaje1.getMana();
+		         						Personaje5.energiaM=personaje1.getEndurance();
 	         						}
 	         						else{if(button_5.getText().equals("")){
 	         							
 	         							button_5.setText(data[1]);
 	         							personaje6=intermedio;
 	         							jugadores.add(personaje6.getName());
+	         							Personaje6.saludM=personaje1.getLife();
+		         						Personaje6.manaM=personaje1.getMana();
+		         						Personaje6.energiaM=personaje1.getEndurance();
 	         						}
 	         						else{if(button_6.getText().equals("")){
 	         							
 	         							button_6.setText(data[1]);
 	         							personaje7=intermedio;
 	         							jugadores.add(personaje7.getName());
+	         							Personaje7.saludM=personaje1.getLife();
+		         						Personaje7.manaM=personaje1.getMana();
+		         						Personaje7.energiaM=personaje1.getEndurance();
+	         						
 	         						}
 	         						
 	         						else{if(button_7.getText().equals("")){
@@ -1738,12 +1780,18 @@ public class JugarOnline {
 	         							button_7.setText(data[1]);
 	         							personaje8=intermedio;
 	         							jugadores.add(personaje8.getName());
+	         							Personaje8.saludM=personaje1.getLife();
+		         						Personaje8.manaM=personaje1.getMana();
+		         						Personaje8.energiaM=personaje1.getEndurance();
 	         						}
 	         						else{if(button_8.getText().equals("")){
 	         							
 	         							button_8.setText(data[1]);
 	         							personaje9=intermedio;
 	         							jugadores.add(personaje9.getName());
+	         							Personaje9.saludM=personaje1.getLife();
+		         						Personaje9.manaM=personaje1.getMana();
+		         						Personaje9.energiaM=personaje1.getEndurance();
 	         						}
 	         						
 	         						else{}
@@ -1952,6 +2000,13 @@ public class JugarOnline {
 		menuBar.add(mnEliminar);
 		
 		JMenuItem mntmJugador = new JMenuItem("Jugador");
+		mntmJugador.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
+			}
+		});
 		mnEliminar.add(mntmJugador);
 		
 		JMenuItem menuItem = new JMenuItem("NPC");
@@ -2083,6 +2138,22 @@ public class JugarOnline {
 		panel_1.setLayout(null);
 		
 		final JButton button_10 = new JButton("");
+		button_10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				NPC1 window;
+				try {
+					window = new NPC1();
+					window.getFrame().setVisible(true);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+						| SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+				
+			}
+		});
 		button_10.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_10.setOpaque(false);
 		button_10.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -2094,6 +2165,24 @@ public class JugarOnline {
 		panel_1.add(button_10);
 		
 		final JButton button_11 = new JButton("");
+		button_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				
+				NPC2 window;
+				try {
+					window = new NPC2();
+					window.getFrame().setVisible(true);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+						| SQLException e3) {
+					// TODO Auto-generated catch block
+					e3.printStackTrace();
+				}
+			
+				
+			
+			}
+		});
 		button_11.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_11.setOpaque(false);
 		button_11.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -2105,6 +2194,26 @@ public class JugarOnline {
 		panel_1.add(button_11);
 		
 		final JButton button_12 = new JButton("");
+		button_12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+
+				
+				NPC3 window;
+				try {
+					window = new NPC3();
+					window.getFrame().setVisible(true);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+						| SQLException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+			
+				
+			
+				
+			}
+		});
 		button_12.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_12.setOpaque(false);
 		button_12.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -2116,6 +2225,26 @@ public class JugarOnline {
 		panel_1.add(button_12);
 		
 		final JButton button_13 = new JButton("");
+		button_13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+
+				
+				NPC4 window;
+				try {
+					window = new NPC4();
+					window.getFrame().setVisible(true);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+						| SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			
+				
+			
+				
+			}
+		});
 		button_13.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_13.setOpaque(false);
 		button_13.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -2127,6 +2256,24 @@ public class JugarOnline {
 		panel_1.add(button_13);
 		
 		final JButton button_14 = new JButton("");
+		button_14.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				
+				NPC5 window;
+				try {
+					window = new NPC5();
+					window.getFrame().setVisible(true);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+						| SQLException e4) {
+					// TODO Auto-generated catch block
+					e4.printStackTrace();
+				}
+			
+				
+			
+			}
+		});
 		button_14.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_14.setOpaque(false);
 		button_14.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -2138,6 +2285,24 @@ public class JugarOnline {
 		panel_1.add(button_14);
 		
 		final JButton button_15 = new JButton("");
+		button_15.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				
+				NPC6 window;
+				try {
+					window = new NPC6();
+					window.getFrame().setVisible(true);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+						| SQLException e6) {
+					// TODO Auto-generated catch block
+					e6.printStackTrace();
+				}
+			
+				
+			
+			}
+		});
 		button_15.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_15.setOpaque(false);
 		button_15.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -2149,6 +2314,24 @@ public class JugarOnline {
 		panel_1.add(button_15);
 		
 		final JButton button_16 = new JButton("");
+		button_16.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				
+				NPC7 window;
+				try {
+					window = new NPC7();
+					window.getFrame().setVisible(true);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+						| SQLException e7) {
+					// TODO Auto-generated catch block
+					e7.printStackTrace();
+				}
+			
+				
+			
+			}
+		});
 		button_16.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_16.setOpaque(false);
 		button_16.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -2160,6 +2343,26 @@ public class JugarOnline {
 		panel_1.add(button_16);
 		
 		final JButton button_17 = new JButton("");
+		button_17.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+
+				
+				NPC8 window;
+				try {
+					window = new NPC8();
+					window.getFrame().setVisible(true);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+						| SQLException e8) {
+					// TODO Auto-generated catch block
+					e8.printStackTrace();
+				}
+			
+				
+			
+				
+			}
+		});
 		button_17.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_17.setOpaque(false);
 		button_17.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -2171,6 +2374,26 @@ public class JugarOnline {
 		panel_1.add(button_17);
 		
 		final JButton button_18 = new JButton("");
+		button_18.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+
+				
+				NPC9 window;
+				try {
+					window = new NPC9();
+					window.getFrame().setVisible(true);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+						| SQLException e9) {
+					// TODO Auto-generated catch block
+					e9.printStackTrace();
+				}
+			
+				
+			
+				
+			}
+		});
 		button_18.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_18.setOpaque(false);
 		button_18.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -2407,10 +2630,1678 @@ public class JugarOnline {
 		panel_5.add(btnNewButton_1);
 		
 		JButton btnTiradasAleatorias = new JButton("Tiradas Aleatorias");
+		btnTiradasAleatorias.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Object seleccion = JOptionPane.showInputDialog(
+			               null,
+			               "Tirada Aleatoria",
+			               "Seleccione el tipo de dado que quiere lanzar",
+			               JOptionPane.PLAIN_MESSAGE,
+			               null,  // null para icono defecto
+			               new Object[] { "d20", "d12", "d10","d8","d6","d4" }, 
+			               "opcion 1");
+			        seleccion=seleccion+"";
+			        
+			      
+			        
+			        if(seleccion.equals("d20")){
+			          writer.println("Información: El master ha lanzado un d20 y el resultado ha sido "+DiceRoll.LanzaDadoAleatorio20()+" :Chat");
+			          writer.flush();          
+			        }
+			        if(seleccion.equals("d12")){
+			          writer.println("Información: El master ha lanzado un d12 y el resultado ha sido "+DiceRoll.LanzaDadoAleatorio12()+" :Chat");
+			          writer.flush();          
+			        }
+			        
+			        if(seleccion.equals("d10")){
+			          writer.println("Información: El master ha lanzado un d10 y el resultado ha sido "+DiceRoll.LanzaDadoAleatorio10()+" :Chat");
+			          writer.flush();          
+			        }
+			        if(seleccion.equals("d8")){          
+			          writer.println("Información: El master ha lanzado un d8 y el resultado ha sido "+DiceRoll.LanzaDadoAleatorio8()+" :Chat");
+			          writer.flush();          
+			        }
+			        if(seleccion.equals("d6")){
+			          writer.println("Información: El master ha lanzado un d6 y el resultado ha sido "+DiceRoll.LanzaDadoAleatorio6()+" :Chat");
+			          writer.flush();          
+			        }
+			        if(seleccion.equals("d4")){
+			          writer.println("Información: El master ha lanzado un d4 y el resultado ha sido "+DiceRoll.LanzaDadoAleatorio4()+" :Chat");
+			          writer.flush();          
+			        }
+			}
+		});
 		btnTiradasAleatorias.setBounds(10, 130, 187, 31);
 		panel_5.add(btnTiradasAleatorias);
 		
 		JButton btnTiradasDeImpacto = new JButton("Tiradas de Impacto");
+		btnTiradasDeImpacto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+
+				
+				Object [] personajes= jugadores.toArray();
+				Object jugador = JOptionPane.showInputDialog(
+						frmHistoriasDeZagas, "Seleccione el personaje con el que se va a impactar.",
+						"Tiradas de Impacto", JOptionPane.PLAIN_MESSAGE,
+						null,personajes,null);
+				jugador=jugador+"";
+				
+				Object seleccion = JOptionPane.showInputDialog(
+						   null,
+						   "Tiradas de Impacto",
+						   "Seleccione cual fue el resultado",
+						   JOptionPane.PLAIN_MESSAGE,
+						   null,  // null para icono defecto
+						   new Object[] { "Correcto","Bien","Excelente","Crítico"}, 
+						   "opcion 1");
+				seleccion=seleccion+"";
+				
+				if(seleccion.equals("Correcto")){
+					if(personaje1.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje1.getAtributes().getResistance());
+						int resultado= 0-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje2.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje2.getAtributes().getResistance());
+						int resultado= 0-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje3.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje3.getAtributes().getResistance());
+						int resultado= 0-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje4.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje4.getAtributes().getResistance());
+						int resultado= 0-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje5.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje5.getAtributes().getResistance());
+						int resultado= 0-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje6.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje6.getAtributes().getResistance());
+						int resultado= 0-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje7.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje7.getAtributes().getResistance());
+						int resultado= 0-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje8.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje8.getAtributes().getResistance());
+						int resultado= 0-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje9.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje9.getAtributes().getResistance());
+						int resultado= 0-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+								
+				}
+				
+				else if(seleccion.equals("Bien")){
+					if(personaje1.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje1.getAtributes().getResistance());
+						int resultado= 1-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje2.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje2.getAtributes().getResistance());
+						int resultado= 1-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje3.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje3.getAtributes().getResistance());
+						int resultado= 1-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje4.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje4.getAtributes().getResistance());
+						int resultado= 1-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje5.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje5.getAtributes().getResistance());
+						int resultado= 1-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje6.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje6.getAtributes().getResistance());
+						int resultado= 1-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje7.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje7.getAtributes().getResistance());
+						int resultado= 1-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje8.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje8.getAtributes().getResistance());
+						int resultado= 1-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje9.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje9.getAtributes().getResistance());
+						int resultado= 1-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+						
+				}
+				
+				else if(seleccion.equals("Excelente")){					
+					
+					if(personaje1.getName().equals(jugador)){
+					
+					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje1.getAtributes().getResistance());
+					int resultado= 2-resistencia;
+					
+					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+					writer.flush();	
+					
+						if(resultado>=3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 5",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 4",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 3",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==0){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado<=-3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+				}
+				else if(personaje2.getName().equals(jugador)){
+					
+					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje2.getAtributes().getResistance());
+					int resultado= 2-resistencia;
+					
+					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+					writer.flush();	
+					
+						if(resultado>=3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 5",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 4",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 3",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==0){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado<=-3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+				}
+				else if(personaje3.getName().equals(jugador)){
+					
+					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje3.getAtributes().getResistance());
+					int resultado= 2-resistencia;
+					
+					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+					writer.flush();	
+					
+						if(resultado>=3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 5",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 4",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 3",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==0){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado<=-3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+				}
+				else if(personaje4.getName().equals(jugador)){
+					
+					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje4.getAtributes().getResistance());
+					int resultado= 2-resistencia;
+					
+					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+					writer.flush();	
+					
+						if(resultado>=3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 5",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 4",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 3",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==0){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado<=-3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+				}
+				else if(personaje5.getName().equals(jugador)){
+					
+					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje5.getAtributes().getResistance());
+					int resultado= 2-resistencia;
+					
+					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+					writer.flush();	
+					
+						if(resultado>=3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 5",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 4",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 3",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==0){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado<=-3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+				}
+				else if(personaje6.getName().equals(jugador)){
+					
+					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje6.getAtributes().getResistance());
+					int resultado= 2-resistencia;
+					
+					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+					writer.flush();	
+					
+						if(resultado>=3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 5",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 4",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 3",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==0){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado<=-3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+				}
+				else if(personaje7.getName().equals(jugador)){
+					
+					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje7.getAtributes().getResistance());
+					int resultado= 2-resistencia;
+					
+					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+					writer.flush();	
+					
+						if(resultado>=3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 5",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 4",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 3",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==0){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado<=-3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+				}
+				else if(personaje8.getName().equals(jugador)){
+					
+					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje8.getAtributes().getResistance());
+					int resultado= 2-resistencia;
+					
+					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+					writer.flush();	
+					
+						if(resultado>=3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 5",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 4",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 3",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==0){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado<=-3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+				}
+				else if(personaje9.getName().equals(jugador)){
+					
+					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje9.getAtributes().getResistance());
+					int resultado= 2-resistencia;
+					
+					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+					writer.flush();	
+					
+						if(resultado>=3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 5",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 4",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 3",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==0){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-1){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 2",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado==-2){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+						else if(resultado<=-3){JOptionPane
+							.showMessageDialog(
+									frmHistoriasDeZagas,
+									"La cantidad de vida recomendada a quitar es 1",
+									"", JOptionPane.PLAIN_MESSAGE);}
+				}
+					}
+				
+				else if(seleccion.equals("Crítico")){
+					if(personaje1.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje1.getAtributes().getResistance());
+						int resultado= 3-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje2.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje2.getAtributes().getResistance());
+						int resultado= 3-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje3.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje3.getAtributes().getResistance());
+						int resultado= 3-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje4.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje4.getAtributes().getResistance());
+						int resultado= 3-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje5.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje5.getAtributes().getResistance());
+						int resultado= 3-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje6.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje6.getAtributes().getResistance());
+						int resultado= 3-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje7.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje7.getAtributes().getResistance());
+						int resultado= 3-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje8.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje8.getAtributes().getResistance());
+						int resultado= 3-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+					else if(personaje9.getName().equals(jugador)){
+						
+						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje9.getAtributes().getResistance());
+						int resultado= 3-resistencia;
+						
+						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
+						writer.flush();	
+						
+							if(resultado>=3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 5",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 4",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 3",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==0){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-1){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 2",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado==-2){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+							else if(resultado<=-3){JOptionPane
+								.showMessageDialog(
+										frmHistoriasDeZagas,
+										"La cantidad de vida recomendada a quitar es 1",
+										"", JOptionPane.PLAIN_MESSAGE);}
+					}
+						
+				}
+				
+				
+			
+				
+			}
+		});
 		btnTiradasDeImpacto.setBounds(10, 190, 187, 31);
 		panel_5.add(btnTiradasDeImpacto);
 		
@@ -2427,8 +4318,158 @@ public class JugarOnline {
 		JButton btnModificarSem = new JButton("Modificar S/E/M");
 		btnModificarSem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				writer.println(/*Usuario escogido*/":"/*Cantidad escogida*/+":ModificarSEM:"/*Salud-Energia-Mana*/);
-				writer.flush();
+				
+				Object [] personajes= jugadores.toArray();
+				Object jugador = JOptionPane.showInputDialog(
+						frmHistoriasDeZagas, "Seleccione el personaje al que quiere modificar.",
+						"Modificar S/E/M", JOptionPane.PLAIN_MESSAGE,
+						null,personajes,null);
+				jugador=jugador+"";
+				
+				Object seleccion = JOptionPane.showInputDialog(
+						   null,
+						   "Tiradas de Impacto",
+						   "Seleccione cual fue el resultado",
+						   JOptionPane.PLAIN_MESSAGE,
+						   null,  // null para icono defecto
+						   new Object[] {"Salud","Salud Máxima","Energía","Energía Máxima","Maná","Maná Máximo"}, 
+						   "opcion 1");
+				seleccion=seleccion+"";
+				
+				String cant = JOptionPane.showInputDialog(
+						frmHistoriasDeZagas, "Introduce la cantidad en que modificar.", "",
+						JOptionPane.PLAIN_MESSAGE);				
+				
+				if(seleccion.equals("Salud")){
+					writer.println(jugador + ":"+Integer.parseInt(cant)+":ModificarSEM:Salud");
+					writer.flush();
+					
+					if(jugador.equals(personaje1.getName())){
+						personaje1.setLife(personaje1.getLife()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje2.getName())){
+						personaje2.setLife(personaje2.getLife()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje3.getName())){
+						personaje3.setLife(personaje3.getLife()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje4.getName())){
+						personaje4.setLife(personaje4.getLife()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje5.getName())){
+						personaje5.setLife(personaje5.getLife()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje6.getName())){
+						personaje6.setLife(personaje6.getLife()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje7.getName())){
+						personaje7.setLife(personaje7.getLife()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje8.getName())){
+						personaje8.setLife(personaje8.getLife()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje9.getName())){
+						personaje9.setLife(personaje9.getLife()+ Integer.parseInt(cant));
+					}
+				}
+				else if(seleccion.equals("Salud Máxima")){
+					writer.println(jugador + ":"+Integer.parseInt(cant)+":ModificarSEM:Salud Máxima");
+					writer.flush();}
+				else if(seleccion.equals("Energía")){
+					writer.println(jugador + ":"+Integer.parseInt(cant)+":ModificarSEM:Energía");
+					writer.flush();
+					
+					if(jugador.equals(personaje1.getName())){
+						personaje1.setEndurance(personaje1.getEndurance()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje2.getName())){
+						personaje2.setEndurance(personaje2.getEndurance()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje3.getName())){
+						personaje3.setEndurance(personaje3.getEndurance()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje4.getName())){
+						personaje4.setEndurance(personaje4.getEndurance()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje5.getName())){
+						personaje5.setEndurance(personaje5.getEndurance()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje6.getName())){
+						personaje6.setEndurance(personaje6.getEndurance()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje7.getName())){
+						personaje7.setEndurance(personaje7.getEndurance()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje8.getName())){
+						personaje8.setEndurance(personaje8.getEndurance()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje9.getName())){
+						personaje9.setEndurance(personaje9.getEndurance()+ Integer.parseInt(cant));
+					}
+				}
+				else if(seleccion.equals("Energía Máxima")){
+					writer.println(jugador + ":"+Integer.parseInt(cant)+":ModificarSEM:Energía Máxima");
+					writer.flush();}
+				else if(seleccion.equals("Maná")){
+					writer.println(jugador + ":"+Integer.parseInt(cant)+":ModificarSEM:Maná");
+					writer.flush();
+					
+					if(jugador.equals(personaje1.getName())){
+						personaje1.setMana(personaje1.getMana()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje2.getName())){
+						personaje2.setMana(personaje2.getMana()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje3.getName())){
+						personaje3.setMana(personaje3.getMana()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje4.getName())){
+						personaje4.setMana(personaje4.getMana()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje5.getName())){
+						personaje5.setMana(personaje5.getMana()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje6.getName())){
+						personaje6.setMana(personaje6.getMana()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje7.getName())){
+						personaje7.setMana(personaje7.getMana()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje8.getName())){
+						personaje8.setMana(personaje8.getMana()+ Integer.parseInt(cant));
+					}
+					
+					else if(jugador.equals(personaje9.getName())){
+						personaje9.setMana(personaje9.getMana()+ Integer.parseInt(cant));
+					}
+				}
+				else if(seleccion.equals("Maná Máximo")){
+					writer.println(jugador + ":"+Integer.parseInt(cant)+":ModificarSEM:Maná Máximo");
+					writer.flush();}
+				
 			}
 		});
 		btnModificarSem.setBounds(10, 70, 187, 31);
@@ -11077,12 +13118,18 @@ if(npc1.getName().equals(jugador)){
 						button_10.setText(seleccion.toString());
 						npc1=intermedio;
 						npcs.add(npc1.getName());
+						NPC1.saludM=personaje1.getLife();
+ 						NPC1.manaM=personaje1.getMana();
+ 						NPC1.energiaM=personaje1.getEndurance();
 					}
 					else{ if(button_11.getText().equals("")){
 					
 						button_11.setText(seleccion.toString());
 						npc2=intermedio;
 						npcs.add(npc2.getName());
+						NPC2.saludM=personaje1.getLife();
+ 						NPC2.manaM=personaje1.getMana();
+ 						NPC2.energiaM=personaje1.getEndurance();
 					}
 					else{
 						if(button_12.getText().equals("")){
@@ -11090,6 +13137,9 @@ if(npc1.getName().equals(jugador)){
 							button_12.setText(seleccion.toString());
 							npc3=intermedio;
 							npcs.add(npc3.getName());
+							NPC3.saludM=personaje1.getLife();
+	 						NPC3.manaM=personaje1.getMana();
+	 						NPC3.energiaM=personaje1.getEndurance();
 						}
 					
 						else{if(button_13.getText().equals("")){
@@ -11097,24 +13147,36 @@ if(npc1.getName().equals(jugador)){
 							button_13.setText(seleccion.toString());
 							npc4=intermedio;
 							npcs.add(npc4.getName());
+							NPC4.saludM=personaje1.getLife();
+	 						NPC4.manaM=personaje1.getMana();
+	 						NPC4.energiaM=personaje1.getEndurance();
 						}
 						else{if(button_14.getText().equals("")){
 							
 							button_14.setText(seleccion.toString());
 							npc5=intermedio;
 							npcs.add(npc5.getName());
+							NPC5.saludM=personaje1.getLife();
+	 						NPC5.manaM=personaje1.getMana();
+	 						NPC5.energiaM=personaje1.getEndurance();
 						}
 						else{if(button_15.getText().equals("")){
 							
 							button_15.setText(seleccion.toString());
 							npc6=intermedio;
 							npcs.add(npc6.getName());
+							NPC6.saludM=personaje1.getLife();
+	 						NPC6.manaM=personaje1.getMana();
+	 						NPC6.energiaM=personaje1.getEndurance();
 						}
 						else{if(button_16.getText().equals("")){
 							
 							button_16.setText(seleccion.toString());
 							npc7=intermedio;
 							npcs.add(npc7.getName());
+							NPC7.saludM=personaje1.getLife();
+	 						NPC7.manaM=personaje1.getMana();
+	 						NPC7.energiaM=personaje1.getEndurance();
 						}
 						
 						else{if(button_17.getText().equals("")){
@@ -11122,12 +13184,18 @@ if(npc1.getName().equals(jugador)){
 							button_17.setText(seleccion.toString());
 							npc8=intermedio;
 							npcs.add(npc8.getName());
+							NPC8.saludM=personaje1.getLife();
+	 						NPC8.manaM=personaje1.getMana();
+	 						NPC8.energiaM=personaje1.getEndurance();
 						}
 						else{if(button_18.getText().equals("")){
 							
 							button_18.setText(seleccion.toString());
 							npc9=intermedio;
 							npcs.add(npc9.getName());
+							NPC9.saludM=personaje1.getLife();
+	 						NPC9.manaM=personaje1.getMana();
+	 						NPC9.energiaM=personaje1.getEndurance();
 						}
 						
 						else{}

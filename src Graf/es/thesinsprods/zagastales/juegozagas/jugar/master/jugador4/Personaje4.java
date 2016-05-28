@@ -82,6 +82,10 @@ public class Personaje4 {
 	final Connection p = con.accederDB();
 	final Statement tabla=p.createStatement();
 	private JFrame frmHistoriasDeZagas;
+	public static int saludM;
+	public static int energiaM;
+	public static int manaM;
+	
 	JProgressBar progressBar = new JProgressBar();
 	JProgressBar progressBar_2 = new JProgressBar();
 	JProgressBar progressBar_1 = new JProgressBar();
@@ -151,7 +155,7 @@ public class Personaje4 {
 		
 		JLabel label = new JLabel((String) null);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setText(JugarOnline.personaje1.getName());
+		label.setText(JugarOnline.personaje4.getName());
 		label.setForeground(Color.WHITE);
 		label.setFont(mf.MyFont(0, 32));
 		label.setBounds(25, 11, 549, 53);
@@ -159,13 +163,13 @@ public class Personaje4 {
 		
 		JLabel label_1 = new JLabel((String) null);
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
-		label_1.setText(JugarOnline.personaje1.getRace().getRace());
+		label_1.setText(JugarOnline.personaje4.getRace().getRace());
 		label_1.setForeground(Color.WHITE);
 		label_1.setFont(mf.MyFont(0, 20));
 		label_1.setBounds(25, 75, 256, 26);
 		frmHistoriasDeZagas.getContentPane().add(label_1);
 		
-		JLabel label_2 = new JLabel("Nivel: "+JugarOnline.personaje1.getNivel());
+		JLabel label_2 = new JLabel("Nivel: "+JugarOnline.personaje4.getNivel());
 		label_2.setHorizontalAlignment(SwingConstants.CENTER);
 		label_2.setForeground(Color.WHITE);
 		label_2.setFont(mf.MyFont(0, 20));
@@ -190,7 +194,7 @@ public class Personaje4 {
 		label_5.setBounds(10, 170, 46, 14);
 		frmHistoriasDeZagas.getContentPane().add(label_5);
 		
-		JLabel label_6 = new JLabel("Edad: "+JugarOnline.personaje1.getAge());
+		JLabel label_6 = new JLabel("Edad: "+JugarOnline.personaje4.getAge());
 		label_6.setForeground(Color.WHITE);
 		label_6.setFont(mf.MyFont(0, 16));
 		label_6.setBounds(10, 195, 105, 14);
@@ -204,7 +208,7 @@ public class Personaje4 {
 		
 		textField_1 = new JTextField();
 		textField_1.setEditable(false);
-		textField_1.setText(""+JugarOnline.personaje1.getExperience());
+		textField_1.setText(""+JugarOnline.personaje4.getExperience());
 		textField_1.setColumns(10);
 		textField_1.setBounds(102, 220, 60, 20);
 		frmHistoriasDeZagas.getContentPane().add(textField_1);
@@ -212,17 +216,17 @@ public class Personaje4 {
 		
 
 		progressBar.setForeground(Color.RED);
-		progressBar.setMaximum(JugarOnline.personaje1.getLife());
-		progressBar.setValue(JugarOnline.personaje1.getLife());
+		progressBar.setMaximum(saludM);
+		progressBar.setValue(JugarOnline.personaje4.getLife());
 		progressBar.setString(progressBar.getValue()+"/"+progressBar.getMaximum());
 		progressBar.setStringPainted(true);
 		progressBar.setBackground(Color.WHITE);
 		progressBar.setBounds(85, 120, 200, 14);
 		frmHistoriasDeZagas.getContentPane().add(progressBar);
 	
-		progressBar_2.setValue(JugarOnline.personaje1.getEndurance());
+		progressBar_2.setValue(JugarOnline.personaje4.getEndurance());
 		progressBar_2.setStringPainted(true);
-		progressBar_2.setMaximum(JugarOnline.personaje1.getEndurance());
+		progressBar_2.setMaximum(energiaM);
 		progressBar_2.setString(progressBar_2.getValue()+"/"+progressBar_2.getMaximum());
 		progressBar_2.setForeground(new Color(0, 128, 0));
 		progressBar_2.setBackground(Color.WHITE);
@@ -230,9 +234,9 @@ public class Personaje4 {
 		frmHistoriasDeZagas.getContentPane().add(progressBar_2);
 		
 
-		progressBar_1.setValue(JugarOnline.personaje1.getMana());
+		progressBar_1.setValue(JugarOnline.personaje4.getMana());
 		progressBar_1.setStringPainted(true);
-		progressBar_1.setMaximum(JugarOnline.personaje1.getMana());
+		progressBar_1.setMaximum(manaM);
 		progressBar_1.setString(progressBar_1.getValue()+"/"+progressBar_1.getMaximum());
 		progressBar_1.setForeground(Color.BLUE);
 		progressBar_1.setBackground(Color.WHITE);
@@ -443,7 +447,7 @@ public class Personaje4 {
 				JOptionPane
 				.showMessageDialog(
 						frmHistoriasDeZagas,
-						"El estado del personaje es: "+JugarOnline.personaje1.getEstado(),
+						"El estado del personaje es: "+JugarOnline.personaje4.getEstado(),
 						"", JOptionPane.PLAIN_MESSAGE);
 			}
 		});
@@ -519,7 +523,8 @@ public class Personaje4 {
 		button_8.setFocusPainted(false);
 		button_8.setContentAreaFilled(false);
 		button_8.setBorderPainted(false);
-		button_8.setBorder(new BevelBorder(BevelBorder.RAISED, null, null,
+		button_8.setBorder(new BevelBorder(BevelBorder.RAISED, null, null,
+
 						null, null));
 		button_8.setBackground(new Color(139, 69, 19));
 		button_8.setBounds(10, 261, 99, 45);
