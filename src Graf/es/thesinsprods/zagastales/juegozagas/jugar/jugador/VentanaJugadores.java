@@ -96,7 +96,7 @@ public class VentanaJugadores {
 	 String username, address = BuscarPartida.ip;
 	    ArrayList<String> users = new ArrayList();
 	    int port = 2222;
-	    Boolean isConnected = false;
+	    public static boolean isConnected = false;
 	    
 	    Socket sock;
 	    BufferedReader reader;
@@ -311,18 +311,35 @@ public class VentanaJugadores {
 	                     else if (data[2].equals(modificarSEM))
 	                     {
 	                        if(data[0].equals(VentanaJugadores.personaje.getName())){
-	                        	if(data[3].equals("Salud")){
-	                        		int cantidad=personaje.getLife()+Integer.parseInt(data[1]);
-    								tabla.executeQuery("UPDATE PERSONAJE SET SALUD="+data[1]+" WHERE NOMBRE='"+data[0]+"'");
-         							personaje.setLife(cantidad);
-	                        		
+	                        	
+	                        	if(data[3].equals("Salud Máxima")){
+	                        		int cantidad=progressBar.getMaximum()+Integer.parseInt(data[1]);
+    								tabla.executeQuery("UPDATE PERSONAJE SET SALUD="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
+    								progressBar.setMaximum(cantidad);
+    								progressBar.setString(progressBar.getValue()+"/"+progressBar.getMaximum());
 	                        	}
-	                        	else if(data[3].equals("Energia")){int cantidad=personaje.getEndurance()+Integer.parseInt(data[1]);
+	                        	else if(data[3].equals("Energía Máxima")){int cantidad=progressBar_2.getMaximum()+Integer.parseInt(data[1]);
 	                        										tabla.executeQuery("UPDATE PERSONAJE SET ENERGIA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
-	                        										personaje.setEndurance(cantidad);}
-	                        	else if(data[3].equals("Mana")){int cantidad=personaje.getMana()+Integer.parseInt(data[1]);
+	                        										progressBar_2.setMaximum(cantidad);
+	                        										progressBar_2.setString(progressBar_2.getValue()+"/"+progressBar_2.getMaximum());}
+	                        	else if(data[3].equals("Maná Máximo")){int cantidad=progressBar_1.getMaximum()+Integer.parseInt(data[1]);
 	                        									tabla.executeQuery("UPDATE PERSONAJE SET MANA="+cantidad+" WHERE NOMBRE='"+data[0]+"'");
-	                        									personaje.setMana(cantidad);}
+	                        									progressBar_1.setMaximum(cantidad);
+	                        									progressBar_1.setString(progressBar_1.getValue()+"/"+progressBar_1.getMaximum());}
+	                        	else if(data[3].equals("Salud")){int cantidad=personaje.getLife()+Integer.parseInt(data[1]);
+	                        	personaje.setLife(cantidad);
+	                        	progressBar.setValue(cantidad);
+	                        	progressBar.setString(progressBar.getValue()+"/"+progressBar.getMaximum());}
+	                        	else if(data[3].equals("Energía")){int cantidad=personaje.getEndurance()+Integer.parseInt(data[1]);
+	                        	personaje.setEndurance(cantidad);
+	                        	progressBar_2.setValue(cantidad);
+	                        	progressBar_2.setString(progressBar_2.getValue()+"/"+progressBar_2.getMaximum());
+	                        	}
+	                        	else if(data[3].equals("Maná")){int cantidad=personaje.getMana()+Integer.parseInt(data[1]);
+	                        	personaje.setMana(cantidad);
+	                        	progressBar_1.setValue(cantidad);
+	                        	progressBar_1.setString(progressBar_1.getValue()+"/"+progressBar_1.getMaximum());
+	                        	}
 	                        }
 	                     } 
 	                     else if (data[2].equals(disconnect)) 
@@ -382,9 +399,19 @@ public class VentanaJugadores {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+			
 					VentanaJugadores window = new VentanaJugadores();
+					
+					
 					window.frmHistoriasDeZagas.setVisible(true);
-				} catch (Exception e) {
+					
+				
+					
+				
+				
+				}
+					
+				catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -421,9 +448,12 @@ public class VentanaJugadores {
 		frmHistoriasDeZagas.getContentPane().setLayout(null);
 		Conectar();
 
+		if(isConnected==true){
 		
 		try {
+			tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+BuscarPartida.jdentro+1+" WHERE NOMBRE='"+BuscarPartida.nombrePart+"' AND USUARIO='"+BuscarPartida.master+"'");
 			ResultSet rs = tabla.executeQuery("SELECT * FROM PERSONAJE WHERE NOMBRE_DE_USUARIO='"+Loader.usuario+"'");
+			
 			ArrayList <Object> personajes=new ArrayList<Object>();
 			while (rs.next()){
 				
@@ -2575,7 +2605,13 @@ public class VentanaJugadores {
 		lblNewLabel.setIcon(new ImageIcon(VentanaJugadores.class.getResource("/images/background-ventanajugadores.jpg")));
 		lblNewLabel.setBounds(0, 0, 584, 708);
 		frmHistoriasDeZagas.getContentPane().add(lblNewLabel);
-	
+		}
+		else{
+			System.out.println("Llega");
+			isConnected = false;
+			
+			
+		}
 	}
 	
 	
@@ -2641,7 +2677,7 @@ public class VentanaJugadores {
 
     }
     
-    public void Conectar(){
+    public void Conectar() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException, IOException{
     	
     	//GEN-FIRST:event_b_connectActionPerformed
         if (isConnected == false) 
@@ -2661,8 +2697,15 @@ public class VentanaJugadores {
             } 
             catch (Exception ex) 
             {
-                textArea.append("No se pudo conectar vuelva a intentarlo. \n");
-
+            	int seleccion = JOptionPane.showOptionDialog(
+						frmHistoriasDeZagas,
+						"No se ha podido establecer la conexón con la partida",
+						"Error al realizar una conexión",
+						JOptionPane.YES_NO_OPTION,
+						JOptionPane.PLAIN_MESSAGE, null,
+						new Object[] { "Aceptar" }, "opcion 1");
+         
+            		isConnected= false;
             }
             
             ListenThread();

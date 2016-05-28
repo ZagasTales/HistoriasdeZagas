@@ -46,6 +46,8 @@ public static int partidas=9;
 public static String nombrePart;
 public static String ip;
 public static String master;
+int jmax=0;
+public static int jdentro=0;
 MorpheusFont mf = new MorpheusFont();
 	/**
 	 * Launch the application.
@@ -255,6 +257,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(label_20);
 		
 		final JButton btnNewButton = new JButton("Descripci\u00F3n");
+		btnNewButton.setEnabled(false);
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -299,6 +302,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(btnNewButton);
 		
 		final JButton button = new JButton("Descripci\u00F3n");
+		button.setEnabled(false);
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -345,6 +349,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(button);
 		
 		final JButton button_1 = new JButton("Descripci\u00F3n");
+		button_1.setEnabled(false);
 		button_1.addMouseListener(new MouseAdapter() {
 
 			@Override
@@ -393,6 +398,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(button_1);
 		
 		final JButton button_2 = new JButton("Descripci\u00F3n");
+		button_2.setEnabled(false);
 		button_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -439,6 +445,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(button_2);
 		
 		final JButton button_3 = new JButton("Descripci\u00F3n");
+		button_3.setEnabled(false);
 		button_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -487,6 +494,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(button_3);
 		
 		final JButton button_4 = new JButton("Descripci\u00F3n");
+		button_4.setEnabled(false);
 		button_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -535,6 +543,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(button_4);
 		
 		final JButton button_5 = new JButton("Descripci\u00F3n");
+		button_5.setEnabled(false);
 		button_5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -583,6 +592,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(button_5);
 		
 		final JButton button_6 = new JButton("Descripci\u00F3n");
+		button_6.setEnabled(false);
 		button_6.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -631,6 +641,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(button_6);
 		
 		final JButton button_7 = new JButton("Descripci\u00F3n");
+		button_7.setEnabled(false);
 		button_7.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -681,6 +692,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(button_7);
 		
 		final JButton button_8 = new JButton("Descripci\u00F3n");
+		button_8.setEnabled(false);
 		button_8.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -731,6 +743,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(button_8);
 		
 		final JButton btnConexin = new JButton("Conexi\u00F3n");
+		btnConexin.setEnabled(false);
 		btnConexin.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -750,8 +763,7 @@ MorpheusFont mf = new MorpheusFont();
 		btnConexin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				int jmax=0;
-				int jdentro=0;
+			
 				String password="";
 				int seleccion = JOptionPane.showOptionDialog(
 						frmHistoriasDeZagas,
@@ -784,9 +796,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
+										if(VentanaJugadores.isConnected==true){
 										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label.getText()+"' AND USUARIO='"+label_11.getText()+"'");
-										frmHistoriasDeZagas.dispose();
+									frmHistoriasDeZagas.dispose();}
 										
 									}
 									else{
@@ -803,9 +815,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label.getText()+"' AND USUARIO='"+label_11.getText()+"'");
-									frmHistoriasDeZagas.dispose();
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 									
 								}
 							}
@@ -850,7 +862,8 @@ MorpheusFont mf = new MorpheusFont();
 							jmax=rs.getInt("JUGADORESMAX");
 							jdentro=rs.getInt("JUGADORES");
 							password=rs.getString("CONTRASEÑA");
-						
+							master=rs.getString("USUARIO");
+							nombrePart=rs.getString("NOMBRE");
 							if(jdentro<jmax){
 								
 								if(password != null){
@@ -863,9 +876,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label.getText()+"' AND USUARIO='"+label_11.getText()+"'");
-										frmHistoriasDeZagas.dispose();
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 										
 									}
 									else{
@@ -882,9 +895,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label.getText()+"' AND USUARIO='"+label_11.getText()+"'");
-									frmHistoriasDeZagas.dispose();
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 									
 								}
 							}
@@ -926,6 +939,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(btnConexin);
 		
 		final JButton btnConexin_1 = new JButton("Conexi\u00F3n");
+		btnConexin_1.setEnabled(false);
 		btnConexin_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -979,9 +993,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_1.getText()+"' AND USUARIO='"+label_12.getText()+"'");
-										frmHistoriasDeZagas.dispose();
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 										
 									}
 									else{
@@ -998,9 +1012,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_1.getText()+"' AND USUARIO='"+label_12.getText()+"'");
-									frmHistoriasDeZagas.dispose();
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 									
 								}
 							}
@@ -1058,9 +1072,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_1.getText()+"' AND USUARIO='"+label_12.getText()+"'");
-										frmHistoriasDeZagas.dispose();
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 										
 									}
 									else{
@@ -1077,9 +1091,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_1.getText()+"' AND USUARIO='"+label_12.getText()+"'");
-									frmHistoriasDeZagas.dispose();
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 									
 								}
 							}
@@ -1122,6 +1136,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(btnConexin_1);
 		
 		final JButton btnConexin_2 = new JButton("Conexi\u00F3n");
+		btnConexin_2.setEnabled(false);
 		btnConexin_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -1176,9 +1191,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_2.getText()+"' AND USUARIO='"+label_13.getText()+"'");
-										frmHistoriasDeZagas.dispose();
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 										
 									}
 									else{
@@ -1195,9 +1210,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_2.getText()+"' AND USUARIO='"+label_13.getText()+"'");
-									frmHistoriasDeZagas.dispose();
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 									
 								}
 							}
@@ -1255,9 +1270,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_2.getText()+"' AND USUARIO='"+label_13.getText()+"'");
-										frmHistoriasDeZagas.dispose();
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 										
 									}
 									else{
@@ -1274,9 +1289,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_2.getText()+"' AND USUARIO='"+label_13.getText()+"'");
-									frmHistoriasDeZagas.dispose();
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 									
 								}
 							}
@@ -1320,6 +1335,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(btnConexin_2);
 		
 		final JButton btnConexin_3 = new JButton("Conexi\u00F3n");
+		btnConexin_3.setEnabled(false);
 		btnConexin_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -1374,9 +1390,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_3.getText()+"' AND USUARIO='"+label_14.getText()+"'");
-										frmHistoriasDeZagas.dispose();
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 										
 									}
 									else{
@@ -1393,9 +1409,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_3.getText()+"' AND USUARIO='"+label_14.getText()+"'");
-									frmHistoriasDeZagas.dispose();
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 									
 								}
 							}
@@ -1453,10 +1469,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_3.getText()+"' AND USUARIO='"+label_14.getText()+"'");
-										frmHistoriasDeZagas.dispose();
-										
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 									}
 									else{
 										
@@ -1472,10 +1487,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_3.getText()+"' AND USUARIO='"+label_14.getText()+"'");
-									frmHistoriasDeZagas.dispose();
-									
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 								}
 							}
 							else{
@@ -1517,6 +1531,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(btnConexin_3);
 		
 		final JButton btnConexin_4 = new JButton("Conexi\u00F3n");
+		btnConexin_4.setEnabled(false);
 		btnConexin_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -1571,9 +1586,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_4.getText()+"' AND USUARIO='"+label_15.getText()+"'");
-										frmHistoriasDeZagas.dispose();
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 										
 									}
 									else{
@@ -1590,9 +1605,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_4.getText()+"' AND USUARIO='"+label_15.getText()+"'");
-									frmHistoriasDeZagas.dispose();
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 									
 								}
 							}
@@ -1650,9 +1665,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_4.getText()+"' AND USUARIO='"+label_15.getText()+"'");
-										frmHistoriasDeZagas.dispose();
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 										
 									}
 									else{
@@ -1669,9 +1684,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_4.getText()+"' AND USUARIO='"+label_15.getText()+"'");
-									frmHistoriasDeZagas.dispose();
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 									
 								}
 							}
@@ -1714,6 +1729,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(btnConexin_4);
 		
 		final JButton btnConexin_5 = new JButton("Conexi\u00F3n");
+		btnConexin_5.setEnabled(false);
 		btnConexin_5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -1767,9 +1783,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_5.getText()+"' AND USUARIO='"+label_16.getText()+"'");
-										frmHistoriasDeZagas.dispose();
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 										
 									}
 									else{
@@ -1786,9 +1802,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_5.getText()+"' AND USUARIO='"+label_16.getText()+"'");
-									frmHistoriasDeZagas.dispose();
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 									
 								}
 							}
@@ -1846,9 +1862,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_5.getText()+"' AND USUARIO='"+label_16.getText()+"'");
-										frmHistoriasDeZagas.dispose();
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 										
 									}
 									else{
@@ -1865,10 +1881,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_5.getText()+"' AND USUARIO='"+label_16.getText()+"'");
-									frmHistoriasDeZagas.dispose();
-									
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 								}
 							}
 							else{
@@ -1911,6 +1926,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(btnConexin_5);
 		
 		final JButton btnConexin_6 = new JButton("Conexi\u00F3n");
+		btnConexin_6.setEnabled(false);
 		btnConexin_6.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -1964,9 +1980,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_6.getText()+"' AND USUARIO='"+label_17.getText()+"'");
-										frmHistoriasDeZagas.dispose();
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 										
 									}
 									else{
@@ -1983,9 +1999,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_6.getText()+"' AND USUARIO='"+label_17.getText()+"'");
-									frmHistoriasDeZagas.dispose();
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 									
 								}
 							}
@@ -2043,10 +2059,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_6.getText()+"' AND USUARIO='"+label_17.getText()+"'");
-										frmHistoriasDeZagas.dispose();
-										
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 									}
 									else{
 										
@@ -2062,9 +2077,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_6.getText()+"' AND USUARIO='"+label_17.getText()+"'");
-									frmHistoriasDeZagas.dispose();
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 									
 								}
 							}
@@ -2107,6 +2122,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(btnConexin_6);
 		
 		final JButton btnConexin_7 = new JButton("Conexi\u00F3n");
+		btnConexin_7.setEnabled(false);
 		btnConexin_7.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -2161,9 +2177,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_7.getText()+"' AND USUARIO='"+label_18.getText()+"'");
-										frmHistoriasDeZagas.dispose();
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 										
 									}
 									else{
@@ -2180,9 +2196,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_7.getText()+"' AND USUARIO='"+label_18.getText()+"'");
-									frmHistoriasDeZagas.dispose();
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 									
 								}
 							}
@@ -2240,9 +2256,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_7.getText()+"' AND USUARIO='"+label_18.getText()+"'");
-										frmHistoriasDeZagas.dispose();
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 										
 									}
 									else{
@@ -2259,9 +2275,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_7.getText()+"' AND USUARIO='"+label_18.getText()+"'");
-									frmHistoriasDeZagas.dispose();
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 									
 								}
 							}
@@ -2303,6 +2319,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(btnConexin_7);
 		
 		final JButton btnConexin_8 = new JButton("Conexi\u00F3n");
+		btnConexin_8.setEnabled(false);
 		btnConexin_8.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -2357,9 +2374,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_8.getText()+"' AND USUARIO='"+label_19.getText()+"'");
-										frmHistoriasDeZagas.dispose();
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 										
 									}
 									else{
@@ -2376,9 +2393,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_8.getText()+"' AND USUARIO='"+label_19.getText()+"'");
-									frmHistoriasDeZagas.dispose();
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 									
 								}
 							}
@@ -2436,9 +2453,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_8.getText()+"' AND USUARIO='"+label_19.getText()+"'");
-										frmHistoriasDeZagas.dispose();
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 										
 									}
 									else{
@@ -2455,9 +2472,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_8.getText()+"' AND USUARIO='"+label_19.getText()+"'");
-									frmHistoriasDeZagas.dispose();
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 									
 								}
 							}
@@ -2501,6 +2518,7 @@ MorpheusFont mf = new MorpheusFont();
 		frmHistoriasDeZagas.getContentPane().add(btnConexin_8);
 		
 		final JButton btnConexin_9 = new JButton("Conexi\u00F3n");
+		btnConexin_9.setEnabled(false);
 		btnConexin_9.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {
@@ -2556,9 +2574,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_9.getText()+"' AND USUARIO='"+label_20.getText()+"'");
-										frmHistoriasDeZagas.dispose();
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 										
 									}
 									else{
@@ -2575,9 +2593,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_9.getText()+"' AND USUARIO='"+label_20.getText()+"'");
-									frmHistoriasDeZagas.dispose();
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 									
 								}
 							}
@@ -2635,10 +2653,9 @@ MorpheusFont mf = new MorpheusFont();
 									if(seleccion3.equals(password)){
 										
 										VentanaJugadores window=new VentanaJugadores();
-										window.getFrame().setVisible(true);
-										tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_9.getText()+"' AND USUARIO='"+label_20.getText()+"'");
-										frmHistoriasDeZagas.dispose();
-										
+										if(VentanaJugadores.isConnected==true){
+											window.getFrame().setVisible(true);
+										frmHistoriasDeZagas.dispose();}
 									}
 									else{
 										
@@ -2654,10 +2671,9 @@ MorpheusFont mf = new MorpheusFont();
 								else{
 									
 									VentanaJugadores window=new VentanaJugadores();
-									window.getFrame().setVisible(true);
-									tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES="+jdentro+1+" WHERE NOMBRE='"+label_9.getText()+"' AND USUARIO='"+label_20.getText()+"'");
-									frmHistoriasDeZagas.dispose();
-									
+									if(VentanaJugadores.isConnected==true){
+										window.getFrame().setVisible(true);
+									frmHistoriasDeZagas.dispose();}
 								}
 							}
 							else{
@@ -2992,7 +3008,8 @@ MorpheusFont mf = new MorpheusFont();
 				if(0 < nombre.size()){
 					label.setText(nombre.get(0));
 					label_11.setText(masters.get(0));
-					
+					btnConexin.setEnabled(true);
+					btnNewButton.setEnabled(true);
 					}
 					else{
 						label.setText("");
@@ -3001,6 +3018,8 @@ MorpheusFont mf = new MorpheusFont();
 					if(1 < nombre.size()){
 					label_1.setText(nombre.get(1));
 					label_12.setText(masters.get(1));
+					btnConexin_1.setEnabled(true);
+					button.setEnabled(true);
 					}
 					
 					else{
@@ -3010,6 +3029,8 @@ MorpheusFont mf = new MorpheusFont();
 					if(2 < nombre.size()){
 					label_2.setText(nombre.get(2));
 					label_13.setText(masters.get(2));
+					btnConexin_2.setEnabled(true);
+					button_1.setEnabled(true);
 					}
 					else{
 						label_2.setText("");
@@ -3017,14 +3038,18 @@ MorpheusFont mf = new MorpheusFont();
 					}
 					if(3 < nombre.size()){
 					label_3.setText(nombre.get(3));
-					label_14.setText(masters.get(3));}
+					label_14.setText(masters.get(3));
+					btnConexin_3.setEnabled(true);
+					button_2.setEnabled(true);}
 					else{
 						label_3.setText("");
 						label_14.setText("");
 					}
 					if(4 < nombre.size()){
 					label_4.setText(nombre.get(4));
-					label_15.setText(masters.get(4));}
+					label_15.setText(masters.get(4));
+					btnConexin_4.setEnabled(true);
+					button_3.setEnabled(true);}
 					else{
 						label_4.setText("");
 						label_15.setText("");
@@ -3032,35 +3057,45 @@ MorpheusFont mf = new MorpheusFont();
 					}
 					if(5 < nombre.size()){
 					label_5.setText(nombre.get(5));
-					label_16.setText(masters.get(5));}
+					label_16.setText(masters.get(5));
+					btnConexin_5.setEnabled(true);
+					button_4.setEnabled(true);}
 					else{
 						label_5.setText("");
 						label_16.setText("");
 					}
 					if(6 < nombre.size()){
 					label_6.setText(nombre.get(6));
-					label_17.setText(masters.get(6));}
+					label_17.setText(masters.get(6));
+					btnConexin_6.setEnabled(true);
+					button_5.setEnabled(true);}
 					else{
 						label_6.setText("");
 						label_17.setText("");
 					}
 					if(7 < nombre.size()){
 					label_7.setText(nombre.get(7));
-					label_18.setText(masters.get(7));}
+					label_18.setText(masters.get(7));
+					btnConexin_7.setEnabled(true);
+button_6.setEnabled(true);}
 					else{
 						label_7.setText("");
 						label_18.setText("");
 					}
 					if(8 < nombre.size()){
 					label_8.setText(nombre.get(8));
-					label_19.setText(masters.get(8));}
+					label_19.setText(masters.get(8));
+					btnConexin_8.setEnabled(true);
+					button_7.setEnabled(true);}
 					else{
 						label_8.setText("");
 						label_19.setText("");
 					}
 					if(9 < nombre.size()){
 					label_9.setText(nombre.get(9));
-					label_20.setText(masters.get(9));}
+					label_20.setText(masters.get(9));
+					btnConexin_9.setEnabled(true);
+					button_8.setEnabled(true);}
 					else{
 						label_9.setText("");
 						label_20.setText("");
@@ -3083,24 +3118,32 @@ MorpheusFont mf = new MorpheusFont();
 		if(0 < nombre.size()){
 		label.setText(nombre.get(0));
 		label_11.setText(masters.get(0));
+		btnConexin.setEnabled(true);
+		btnNewButton.setEnabled(true);
 		
 		}
 		else{
 			label.setText("");
 			label_11.setText("");
+		
 		}
 		if(1 < nombre.size()){
 		label_1.setText(nombre.get(1));
 		label_12.setText(masters.get(1));
+		btnConexin_1.setEnabled(true);
+		button.setEnabled(true);
 		}
 		
 		else{
 			label_1.setText("");
 			label_12.setText("");
+			
 		}
 		if(2 < nombre.size()){
 		label_2.setText(nombre.get(2));
 		label_13.setText(masters.get(2));
+		btnConexin_2.setEnabled(true);
+		button_1.setEnabled(true);
 		}
 		else{
 			label_2.setText("");
@@ -3108,14 +3151,19 @@ MorpheusFont mf = new MorpheusFont();
 		}
 		if(3 < nombre.size()){
 		label_3.setText(nombre.get(3));
-		label_14.setText(masters.get(3));}
+		label_14.setText(masters.get(3));
+		btnConexin_3.setEnabled(true);
+		button_2.setEnabled(true);}
 		else{
 			label_3.setText("");
 			label_14.setText("");
 		}
 		if(4 < nombre.size()){
 		label_4.setText(nombre.get(4));
-		label_15.setText(masters.get(4));}
+		label_15.setText(masters.get(4));
+		btnConexin_4.setEnabled(true);
+		button_3.setEnabled(true);
+		}
 		else{
 			label_4.setText("");
 			label_15.setText("");
@@ -3123,35 +3171,45 @@ MorpheusFont mf = new MorpheusFont();
 		}
 		if(5 < nombre.size()){
 		label_5.setText(nombre.get(5));
-		label_16.setText(masters.get(5));}
+		label_16.setText(masters.get(5));
+		btnConexin_5.setEnabled(true);
+		button_4.setEnabled(true);}
 		else{
 			label_5.setText("");
 			label_16.setText("");
 		}
 		if(6 < nombre.size()){
 		label_6.setText(nombre.get(6));
-		label_17.setText(masters.get(6));}
+		label_17.setText(masters.get(6));
+		btnConexin_6.setEnabled(true);
+		button_5.setEnabled(true);}
 		else{
 			label_6.setText("");
 			label_17.setText("");
 		}
 		if(7 < nombre.size()){
 		label_7.setText(nombre.get(7));
-		label_18.setText(masters.get(7));}
+		label_18.setText(masters.get(7));
+		btnConexin_7.setEnabled(true);
+		button_6.setEnabled(true);}
 		else{
 			label_7.setText("");
 			label_18.setText("");
 		}
 		if(8 < nombre.size()){
 		label_8.setText(nombre.get(8));
-		label_19.setText(masters.get(8));}
+		label_19.setText(masters.get(8));
+		btnConexin_8.setEnabled(true);
+		button_7.setEnabled(true);}
 		else{
 			label_8.setText("");
 			label_19.setText("");
 		}
 		if(9 < nombre.size()){
 		label_9.setText(nombre.get(9));
-		label_20.setText(masters.get(9));}
+		label_20.setText(masters.get(9));
+		btnConexin_9.setEnabled(true);
+		button_8.setEnabled(true);}
 		else{
 			label_9.setText("");
 			label_20.setText("");
