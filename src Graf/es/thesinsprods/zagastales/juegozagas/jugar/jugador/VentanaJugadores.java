@@ -112,19 +112,39 @@ public class VentanaJugadores {
 	        public void run() 
 	        {
 	            String[] data;
-	            String stream, darHab="darHab",darExp="darExp" ,darAtr="darAtr",modificarEq = "ModificarEq",modificarSEM="ModificarSEM" ,alterarE= "Alterar",done = "Done", connect = "Connect", disconnect = "Desconectado", chat = "Chat", cerrar= "Cerrar";
+	            String stream, darHab="darHab",darExp="darExp" ,darAtr="darAtr",modificarEq = "ModificarEq",modificarSEM="ModificarSEM" ,alterarE= "Alterar",done = "Done", connect = "Connect", disconnect = "Desconectado", chat = "Chat", cerrar= "Cerrar" ,kick="Kick";
 
 	            try 
 	            {
 	                while ((stream = reader.readLine()) != null) 
 	                {
 	                     data = stream.split(":");
-
+	                     
 	                     if (data[2].equals(chat)) 
 	                     {
 	                        textArea.append(data[0] + ": " + data[1] + "\n");
 	                        textArea.setCaretPosition(textArea.getDocument().getLength());
-	                     } 
+	                     }
+	                     
+	                     else if(data[2].equals(kick)){
+	                    	 System.out.println("Entra");
+	                    	 if(data[1].equals(personaje.getName())){
+	                    		 
+	                             textArea.append("Desconectado.\n");
+	                             sock.close();
+	                             JOptionPane
+	             				.showMessageDialog(
+	             						frmHistoriasDeZagas,
+	             						"El master te ha echado. ",
+	             						"", JOptionPane.PLAIN_MESSAGE);
+	                             frmHistoriasDeZagas.dispose();
+	                             Inicio window = new Inicio();
+	                             window.getFrmHistoriasDeZagas().setVisible(true);
+	                    		 
+	                    	 }
+	                    	 
+	                     }
+	                     
 	                     else if (data[2].equals(connect))
 	                     {
 	                        textArea.removeAll();
