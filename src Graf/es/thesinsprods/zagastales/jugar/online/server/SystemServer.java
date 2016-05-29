@@ -69,7 +69,7 @@ public class SystemServer {
 	       @Override
 	       public void run() 
 	       {
-	            String message,darHab="darHab",darExp="darExp" ,darAtr="darAtr",modificarEq = "ModificarEq",modificarSEM="ModificarSEM" ,alterarE= "Alterar",cerrar="Cerrar", cargar="Cargar", connect = "Connect", disconnect = "Desconectado", chat = "Chat" , limpiar="LimpiaLista";
+	            String message,darHab="darHab",darExp="darExp" ,darAtr="darAtr",modificarEq = "ModificarEq",modificarSEM="ModificarSEM" ,alterarE= "Alterar",cerrar="Cerrar", cargar="Cargar", connect = "Connect", disconnect = "Desconectado", chat = "Chat" , limpiar="LimpiaLista" , kick="Kick";
 	            String[] data;
 
 	            try 
@@ -103,7 +103,8 @@ public class SystemServer {
 	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + darAtr + ":"+ data[3]));
 	                    	
 	                    }
-	                    
+	                    else if(data[2].equals(kick)){
+	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + kick));}
 	                    
 	                    else if(data[2].equals(modificarSEM)){
 	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + modificarSEM + ":" + data[3]));

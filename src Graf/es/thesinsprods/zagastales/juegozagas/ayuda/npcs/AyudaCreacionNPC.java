@@ -341,6 +341,14 @@ public class AyudaCreacionNPC {
 		contentPanel.add(btnAsignacinDeEquip);
 		
 		final JButton btnPoderesExtrasModifcadores = new JButton("Poderes Extras Modifcadores");
+		btnPoderesExtrasModifcadores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AyudaExtrasNPC window = new AyudaExtrasNPC();
+				window.getFrame().setVisible(true);
+				frame.dispose();
+			
+			}
+		});
 		btnPoderesExtrasModifcadores.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent arg0) {

@@ -18,6 +18,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import es.thesinsprods.resources.font.MorpheusFont;
+import es.thesinsprods.zagastales.juegozagas.ayuda.gestorpartida.AyudaGestor;
+import es.thesinsprods.zagastales.juegozagas.ayuda.jugar.AyudaPartidaJugar;
 import es.thesinsprods.zagastales.juegozagas.ayuda.npcs.AyudaCreacionNPC;
 import es.thesinsprods.zagastales.juegozagas.ayuda.pnjs.AyudaCreacionPNJ;
 import java.awt.Font;
@@ -89,7 +91,9 @@ public class AyudaPrincipal {
 		btnNewButton_1.setFont(mf.MyFont(0, 13));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				AyudaPartidaJugar window = new AyudaPartidaJugar();
+				window.getFrame().setVisible (true);
+				frame.dispose();
 			}
 		});
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
@@ -158,6 +162,11 @@ public class AyudaPrincipal {
 		});
 		btnGestorDeJuego.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
+				AyudaGestor window = new AyudaGestor();
+				window.getFrame().setVisible(true);
+				frame.dispose();
+			
 			}
 		});
 		btnGestorDeJuego.setIcon(new ImageIcon(AyudaPrincipal.class.getResource("/images/botonesInicio.png")));

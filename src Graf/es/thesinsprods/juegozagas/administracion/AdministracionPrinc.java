@@ -73,6 +73,7 @@ public class AdministracionPrinc {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.setResizable(false);
 		frame.setTitle("Historias de Zagas");
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(
@@ -124,14 +125,16 @@ public class AdministracionPrinc {
 								JOptionPane.PLAIN_MESSAGE, null, //
 								usuarios.toArray(), "opcion 1");
 
-						if (seleccion.equals("")
+						if(!seleccion.equals(null)){
+						
+							if (seleccion.equals("")
 								|| seleccion.equals("-Usuario-")) {
 						} else {
 							usuario = (String) seleccion;
 							frame.dispose();
 							PerfilesUsuarios window = new PerfilesUsuarios();
 							window.getFrmHistoriasDeZagas().setVisible(true);
-						}
+						}}
 					} catch (ClassNotFoundException e1) {
 
 						e1.printStackTrace();
