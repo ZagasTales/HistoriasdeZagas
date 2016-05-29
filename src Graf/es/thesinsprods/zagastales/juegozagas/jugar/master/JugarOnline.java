@@ -58,6 +58,7 @@ import es.thesinsprods.zagastales.characters.skills.SkillPoints;
 import es.thesinsprods.zagastales.diceroll.DiceRoll;
 import es.thesinsprods.zagastales.juegozagas.inicio.Inicio;
 import es.thesinsprods.zagastales.juegozagas.inicio.Loader;
+import es.thesinsprods.zagastales.juegozagas.jugar.CrearPartida;
 import es.thesinsprods.zagastales.juegozagas.jugar.jugador.VentanaJugadores.IncomingReader;
 import es.thesinsprods.zagastales.juegozagas.jugar.master.jugador1.Personaje1;
 import es.thesinsprods.zagastales.juegozagas.jugar.master.jugador2.Personaje2;
@@ -132,7 +133,7 @@ public class JugarOnline {
 	    
 	    Socket sock;
 	    BufferedReader reader;
-	    PrintWriter writer;
+	    public static PrintWriter writer;
 		final JTextArea textArea = new JTextArea();
 	MorpheusFont mf=new MorpheusFont();
 	final ConexionDBOnline con = new ConexionDBOnline();
@@ -147,29 +148,39 @@ public class JugarOnline {
 	final JButton button_6 = new JButton("");
 	final JButton button_7 = new JButton("");
 	final JButton button_8 = new JButton("");
-	public static Characters personaje1=null;
-	public static Characters personaje2=null;
-	public static Characters personaje3=null;
-	public static Characters personaje4=null;
-	public static Characters personaje5=null;
-	public static Characters personaje6=null;
-	public static Characters personaje7=null;
-	public static Characters personaje8=null;
-	public static Characters personaje9=null;
-	public static Characters npc1=null;
-	public static Characters npc2=null;
-	public static Characters npc3=null;
-	public static Characters npc4=null;
-	public static Characters npc5=null;
-	public static Characters npc6=null;
-	public static Characters npc7=null;
-	public static Characters npc8=null;
-	public static Characters npc9=null;
+	final JButton button_10 = new JButton("");
+	final JButton button_11 = new JButton("");
+	final JButton button_12 = new JButton("");
+	final JButton button_13 = new JButton("");
+	final JButton button_14 = new JButton("");
+	final JButton button_15 = new JButton("");
+	final JButton button_16 = new JButton("");
+	final JButton button_17 = new JButton("");
+	final JButton button_18 = new JButton("");
+	
+	public static Characters personaje1=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
+	public static Characters personaje2=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
+	public static Characters personaje3=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
+	public static Characters personaje4=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
+	public static Characters personaje5=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
+	public static Characters personaje6=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
+	public static Characters personaje7=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
+	public static Characters personaje8=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
+	public static Characters personaje9=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
+	public static Characters npc1=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
+	public static Characters npc2=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
+	public static Characters npc3=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
+	public static Characters npc4=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
+	public static Characters npc5=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
+	public static Characters npc6=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
+	public static Characters npc7=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
+	public static Characters npc8=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
+	public static Characters npc9=new Characters("", null, "", 0, 0, 0, 0, 0, null, null, null, null, null, null, null, null,false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0, "", "", "");
 	private JTextField textField;
 	public static int saludMax;
-	ArrayList<String> jugadores = new ArrayList<String>();
-	ArrayList<String> npcs = new ArrayList<String>();
-	ArrayList<String> npcGenerico = new ArrayList<String>();
+	public static ArrayList<String> jugadores = new ArrayList<String>();
+	public static ArrayList<String> npcs = new ArrayList<String>();
+
 	
 	
 	  public class IncomingReader implements Runnable
@@ -1720,9 +1731,9 @@ public class JugarOnline {
 	         						button_1.setText(data[1]);
 	         						personaje2=intermedio;
 	         						jugadores.add(personaje2.getName());		
-	         						Personaje2.saludM=personaje1.getLife();
-	         						Personaje2.manaM=personaje1.getMana();
-	         						Personaje2.energiaM=personaje1.getEndurance();
+	         						Personaje2.saludM=personaje2.getLife();
+	         						Personaje2.manaM=personaje2.getMana();
+	         						Personaje2.energiaM=personaje2.getEndurance();
 	         						
 	         						
 	         					}
@@ -1732,9 +1743,9 @@ public class JugarOnline {
 	         							button_2.setText(data[1]);
 	         							personaje3=intermedio;
 	         							jugadores.add(personaje3.getName());
-	         							Personaje3.saludM=personaje1.getLife();
-		         						Personaje3.manaM=personaje1.getMana();
-		         						Personaje3.energiaM=personaje1.getEndurance();
+	         							Personaje3.saludM=personaje3.getLife();
+		         						Personaje3.manaM=personaje3.getMana();
+		         						Personaje3.energiaM=personaje3.getEndurance();
 	         						}
 	         					
 	         						else{if(button_3.getText().equals("")){
@@ -1742,35 +1753,35 @@ public class JugarOnline {
 	         							button_3.setText(data[1]);
 	         							personaje4=intermedio;
 	         							jugadores.add(personaje4.getName());
-	         							Personaje4.saludM=personaje1.getLife();
-		         						Personaje4.manaM=personaje1.getMana();
-		         						Personaje4.energiaM=personaje1.getEndurance();
+	         							Personaje4.saludM=personaje4.getLife();
+		         						Personaje4.manaM=personaje4.getMana();
+		         						Personaje4.energiaM=personaje4.getEndurance();
 	         						}
 	         						else{if(button_4.getText().equals("")){
 	         							
 	         							button_4.setText(data[1]);
 	         							personaje5=intermedio;
 	         							jugadores.add(personaje5.getName());
-	         							Personaje5.saludM=personaje1.getLife();
-		         						Personaje5.manaM=personaje1.getMana();
-		         						Personaje5.energiaM=personaje1.getEndurance();
+	         							Personaje5.saludM=personaje5.getLife();
+		         						Personaje5.manaM=personaje5.getMana();
+		         						Personaje5.energiaM=personaje5.getEndurance();
 	         						}
 	         						else{if(button_5.getText().equals("")){
 	         							
 	         							button_5.setText(data[1]);
 	         							personaje6=intermedio;
 	         							jugadores.add(personaje6.getName());
-	         							Personaje6.saludM=personaje1.getLife();
-		         						Personaje6.manaM=personaje1.getMana();
-		         						Personaje6.energiaM=personaje1.getEndurance();
+	         							Personaje6.saludM=personaje6.getLife();
+		         						Personaje6.manaM=personaje6.getMana();
+		         						Personaje6.energiaM=personaje6.getEndurance();
 	         						}
 	         						else{if(button_6.getText().equals("")){
 	         							
 	         							button_6.setText(data[1]);
 	         							personaje7=intermedio;
 	         							jugadores.add(personaje7.getName());
-	         							Personaje7.saludM=personaje1.getLife();
-		         						Personaje7.manaM=personaje1.getMana();
+	         							Personaje7.saludM=personaje7.getLife();
+		         						Personaje7.manaM=personaje7.getMana();
 		         						Personaje7.energiaM=personaje1.getEndurance();
 	         						
 	         						}
@@ -1780,17 +1791,17 @@ public class JugarOnline {
 	         							button_7.setText(data[1]);
 	         							personaje8=intermedio;
 	         							jugadores.add(personaje8.getName());
-	         							Personaje8.saludM=personaje1.getLife();
-		         						Personaje8.manaM=personaje1.getMana();
-		         						Personaje8.energiaM=personaje1.getEndurance();
+	         							Personaje8.saludM=personaje8.getLife();
+		         						Personaje8.manaM=personaje8.getMana();
+		         						Personaje8.energiaM=personaje8.getEndurance();
 	         						}
 	         						else{if(button_8.getText().equals("")){
 	         							
 	         							button_8.setText(data[1]);
 	         							personaje9=intermedio;
 	         							jugadores.add(personaje9.getName());
-	         							Personaje9.saludM=personaje1.getLife();
-		         						Personaje9.manaM=personaje1.getMana();
+	         							Personaje9.saludM=personaje9.getLife();
+		         						Personaje9.manaM=personaje9.getMana();
 		         						Personaje9.energiaM=personaje1.getEndurance();
 	         						}
 	         						
@@ -1986,13 +1997,6 @@ public class JugarOnline {
 		
 		mnCargar.add(mntmNpc);
 		
-		JMenuItem mntmNpcGenrico = new JMenuItem("NPC Gen\u00E9rico");
-		mntmNpcGenrico.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		mnCargar.add(mntmNpcGenrico);
-		
 		JButton button_30 = new JButton("");
 		button_30.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/botonayudajugar1.png")));
 		
@@ -2002,6 +2006,97 @@ public class JugarOnline {
 		JMenuItem mntmJugador = new JMenuItem("Jugador");
 		mntmJugador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				Object [] personajes= jugadores.toArray();
+				Object jugador = JOptionPane.showInputDialog(
+						frmHistoriasDeZagas, "Seleccione el personaje al que eliminar.",
+						"Eliminar Personaje", JOptionPane.PLAIN_MESSAGE,
+						null,personajes,null);
+				jugador=jugador+"";
+				
+				
+
+           	 
+            	for(int i=0; i<jugadores.size();i++){
+            		
+            		if(jugadores.get(i).equals(jugador)){
+            			
+            			jugadores.remove(i);
+            		}
+            		
+            	}
+            	if(jugador.equals(button.getText())){
+            		button.setText("");
+            		personaje1=null;
+            		
+            		
+            	}
+            	else if(jugador.equals(button_1.getText())){
+            		button_1.setText("");
+            		personaje2=null;
+            		
+            		
+            	}
+            	else if(jugador.equals(button_3.getText())){
+            		button_2.setText("");
+            		personaje3=null;
+            		
+            		
+            	}
+            	else if(jugador.equals(button_3.getText())){
+            		button_3.setText("");
+            		personaje4=null;
+            		
+            		
+            	}
+            	else if(jugador.equals(button_4.getText())){
+            		button_4.setText("");
+            		personaje5=null;
+            		
+            		
+            	}
+            	else if(jugador.equals(button_5.getText())){
+            		button_5.setText("");
+            		personaje6=null;
+            		
+            		
+            	}
+            	else if(jugador.equals(button_6.getText())){
+            		button_6.setText("");
+            		personaje7=null;
+            		
+            		
+            	}
+            	else if(jugador.equals(button_7.getText())){
+            		button_7.setText("");
+            		personaje8=null;
+            		
+            		
+            	}
+            	else if(jugador.equals(button_8.getText())){
+            		button_8.setText("");
+            		personaje9=null;
+            		
+            		
+            	}
+            	
+            	writer.println("Server:"+ jugador +":Kick");
+            	writer.flush();
+            	 try {
+            		 int jugadores=0;
+					ResultSet rs = tabla.executeQuery("SELECT * FROM PARTIDAS WHERE NOMBRE='"+CrearPartida.nombre+"' AND USUARIO='"+Loader.usuario+"'");
+					while(rs.next()){
+						
+						jugadores = rs.getInt("JUGADORES");
+						
+					}
+					tabla.executeQuery("UPDATE PARTIDAS SET JUGADORES=" +(jugadores -1)+ "' WHERE NOMBRE='"+CrearPartida.nombre+"' AND USUARIO='"+Loader.usuario+"'" );
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            	
+             
+				
 				
 				
 				
@@ -2010,10 +2105,89 @@ public class JugarOnline {
 		mnEliminar.add(mntmJugador);
 		
 		JMenuItem menuItem = new JMenuItem("NPC");
+		menuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				Object [] personajes= npcs.toArray();
+				Object jugador = JOptionPane.showInputDialog(
+						frmHistoriasDeZagas, "Seleccione el NPC al que eliminar.",
+						"Eliminar NPC", JOptionPane.PLAIN_MESSAGE,
+						null,personajes,null);
+				jugador=jugador+"";
+				
+				
+
+           	 
+            	for(int i=0; i<npcs.size();i++){
+            		
+            		if(npcs.get(i).equals(jugador)){
+            			
+            			npcs.remove(i);
+            		}
+            		
+            	}
+            	if(jugador.equals(button_10.getText())){
+            		button_10.setText("");
+            		npc1=null;
+            		
+            		
+            	}
+            	else if(jugador.equals(button_11.getText())){
+            		button_11.setText("");
+            		npc2=null;
+            		
+            		
+            	}
+            	else if(jugador.equals(button_12.getText())){
+            		button_12.setText("");
+            		npc3=null;
+            		
+            		
+            	}
+            	else if(jugador.equals(button_13.getText())){
+            		button_13.setText("");
+            		npc4=null;
+            		
+            		
+            	}
+            	else if(jugador.equals(button_14.getText())){
+            		button_14.setText("");
+            		npc5=null;
+            		
+            		
+            	}
+            	else if(jugador.equals(button_15.getText())){
+            		button_15.setText("");
+            		npc6=null;
+            		
+            		
+            	}
+            	else if(jugador.equals(button_16.getText())){
+            		button_16.setText("");
+            		npc7=null;
+            		
+            		
+            	}
+            	else if(jugador.equals(button_17.getText())){
+            		button_17.setText("");
+            		npc8=null;
+            		
+            		
+            	}
+            	else if(jugador.equals(button_18.getText())){
+            		button_18.setText("");
+            		npc9=null;
+            		
+            		
+            	}
+            	            			
+				
+				
+				
+				
+			}
+		});
 		mnEliminar.add(menuItem);
-		
-		JMenuItem menuItem_1 = new JMenuItem("NPC Gen\u00E9rico");
-		mnEliminar.add(menuItem_1);
 		menuBar.add(Box.createHorizontalGlue());
 		menuBar.add(button_30);
 		button_30.setBorderPainted(false);
@@ -2137,7 +2311,7 @@ public class JugarOnline {
 		tabbedPane.addTab("NPC's", null, panel_1, null);
 		panel_1.setLayout(null);
 		
-		final JButton button_10 = new JButton("");
+
 		button_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -2164,7 +2338,7 @@ public class JugarOnline {
 		button_10.setBounds(46, 11, 179, 32);
 		panel_1.add(button_10);
 		
-		final JButton button_11 = new JButton("");
+	
 		button_11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -2193,7 +2367,7 @@ public class JugarOnline {
 		button_11.setBounds(46, 61, 179, 32);
 		panel_1.add(button_11);
 		
-		final JButton button_12 = new JButton("");
+		
 		button_12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -2224,7 +2398,7 @@ public class JugarOnline {
 		button_12.setBounds(46, 111, 179, 32);
 		panel_1.add(button_12);
 		
-		final JButton button_13 = new JButton("");
+
 		button_13.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -2255,7 +2429,7 @@ public class JugarOnline {
 		button_13.setBounds(46, 161, 179, 32);
 		panel_1.add(button_13);
 		
-		final JButton button_14 = new JButton("");
+		
 		button_14.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -2284,7 +2458,7 @@ public class JugarOnline {
 		button_14.setBounds(46, 211, 179, 32);
 		panel_1.add(button_14);
 		
-		final JButton button_15 = new JButton("");
+
 		button_15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -2313,7 +2487,7 @@ public class JugarOnline {
 		button_15.setBounds(46, 261, 179, 32);
 		panel_1.add(button_15);
 		
-		final JButton button_16 = new JButton("");
+
 		button_16.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -2342,7 +2516,7 @@ public class JugarOnline {
 		button_16.setBounds(46, 311, 179, 32);
 		panel_1.add(button_16);
 		
-		final JButton button_17 = new JButton("");
+		
 		button_17.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -2373,7 +2547,7 @@ public class JugarOnline {
 		button_17.setBounds(46, 361, 179, 32);
 		panel_1.add(button_17);
 		
-		final JButton button_18 = new JButton("");
+		
 		button_18.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -2403,109 +2577,6 @@ public class JugarOnline {
 		button_18.setBorder(null);
 		button_18.setBounds(46, 411, 179, 32);
 		panel_1.add(button_18);
-		
-		JPanel panel_2 = new JPanel();
-		tabbedPane.addTab("NPC's Genéricos", null, panel_2, null);
-		panel_2.setLayout(null);
-		
-		JButton button_20 = new JButton("");
-		button_20.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
-		button_20.setOpaque(false);
-		button_20.setHorizontalTextPosition(SwingConstants.CENTER);
-		button_20.setForeground(Color.WHITE);
-		button_20.setFont(new Font("Morpheus", Font.PLAIN, 15));
-		button_20.setContentAreaFilled(false);
-		button_20.setBorder(null);
-		button_20.setBounds(46, 11, 179, 32);
-		panel_2.add(button_20);
-		
-		JButton button_21 = new JButton("");
-		button_21.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
-		button_21.setOpaque(false);
-		button_21.setHorizontalTextPosition(SwingConstants.CENTER);
-		button_21.setForeground(Color.WHITE);
-		button_21.setFont(new Font("Morpheus", Font.PLAIN, 15));
-		button_21.setContentAreaFilled(false);
-		button_21.setBorder(null);
-		button_21.setBounds(46, 61, 179, 32);
-		panel_2.add(button_21);
-		
-		JButton button_22 = new JButton("");
-		button_22.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
-		button_22.setOpaque(false);
-		button_22.setHorizontalTextPosition(SwingConstants.CENTER);
-		button_22.setForeground(Color.WHITE);
-		button_22.setFont(new Font("Morpheus", Font.PLAIN, 15));
-		button_22.setContentAreaFilled(false);
-		button_22.setBorder(null);
-		button_22.setBounds(46, 111, 179, 32);
-		panel_2.add(button_22);
-		
-		JButton button_23 = new JButton("");
-		button_23.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
-		button_23.setOpaque(false);
-		button_23.setHorizontalTextPosition(SwingConstants.CENTER);
-		button_23.setForeground(Color.WHITE);
-		button_23.setFont(new Font("Morpheus", Font.PLAIN, 15));
-		button_23.setContentAreaFilled(false);
-		button_23.setBorder(null);
-		button_23.setBounds(46, 161, 179, 32);
-		panel_2.add(button_23);
-		
-		JButton button_24 = new JButton("");
-		button_24.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
-		button_24.setOpaque(false);
-		button_24.setHorizontalTextPosition(SwingConstants.CENTER);
-		button_24.setForeground(Color.WHITE);
-		button_24.setFont(new Font("Morpheus", Font.PLAIN, 15));
-		button_24.setContentAreaFilled(false);
-		button_24.setBorder(null);
-		button_24.setBounds(46, 211, 179, 32);
-		panel_2.add(button_24);
-		
-		JButton button_25 = new JButton("");
-		button_25.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
-		button_25.setOpaque(false);
-		button_25.setHorizontalTextPosition(SwingConstants.CENTER);
-		button_25.setForeground(Color.WHITE);
-		button_25.setFont(new Font("Morpheus", Font.PLAIN, 15));
-		button_25.setContentAreaFilled(false);
-		button_25.setBorder(null);
-		button_25.setBounds(46, 261, 179, 32);
-		panel_2.add(button_25);
-		
-		JButton button_26 = new JButton("");
-		button_26.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
-		button_26.setOpaque(false);
-		button_26.setHorizontalTextPosition(SwingConstants.CENTER);
-		button_26.setForeground(Color.WHITE);
-		button_26.setFont(new Font("Morpheus", Font.PLAIN, 15));
-		button_26.setContentAreaFilled(false);
-		button_26.setBorder(null);
-		button_26.setBounds(46, 311, 179, 32);
-		panel_2.add(button_26);
-		
-		JButton button_27 = new JButton("");
-		button_27.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
-		button_27.setOpaque(false);
-		button_27.setHorizontalTextPosition(SwingConstants.CENTER);
-		button_27.setForeground(Color.WHITE);
-		button_27.setFont(new Font("Morpheus", Font.PLAIN, 15));
-		button_27.setContentAreaFilled(false);
-		button_27.setBorder(null);
-		button_27.setBounds(46, 361, 179, 32);
-		panel_2.add(button_27);
-		
-		JButton button_28 = new JButton("");
-		button_28.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
-		button_28.setOpaque(false);
-		button_28.setHorizontalTextPosition(SwingConstants.CENTER);
-		button_28.setForeground(Color.WHITE);
-		button_28.setFont(new Font("Morpheus", Font.PLAIN, 15));
-		button_28.setContentAreaFilled(false);
-		button_28.setBorder(null);
-		button_28.setBounds(46, 411, 179, 32);
-		panel_2.add(button_28);
 		
 		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane_1.setBounds(0, 320, 621, 371);
@@ -2626,6 +2697,48 @@ public class JugarOnline {
 		panel_5.add(lblNewLabel);
 		
 		JButton btnNewButton_1 = new JButton("Tiradas Enfrentadas");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Object seleccion = JOptionPane.showInputDialog(
+	                     null,
+	                     "Tiradas Enfrentadas",
+	                     "Seleccione el tipo de tirada",
+	                     JOptionPane.PLAIN_MESSAGE,
+	                     null,  // null para icono defecto
+	                     new Object[] { "Combate","Otro" }, 
+	                     "opcion 1");
+	              seleccion=seleccion+"";
+	              
+	          if(seleccion.equals("Combate")){
+	            Object seleccion2 = JOptionPane.showInputDialog(
+	                       null,
+	                       "Tiradas Enfrentadas",
+	                       "Seleccione el tipo de tirada",
+	                       JOptionPane.PLAIN_MESSAGE,
+	                       null,  // null para icono defecto
+	                       new Object[] { "Cuerpo a Cuerpo","A Distancia","Magia" }, 
+	                       "opcion 1");
+	                seleccion2=seleccion2+"";
+	                
+	                
+	                if(seleccion2.equals("Cuerpo a Cuerpo")){
+	                	
+	                	CombateMele window = new CombateMele();
+	                	window.getFrmHistoriasDeZagas().setVisible(true);
+	                	
+	                }
+	                else if(seleccion2.equals("A Distancia")){
+	                  	CombateDistancia window = new CombateDistancia();
+	                	window.getFrmHistoriasDeZagas().setVisible(true);
+	                }
+	                else if(seleccion2.equals("Magia")){
+	                  	CombateMagia window = new CombateMagia();
+	                	window.getFrmHistoriasDeZagas().setVisible(true);
+	                }
+	          }
+				
+			}
+		});
 		btnNewButton_1.setBounds(10, 70, 187, 31);
 		panel_5.add(btnNewButton_1);
 		
@@ -4611,21 +4724,7 @@ if(npc1.getName().equals(jugador)){
 					writer.println("Información: Se ha alterado el estado de "+jugador+ "a "+estado+":Chat");
 					writer.flush();
 				}
-			else if(seleccion.equals("NPC Genérico")){
-					
-					Object [] personajes= npcGenerico.toArray();
-					Object jugador = JOptionPane.showInputDialog(
-							frmHistoriasDeZagas, "Seleccione el personaje al que cambiar el estado.",
-							"Alterar Estado", JOptionPane.PLAIN_MESSAGE,
-							null,personajes,null);
-					jugador=jugador+"";
-					String estado = JOptionPane.showInputDialog(
-							frmHistoriasDeZagas, "Introduce el nuevo estado.", "",
-							JOptionPane.PLAIN_MESSAGE);
-					
-					writer.println(jugador+":"+estado+":Alterar");
-					writer.flush();
-				}
+			
 				//writer.println(/*Usuario escogido*/":"/*Nuevo Estado escogida*/+":Alterar");
 				//writer.flush();
 			}
@@ -4636,7 +4735,139 @@ if(npc1.getName().equals(jugador)){
 		JButton btnModificarEquipo = new JButton("Modificar Equipo");
 		btnModificarEquipo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				ArrayList<String> intermedio = new ArrayList<String>();
+				for(int i=0; i<JugarOnline.jugadores.size();i++){
+					intermedio.add(JugarOnline.jugadores.get(i));
+					
+				}
+				for(int i=0; i<JugarOnline.npcs.size();i++){
+					intermedio.add(JugarOnline.npcs.get(i));
+					
+				}
+			
+				Object jugador = JOptionPane.showInputDialog(
+						frmHistoriasDeZagas, "Seleccione el personaje al que cambiar el equipo.",
+						"Alterar Estado", JOptionPane.PLAIN_MESSAGE,
+						null,intermedio.toArray(),null);
+				
+				if(personaje1.getName().equals(jugador)){
+					
+					ModificarEquipo.personaje=personaje1;
+					ModificarEquipo.tipopj="PERSONAJE";
+					
+				}
+				else	if(personaje2.getName().equals(jugador)){
+					
+					ModificarEquipo.personaje=personaje2;
+					ModificarEquipo.tipopj="PERSONAJE";	
+				}
+				else	if(personaje3.getName().equals(jugador)){
+	
+					ModificarEquipo.personaje=personaje3;
+					ModificarEquipo.tipopj="PERSONAJE";
+	
+				}
+				else	if(personaje4.getName().equals(jugador)){
+					
+					ModificarEquipo.personaje=personaje4;
+					ModificarEquipo.tipopj="PERSONAJE";
+	
+				}
+				else	if(personaje5.getName().equals(jugador)){
+					
+					ModificarEquipo.personaje=personaje5;
+					ModificarEquipo.tipopj="PERSONAJE";
+	
+				}
+				else	if(personaje6.getName().equals(jugador)){
+					
+					ModificarEquipo.personaje=personaje6;
+					ModificarEquipo.tipopj="PERSONAJE";
+	
+				}
+				else	if(personaje7.getName().equals(jugador)){
+					
+					ModificarEquipo.personaje=personaje7;
+					ModificarEquipo.tipopj="PERSONAJE";
+	
+				}
+				else	if(personaje8.getName().equals(jugador)){
+					
+					ModificarEquipo.personaje=personaje8;
+					ModificarEquipo.tipopj="PERSONAJE";
+	
+				}
+				else	if(personaje9.getName().equals(jugador)){
+					
+					ModificarEquipo.personaje=personaje9;
+					ModificarEquipo.tipopj="PERSONAJE";
+	
+				}
+
+				
+				else if(npc1.getName().equals(jugador)){
+					
+					ModificarEquipo.personaje=npc1;
+					ModificarEquipo.tipopj="NPC";
+					
+				}
+				else	if(npc2.getName().equals(jugador)){
+					
+					ModificarEquipo.personaje=npc2;
+					ModificarEquipo.tipopj="NPC";
+				}
+				else	if(npc3.getName().equals(jugador)){
+	
+					ModificarEquipo.personaje=npc3;
+					ModificarEquipo.tipopj="NPC";
+				}
+				else	if(npc4.getName().equals(jugador)){
+					
+					ModificarEquipo.personaje=npc4;
+					ModificarEquipo.tipopj="NPC";
+				}
+				else	if(npc5.getName().equals(jugador)){
+					
+					ModificarEquipo.personaje=npc5;
+					ModificarEquipo.tipopj="NPC";
+				}
+				else	if(npc6.getName().equals(jugador)){
+					
+					ModificarEquipo.personaje=npc6;
+					ModificarEquipo.tipopj="NPC";
+				}
+				else	if(npc7.getName().equals(jugador)){
+					
+					ModificarEquipo.personaje=npc7;
+					ModificarEquipo.tipopj="NPC";
+				}
+				else	if(npc8.getName().equals(jugador)){
+					
+					ModificarEquipo.personaje=npc8;
+					ModificarEquipo.tipopj="NPC";
+				}
+				else	if(npc9.getName().equals(jugador)){
+					
+					ModificarEquipo.personaje=npc9;
+					ModificarEquipo.tipopj="NPC";
+				}
+
+				
+				ModificarEquipo window;
+				try {
+					window = new ModificarEquipo();
+					window.getFrame().setVisible(true);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+						| SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			
+				
+			
 			}
+			
+			
 		});
 		btnModificarEquipo.setBounds(10, 190, 187, 31);
 		panel_6.add(btnModificarEquipo);
@@ -13117,19 +13348,20 @@ if(npc1.getName().equals(jugador)){
 					
 						button_10.setText(seleccion.toString());
 						npc1=intermedio;
+
 						npcs.add(npc1.getName());
-						NPC1.saludM=personaje1.getLife();
- 						NPC1.manaM=personaje1.getMana();
- 						NPC1.energiaM=personaje1.getEndurance();
+						NPC1.saludM=npc1.getLife();
+ 						NPC1.manaM=npc1.getMana();
+ 						NPC1.energiaM=npc1.getEndurance();
 					}
 					else{ if(button_11.getText().equals("")){
 					
 						button_11.setText(seleccion.toString());
 						npc2=intermedio;
 						npcs.add(npc2.getName());
-						NPC2.saludM=personaje1.getLife();
- 						NPC2.manaM=personaje1.getMana();
- 						NPC2.energiaM=personaje1.getEndurance();
+						NPC2.saludM=npc2.getLife();
+ 						NPC2.manaM=npc2.getMana();
+ 						NPC2.energiaM=npc2.getEndurance();
 					}
 					else{
 						if(button_12.getText().equals("")){
@@ -13137,9 +13369,9 @@ if(npc1.getName().equals(jugador)){
 							button_12.setText(seleccion.toString());
 							npc3=intermedio;
 							npcs.add(npc3.getName());
-							NPC3.saludM=personaje1.getLife();
-	 						NPC3.manaM=personaje1.getMana();
-	 						NPC3.energiaM=personaje1.getEndurance();
+							NPC3.saludM=npc3.getLife();
+	 						NPC3.manaM=npc3.getMana();
+	 						NPC3.energiaM=npc3.getEndurance();
 						}
 					
 						else{if(button_13.getText().equals("")){
@@ -13147,36 +13379,36 @@ if(npc1.getName().equals(jugador)){
 							button_13.setText(seleccion.toString());
 							npc4=intermedio;
 							npcs.add(npc4.getName());
-							NPC4.saludM=personaje1.getLife();
-	 						NPC4.manaM=personaje1.getMana();
-	 						NPC4.energiaM=personaje1.getEndurance();
+							NPC4.saludM=npc4.getLife();
+	 						NPC4.manaM=npc4.getMana();
+	 						NPC4.energiaM=npc4.getEndurance();
 						}
 						else{if(button_14.getText().equals("")){
 							
 							button_14.setText(seleccion.toString());
 							npc5=intermedio;
 							npcs.add(npc5.getName());
-							NPC5.saludM=personaje1.getLife();
-	 						NPC5.manaM=personaje1.getMana();
-	 						NPC5.energiaM=personaje1.getEndurance();
+							NPC5.saludM=npc5.getLife();
+	 						NPC5.manaM=npc5.getMana();
+	 						NPC5.energiaM=npc5.getEndurance();
 						}
 						else{if(button_15.getText().equals("")){
 							
 							button_15.setText(seleccion.toString());
 							npc6=intermedio;
 							npcs.add(npc6.getName());
-							NPC6.saludM=personaje1.getLife();
-	 						NPC6.manaM=personaje1.getMana();
-	 						NPC6.energiaM=personaje1.getEndurance();
+							NPC6.saludM=npc6.getLife();
+	 						NPC6.manaM=npc6.getMana();
+	 						NPC6.energiaM=npc6.getEndurance();
 						}
 						else{if(button_16.getText().equals("")){
 							
 							button_16.setText(seleccion.toString());
 							npc7=intermedio;
 							npcs.add(npc7.getName());
-							NPC7.saludM=personaje1.getLife();
-	 						NPC7.manaM=personaje1.getMana();
-	 						NPC7.energiaM=personaje1.getEndurance();
+							NPC7.saludM=npc7.getLife();
+	 						NPC7.manaM=npc7.getMana();
+	 						NPC7.energiaM=npc7.getEndurance();
 						}
 						
 						else{if(button_17.getText().equals("")){
@@ -13184,18 +13416,18 @@ if(npc1.getName().equals(jugador)){
 							button_17.setText(seleccion.toString());
 							npc8=intermedio;
 							npcs.add(npc8.getName());
-							NPC8.saludM=personaje1.getLife();
-	 						NPC8.manaM=personaje1.getMana();
-	 						NPC8.energiaM=personaje1.getEndurance();
+							NPC8.saludM=npc8.getLife();
+	 						NPC8.manaM=npc8.getMana();
+	 						NPC8.energiaM=npc8.getEndurance();
 						}
 						else{if(button_18.getText().equals("")){
 							
 							button_18.setText(seleccion.toString());
 							npc9=intermedio;
 							npcs.add(npc9.getName());
-							NPC9.saludM=personaje1.getLife();
-	 						NPC9.manaM=personaje1.getMana();
-	 						NPC9.energiaM=personaje1.getEndurance();
+							NPC9.saludM=npc9.getLife();
+	 						NPC9.manaM=npc9.getMana();
+	 						NPC9.energiaM=npc9.getEndurance();
 						}
 						
 						else{}
