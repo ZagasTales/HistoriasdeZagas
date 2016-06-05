@@ -23,6 +23,8 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
 import java.awt.Toolkit;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class TiradaDeCombate {
 
@@ -35,14 +37,6 @@ public class TiradaDeCombate {
 	}
 
 	private JFrame frmHistoriasDeZagas;
-	private JTextField txtTirada1;
-	private JTextField txtTirada2;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
 	
 	MorpheusFont mf=new MorpheusFont();
 	private JTextField textField_6;
@@ -82,6 +76,48 @@ public class TiradaDeCombate {
 		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmHistoriasDeZagas.getContentPane().setLayout(null);
 		
+		final JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}));
+		comboBox.setBounds(98, 171, 71, 25);
+		frmHistoriasDeZagas.getContentPane().add(comboBox);
+		
+		final JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}));
+		comboBox_1.setBounds(393, 173, 71, 25);
+		frmHistoriasDeZagas.getContentPane().add(comboBox_1);
+		
+		final JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}));
+		comboBox_2.setBounds(98, 205, 71, 25);
+		frmHistoriasDeZagas.getContentPane().add(comboBox_2);
+		
+		final JComboBox comboBox_3 = new JComboBox();
+		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"}));
+		comboBox_3.setBounds(393, 205, 71, 25);
+		frmHistoriasDeZagas.getContentPane().add(comboBox_3);
+		
+		final JComboBox comboBox_4 = new JComboBox();
+		comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
+		comboBox_4.setBounds(98, 241, 71, 25);
+		frmHistoriasDeZagas.getContentPane().add(comboBox_4);
+		
+		final JComboBox comboBox_5 = new JComboBox();
+		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5"}));
+		comboBox_5.setBounds(393, 241, 71, 25);
+		frmHistoriasDeZagas.getContentPane().add(comboBox_5);
+		
+		final JComboBox comboBox_6 = new JComboBox();
+		comboBox_6.setModel(new DefaultComboBoxModel(new String[] {"-3", "-2", "-1", "0", "+1", "+2", "+3"}));
+		comboBox_6.setSelectedIndex(3);
+		comboBox_6.setBounds(98, 277, 71, 25);
+		frmHistoriasDeZagas.getContentPane().add(comboBox_6);
+		
+		final JComboBox comboBox_7 = new JComboBox();
+		comboBox_7.setModel(new DefaultComboBoxModel(new String[] {"-3", "-2", "-1", "0", "+1", "+2", "+3"}));
+		comboBox_7.setSelectedIndex(3);
+		comboBox_7.setBounds(393, 277, 71, 25);
+		frmHistoriasDeZagas.getContentPane().add(comboBox_7);
+		
 		JLabel lblTirada = new JLabel("Tirada:");
 		lblTirada.setFont(mf.MyFont(0, 13));
 		lblTirada.setForeground(Color.WHITE);
@@ -94,27 +130,14 @@ public class TiradaDeCombate {
 		lblTirada_1.setBounds(296, 169, 71, 25);
 		frmHistoriasDeZagas.getContentPane().add(lblTirada_1);
 		
-		txtTirada1 = new JTextField();
-		txtTirada1.setFont(mf.MyFont(0, 13));
-		txtTirada1.setBounds(83, 172, 86, 20);
-		frmHistoriasDeZagas.getContentPane().add(txtTirada1);
-		txtTirada1.setColumns(10);
-		
-		txtTirada2 = new JTextField();
-		txtTirada2.setFont(mf.MyFont(0, 13));
-		txtTirada2.setBounds(377, 173, 86, 20);
-		frmHistoriasDeZagas.getContentPane().add(txtTirada2);
-		txtTirada2.setColumns(10);
-		
 		final JCheckBox chckbxAleatorio = new JCheckBox("Aleatorio");
 		chckbxAleatorio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(chckbxAleatorio.isSelected()){
-					txtTirada1.setEnabled(false);
-					txtTirada1.setText("");
+					comboBox.setEnabled(false);
 				}
 				else{
-					txtTirada1.setEnabled(true);
+					comboBox.setEnabled(true);
 					
 				}
 			}
@@ -129,11 +152,11 @@ public class TiradaDeCombate {
 		checkBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(checkBox.isSelected()){
-					txtTirada2.setEnabled(false);
-					txtTirada2.setText("");
+					comboBox_1.setEnabled(false);
+					
 				}
 				else{
-					txtTirada2.setEnabled(true);
+					comboBox_1.setEnabled(true);
 					
 				}
 				
@@ -151,23 +174,11 @@ public class TiradaDeCombate {
 		lblHabilidad.setBounds(10, 241, 71, 25);
 		frmHistoriasDeZagas.getContentPane().add(lblHabilidad);
 		
-		textField = new JTextField();
-		textField.setFont(mf.MyFont(0, 13));
-		textField.setColumns(10);
-		textField.setBounds(83, 244, 86, 20);
-		frmHistoriasDeZagas.getContentPane().add(textField);
-		
 		JLabel lblHabilidad_1 = new JLabel("Habilidad:");
 		lblHabilidad_1.setFont(mf.MyFont(0, 13));
 		lblHabilidad_1.setForeground(Color.WHITE);
 		lblHabilidad_1.setBounds(296, 241, 71, 25);
 		frmHistoriasDeZagas.getContentPane().add(lblHabilidad_1);
-		
-		textField_1 = new JTextField();
-		textField_1.setFont(mf.MyFont(0, 13));
-		textField_1.setColumns(10);
-		textField_1.setBounds(377, 246, 86, 20);
-		frmHistoriasDeZagas.getContentPane().add(textField_1);
 		
 		JLabel lblAtributo = new JLabel("Atributo:");
 		lblAtributo.setFont(mf.MyFont(0, 13));
@@ -175,23 +186,11 @@ public class TiradaDeCombate {
 		lblAtributo.setBounds(10, 205, 71, 25);
 		frmHistoriasDeZagas.getContentPane().add(lblAtributo);
 		
-		textField_2 = new JTextField();
-		textField_2.setFont(mf.MyFont(0, 13));
-		textField_2.setColumns(10);
-		textField_2.setBounds(83, 210, 86, 20);
-		frmHistoriasDeZagas.getContentPane().add(textField_2);
-		
 		JLabel lblAtributo_1 = new JLabel("Atributo:");
 		lblAtributo_1.setFont(mf.MyFont(0, 13));
 		lblAtributo_1.setForeground(Color.WHITE);
 		lblAtributo_1.setBounds(296, 205, 71, 25);
 		frmHistoriasDeZagas.getContentPane().add(lblAtributo_1);
-		
-		textField_3 = new JTextField();
-		textField_3.setFont(mf.MyFont(0, 13));
-		textField_3.setColumns(10);
-		textField_3.setBounds(377, 210, 86, 20);
-		frmHistoriasDeZagas.getContentPane().add(textField_3);
 		
 		JLabel lblJugador = new JLabel("Jugador 1");
 		lblJugador.setFont(mf.MyFont(0, 20));
@@ -237,49 +236,21 @@ public class TiradaDeCombate {
 		final JButton btnCalcular = new JButton("Calcular");
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int tirada1;
-				int tirada2;
-				int atributo1=Integer.parseInt(textField_2.getText());
-				int atributo2=Integer.parseInt(textField_3.getText());
-				int habilidad1=Integer.parseInt(textField.getText());
-				int habilidad2=Integer.parseInt(textField_1.getText());
-				int modificador1=0;
-				int modificador2=0;
+				int tirada1=Integer.parseInt(comboBox.getSelectedItem()+"");;
+				int tirada2=Integer.parseInt(comboBox_1.getSelectedItem()+"");;
+				int atributo1=Integer.parseInt(comboBox_2.getSelectedItem()+"");
+				int atributo2=Integer.parseInt(comboBox_3.getSelectedItem()+"");
+				int habilidad1=Integer.parseInt(comboBox_4.getSelectedItem()+"");
+				int habilidad2=Integer.parseInt(comboBox_5.getSelectedItem()+"");
+				int modificador1=Integer.parseInt(comboBox_6.getSelectedItem()+"");
+				int modificador2=Integer.parseInt(comboBox_7.getSelectedItem()+"");
 				int total;
 			
 				
-				if(txtTirada1.getText().equals("")){
-					tirada1=0;
-				}
-				else{
-					tirada1=Integer.parseInt(txtTirada1.getText());
-					}
 				
 				
-				if(txtTirada2.getText().equals("")){
-					tirada2=0;
-				}
-				else{
-					
-					tirada2=Integer.parseInt(txtTirada2.getText());
 				
-				}
-				if(textField_4.getText().equals("")){
-					modificador1=0;
-				}
-				else{
-					
-					modificador1=Integer.parseInt(textField_4.getText());
 				
-				}
-				
-				if(textField_5.getText().equals("")){
-					modificador2=0;
-				}
-				else{
-					modificador2=Integer.parseInt(textField_5.getText());
-					
-				}
 				
 				if(chckbxAleatorio.isSelected()){
 					tirada1=DiceRoll.LanzaDadoAleatorio20();
@@ -474,23 +445,11 @@ public class TiradaDeCombate {
 		lblModificador.setBounds(10, 277, 71, 25);
 		frmHistoriasDeZagas.getContentPane().add(lblModificador);
 		
-		textField_4 = new JTextField();
-		textField_4.setFont(mf.MyFont(0, 13));
-		textField_4.setColumns(10);
-		textField_4.setBounds(83, 280, 86, 20);
-		frmHistoriasDeZagas.getContentPane().add(textField_4);
-		
 		JLabel lblModificador_1 = new JLabel("Modificador:");
 		lblModificador_1.setFont(mf.MyFont(0, 13));
 		lblModificador_1.setForeground(Color.WHITE);
 		lblModificador_1.setBounds(296, 277, 71, 25);
 		frmHistoriasDeZagas.getContentPane().add(lblModificador_1);
-		
-		textField_5 = new JTextField();
-		textField_5.setFont(mf.MyFont(0, 13));
-		textField_5.setColumns(10);
-		textField_5.setBounds(377, 282, 86, 20);
-		frmHistoriasDeZagas.getContentPane().add(textField_5);
 		
 		final JButton btnResultadosTirada = new JButton("Información Tiradas Enfrentadas");
 		btnResultadosTirada.addActionListener(new ActionListener() {
