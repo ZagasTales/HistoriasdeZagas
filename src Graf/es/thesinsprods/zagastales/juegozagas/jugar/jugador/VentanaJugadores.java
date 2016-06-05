@@ -112,7 +112,12 @@ public class VentanaJugadores {
 	        public void run() 
 	        {
 	            String[] data;
-	            String stream, darHab="darHab",darExp="darExp" ,darAtr="darAtr",modificarEq = "ModificarEq",modificarSEM="ModificarSEM" ,alterarE= "Alterar",done = "Done", connect = "Connect", disconnect = "Desconectado", chat = "Chat", cerrar= "Cerrar" ,kick="Kick";
+	            String stream, darHab="darHab",darExp="darExp" ,darAtr="darAtr",modificarEq = "ModificarEq",modificarSEM="ModificarSEM" ,alterarE= "Alterar",done = "Done", connect = "Connect", disconnect = "Desconectado", chat = "Chat", cerrar= "Cerrar" ,kick="Kick"
+	            		,
+	            		quitarArm="QuitarArm",darArm="DarArm",quitarWeap1="QuitarWeap1",darWeap1="DarWeap1", quitarObj1="QuitarObj1", darObj1="DarObj1"
+	            				,quitarWeap2="QuitarWeap2",darWeap2="DarWeap2", quitarObj2="QuitarObj2", darObj2="DarObj2"
+	            						,quitarWeap3="QuitarWeap3",darWeap3="DarWeap3", quitarObj3="QuitarObj3", darObj3="DarObj3"
+	            								,quitarWeap4="QuitarWeap4",darWeap4="DarWeap4", quitarObj4="QuitarObj4", darObj4="DarObj4";
 
 	            try 
 	            {
@@ -124,6 +129,190 @@ public class VentanaJugadores {
 	                     {
 	                        textArea.append(data[0] + ": " + data[1] + "\n");
 	                        textArea.setCaretPosition(textArea.getDocument().getLength());
+	                     }
+	                     
+	                     else if(data[2].equals(darArm)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    	 Armor armor = new Armor(data[3], data[4], false, false, null);
+	                    	personaje.setArmor(armor);
+	                    	 }
+	                     }
+	                     
+	                     else if(data[2].equals(darWeap1)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    		 Weapons weapon = new Weapons("", "", false, false, null, "");
+	                    		 if(data[6].equals("OneHanded")){weapon= new OneHanded(data[3], data[4], false, false, null, data[5]);}
+	                    		 else if(data[6].equals("TwoHanded")){weapon= new TwoHanded(data[3], data[4], false, false, null, data[5]);}
+	                    		 else if(data[6].equals("Ranged")){weapon= new Ranged(data[3], data[4], false, false, null, data[5]);}
+	                    		 else if(data[6].equals("Pole")){weapon= new Pole(data[3], data[4], false, false, null, data[5]);}
+	                    		 else if(data[6].equals("Shields")){weapon= new Shields(data[3], data[4], false, false, null, data[5]);}
+	                    	 
+	                    	 personaje.setWeapon1(weapon);
+	                    	 }
+	                     }
+	                     
+	                     else if(data[2].equals(darWeap2)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    		 Weapons weapon = new Weapons("", "", false, false, null, "");
+	                    		 if(data[6].equals("OneHanded")){weapon= new OneHanded(data[3], data[4], false, false, null, data[5]);}
+	                    		 else if(data[6].equals("TwoHanded")){weapon= new TwoHanded(data[3], data[4], false, false, null, data[5]);}
+	                    		 else if(data[6].equals("Ranged")){weapon= new Ranged(data[3], data[4], false, false, null, data[5]);}
+	                    		 else if(data[6].equals("Pole")){weapon= new Pole(data[3], data[4], false, false, null, data[5]);}
+	                    		 else if(data[6].equals("Shields")){weapon= new Shields(data[3], data[4], false, false, null, data[5]);}
+	                    	 
+	                    	 personaje.setWeapon2(weapon);
+	                    	 }
+	                     }
+	                     
+	                     else if(data[2].equals(darWeap3)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    		 Weapons weapon = new Weapons("", "", false, false, null, "");
+	                    		 if(data[6].equals("OneHanded")){weapon= new OneHanded(data[3], data[4], false, false, null, data[5]);}
+	                    		 else if(data[6].equals("TwoHanded")){weapon= new TwoHanded(data[3], data[4], false, false, null, data[5]);}
+	                    		 else if(data[6].equals("Ranged")){weapon= new Ranged(data[3], data[4], false, false, null, data[5]);}
+	                    		 else if(data[6].equals("Pole")){weapon= new Pole(data[3], data[4], false, false, null, data[5]);}
+	                    		 else if(data[6].equals("Shields")){weapon= new Shields(data[3], data[4], false, false, null, data[5]);}
+	                    	 
+	                    	 personaje.setWeapon3(weapon);
+	                    	 }
+	                     }
+	                     
+	                     else if(data[2].equals(darWeap4)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    		 Weapons weapon = new Weapons("", "", false, false, null, "");
+	                    		 if(data[6].equals("OneHanded")){weapon= new OneHanded(data[3], data[4], false, false, null, data[5]);}
+	                    		 else if(data[6].equals("TwoHanded")){weapon= new TwoHanded(data[3], data[4], false, false, null, data[5]);}
+	                    		 else if(data[6].equals("Ranged")){weapon= new Ranged(data[3], data[4], false, false, null, data[5]);}
+	                    		 else if(data[6].equals("Pole")){weapon= new Pole(data[3], data[4], false, false, null, data[5]);}
+	                    		 else if(data[6].equals("Shields")){weapon= new Shields(data[3], data[4], false, false, null, data[5]);}
+	                    	 
+	                    	 personaje.setWeapon4(weapon);
+	                    	 }
+	                     }
+	                     
+	                     else if(data[2].equals(quitarWeap1)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    		 Weapons weapon = new Weapons("", "", false, false, null, "");
+	                    		 personaje.setWeapon1(weapon);
+	                    		 
+	                    	 }
+	                     }
+	                     
+	                     else if(data[2].equals(quitarWeap2)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    		 Weapons weapon = new Weapons("", "", false, false, null, "");
+	                    		 personaje.setWeapon2(weapon);
+	                    		 
+	                    	 }
+	                     }
+	                     
+	                     else if(data[2].equals(quitarWeap3)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    		 Weapons weapon = new Weapons("", "", false, false, null, "");
+	                    		 personaje.setWeapon3(weapon);
+	                    		 
+	                    	 }
+	                     }
+	                     
+	                     else if(data[2].equals(quitarWeap4)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    		 Weapons weapon = new Weapons("", "", false, false, null, "");
+	                    		 personaje.setWeapon4(weapon);
+	                    	 }
+	                     }
+	                     
+	                     else if(data[2].equals(quitarObj1)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    		 Misc misc = new Misc("", "", false, false, null);
+	                    		 personaje.setMisc1(misc);
+	                    		 
+	                    	 }
+	                     }
+	                     
+	                     else if(data[2].equals(quitarObj2)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    		 Misc misc = new Misc("", "", false, false, null);
+	                    		 personaje.setMisc2(misc);
+	                    		 
+	                    	 }
+	                     }
+	                     
+	                     else if(data[2].equals(quitarObj3)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    		 Misc misc = new Misc("", "", false, false, null);
+	                    		 personaje.setMisc3(misc);
+	                    		 
+	                    	 }
+	                     }
+	                     
+	                     else if(data[2].equals(quitarObj4)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    		 Misc misc = new Misc("", "", false, false, null);
+	                    		 personaje.setMisc4(misc);
+	                    		 
+	                    	 }
+	                     }
+	                     
+	                     
+	                     else if(data[2].equals(darObj1)){
+	                    	 if(data[1].equals(personaje.getName())){ 
+	                    	 Misc misc= new Misc(data[3], data[4], false, false, null);
+	                    	 personaje.setMisc1(misc);
+	                    	 
+	                    	 }
+	                     }
+	                     else if(data[2].equals(darObj2)){
+	                    	 if(data[1].equals(personaje.getName())){ 
+	                    	 Misc misc= new Misc(data[3], data[4], false, false, null);
+	                    	 personaje.setMisc2(misc);
+	                    	 
+	                    	 }
+	                     }
+	                     else if(data[2].equals(darObj3)){
+	                    	 if(data[1].equals(personaje.getName())){ 
+	                    	 Misc misc= new Misc(data[3], data[4], false, false, null);
+	                    	 personaje.setMisc3(misc);
+	                    	 
+	                    	 }
+	                     }
+	                     else if(data[2].equals(darObj4)){
+	                    	 if(data[1].equals(personaje.getName())){ 
+	                    	 Misc misc= new Misc(data[3], data[4], false, false, null);
+	                    	 personaje.setMisc4(misc);
+	                    	 
+	                    	 }
+	                     }
+	                     
+	                     else if(data[2].equals(quitarObj1)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    	 Misc misc = new Misc("", "", false, false, null);
+	                    	personaje.setMisc1(misc);
+	                    	 }
+	                     }
+	                     else if(data[2].equals(quitarObj2)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    	 Misc misc = new Misc("", "", false, false, null);
+	                    	personaje.setMisc2(misc);
+	                    	 }
+	                     }
+	                     else if(data[2].equals(quitarObj3)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    	 Misc misc = new Misc("", "", false, false, null);
+	                    	personaje.setMisc3(misc);
+	                    	 }
+	                     }
+	                     else if(data[2].equals(quitarObj4)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    	 Misc misc = new Misc("", "", false, false, null);
+	                    	personaje.setMisc4(misc);
+	                    	 }
+	                     }
+	                     
+	                     else if(data[2].equals(quitarArm)){
+	                    	 if(data[1].equals(personaje.getName())){
+	                    	 Armor armor = new Armor("", "", false, false, null);
+	                    	personaje.setArmor(armor);
+	                    	 }
 	                     }
 	                     
 	                     else if(data[2].equals(kick)){
