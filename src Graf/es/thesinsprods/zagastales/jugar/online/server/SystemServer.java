@@ -69,7 +69,11 @@ public class SystemServer {
 	       @Override
 	       public void run() 
 	       {
-	            String message,darHab="darHab",darExp="darExp" ,darAtr="darAtr",modificarEq = "ModificarEq",modificarSEM="ModificarSEM" ,alterarE= "Alterar",cerrar="Cerrar", cargar="Cargar", connect = "Connect", disconnect = "Desconectado", chat = "Chat" , limpiar="LimpiaLista" , kick="Kick";
+	            String message,darHab="darHab",darExp="darExp" ,darAtr="darAtr",modificarSEM="ModificarSEM" ,alterarE= "Alterar",cerrar="Cerrar", cargar="Cargar", connect = "Connect", disconnect = "Desconectado", chat = "Chat" , limpiar="LimpiaLista" , kick="Kick",
+	            		quitarArm="QuitarArm",darArm="DarArm",quitarWeap1="QuitarWeap1",darWeap1="DarWeap1", quitarObj1="QuitarObj1", darObj1="DarObj1"
+        				,quitarWeap2="QuitarWeap2",darWeap2="DarWeap2", quitarObj2="QuitarObj2", darObj2="DarObj2"
+        						,quitarWeap3="QuitarWeap3",darWeap3="DarWeap3", quitarObj3="QuitarObj3", darObj3="DarObj3"
+        								,quitarWeap4="QuitarWeap4",darWeap4="DarWeap4", quitarObj4="QuitarObj4", darObj4="DarObj4";
 	            String[] data;
 
 	            try 
@@ -87,6 +91,124 @@ public class SystemServer {
 	                    	tellEveryone((data[0] + ":" + data[1] + ":" + cargar));
 	                    	
 	                    }
+	                    else if(data[2].equals(darArm)){
+	                    	
+	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + darArm+":"+data[3]+":"+data[4]));
+	                    }
+	                    
+	                    
+	                    else if(data[2].equals(darObj1)){
+	                    	
+	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + darObj1+":"+data[3]+":"+data[4]));
+	                    }
+
+	                    
+	                    else if(data[2].equals(darObj2)){
+	                    	
+	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + darObj2+":"+data[3]+":"+data[4]));
+	                    }
+
+	                    
+	                    else if(data[2].equals(darObj3)){
+	                    	
+	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + darObj3+":"+data[3]+":"+data[4]));
+	                    }
+
+
+	                    
+	                    else if(data[2].equals(darObj4)){
+	                    	
+	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + darObj4+":"+data[3]+":"+data[4]));
+	                    }
+	                    
+	                    else if(data[2].equals(darWeap1)){
+	                    	
+	                    	tellEveryone((data[0]+":"+data[1]+":"+ darWeap1 + ":" + data[3]+":"+ data[4] +":"+ data[5]+":"+data[6]));
+	                    }
+	                    
+	                    else if(data[2].equals(darWeap2)){
+	                    	
+	                    	tellEveryone((data[0]+":"+data[1]+":"+ darWeap2 + ":" + data[3]+":"+ data[4] +":"+ data[5]+":"+data[6]));
+	                    }
+	                    
+	                    else if(data[2].equals(darWeap3)){
+	                    	
+	                    	tellEveryone((data[0]+":"+data[1]+":"+ darWeap3 + ":" + data[3]+":"+ data[4] +":"+ data[5]+":"+data[6]));
+	                    }
+	                    
+	                    else if(data[2].equals(darWeap4)){
+	                    	
+	                    	tellEveryone((data[0]+":"+data[1]+":"+ darWeap4 + ":" + data[3]+":"+ data[4] +":"+ data[5]+":"+data[6]));
+	                    }
+	                    
+	                    else if(data[2].equals(quitarWeap1)){
+	                    	
+	                    	tellEveryone((data[0]+ ":"+ data[1] +":"+ quitarWeap1));
+	                    }
+	                    
+	                    else if(data[2].equals(quitarWeap2)){
+	                    	
+	                    	tellEveryone((data[0]+ ":"+ data[1] +":"+ quitarWeap2));
+	                    }
+	                    
+	                    else if(data[2].equals(quitarWeap3)){
+	
+	                    	tellEveryone((data[0]+ ":"+ data[1] +":"+ quitarWeap3));
+	                    }
+	                    
+	                    else if(data[2].equals(quitarWeap4)){
+	                    	
+	                    	tellEveryone((data[0]+ ":"+ data[1] +":"+ quitarWeap4));
+	                    }
+	                    
+	                    else if(data[2].equals(quitarObj1)){
+	                    	
+	                    	tellEveryone((data[0]+ ":"+ data[1] +":"+ quitarObj1));
+	                    }
+	                    
+	                    else if(data[2].equals(quitarObj2)){
+	                    	
+	                    	tellEveryone((data[0]+ ":"+ data[1] +":"+ quitarObj2));
+	                    }
+	                    
+	                    else if(data[2].equals(quitarObj3)){
+	
+	                    	tellEveryone((data[0]+ ":"+ data[1] +":"+ quitarObj3));
+	                    }
+	                    
+	                    else if(data[2].equals(quitarObj4)){
+	                    	
+	                    	tellEveryone((data[0]+ ":"+ data[1] +":"+ quitarObj4));
+	                    }
+	                    
+	                    else if(data[2].equals(quitarArm)){
+	                    	
+	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + quitarArm));
+	                    }
+
+	                    else if(data[2].equals(quitarObj1)){
+	                    	
+	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + quitarObj1));
+	                    }
+	                    
+
+	                    else if(data[2].equals(quitarObj2)){
+	                    	
+	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + quitarObj2));
+	                    }
+
+	                    else if(data[2].equals(quitarObj3)){
+	                    	
+	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + quitarObj3));
+	                    }
+
+	                    else if(data[2].equals(quitarObj4)){
+	                    	
+	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + quitarObj4));
+	                    }
+	                    
+	                    
+	                    
 	                    else if(data[2].equals(alterarE)){
 	                    	tellEveryone((data[0] + ":" + data[1]+ ":" + alterarE));
 	                    	
