@@ -162,26 +162,26 @@ public class CrearCuenta {
 
 		textField = new JTextField();
 		textField.setBounds(139, 90, 111, 20);
-		textField.setFont(mf.MyFont(0, 11));
+		textField.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		frmHistoriasDeZagas.getContentPane().add(textField);
 		textField.setColumns(10);
 
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
 		textField_1.setBounds(139, 140, 111, 20);
-		textField_1.setFont(mf.MyFont(0, 11));
+		textField_1.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		frmHistoriasDeZagas.getContentPane().add(textField_1);
 
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
 		textField_3.setBounds(430, 90, 111, 20);
-		textField_3.setFont(mf.MyFont(0, 11));
+		textField_3.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		frmHistoriasDeZagas.getContentPane().add(textField_3);
 
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
 		textField_4.setBounds(430, 140, 111, 20);
-		textField_4.setFont(mf.MyFont(0, 11));
+		textField_4.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		frmHistoriasDeZagas.getContentPane().add(textField_4);
 
 		btnNewButton = new JButton("Crear Cuenta");
@@ -419,10 +419,12 @@ public class CrearCuenta {
 		frmHistoriasDeZagas.getContentPane().add(btnCancelar);
 
 		passwordField = new JPasswordField();
+		passwordField.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		passwordField.setBounds(139, 190, 111, 20);
 		frmHistoriasDeZagas.getContentPane().add(passwordField);
 
 		passwordField_1 = new JPasswordField();
+		passwordField_1.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		passwordField_1.setBounds(430, 190, 111, 20);
 		frmHistoriasDeZagas.getContentPane().add(passwordField_1);
 
@@ -436,7 +438,7 @@ public class CrearCuenta {
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
 		textArea.setBounds(20, 270, 230, 52);
-		textArea.setFont(mf.MyFont(0, 13));
+		textArea.setFont(new Font("Monospaced", Font.PLAIN, 13));
 		frmHistoriasDeZagas.getContentPane().add(textArea);
 
 		lblRespuestaDeLa = new JLabel("Respuesta de la Pregunta de Seguridad:");
@@ -449,7 +451,7 @@ public class CrearCuenta {
 		textArea_1.setLineWrap(true);
 		textArea_1.setWrapStyleWord(true);
 		textArea_1.setBounds(270, 270, 230, 52);
-		textArea_1.setFont(mf.MyFont(0, 13));
+		textArea_1.setFont(new Font("Monospaced", Font.PLAIN, 13));
 		frmHistoriasDeZagas.getContentPane().add(textArea_1);
 
 		lblNewLabel_1 = new JLabel("");

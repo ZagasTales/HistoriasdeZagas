@@ -188,7 +188,7 @@ public class Loader {
 			frmHistoriasDeZagas.getContentPane().add(lblNombreDeUsuario);
 			
 			textField = new JTextField();
-			textField.setFont(mf.MyFont(0, 12));
+			textField.setFont(new Font("Monospaced", Font.PLAIN, 12));
 			textField.setColumns(10);
 			textField.setBounds(122, 275, 131, 20);
 			

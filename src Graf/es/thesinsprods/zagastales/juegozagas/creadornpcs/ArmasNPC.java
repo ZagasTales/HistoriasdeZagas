@@ -36,7 +36,6 @@ import es.thesinsprods.zagastales.characters.equipment.Pole;
 import es.thesinsprods.zagastales.characters.equipment.Ranged;
 import es.thesinsprods.zagastales.characters.equipment.Shields;
 import es.thesinsprods.zagastales.characters.equipment.TwoHanded;
-import es.thesinsprods.zagastales.juegozagas.creadorpnjs.Start;
 import es.thesinsprods.zagastales.juegozagas.inicio.Loader;
 
 public class ArmasNPC {
@@ -565,7 +564,7 @@ public class ArmasNPC {
 
 				}
 				if (tipow.equals("Dos Manos")) {
-					if(comboBox.getSelectedItem().toString().equals("Espadón") && Start.character.getAtributes().getStrength()<10){
+					if(comboBox.getSelectedItem().toString().equals("Espadón") && StartNPC.character.getAtributes().getStrength()<10){
 						
 						int seleccion = JOptionPane.showOptionDialog(
 								null,
@@ -577,7 +576,7 @@ public class ArmasNPC {
 						
 						cont++;
 					}
-					else if(comboBox.getSelectedItem().toString().equals("Hacha de Guerra") && Start.character.getAtributes().getStrength()<10){
+					else if(comboBox.getSelectedItem().toString().equals("Hacha de Guerra") && StartNPC.character.getAtributes().getStrength()<10){
 						
 						int seleccion = JOptionPane.showOptionDialog(
 								null,
@@ -589,7 +588,7 @@ public class ArmasNPC {
 						
 						cont++;
 					}
-					else if(comboBox.getSelectedItem().toString().equals("Martillo de Guerra") && Start.character.getAtributes().getStrength()<12){
+					else if(comboBox.getSelectedItem().toString().equals("Martillo de Guerra") && StartNPC.character.getAtributes().getStrength()<12){
 						
 						int seleccion = JOptionPane.showOptionDialog(
 								null,
@@ -601,7 +600,7 @@ public class ArmasNPC {
 						
 						cont++;
 					}
-					else if(comboBox.getSelectedItem().toString().equals("Ultra-Espadón") && Start.character.getAtributes().getStrength()<15){
+					else if(comboBox.getSelectedItem().toString().equals("Ultra-Espadón") && StartNPC.character.getAtributes().getStrength()<15){
 						
 						int seleccion = JOptionPane.showOptionDialog(
 								null,
@@ -701,7 +700,7 @@ public class ArmasNPC {
 
 				}
 				if (tipow.equals("A Distancia")) {
-					if(comboBox.getSelectedItem().toString().equals("Arma de Fuego") && Start.character.getKnowledgeSkills().getSecretKnowledge()<2){
+					if(comboBox.getSelectedItem().toString().equals("Arma de Fuego") && StartNPC.character.getKnowledgeSkills().getSecretKnowledge()<2){
 						
 						int seleccion = JOptionPane.showOptionDialog(
 								null,
@@ -761,7 +760,7 @@ public class ArmasNPC {
 				}
 				if (tipow.equals("Escudo")) {
 					
-					if(comboBox.getSelectedItem().toString().equals("Escudo Medio") && Start.character.getAtributes().getStrength()<10){
+					if(comboBox.getSelectedItem().toString().equals("Escudo Medio") && StartNPC.character.getAtributes().getStrength()<10){
 						
 						int seleccion = JOptionPane.showOptionDialog(
 								null,
@@ -773,7 +772,7 @@ public class ArmasNPC {
 						
 						cont++;
 					}
-					else if(comboBox.getSelectedItem().toString().equals("Escudo de Torre") && Start.character.getAtributes().getStrength()<15){
+					else if(comboBox.getSelectedItem().toString().equals("Escudo de Torre") && StartNPC.character.getAtributes().getStrength()<15){
 						
 						int seleccion = JOptionPane.showOptionDialog(
 								null,

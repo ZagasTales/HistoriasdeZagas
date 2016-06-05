@@ -1506,9 +1506,9 @@ public class ConocimientosNPC {
 		button_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					StartNPC.character.getKnowledgeSkills().setSecretKnowledge(
+					StartNPC.character.getKnowledgeSkills().setArtofWar(
 							StartNPC.character.getKnowledgeSkills()
-									.getSecretKnowledge() - 1);
+									.getArtofWar() - 1);
 					textField.setText(""
 							+ StartNPC.character.getKnowledgeSkills()
 									.getArtofWar());
