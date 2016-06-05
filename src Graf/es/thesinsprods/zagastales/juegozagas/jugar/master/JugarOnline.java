@@ -56,6 +56,8 @@ import es.thesinsprods.zagastales.characters.skills.MagicSkills;
 import es.thesinsprods.zagastales.characters.skills.SkillOutOfBoundsException;
 import es.thesinsprods.zagastales.characters.skills.SkillPoints;
 import es.thesinsprods.zagastales.diceroll.DiceRoll;
+import es.thesinsprods.zagastales.juegozagas.ayuda.AyudaPrincipal;
+import es.thesinsprods.zagastales.juegozagas.ayuda.jugar.master.AyudaPartidaVentanaMaster;
 import es.thesinsprods.zagastales.juegozagas.inicio.Inicio;
 import es.thesinsprods.zagastales.juegozagas.inicio.Loader;
 import es.thesinsprods.zagastales.juegozagas.jugar.CrearPartida;
@@ -1879,7 +1881,7 @@ public class JugarOnline {
 	                    		
 	                    		
 	                    	}
-	                    	else if(data[1].equals(button_3.getText())){
+	                    	else if(data[1].equals(button_2.getText())){
 	                    		button_2.setText("");
 	                    		personaje3=null;
 	                    		
@@ -1972,7 +1974,7 @@ public class JugarOnline {
 		frmHistoriasDeZagas.setResizable(false);
 		frmHistoriasDeZagas.setIconImage(Toolkit.getDefaultToolkit().getImage(JugarOnline.class.getResource("/images/Historias de Zagas, logo.png")));
 		frmHistoriasDeZagas.setTitle("Historias de Zagas");
-		frmHistoriasDeZagas.setBounds(100, 100, 900, 720);
+		frmHistoriasDeZagas.setBounds(100, 100, 900, 722);
 		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmHistoriasDeZagas.setLocationRelativeTo(null);
 		frmHistoriasDeZagas.getContentPane().setLayout(null);
@@ -1986,6 +1988,18 @@ public class JugarOnline {
 		
 		Conectar();
 		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		panel_2.setBackground(new Color(57, 33, 16));
+		panel_2.setBounds(200, 26, 14, 317);
+		frmHistoriasDeZagas.getContentPane().add(panel_2);
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBounds(403, 26, 14, 317);
+		frmHistoriasDeZagas.getContentPane().add(panel_4);
+		panel_4.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		panel_4.setBackground(new Color(57, 33, 16));
+		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setBounds(0, 0, 894, 26);
 		frmHistoriasDeZagas.getContentPane().add(menuBar);
@@ -1998,6 +2012,12 @@ public class JugarOnline {
 		mnCargar.add(mntmNpc);
 		
 		JButton button_30 = new JButton("");
+		button_30.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				AyudaPartidaVentanaMaster window = new AyudaPartidaVentanaMaster();
+				window.getFrame().setVisible(true);
+			}
+		});
 		button_30.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/botonayudajugar1.png")));
 		
 		JMenu mnEliminar = new JMenu("Eliminar");
@@ -2197,11 +2217,26 @@ public class JugarOnline {
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(618, 22, 276, 669);
+		tabbedPane.setFont(mf.MyFont(0, 12));
 		frmHistoriasDeZagas.getContentPane().add(tabbedPane);
 		
 		JPanel panel = new JPanel();
 		tabbedPane.addTab("Personajes", null, panel, null);
 		panel.setLayout(null);
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Personaje1 window;
@@ -2221,11 +2256,12 @@ public class JugarOnline {
 		button.setOpaque(false);
 		button.setHorizontalTextPosition(SwingConstants.CENTER);
 		button.setForeground(Color.WHITE);
-		button.setFont(new Font("Morpheus", Font.PLAIN, 15));
+		button.setFont(mf.MyFont(0, 15));
 		button.setContentAreaFilled(false);
 		button.setBorder(null);
 		button.setBounds(46, 11, 179, 32);
 		panel.add(button);
+
 		
 		button_1.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_1.setOpaque(false);
@@ -2236,85 +2272,337 @@ public class JugarOnline {
 		button_1.setBorder(null);
 		button_1.setBounds(46, 61, 179, 32);
 		panel.add(button_1);
+		button_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_1.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button_1.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+					Personaje2 window;
+					try {
+						window = new Personaje2();
+						window.getFrame().setVisible(true);
+					} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+							| SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			
+				}
+		});
 
 		button_2.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_2.setOpaque(false);
 		button_2.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_2.setForeground(Color.WHITE);
-		button_2.setFont(new Font("Morpheus", Font.PLAIN, 15));
+		button_2.setFont(mf.MyFont(0, 15));
 		button_2.setContentAreaFilled(false);
 		button_2.setBorder(null);
 		button_2.setBounds(46, 111, 179, 32);
 		panel.add(button_2);
+		button_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_2.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button_2.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+					Personaje3 window;
+					try {
+						window = new Personaje3();
+						window.getFrame().setVisible(true);
+					} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+							| SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			
+				}
+		});
 		
 		button_3.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_3.setOpaque(false);
 		button_3.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_3.setForeground(Color.WHITE);
-		button_3.setFont(new Font("Morpheus", Font.PLAIN, 15));
+		button_3.setFont(mf.MyFont(0, 15));
 		button_3.setContentAreaFilled(false);
 		button_3.setBorder(null);
 		button_3.setBounds(46, 161, 179, 32);
 		panel.add(button_3);
+		button_3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_3.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button_3.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+					Personaje4 window;
+					try {
+						window = new Personaje4();
+						window.getFrame().setVisible(true);
+					} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+							| SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			
+				}
+		});
 		
 		button_4.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_4.setOpaque(false);
 		button_4.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_4.setForeground(Color.WHITE);
-		button_4.setFont(new Font("Morpheus", Font.PLAIN, 15));
+		button_4.setFont(mf.MyFont(0, 15));
 		button_4.setContentAreaFilled(false);
 		button_4.setBorder(null);
 		button_4.setBounds(46, 211, 179, 32);
 		panel.add(button_4);
+		button_4.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_4.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button_4.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
+		button_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Personaje5 window;
+				try {
+					window = new Personaje5();
+					window.getFrame().setVisible(true);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+						| SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+			}
+
+
+		});
 		
 		button_5.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_5.setOpaque(false);
 		button_5.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_5.setForeground(Color.WHITE);
-		button_5.setFont(new Font("Morpheus", Font.PLAIN, 15));
+		button_5.setFont(mf.MyFont(0, 15));
 		button_5.setContentAreaFilled(false);
 		button_5.setBorder(null);
 		button_5.setBounds(46, 261, 179, 32);
 		panel.add(button_5);
+		button_5.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_5.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button_5.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
+		button_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Personaje6 window;
+				try {
+					window = new Personaje6();
+					window.getFrame().setVisible(true);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+						| SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+			}
+
+
+		});
 		
 		button_6.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_6.setOpaque(false);
 		button_6.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_6.setForeground(Color.WHITE);
-		button_6.setFont(new Font("Morpheus", Font.PLAIN, 15));
+		button_6.setFont(mf.MyFont(0, 15));
 		button_6.setContentAreaFilled(false);
 		button_6.setBorder(null);
 		button_6.setBounds(46, 311, 179, 32);
 		panel.add(button_6);
+		button_6.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_6.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button_6.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
+		button_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Personaje7 window;
+				try {
+					window = new Personaje7();
+					window.getFrame().setVisible(true);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+						| SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+			}
+
+
+		});
 		
 		button_7.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_7.setOpaque(false);
 		button_7.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_7.setForeground(Color.WHITE);
-		button_7.setFont(new Font("Morpheus", Font.PLAIN, 15));
+		button_7.setFont(mf.MyFont(0, 15));
 		button_7.setContentAreaFilled(false);
 		button_7.setBorder(null);
 		button_7.setBounds(46, 361, 179, 32);
 		panel.add(button_7);
+		button_7.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_7.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button_7.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
+		button_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Personaje8 window;
+				try {
+					window = new Personaje8();
+					window.getFrame().setVisible(true);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+						| SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+			}
+
+
+		});
 		
 		button_8.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_8.setOpaque(false);
 		button_8.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_8.setForeground(Color.WHITE);
-		button_8.setFont(new Font("Morpheus", Font.PLAIN, 15));
+		button_8.setFont(mf.MyFont(0, 15));
 		button_8.setContentAreaFilled(false);
 		button_8.setBorder(null);
 		button_8.setBounds(46, 411, 179, 32);
 		panel.add(button_8);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/background-creditos.jpg")));
+		lblNewLabel_1.setBounds(0, 0, 271, 638);
+		panel.add(lblNewLabel_1);
+		button_8.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_8.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button_8.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
+		button_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Personaje9 window;
+				try {
+					window = new Personaje9();
+					window.getFrame().setVisible(true);
+				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
+						| SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		
+			}
+
+
+		});
 		
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("NPC's", null, panel_1, null);
 		panel_1.setLayout(null);
 		
 
+		button_10.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_10.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button_10.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
 		button_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				NPC1 window;
 				try {
 					window = new NPC1();
@@ -2324,262 +2612,357 @@ public class JugarOnline {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			
-				
+		
 			}
+
+
 		});
 		button_10.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_10.setOpaque(false);
 		button_10.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_10.setForeground(Color.WHITE);
-		button_10.setFont(new Font("Morpheus", Font.PLAIN, 15));
+		button_10.setFont(mf.MyFont(0, 15));
 		button_10.setContentAreaFilled(false);
 		button_10.setBorder(null);
 		button_10.setBounds(46, 11, 179, 32);
 		panel_1.add(button_10);
 		
 	
-		button_11.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		button_11.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_11.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
 
-				
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button_11.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
+		button_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 				NPC2 window;
 				try {
 					window = new NPC2();
 					window.getFrame().setVisible(true);
 				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
-						| SQLException e3) {
+						| SQLException e) {
 					// TODO Auto-generated catch block
-					e3.printStackTrace();
+					e.printStackTrace();
 				}
-			
-				
-			
+		
 			}
+
+
 		});
 		button_11.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_11.setOpaque(false);
 		button_11.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_11.setForeground(Color.WHITE);
-		button_11.setFont(new Font("Morpheus", Font.PLAIN, 15));
+		button_11.setFont(mf.MyFont(0, 15));
 		button_11.setContentAreaFilled(false);
 		button_11.setBorder(null);
 		button_11.setBounds(46, 61, 179, 32);
 		panel_1.add(button_11);
 		
 		
-		button_12.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
+		button_12.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_12.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
 
-				
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button_12.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
+		button_12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 				NPC3 window;
 				try {
 					window = new NPC3();
 					window.getFrame().setVisible(true);
 				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
-						| SQLException e2) {
+						| SQLException e) {
 					// TODO Auto-generated catch block
-					e2.printStackTrace();
+					e.printStackTrace();
 				}
-			
-				
-			
-				
+		
 			}
+
+
 		});
 		button_12.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_12.setOpaque(false);
 		button_12.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_12.setForeground(Color.WHITE);
-		button_12.setFont(new Font("Morpheus", Font.PLAIN, 15));
+		button_12.setFont(mf.MyFont(0, 15));
 		button_12.setContentAreaFilled(false);
 		button_12.setBorder(null);
 		button_12.setBounds(46, 111, 179, 32);
 		panel_1.add(button_12);
 		
 
-		button_13.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
+		button_13.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_13.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
 
-				
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button_13.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
+		button_13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 				NPC4 window;
 				try {
 					window = new NPC4();
 					window.getFrame().setVisible(true);
 				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
-						| SQLException e1) {
+						| SQLException e) {
 					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					e.printStackTrace();
 				}
-			
-				
-			
-				
+		
 			}
+
+
 		});
 		button_13.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_13.setOpaque(false);
 		button_13.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_13.setForeground(Color.WHITE);
-		button_13.setFont(new Font("Morpheus", Font.PLAIN, 15));
+		button_13.setFont(mf.MyFont(0, 15));
 		button_13.setContentAreaFilled(false);
 		button_13.setBorder(null);
 		button_13.setBounds(46, 161, 179, 32);
 		panel_1.add(button_13);
 		
 		
-		button_14.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		button_14.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_14.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
 
-				
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button_14.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
+		button_14.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 				NPC5 window;
 				try {
 					window = new NPC5();
 					window.getFrame().setVisible(true);
 				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
-						| SQLException e4) {
+						| SQLException e) {
 					// TODO Auto-generated catch block
-					e4.printStackTrace();
+					e.printStackTrace();
 				}
-			
-				
-			
+		
 			}
+
+
 		});
 		button_14.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_14.setOpaque(false);
 		button_14.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_14.setForeground(Color.WHITE);
-		button_14.setFont(new Font("Morpheus", Font.PLAIN, 15));
+		button_14.setFont(mf.MyFont(0, 15));
 		button_14.setContentAreaFilled(false);
 		button_14.setBorder(null);
 		button_14.setBounds(46, 211, 179, 32);
 		panel_1.add(button_14);
 		
 
-		button_15.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		button_15.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_15.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
 
-				
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button_15.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
+		button_15.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 				NPC6 window;
 				try {
 					window = new NPC6();
 					window.getFrame().setVisible(true);
 				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
-						| SQLException e6) {
+						| SQLException e) {
 					// TODO Auto-generated catch block
-					e6.printStackTrace();
+					e.printStackTrace();
 				}
-			
-				
-			
+		
 			}
+
+
 		});
 		button_15.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_15.setOpaque(false);
 		button_15.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_15.setForeground(Color.WHITE);
-		button_15.setFont(new Font("Morpheus", Font.PLAIN, 15));
+		button_15.setFont(mf.MyFont(0, 15));
 		button_15.setContentAreaFilled(false);
 		button_15.setBorder(null);
 		button_15.setBounds(46, 261, 179, 32);
 		panel_1.add(button_15);
 		
 
-		button_16.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		button_16.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_16.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
 
-				
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button_16.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
+		button_16.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 				NPC7 window;
 				try {
 					window = new NPC7();
 					window.getFrame().setVisible(true);
 				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
-						| SQLException e7) {
+						| SQLException e) {
 					// TODO Auto-generated catch block
-					e7.printStackTrace();
+					e.printStackTrace();
 				}
-			
-				
-			
+		
 			}
+
+
 		});
 		button_16.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_16.setOpaque(false);
 		button_16.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_16.setForeground(Color.WHITE);
-		button_16.setFont(new Font("Morpheus", Font.PLAIN, 15));
+		button_16.setFont(mf.MyFont(0, 15));
 		button_16.setContentAreaFilled(false);
 		button_16.setBorder(null);
 		button_16.setBounds(46, 311, 179, 32);
 		panel_1.add(button_16);
 		
 		
-		button_17.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
+		button_17.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_17.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
 
-				
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button_17.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
+		button_17.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 				NPC8 window;
 				try {
 					window = new NPC8();
 					window.getFrame().setVisible(true);
 				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
-						| SQLException e8) {
+						| SQLException e) {
 					// TODO Auto-generated catch block
-					e8.printStackTrace();
+					e.printStackTrace();
 				}
-			
-				
-			
-				
+		
 			}
+
+
 		});
 		button_17.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_17.setOpaque(false);
 		button_17.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_17.setForeground(Color.WHITE);
-		button_17.setFont(new Font("Morpheus", Font.PLAIN, 15));
+		button_17.setFont(mf.MyFont(0, 15));
 		button_17.setContentAreaFilled(false);
 		button_17.setBorder(null);
 		button_17.setBounds(46, 361, 179, 32);
 		panel_1.add(button_17);
 		
 		
-		button_18.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
+		button_18.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button_18.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar2.png")));
 
-				
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				button_18.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/boton personajes jugar.png")));
+
+			}
+		});
+		button_18.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 				NPC9 window;
 				try {
 					window = new NPC9();
 					window.getFrame().setVisible(true);
 				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
-						| SQLException e9) {
+						| SQLException e) {
 					// TODO Auto-generated catch block
-					e9.printStackTrace();
+					e.printStackTrace();
 				}
-			
-				
-			
-				
+		
 			}
+
+
 		});
 		button_18.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/boton personajes jugar.png")));
 		button_18.setOpaque(false);
 		button_18.setHorizontalTextPosition(SwingConstants.CENTER);
 		button_18.setForeground(Color.WHITE);
-		button_18.setFont(new Font("Morpheus", Font.PLAIN, 15));
+		button_18.setFont(mf.MyFont(0, 15));
 		button_18.setContentAreaFilled(false);
 		button_18.setBorder(null);
 		button_18.setBounds(46, 411, 179, 32);
 		panel_1.add(button_18);
 		
+		JLabel label_3 = new JLabel("");
+		label_3.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/background-creditos.jpg")));
+		label_3.setBounds(0, 0, 271, 638);
+		panel_1.add(label_3);
+		
 		JTabbedPane tabbedPane_1 = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane_1.setBounds(0, 320, 621, 371);
+		tabbedPane_1.setBounds(0, 320, 621, 386);
+		tabbedPane_1.setFont(mf.MyFont(0, 12));
 		frmHistoriasDeZagas.getContentPane().add(tabbedPane_1);
 		
 		JPanel panel_3 = new JPanel();
@@ -2635,7 +3018,27 @@ public class JugarOnline {
 		panel_3.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Enviar");
+		final JButton btnNewButton = new JButton("Enviar");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnNewButton.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones sistema online2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				btnNewButton.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones sistema online.png")));
+
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/botones sistema online.png")));
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnNewButton.setFont(mf.MyFont(0, 12));
+		btnNewButton.setBorderPainted(false);
+		btnNewButton.setContentAreaFilled(false);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -2665,10 +3068,32 @@ public class JugarOnline {
 		btnNewButton.setBounds(443, 310, 86, 35);
 		panel_3.add(btnNewButton);
 		
-		JButton btnConfig = new JButton("Cerrar");
+		final JButton btnConfig = new JButton("Cerrar");
+		btnConfig.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnConfig.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones sistema online2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				btnConfig.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones sistema online.png")));
+
+			}
+		});
+		btnConfig.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/botones sistema online.png")));
+		btnConfig.setForeground(Color.WHITE);
+		btnConfig.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnConfig.setFont(mf.MyFont(0, 12));
+		btnConfig.setBorderPainted(false);
+		btnConfig.setContentAreaFilled(false);
 		btnConfig.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmHistoriasDeZagas.dispose();
+				jugadores.clear();
+				npcs.clear();
 				Inicio window = new Inicio();
 				writer.println("Server:ssdfsdjfsd:Cerrar");
 				writer.flush();
@@ -2687,16 +3112,38 @@ public class JugarOnline {
 		panel_3.add(btnConfig);
 		
 		JPanel panel_5 = new JPanel();
-		panel_5.setBounds(0, 26, 207, 283);
+		panel_5.setBounds(0, 26, 207, 325);
 		frmHistoriasDeZagas.getContentPane().add(panel_5);
 		panel_5.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Tiradas");
+		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(mf.MyFont(0, 15));
 		lblNewLabel.setBounds(0, 0, 207, 46);
 		panel_5.add(lblNewLabel);
 		
-		JButton btnNewButton_1 = new JButton("Tiradas Enfrentadas");
+		final JButton btnNewButton_1 = new JButton("Tiradas Enfrentadas");
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnNewButton_1.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				btnNewButton_1.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon.png")));
+
+			}
+		});
+		btnNewButton_1.setContentAreaFilled(false);
+		btnNewButton_1.setBorderPainted(false);
+		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnNewButton_1.setFont(mf.MyFont(0, 13));
+		btnNewButton_1.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/botones panteon.png")));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Object seleccion = JOptionPane.showInputDialog(
@@ -2736,13 +3183,40 @@ public class JugarOnline {
 	                	window.getFrmHistoriasDeZagas().setVisible(true);
 	                }
 	          }
+	          
+	          if(seleccion.equals("Otro")){
+	        	  
+	        	  OtroEnfrentadas window = new OtroEnfrentadas();
+	        	  window.getFrmHistoriasDeZagas().setVisible(true);
+	        	  
+	          }
 				
 			}
 		});
 		btnNewButton_1.setBounds(10, 70, 187, 31);
 		panel_5.add(btnNewButton_1);
 		
-		JButton btnTiradasAleatorias = new JButton("Tiradas Aleatorias");
+		final JButton btnTiradasAleatorias = new JButton("Tiradas Aleatorias");
+		btnTiradasAleatorias.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnTiradasAleatorias.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				btnTiradasAleatorias.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon.png")));
+
+			}
+		});
+		btnTiradasAleatorias.setContentAreaFilled(false);
+		btnTiradasAleatorias.setBorderPainted(false);
+		btnTiradasAleatorias.setFont(mf.MyFont(0, 13));
+		btnTiradasAleatorias.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnTiradasAleatorias.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/botones panteon.png")));
+		btnTiradasAleatorias.setForeground(Color.WHITE);
 		btnTiradasAleatorias.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Object seleccion = JOptionPane.showInputDialog(
@@ -2787,1651 +3261,1054 @@ public class JugarOnline {
 		btnTiradasAleatorias.setBounds(10, 130, 187, 31);
 		panel_5.add(btnTiradasAleatorias);
 		
-		JButton btnTiradasDeImpacto = new JButton("Tiradas de Impacto");
+		final JButton btnTiradasDeImpacto = new JButton("Calcular Tirada");
+		btnTiradasDeImpacto.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnTiradasDeImpacto.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				btnTiradasDeImpacto.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon.png")));
+
+			}
+		});
+		btnTiradasDeImpacto.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/botones panteon.png")));
+		btnTiradasDeImpacto.setForeground(Color.WHITE);
+		btnTiradasDeImpacto.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnTiradasDeImpacto.setFont(mf.MyFont(0, 13));
+		btnTiradasDeImpacto.setBorderPainted(false);
+		btnTiradasDeImpacto.setContentAreaFilled(false);
 		btnTiradasDeImpacto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-
+				ArrayList<String> intermedio = new ArrayList<String>();
+				for(int i=0; i<JugarOnline.jugadores.size();i++){
+					intermedio.add(JugarOnline.jugadores.get(i));
+					
+				}
+				for(int i=0; i<JugarOnline.npcs.size();i++){
+					intermedio.add(JugarOnline.npcs.get(i));
+					
+				}
+			
 				
-				Object [] personajes= jugadores.toArray();
+				Object [] personajes = intermedio.toArray();
+				DiceRoll tirada=new DiceRoll();
 				Object jugador = JOptionPane.showInputDialog(
-						frmHistoriasDeZagas, "Seleccione el personaje con el que se va a impactar.",
-						"Tiradas de Impacto", JOptionPane.PLAIN_MESSAGE,
+						frmHistoriasDeZagas, "Seleccione el personaje con el que calcular la tirada",
+						"Calcular Tirada", JOptionPane.PLAIN_MESSAGE,
 						null,personajes,null);
 				jugador=jugador+"";
 				
 				Object seleccion = JOptionPane.showInputDialog(
 						   null,
-						   "Tiradas de Impacto",
-						   "Seleccione cual fue el resultado",
+						   "Calcular Tirada",
+						   "Seleccione cual fue el atributo a utilizar",
 						   JOptionPane.PLAIN_MESSAGE,
 						   null,  // null para icono defecto
-						   new Object[] { "Correcto","Bien","Excelente","Crítico"}, 
+						   new Object[] { "Fuerza","Destreza","Resistencia","Resistencia Mágica","Inteligencia","Percepción","Carisma"}, 
 						   "opcion 1");
 				seleccion=seleccion+"";
 				
-				if(seleccion.equals("Correcto")){
-					if(personaje1.getName().equals(jugador)){
+				Object seleccion1 = JOptionPane.showInputDialog(
+						   null,
+						   "Calcular Tirada",
+						   "Seleccione cual fue el atributo a utilizar",
+						   JOptionPane.PLAIN_MESSAGE,
+						   null,  // null para icono defecto
+						   new Object[] { "0","1","2","3","-1","-2","-3"}, 
+						   "opcion 1");
+				seleccion1=seleccion1+"";	
+				
+				
+				
+				
+				if(jugador.equals(personaje1.getName())){
+					
+					if(seleccion.equals("Fuerza")){
 						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje1.getAtributes().getResistance());
-						int resultado= 0-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
+						int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje1.getAtributes().getStrength())+Integer.parseInt((String) seleccion1);
+					     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje1.getName()+" con un resultado de "+resultado+":Chat");
+				          writer.flush();  
 					}
-					else if(personaje2.getName().equals(jugador)){
+
+					if(seleccion.equals("Destreza")){
 						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje2.getAtributes().getResistance());
-						int resultado= 0-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
+						int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje1.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+					     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje1.getName()+" con un resultado de "+resultado+":Chat");
+				          writer.flush();  
 					}
-					else if(personaje3.getName().equals(jugador)){
+
+					if(seleccion.equals("Resistencia")){
 						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje3.getAtributes().getResistance());
-						int resultado= 0-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
+						int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje1.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+					     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje1.getName()+" con un resultado de "+resultado+":Chat");
+				          writer.flush();  
 					}
-					else if(personaje4.getName().equals(jugador)){
+
+					if(seleccion.equals("Resistencia Mágica")){
 						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje4.getAtributes().getResistance());
-						int resultado= 0-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
+						int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje1.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+					     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje1.getName()+" con un resultado de "+resultado+":Chat");
+				          writer.flush();  
 					}
-					else if(personaje5.getName().equals(jugador)){
+
+					if(seleccion.equals("Inteligencia")){
 						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje5.getAtributes().getResistance());
-						int resultado= 0-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
+						int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje1.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+					     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje1.getName()+" con un resultado de "+resultado+":Chat");
+				          writer.flush();  
 					}
-					else if(personaje6.getName().equals(jugador)){
+
+					if(seleccion.equals("Percepción")){
 						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje6.getAtributes().getResistance());
-						int resultado= 0-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
+						int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje1.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+					     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje1.getName()+" con un resultado de "+resultado+":Chat");
+				          writer.flush();  
 					}
-					else if(personaje7.getName().equals(jugador)){
+
+					if(seleccion.equals("Carisma")){
 						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje7.getAtributes().getResistance());
-						int resultado= 0-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
+						int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje1.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+					     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje1.getName()+" con un resultado de "+resultado+":Chat");
+				          writer.flush();  
 					}
-					else if(personaje8.getName().equals(jugador)){
-						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje8.getAtributes().getResistance());
-						int resultado= 0-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-					}
-					else if(personaje9.getName().equals(jugador)){
-						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje9.getAtributes().getResistance());
-						int resultado= 0-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-					}
-								
 				}
 				
-				else if(seleccion.equals("Bien")){
-					if(personaje1.getName().equals(jugador)){
+if(jugador.equals(personaje2.getName())){
+					
+					if(seleccion.equals("Fuerza")){
 						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje1.getAtributes().getResistance());
-						int resultado= 1-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
+						int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje2.getAtributes().getStrength())+Integer.parseInt((String) seleccion1);
+					     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje2.getName()+" con un resultado de "+resultado+":Chat");
+				          writer.flush();  
 					}
-					else if(personaje2.getName().equals(jugador)){
+
+					if(seleccion.equals("Destreza")){
 						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje2.getAtributes().getResistance());
-						int resultado= 1-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
+						int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje2.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+					     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje2.getName()+" con un resultado de "+resultado+":Chat");
+				          writer.flush();  
 					}
-					else if(personaje3.getName().equals(jugador)){
+
+					if(seleccion.equals("Resistencia")){
 						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje3.getAtributes().getResistance());
-						int resultado= 1-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
+						int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje2.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+					     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje2.getName()+" con un resultado de "+resultado+":Chat");
+				          writer.flush();  
 					}
-					else if(personaje4.getName().equals(jugador)){
+
+					if(seleccion.equals("Resistencia Mágica")){
 						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje4.getAtributes().getResistance());
-						int resultado= 1-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
+						int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje2.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+					     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje2.getName()+" con un resultado de "+resultado+":Chat");
+				          writer.flush();  
 					}
-					else if(personaje5.getName().equals(jugador)){
+
+					if(seleccion.equals("Inteligencia")){
 						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje5.getAtributes().getResistance());
-						int resultado= 1-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
+						int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje2.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+					     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje2.getName()+" con un resultado de "+resultado+":Chat");
+				          writer.flush();  
 					}
-					else if(personaje6.getName().equals(jugador)){
+
+					if(seleccion.equals("Percepción")){
 						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje6.getAtributes().getResistance());
-						int resultado= 1-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
+						int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje2.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+					     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje2.getName()+" con un resultado de "+resultado+":Chat");
+				          writer.flush();  
 					}
-					else if(personaje7.getName().equals(jugador)){
+
+					if(seleccion.equals("Carisma")){
 						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje7.getAtributes().getResistance());
-						int resultado= 1-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
+						int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje2.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+					     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje2.getName()+" con un resultado de "+resultado+":Chat");
+				          writer.flush();  
 					}
-					else if(personaje8.getName().equals(jugador)){
-						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje8.getAtributes().getResistance());
-						int resultado= 1-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-					}
-					else if(personaje9.getName().equals(jugador)){
-						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje9.getAtributes().getResistance());
-						int resultado= 1-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-					}
-						
 				}
+if(jugador.equals(personaje3.getName())){
+	
+	if(seleccion.equals("Fuerza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje3.getAtributes().getStrength())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje3.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Destreza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje3.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje3.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje3.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje3.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia Mágica")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje3.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje3.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Inteligencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje3.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje3.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Percepción")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje3.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje3.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Carisma")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje3.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje3.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+}
+if(jugador.equals(personaje4.getName())){
+	
+	if(seleccion.equals("Fuerza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje4.getAtributes().getStrength())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje4.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Destreza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje4.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje4.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje4.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje4.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia Mágica")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje4.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje4.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Inteligencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje4.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje4.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Percepción")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje4.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje4.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Carisma")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje4.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje4.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+}
+
+if(jugador.equals(personaje5.getName())){
+	
+	if(seleccion.equals("Fuerza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje5.getAtributes().getStrength())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje5.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Destreza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje5.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje5.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje5.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje5.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia Mágica")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje5.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje5.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Inteligencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje5.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje5.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Percepción")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje5.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje5.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Carisma")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje5.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje5.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+}
+if(jugador.equals(personaje6.getName())){
+	
+	if(seleccion.equals("Fuerza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje6.getAtributes().getStrength())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje6.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Destreza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje6.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje6.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje6.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje6.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia Mágica")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje6.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje6.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Inteligencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje6.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje6.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Percepción")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje6.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje6.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Carisma")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje6.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje6.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+}
+if(jugador.equals(personaje7.getName())){
+	
+	if(seleccion.equals("Fuerza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje7.getAtributes().getStrength())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje7.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Destreza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje7.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje7.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje7.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje7.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia Mágica")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje7.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje7.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Inteligencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje7.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje7.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Percepción")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje7.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje7.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Carisma")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje7.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje7.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+}
+
+if(jugador.equals(personaje8.getName())){
+	
+	if(seleccion.equals("Fuerza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje8.getAtributes().getStrength())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje8.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Destreza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje8.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje8.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje8.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje8.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia Mágica")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje8.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje8.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Inteligencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje8.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje8.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Percepción")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje8.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje8.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Carisma")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje8.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje8.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+}if(jugador.equals(personaje9.getName())){
+	
+	if(seleccion.equals("Fuerza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje9.getAtributes().getStrength())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje9.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Destreza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje9.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje9.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje9.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje9.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia Mágica")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje9.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje9.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Inteligencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje9.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje9.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Percepción")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje9.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje9.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Carisma")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),personaje9.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+personaje9.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+}
+if(jugador.equals(npc1.getName())){
+	
+	if(seleccion.equals("Fuerza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc1.getAtributes().getStrength())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc1.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Destreza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc1.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc1.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc1.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc1.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia Mágica")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc1.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc1.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Inteligencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc1.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc1.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Percepción")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc1.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc1.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Carisma")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc1.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc1.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+}
+if(jugador.equals(npc2.getName())){
+	
+	if(seleccion.equals("Fuerza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc2.getAtributes().getStrength())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc2.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Destreza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc2.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc2.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc2.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc2.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia Mágica")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc2.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc2.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Inteligencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc2.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc2.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Percepción")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc2.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc2.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Carisma")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc2.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc2.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+}
+if(jugador.equals(npc3.getName())){
+	
+	if(seleccion.equals("Fuerza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc3.getAtributes().getStrength())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc3.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Destreza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc3.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc3.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc3.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc3.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia Mágica")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc3.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc3.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Inteligencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc3.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc3.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Percepción")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc3.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc3.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Carisma")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc3.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc3.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+}
+if(jugador.equals(npc4.getName())){
+	
+	if(seleccion.equals("Fuerza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc4.getAtributes().getStrength())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc4.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Destreza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc4.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc4.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc4.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc4.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia Mágica")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc4.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc4.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Inteligencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc4.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc4.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Percepción")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc4.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc4.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Carisma")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc4.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc4.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+}
+if(jugador.equals(npc5.getName())){
+	
+	if(seleccion.equals("Fuerza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc5.getAtributes().getStrength())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc5.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Destreza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc5.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc5.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc5.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc5.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia Mágica")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc5.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc5.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Inteligencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc5.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc5.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Percepción")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc5.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc5.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Carisma")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc5.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc5.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+}
+if(jugador.equals(npc6.getName())){
+	
+	if(seleccion.equals("Fuerza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc6.getAtributes().getStrength())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc6.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Destreza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc6.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc6.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc6.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc6.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia Mágica")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc6.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc6.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Inteligencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc6.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc6.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Percepción")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc6.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc6.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Carisma")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc6.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc6.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+}
+if(jugador.equals(npc7.getName())){
+	
+	if(seleccion.equals("Fuerza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc7.getAtributes().getStrength()+Integer.parseInt((String) seleccion1));
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc7.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Destreza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc7.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc7.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc7.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc7.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia Mágica")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc7.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc7.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Inteligencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc7.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc7.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Percepción")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc7.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc7.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Carisma")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc7.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc7.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+}
+if(jugador.equals(npc8.getName())){
+	
+	if(seleccion.equals("Fuerza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc8.getAtributes().getStrength())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc8.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Destreza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc8.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc8.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc8.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc8.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia Mágica")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc8.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc8.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Inteligencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc8.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc8.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Percepción")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc8.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc8.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Carisma")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc8.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc8.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+}
+if(jugador.equals(npc9.getName())){
+	
+	if(seleccion.equals("Fuerza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc9.getAtributes().getStrength())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc9.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Destreza")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc9.getAtributes().getDexterity())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc9.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc9.getAtributes().getResistance())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc9.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Resistencia Mágica")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc9.getAtributes().getMagicres())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc9.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Inteligencia")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc9.getAtributes().getIntelligence())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc9.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Percepción")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc9.getAtributes().getPerception())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc9.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+
+	if(seleccion.equals("Carisma")){
+		
+		int resultado=tirada.ComprobarTirada(tirada.LanzaDadoAleatorio20(),npc9.getAtributes().getCharisma())+Integer.parseInt((String) seleccion1);
+	     writer.println("Información: Realizada una tirada de "+seleccion+" para "+npc9.getName()+" con un resultado de "+resultado+":Chat");
+          writer.flush();  
+	}
+}
 				
-				else if(seleccion.equals("Excelente")){					
-					
-					if(personaje1.getName().equals(jugador)){
-					
-					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje1.getAtributes().getResistance());
-					int resultado= 2-resistencia;
-					
-					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-					writer.flush();	
-					
-						if(resultado>=3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 5",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 4",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 3",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==0){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado<=-3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-				}
-				else if(personaje2.getName().equals(jugador)){
-					
-					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje2.getAtributes().getResistance());
-					int resultado= 2-resistencia;
-					
-					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-					writer.flush();	
-					
-						if(resultado>=3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 5",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 4",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 3",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==0){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado<=-3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-				}
-				else if(personaje3.getName().equals(jugador)){
-					
-					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje3.getAtributes().getResistance());
-					int resultado= 2-resistencia;
-					
-					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-					writer.flush();	
-					
-						if(resultado>=3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 5",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 4",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 3",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==0){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado<=-3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-				}
-				else if(personaje4.getName().equals(jugador)){
-					
-					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje4.getAtributes().getResistance());
-					int resultado= 2-resistencia;
-					
-					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-					writer.flush();	
-					
-						if(resultado>=3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 5",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 4",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 3",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==0){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado<=-3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-				}
-				else if(personaje5.getName().equals(jugador)){
-					
-					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje5.getAtributes().getResistance());
-					int resultado= 2-resistencia;
-					
-					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-					writer.flush();	
-					
-						if(resultado>=3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 5",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 4",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 3",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==0){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado<=-3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-				}
-				else if(personaje6.getName().equals(jugador)){
-					
-					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje6.getAtributes().getResistance());
-					int resultado= 2-resistencia;
-					
-					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-					writer.flush();	
-					
-						if(resultado>=3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 5",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 4",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 3",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==0){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado<=-3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-				}
-				else if(personaje7.getName().equals(jugador)){
-					
-					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje7.getAtributes().getResistance());
-					int resultado= 2-resistencia;
-					
-					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-					writer.flush();	
-					
-						if(resultado>=3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 5",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 4",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 3",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==0){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado<=-3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-				}
-				else if(personaje8.getName().equals(jugador)){
-					
-					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje8.getAtributes().getResistance());
-					int resultado= 2-resistencia;
-					
-					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-					writer.flush();	
-					
-						if(resultado>=3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 5",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 4",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 3",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==0){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado<=-3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-				}
-				else if(personaje9.getName().equals(jugador)){
-					
-					int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje9.getAtributes().getResistance());
-					int resultado= 2-resistencia;
-					
-					writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-					writer.flush();	
-					
-						if(resultado>=3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 5",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 4",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 3",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==0){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-1){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 2",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado==-2){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-						else if(resultado<=-3){JOptionPane
-							.showMessageDialog(
-									frmHistoriasDeZagas,
-									"La cantidad de vida recomendada a quitar es 1",
-									"", JOptionPane.PLAIN_MESSAGE);}
-				}
-					}
+			}
+						
 				
-				else if(seleccion.equals("Crítico")){
-					if(personaje1.getName().equals(jugador)){
-						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje1.getAtributes().getResistance());
-						int resultado= 3-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-					}
-					else if(personaje2.getName().equals(jugador)){
-						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje2.getAtributes().getResistance());
-						int resultado= 3-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-					}
-					else if(personaje3.getName().equals(jugador)){
-						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje3.getAtributes().getResistance());
-						int resultado= 3-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-					}
-					else if(personaje4.getName().equals(jugador)){
-						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje4.getAtributes().getResistance());
-						int resultado= 3-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-					}
-					else if(personaje5.getName().equals(jugador)){
-						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje5.getAtributes().getResistance());
-						int resultado= 3-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-					}
-					else if(personaje6.getName().equals(jugador)){
-						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje6.getAtributes().getResistance());
-						int resultado= 3-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-					}
-					else if(personaje7.getName().equals(jugador)){
-						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje7.getAtributes().getResistance());
-						int resultado= 3-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-					}
-					else if(personaje8.getName().equals(jugador)){
-						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje8.getAtributes().getResistance());
-						int resultado= 3-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-					}
-					else if(personaje9.getName().equals(jugador)){
-						
-						int resistencia=DiceRoll.ComprobarTirada(DiceRoll.LanzaDadoAleatorio20(), personaje9.getAtributes().getResistance());
-						int resultado= 3-resistencia;
-						
-						writer.println("Información: El resultado de la tirada de Resistencia ha sido "+resistencia+" :Chat");
-						writer.flush();	
-						
-							if(resultado>=3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 5",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 4",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 3",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==0){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-1){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 2",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado==-2){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-							else if(resultado<=-3){JOptionPane
-								.showMessageDialog(
-										frmHistoriasDeZagas,
-										"La cantidad de vida recomendada a quitar es 1",
-										"", JOptionPane.PLAIN_MESSAGE);}
-					}
-						
-				}
 				
 				
 			
 				
-			}
+			
 		});
 		btnTiradasDeImpacto.setBounds(10, 190, 187, 31);
 		panel_5.add(btnTiradasDeImpacto);
 		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/background-start.jpg")));
+		label.setBounds(0, 0, 207, 318);
+		panel_5.add(label);
+		
 		JPanel panel_6 = new JPanel();
 		panel_6.setLayout(null);
-		panel_6.setBounds(205, 26, 207, 283);
+		panel_6.setBounds(205, 26, 207, 325);
 		frmHistoriasDeZagas.getContentPane().add(panel_6);
 		
 		JLabel lblEstatus = new JLabel("Estatus");
+		lblEstatus.setForeground(Color.WHITE);
 		lblEstatus.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEstatus.setFont(mf.MyFont(0, 15));
 		lblEstatus.setBounds(0, 0, 207, 46);
 		panel_6.add(lblEstatus);
 		
-		JButton btnModificarSem = new JButton("Modificar S/E/M");
+		final JButton btnModificarSem = new JButton("Modificar S/E/M");
+		btnModificarSem.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnModificarSem.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				btnModificarSem.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon.png")));
+
+			}
+		});
+		btnModificarSem.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/botones panteon.png")));
+		btnModificarSem.setForeground(Color.WHITE);
+		btnModificarSem.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnModificarSem.setFont(mf.MyFont(0, 13));
+		btnModificarSem.setBorderPainted(false);
+		btnModificarSem.setContentAreaFilled(false);
 		btnModificarSem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+					Object[] personaje={"Jugador","NPC"};
+					Object seleccion1 = JOptionPane.showInputDialog(
+							frmHistoriasDeZagas, "Seleccione una opcion",
+							"Alterar S/E/M", JOptionPane.PLAIN_MESSAGE,
+							null,personaje,null);
+					seleccion1=seleccion1+"";
+					if(seleccion1.equals("Jugador")){
+						
 				Object [] personajes= jugadores.toArray();
 				Object jugador = JOptionPane.showInputDialog(
 						frmHistoriasDeZagas, "Seleccione el personaje al que quiere modificar.",
@@ -4441,8 +4318,8 @@ public class JugarOnline {
 				
 				Object seleccion = JOptionPane.showInputDialog(
 						   null,
-						   "Tiradas de Impacto",
-						   "Seleccione cual fue el resultado",
+						   "Calcular S/E/M",
+						   "Seleccione la opción a modificar",
 						   JOptionPane.PLAIN_MESSAGE,
 						   null,  // null para icono defecto
 						   new Object[] {"Salud","Salud Máxima","Energía","Energía Máxima","Maná","Maná Máximo"}, 
@@ -4456,6 +4333,8 @@ public class JugarOnline {
 				if(seleccion.equals("Salud")){
 					writer.println(jugador + ":"+Integer.parseInt(cant)+":ModificarSEM:Salud");
 					writer.flush();
+				     writer.println("Información: Modificada la Salud de "+jugador+" en "+Integer.parseInt(cant)+":Chat");
+			          writer.flush();  
 					
 					if(jugador.equals(personaje1.getName())){
 						personaje1.setLife(personaje1.getLife()+ Integer.parseInt(cant));
@@ -4495,10 +4374,15 @@ public class JugarOnline {
 				}
 				else if(seleccion.equals("Salud Máxima")){
 					writer.println(jugador + ":"+Integer.parseInt(cant)+":ModificarSEM:Salud Máxima");
-					writer.flush();}
+					writer.flush();
+					 writer.println("Información: Modificada la Salud Máxima de "+jugador+" en "+Integer.parseInt(cant)+":Chat");
+			          writer.flush();	
+				}
 				else if(seleccion.equals("Energía")){
 					writer.println(jugador + ":"+Integer.parseInt(cant)+":ModificarSEM:Energía");
 					writer.flush();
+					 writer.println("Información: Modificada la Energía de "+jugador+" en "+Integer.parseInt(cant)+":Chat");
+			          writer.flush();
 					
 					if(jugador.equals(personaje1.getName())){
 						personaje1.setEndurance(personaje1.getEndurance()+ Integer.parseInt(cant));
@@ -4538,10 +4422,15 @@ public class JugarOnline {
 				}
 				else if(seleccion.equals("Energía Máxima")){
 					writer.println(jugador + ":"+Integer.parseInt(cant)+":ModificarSEM:Energía Máxima");
-					writer.flush();}
+					writer.flush();
+					writer.println("Información: Modificada la Energía Máxima de "+jugador+" en "+Integer.parseInt(cant)+":Chat");
+			          writer.flush();	
+				}
 				else if(seleccion.equals("Maná")){
 					writer.println(jugador + ":"+Integer.parseInt(cant)+":ModificarSEM:Maná");
 					writer.flush();
+					writer.println("Información: Modificado el Maná de "+jugador+" en "+Integer.parseInt(cant)+":Chat");
+			          writer.flush();
 					
 					if(jugador.equals(personaje1.getName())){
 						personaje1.setMana(personaje1.getMana()+ Integer.parseInt(cant));
@@ -4581,17 +4470,198 @@ public class JugarOnline {
 				}
 				else if(seleccion.equals("Maná Máximo")){
 					writer.println(jugador + ":"+Integer.parseInt(cant)+":ModificarSEM:Maná Máximo");
-					writer.flush();}
+					writer.flush();
+					writer.println("Información: Modificado el Maná Máximo de "+jugador+" en "+Integer.parseInt(cant)+":Chat");
+			          writer.flush();
+					}
+			}
+					if(seleccion1.equals("NPC")){
+						
+
+						
+						Object [] personajes= jugadores.toArray();
+						Object jugador = JOptionPane.showInputDialog(
+								frmHistoriasDeZagas, "Seleccione el personaje al que quiere modificar.",
+								"Modificar S/E/M", JOptionPane.PLAIN_MESSAGE,
+								null,personajes,null);
+						jugador=jugador+"";
+						
+						Object seleccion = JOptionPane.showInputDialog(
+								   null,
+								   "Modificar S/E/M",
+								   "Seleccione la opción a modificar",
+								   JOptionPane.PLAIN_MESSAGE,
+								   null,  // null para icono defecto
+								   new Object[] {"Salud","Energía","Maná"}, 
+								   "opcion 1");
+						seleccion=seleccion+"";
+						
+						String cant = JOptionPane.showInputDialog(
+								frmHistoriasDeZagas, "Introduce la cantidad en que modificar.", "",
+								JOptionPane.PLAIN_MESSAGE);				
+						
+						if(seleccion.equals("Salud")){
+							writer.println("Información: Modificada la Salud de "+jugador+" en "+Integer.parseInt(cant)+":Chat");
+					          writer.flush();
+							
+							
+							if(jugador.equals(npc1.getName())){
+								npc1.setLife(npc1.getLife()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(npc2.getName())){
+								npc2.setLife(npc2.getLife()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(npc3.getName())){
+								npc3.setLife(npc3.getLife()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(npc4.getName())){
+								npc4.setLife(npc4.getLife()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(npc5.getName())){
+								npc5.setLife(npc5.getLife()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(npc6.getName())){
+								npc6.setLife(npc6.getLife()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(npc7.getName())){
+								npc7.setLife(npc7.getLife()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(npc8.getName())){
+								npc8.setLife(npc8.getLife()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(npc9.getName())){
+								npc9.setLife(npc9.getLife()+ Integer.parseInt(cant));
+							}
+						}
+					
+						else if(seleccion.equals("Energía")){
+							
+							writer.println("Información: Modificada la energía de "+jugador+" en "+Integer.parseInt(cant)+":Chat");
+					          writer.flush();
+							
+					
+							if(jugador.equals(npc1.getName())){
+								npc1.setEndurance(npc1.getEndurance()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(npc2.getName())){
+								npc2.setEndurance(npc2.getEndurance()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(npc3.getName())){
+								npc3.setEndurance(npc3.getEndurance()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(personaje4.getName())){
+								personaje4.setEndurance(personaje4.getEndurance()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(personaje5.getName())){
+								personaje5.setEndurance(personaje5.getEndurance()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(personaje6.getName())){
+								personaje6.setEndurance(personaje6.getEndurance()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(personaje7.getName())){
+								personaje7.setEndurance(personaje7.getEndurance()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(personaje8.getName())){
+								personaje8.setEndurance(personaje8.getEndurance()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(personaje9.getName())){
+								personaje9.setEndurance(personaje9.getEndurance()+ Integer.parseInt(cant));
+							}
+						}
 				
+						else if(seleccion.equals("Maná")){
+							writer.println("Información: Modificado el Maná de "+jugador+" en "+Integer.parseInt(cant)+":Chat");
+					          writer.flush();
+							
+						
+							if(jugador.equals(npc1.getName())){
+								npc1.setMana(npc1.getMana()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(npc2.getName())){
+								npc2.setMana(npc2.getMana()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(npc3.getName())){
+								npc3.setMana(npc3.getMana()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(personaje4.getName())){
+								personaje4.setMana(personaje4.getMana()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(personaje5.getName())){
+								personaje5.setMana(personaje5.getMana()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(personaje6.getName())){
+								personaje6.setMana(personaje6.getMana()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(personaje7.getName())){
+								personaje7.setMana(personaje7.getMana()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(personaje8.getName())){
+								personaje8.setMana(personaje8.getMana()+ Integer.parseInt(cant));
+							}
+							
+							else if(jugador.equals(personaje9.getName())){
+								personaje9.setMana(personaje9.getMana()+ Integer.parseInt(cant));
+							}
+						}
+					
+					
+						
+						
+						
+					}
+					
 			}
 		});
 		btnModificarSem.setBounds(10, 70, 187, 31);
 		panel_6.add(btnModificarSem);
 		
-		JButton btnAlterarEstado = new JButton("Alterar Estado");
+		final JButton btnAlterarEstado = new JButton("Alterar Estado");
+		btnAlterarEstado.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnAlterarEstado.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				btnAlterarEstado.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon.png")));
+
+			}
+		});
+		btnAlterarEstado.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/botones panteon.png")));
+		btnAlterarEstado.setForeground(Color.WHITE);
+		btnAlterarEstado.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnAlterarEstado.setFont(mf.MyFont(0, 13));
+		btnAlterarEstado.setBorderPainted(false);
+		btnAlterarEstado.setContentAreaFilled(false);
 		btnAlterarEstado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Object[] personaje={"Jugador","NPC","NPC Genérico"};
+				Object[] personaje={"Jugador","NPC"};
 				Object seleccion = JOptionPane.showInputDialog(
 						frmHistoriasDeZagas, "Seleccione una opcion",
 						"Alterar Estado", JOptionPane.PLAIN_MESSAGE,
@@ -4721,7 +4791,7 @@ if(npc1.getName().equals(jugador)){
 					
 					writer.println(jugador+":"+estado+":Alterar");
 					writer.flush();
-					writer.println("Información: Se ha alterado el estado de "+jugador+ "a "+estado+":Chat");
+					writer.println("Información: Se ha alterado el estado de "+jugador+ " a "+estado+":Chat");
 					writer.flush();
 				}
 			
@@ -4732,7 +4802,27 @@ if(npc1.getName().equals(jugador)){
 		btnAlterarEstado.setBounds(10, 130, 187, 31);
 		panel_6.add(btnAlterarEstado);
 		
-		JButton btnModificarEquipo = new JButton("Modificar Equipo");
+		final JButton btnModificarEquipo = new JButton("Modificar Equipo");
+		btnModificarEquipo.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnModificarEquipo.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				btnModificarEquipo.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon.png")));
+
+			}
+		});
+		btnModificarEquipo.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/botones panteon.png")));
+		btnModificarEquipo.setForeground(Color.WHITE);
+		btnModificarEquipo.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnModificarEquipo.setFont(mf.MyFont(0, 13));
+		btnModificarEquipo.setBorderPainted(false);
+		btnModificarEquipo.setContentAreaFilled(false);
 		btnModificarEquipo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ArrayList<String> intermedio = new ArrayList<String>();
@@ -4753,53 +4843,170 @@ if(npc1.getName().equals(jugador)){
 				if(personaje1.getName().equals(jugador)){
 					
 					ModificarEquipo.personaje=personaje1;
+					ModificarEquipo.armor1=personaje1.getArmor();
+					ModificarEquipo.weapon1=personaje1.getWeapon1();
+					ModificarEquipo.weapon2=personaje1.getWeapon2();
+					ModificarEquipo.weapon3=personaje1.getWeapon3();
+					ModificarEquipo.weapon4=personaje1.getWeapon4();
+					ModificarEquipo.misc1=personaje1.getMisc1();
+					ModificarEquipo.misc2=personaje1.getMisc2();
+					ModificarEquipo.misc3=personaje1.getMisc3();
+					ModificarEquipo.misc4=personaje1.getMisc4();
+					ModificarEquipo.accesories1=personaje1.getAcc1();
+					ModificarEquipo.accesories1=personaje1.getAcc2();
+					ModificarEquipo.accesories1=personaje1.getAcc3();
+					ModificarEquipo.accesories1=personaje1.getAcc4();
 					ModificarEquipo.tipopj="PERSONAJE";
 					
 				}
 				else	if(personaje2.getName().equals(jugador)){
 					
 					ModificarEquipo.personaje=personaje2;
+					ModificarEquipo.armor1=personaje2.getArmor();
+					ModificarEquipo.weapon1=personaje2.getWeapon1();
+					ModificarEquipo.weapon2=personaje2.getWeapon2();
+					ModificarEquipo.weapon3=personaje2.getWeapon3();
+					ModificarEquipo.weapon4=personaje2.getWeapon4();
+					ModificarEquipo.misc1=personaje2.getMisc1();
+					ModificarEquipo.misc2=personaje2.getMisc2();
+					ModificarEquipo.misc3=personaje2.getMisc3();
+					ModificarEquipo.misc4=personaje2.getMisc4();
+					ModificarEquipo.accesories1=personaje2.getAcc1();
+					ModificarEquipo.accesories1=personaje2.getAcc2();
+					ModificarEquipo.accesories1=personaje2.getAcc3();
+					ModificarEquipo.accesories1=personaje2.getAcc4();
 					ModificarEquipo.tipopj="PERSONAJE";	
 				}
 				else	if(personaje3.getName().equals(jugador)){
 	
 					ModificarEquipo.personaje=personaje3;
+					ModificarEquipo.armor1=personaje3.getArmor();
+					ModificarEquipo.weapon1=personaje3.getWeapon1();
+					ModificarEquipo.weapon2=personaje3.getWeapon2();
+					ModificarEquipo.weapon3=personaje3.getWeapon3();
+					ModificarEquipo.weapon4=personaje3.getWeapon4();
+					ModificarEquipo.misc1=personaje3.getMisc1();
+					ModificarEquipo.misc2=personaje3.getMisc2();
+					ModificarEquipo.misc3=personaje3.getMisc3();
+					ModificarEquipo.misc4=personaje3.getMisc4();
+					ModificarEquipo.accesories1=personaje3.getAcc1();
+					ModificarEquipo.accesories1=personaje3.getAcc2();
+					ModificarEquipo.accesories1=personaje3.getAcc3();
+					ModificarEquipo.accesories1=personaje3.getAcc4();
 					ModificarEquipo.tipopj="PERSONAJE";
 	
 				}
 				else	if(personaje4.getName().equals(jugador)){
 					
 					ModificarEquipo.personaje=personaje4;
+					ModificarEquipo.armor1=personaje4.getArmor();
+					ModificarEquipo.weapon1=personaje4.getWeapon1();
+					ModificarEquipo.weapon2=personaje4.getWeapon2();
+					ModificarEquipo.weapon3=personaje4.getWeapon3();
+					ModificarEquipo.weapon4=personaje4.getWeapon4();
+					ModificarEquipo.misc1=personaje4.getMisc1();
+					ModificarEquipo.misc2=personaje4.getMisc2();
+					ModificarEquipo.misc3=personaje4.getMisc3();
+					ModificarEquipo.misc4=personaje4.getMisc4();
+					ModificarEquipo.accesories1=personaje4.getAcc1();
+					ModificarEquipo.accesories1=personaje4.getAcc2();
+					ModificarEquipo.accesories1=personaje4.getAcc3();
+					ModificarEquipo.accesories1=personaje4.getAcc4();
 					ModificarEquipo.tipopj="PERSONAJE";
 	
 				}
 				else	if(personaje5.getName().equals(jugador)){
 					
 					ModificarEquipo.personaje=personaje5;
+					ModificarEquipo.armor1=personaje5.getArmor();
+					ModificarEquipo.weapon1=personaje5.getWeapon1();
+					ModificarEquipo.weapon2=personaje5.getWeapon2();
+					ModificarEquipo.weapon3=personaje5.getWeapon3();
+					ModificarEquipo.weapon4=personaje5.getWeapon4();
+					ModificarEquipo.misc1=personaje5.getMisc1();
+					ModificarEquipo.misc2=personaje5.getMisc2();
+					ModificarEquipo.misc3=personaje5.getMisc3();
+					ModificarEquipo.misc4=personaje5.getMisc4();
+					ModificarEquipo.accesories1=personaje5.getAcc1();
+					ModificarEquipo.accesories1=personaje5.getAcc2();
+					ModificarEquipo.accesories1=personaje5.getAcc3();
+					ModificarEquipo.accesories1=personaje5.getAcc4();
 					ModificarEquipo.tipopj="PERSONAJE";
 	
 				}
 				else	if(personaje6.getName().equals(jugador)){
 					
 					ModificarEquipo.personaje=personaje6;
+					ModificarEquipo.armor1=personaje6.getArmor();
+					ModificarEquipo.weapon1=personaje6.getWeapon1();
+					ModificarEquipo.weapon2=personaje6.getWeapon2();
+					ModificarEquipo.weapon3=personaje6.getWeapon3();
+					ModificarEquipo.weapon4=personaje6.getWeapon4();
+					ModificarEquipo.misc1=personaje6.getMisc1();
+					ModificarEquipo.misc2=personaje6.getMisc2();
+					ModificarEquipo.misc3=personaje6.getMisc3();
+					ModificarEquipo.misc4=personaje6.getMisc4();
+					ModificarEquipo.accesories1=personaje6.getAcc1();
+					ModificarEquipo.accesories1=personaje6.getAcc2();
+					ModificarEquipo.accesories1=personaje6.getAcc3();
+					ModificarEquipo.accesories1=personaje6.getAcc4();
 					ModificarEquipo.tipopj="PERSONAJE";
 	
 				}
 				else	if(personaje7.getName().equals(jugador)){
 					
 					ModificarEquipo.personaje=personaje7;
+					ModificarEquipo.armor1=personaje7.getArmor();
+					ModificarEquipo.weapon1=personaje7.getWeapon1();
+					ModificarEquipo.weapon2=personaje7.getWeapon2();
+					ModificarEquipo.weapon3=personaje7.getWeapon3();
+					ModificarEquipo.weapon4=personaje7.getWeapon4();
+					ModificarEquipo.misc1=personaje7.getMisc1();
+					ModificarEquipo.misc2=personaje7.getMisc2();
+					ModificarEquipo.misc3=personaje7.getMisc3();
+					ModificarEquipo.misc4=personaje7.getMisc4();
+					ModificarEquipo.accesories1=personaje7.getAcc1();
+					ModificarEquipo.accesories1=personaje7.getAcc2();
+					ModificarEquipo.accesories1=personaje7.getAcc3();
+					ModificarEquipo.accesories1=personaje7.getAcc4();
 					ModificarEquipo.tipopj="PERSONAJE";
 	
 				}
 				else	if(personaje8.getName().equals(jugador)){
 					
 					ModificarEquipo.personaje=personaje8;
+					ModificarEquipo.armor1=personaje8.getArmor();
+					ModificarEquipo.weapon1=personaje8.getWeapon1();
+					ModificarEquipo.weapon2=personaje8.getWeapon2();
+					ModificarEquipo.weapon3=personaje8.getWeapon3();
+					ModificarEquipo.weapon4=personaje8.getWeapon4();
+					ModificarEquipo.misc1=personaje8.getMisc1();
+					ModificarEquipo.misc2=personaje8.getMisc2();
+					ModificarEquipo.misc3=personaje8.getMisc3();
+					ModificarEquipo.misc4=personaje8.getMisc4();
+					ModificarEquipo.accesories1=personaje8.getAcc1();
+					ModificarEquipo.accesories1=personaje8.getAcc2();
+					ModificarEquipo.accesories1=personaje8.getAcc3();
+					ModificarEquipo.accesories1=personaje8.getAcc4();
 					ModificarEquipo.tipopj="PERSONAJE";
 	
 				}
 				else	if(personaje9.getName().equals(jugador)){
 					
 					ModificarEquipo.personaje=personaje9;
+					ModificarEquipo.armor1=personaje9.getArmor();
+					ModificarEquipo.weapon1=personaje9.getWeapon1();
+					ModificarEquipo.weapon2=personaje9.getWeapon2();
+					ModificarEquipo.weapon3=personaje9.getWeapon3();
+					ModificarEquipo.weapon4=personaje9.getWeapon4();
+					ModificarEquipo.misc1=personaje9.getMisc1();
+					ModificarEquipo.misc2=personaje9.getMisc2();
+					ModificarEquipo.misc3=personaje9.getMisc3();
+					ModificarEquipo.misc4=personaje9.getMisc4();
+					ModificarEquipo.accesories1=personaje9.getAcc1();
+					ModificarEquipo.accesories1=personaje9.getAcc2();
+					ModificarEquipo.accesories1=personaje9.getAcc3();
+					ModificarEquipo.accesories1=personaje9.getAcc4();
 					ModificarEquipo.tipopj="PERSONAJE";
 	
 				}
@@ -4808,53 +5015,177 @@ if(npc1.getName().equals(jugador)){
 				else if(npc1.getName().equals(jugador)){
 					
 					ModificarEquipo.personaje=npc1;
+					ModificarEquipo.armor1=npc1.getArmor();
+					ModificarEquipo.weapon1=npc1.getWeapon1();
+					ModificarEquipo.weapon2=npc1.getWeapon2();
+					ModificarEquipo.weapon3=npc1.getWeapon3();
+					ModificarEquipo.weapon4=npc1.getWeapon4();
+					ModificarEquipo.misc1=npc1.getMisc1();
+					ModificarEquipo.misc2=npc1.getMisc2();
+					ModificarEquipo.misc3=npc1.getMisc3();
+					ModificarEquipo.misc4=npc1.getMisc4();
+					ModificarEquipo.accesories1=npc1.getAcc1();
+					ModificarEquipo.accesories1=npc1.getAcc2();
+					ModificarEquipo.accesories1=npc1.getAcc3();
+					ModificarEquipo.accesories1=npc1.getAcc4();
 					ModificarEquipo.tipopj="NPC";
 					
 				}
 				else	if(npc2.getName().equals(jugador)){
 					
 					ModificarEquipo.personaje=npc2;
+					ModificarEquipo.armor1=npc2.getArmor();
+					ModificarEquipo.weapon1=npc2.getWeapon1();
+					ModificarEquipo.weapon2=npc2.getWeapon2();
+					ModificarEquipo.weapon3=npc2.getWeapon3();
+					ModificarEquipo.weapon4=npc2.getWeapon4();
+					ModificarEquipo.misc1=npc2.getMisc1();
+					ModificarEquipo.misc2=npc2.getMisc2();
+					ModificarEquipo.misc3=npc2.getMisc3();
+					ModificarEquipo.misc4=npc2.getMisc4();
+					ModificarEquipo.accesories1=npc2.getAcc1();
+					ModificarEquipo.accesories1=npc2.getAcc2();
+					ModificarEquipo.accesories1=npc2.getAcc3();
+					ModificarEquipo.accesories1=npc2.getAcc4();
 					ModificarEquipo.tipopj="NPC";
 				}
 				else	if(npc3.getName().equals(jugador)){
 	
 					ModificarEquipo.personaje=npc3;
+					ModificarEquipo.armor1=npc3.getArmor();
+					ModificarEquipo.weapon1=npc3.getWeapon1();
+					ModificarEquipo.weapon2=npc3.getWeapon2();
+					ModificarEquipo.weapon3=npc3.getWeapon3();
+					ModificarEquipo.weapon4=npc3.getWeapon4();
+					ModificarEquipo.misc1=npc3.getMisc1();
+					ModificarEquipo.misc2=npc3.getMisc2();
+					ModificarEquipo.misc3=npc3.getMisc3();
+					ModificarEquipo.misc4=npc3.getMisc4();
+					ModificarEquipo.accesories1=npc3.getAcc1();
+					ModificarEquipo.accesories1=npc3.getAcc2();
+					ModificarEquipo.accesories1=npc3.getAcc3();
+					ModificarEquipo.accesories1=npc3.getAcc4();
 					ModificarEquipo.tipopj="NPC";
 				}
 				else	if(npc4.getName().equals(jugador)){
 					
 					ModificarEquipo.personaje=npc4;
+					ModificarEquipo.armor1=npc4.getArmor();
+					ModificarEquipo.weapon1=npc4.getWeapon1();
+					ModificarEquipo.weapon2=npc4.getWeapon2();
+					ModificarEquipo.weapon3=npc4.getWeapon3();
+					ModificarEquipo.weapon4=npc4.getWeapon4();
+					ModificarEquipo.misc1=npc4.getMisc1();
+					ModificarEquipo.misc2=npc4.getMisc2();
+					ModificarEquipo.misc3=npc4.getMisc3();
+					ModificarEquipo.misc4=npc4.getMisc4();
+					ModificarEquipo.accesories1=npc4.getAcc1();
+					ModificarEquipo.accesories1=npc4.getAcc2();
+					ModificarEquipo.accesories1=npc4.getAcc3();
+					ModificarEquipo.accesories1=npc4.getAcc4();
 					ModificarEquipo.tipopj="NPC";
 				}
 				else	if(npc5.getName().equals(jugador)){
 					
 					ModificarEquipo.personaje=npc5;
+					ModificarEquipo.armor1=npc5.getArmor();
+					ModificarEquipo.weapon1=npc5.getWeapon1();
+					ModificarEquipo.weapon2=npc5.getWeapon2();
+					ModificarEquipo.weapon3=npc5.getWeapon3();
+					ModificarEquipo.weapon4=npc5.getWeapon4();
+					ModificarEquipo.misc1=npc5.getMisc1();
+					ModificarEquipo.misc2=npc5.getMisc2();
+					ModificarEquipo.misc3=npc5.getMisc3();
+					ModificarEquipo.misc4=npc5.getMisc4();
+					ModificarEquipo.accesories1=npc5.getAcc1();
+					ModificarEquipo.accesories1=npc5.getAcc2();
+					ModificarEquipo.accesories1=npc5.getAcc3();
+					ModificarEquipo.accesories1=npc5.getAcc4();
 					ModificarEquipo.tipopj="NPC";
 				}
 				else	if(npc6.getName().equals(jugador)){
 					
 					ModificarEquipo.personaje=npc6;
+					ModificarEquipo.armor1=npc6.getArmor();
+					ModificarEquipo.weapon1=npc6.getWeapon1();
+					ModificarEquipo.weapon2=npc6.getWeapon2();
+					ModificarEquipo.weapon3=npc6.getWeapon3();
+					ModificarEquipo.weapon4=npc6.getWeapon4();
+					ModificarEquipo.misc1=npc6.getMisc1();
+					ModificarEquipo.misc2=npc6.getMisc2();
+					ModificarEquipo.misc3=npc6.getMisc3();
+					ModificarEquipo.misc4=npc6.getMisc4();
+					ModificarEquipo.accesories1=npc6.getAcc1();
+					ModificarEquipo.accesories1=npc6.getAcc2();
+					ModificarEquipo.accesories1=npc6.getAcc3();
+					ModificarEquipo.accesories1=npc6.getAcc4();
+				
 					ModificarEquipo.tipopj="NPC";
 				}
 				else	if(npc7.getName().equals(jugador)){
 					
 					ModificarEquipo.personaje=npc7;
+					ModificarEquipo.armor1=npc1.getArmor();
+					ModificarEquipo.weapon1=npc7.getWeapon1();
+					ModificarEquipo.weapon2=npc7.getWeapon2();
+					ModificarEquipo.weapon3=npc7.getWeapon3();
+					ModificarEquipo.weapon4=npc7.getWeapon4();
+					ModificarEquipo.misc1=npc7.getMisc1();
+					ModificarEquipo.misc2=npc7.getMisc2();
+					ModificarEquipo.misc3=npc7.getMisc3();
+					ModificarEquipo.misc4=npc7.getMisc4();
+					ModificarEquipo.accesories1=npc7.getAcc1();
+					ModificarEquipo.accesories1=npc7.getAcc2();
+					ModificarEquipo.accesories1=npc7.getAcc3();
+					ModificarEquipo.accesories1=npc7.getAcc4();
+				
 					ModificarEquipo.tipopj="NPC";
 				}
 				else	if(npc8.getName().equals(jugador)){
 					
 					ModificarEquipo.personaje=npc8;
+					ModificarEquipo.armor1=npc8.getArmor();
+					ModificarEquipo.weapon1=npc8.getWeapon1();
+					ModificarEquipo.weapon2=npc8.getWeapon2();
+					ModificarEquipo.weapon3=npc8.getWeapon3();
+					ModificarEquipo.weapon4=npc8.getWeapon4();
+					ModificarEquipo.misc1=npc8.getMisc1();
+					ModificarEquipo.misc2=npc8.getMisc2();
+					ModificarEquipo.misc3=npc8.getMisc3();
+					ModificarEquipo.misc4=npc8.getMisc4();
+					ModificarEquipo.accesories1=npc8.getAcc1();
+					ModificarEquipo.accesories1=npc8.getAcc2();
+					ModificarEquipo.accesories1=npc8.getAcc3();
+					ModificarEquipo.accesories1=npc8.getAcc4();
+				
 					ModificarEquipo.tipopj="NPC";
 				}
 				else	if(npc9.getName().equals(jugador)){
 					
 					ModificarEquipo.personaje=npc9;
+					ModificarEquipo.armor1=npc9.getArmor();
+					ModificarEquipo.weapon1=npc9.getWeapon1();
+					ModificarEquipo.weapon2=npc9.getWeapon2();
+					ModificarEquipo.weapon3=npc9.getWeapon3();
+					ModificarEquipo.weapon4=npc9.getWeapon4();
+					ModificarEquipo.misc1=npc9.getMisc1();
+					ModificarEquipo.misc2=npc9.getMisc2();
+					ModificarEquipo.misc3=npc9.getMisc3();
+					ModificarEquipo.misc4=npc9.getMisc4();
+					ModificarEquipo.accesories1=npc9.getAcc1();
+					ModificarEquipo.accesories1=npc9.getAcc2();
+					ModificarEquipo.accesories1=npc9.getAcc3();
+					ModificarEquipo.accesories1=npc9.getAcc4();
+				
 					ModificarEquipo.tipopj="NPC";
 				}
 
 				
 				ModificarEquipo window;
 				try {
+					ModificarEquipo.pmisc=ModificarEquipo.personaje.getEquipment().CalculoPesoMisc(ModificarEquipo.personaje.getAtributes().getStrength());
+					ModificarEquipo.pweap=ModificarEquipo.personaje.getEquipment().CalculoPesoWeapons(ModificarEquipo.personaje.getAtributes().getStrength());
+					
 					window = new ModificarEquipo();
 					window.getFrame().setVisible(true);
 				} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | IOException
@@ -4872,18 +5203,45 @@ if(npc1.getName().equals(jugador)){
 		btnModificarEquipo.setBounds(10, 190, 187, 31);
 		panel_6.add(btnModificarEquipo);
 		
+		JLabel label_1 = new JLabel("");
+		label_1.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/background-start.jpg")));
+		label_1.setBounds(0, 0, 207, 325);
+		panel_6.add(label_1);
+		
 		JPanel panel_7 = new JPanel();
 		panel_7.setLayout(null);
-		panel_7.setBounds(414, 26, 207, 283);
+		panel_7.setBounds(408, 26, 223, 325);
 		frmHistoriasDeZagas.getContentPane().add(panel_7);
 		
 		JLabel lblRecompensas = new JLabel("Recompensas");
+		lblRecompensas.setForeground(Color.WHITE);
 		lblRecompensas.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRecompensas.setFont(mf.MyFont(0, 15));
 		lblRecompensas.setBounds(0, 0, 207, 46);
 		panel_7.add(lblRecompensas);
 	
 		
-		JButton btnDarExperiencia = new JButton("Dar Experiencia");
+		final JButton btnDarExperiencia = new JButton("Dar Experiencia");
+		btnDarExperiencia.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnDarExperiencia.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				btnDarExperiencia.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon.png")));
+
+			}
+		});
+		btnDarExperiencia.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/botones panteon.png")));
+		btnDarExperiencia.setForeground(Color.WHITE);
+		btnDarExperiencia.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnDarExperiencia.setFont(mf.MyFont(0, 13));
+		btnDarExperiencia.setBorderPainted(false);
+		btnDarExperiencia.setContentAreaFilled(false);
 		btnDarExperiencia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Object [] personajes= jugadores.toArray();
@@ -4967,7 +5325,27 @@ if(npc1.getName().equals(jugador)){
 		btnDarExperiencia.setBounds(10, 70, 187, 31);
 		panel_7.add(btnDarExperiencia);
 		
-		JButton btnDarAtributos = new JButton("Dar Atributos");
+		final JButton btnDarAtributos = new JButton("Dar Atributos");
+		btnDarAtributos.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnDarAtributos.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				btnDarAtributos.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon.png")));
+
+			}
+		});
+		btnDarAtributos.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/botones panteon.png")));
+		btnDarAtributos.setForeground(Color.WHITE);
+		btnDarAtributos.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnDarAtributos.setFont(mf.MyFont(0, 13));
+		btnDarAtributos.setBorderPainted(false);
+		btnDarAtributos.setContentAreaFilled(false);
 		btnDarAtributos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -6483,7 +6861,27 @@ if(npc1.getName().equals(jugador)){
 		btnDarAtributos.setBounds(10, 130, 187, 31);
 		panel_7.add(btnDarAtributos);
 		
-		JButton btnDarHabilidades = new JButton("Dar Habilidades");
+		final JButton btnDarHabilidades = new JButton("Dar Habilidades");
+		btnDarHabilidades.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				btnDarHabilidades.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon2.png")));
+
+			}
+
+			public void mouseReleased(MouseEvent arg0) {
+				btnDarHabilidades.setIcon(new ImageIcon(AyudaPrincipal.class
+						.getResource("/images/botones panteon.png")));
+
+			}
+		});
+		btnDarHabilidades.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/botones panteon.png")));
+		btnDarHabilidades.setForeground(Color.WHITE);
+		btnDarHabilidades.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnDarHabilidades.setFont(mf.MyFont(0, 13));
+		btnDarHabilidades.setBorderPainted(false);
+		btnDarHabilidades.setContentAreaFilled(false);
 		btnDarHabilidades.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -11807,6 +12205,11 @@ if(npc1.getName().equals(jugador)){
 		});
 		btnDarHabilidades.setBounds(10, 190, 187, 31);
 		panel_7.add(btnDarHabilidades);
+		
+		JLabel label_2 = new JLabel("");
+		label_2.setIcon(new ImageIcon(JugarOnline.class.getResource("/images/background-start.jpg")));
+		label_2.setBounds(0, 0, 224, 325);
+		panel_7.add(label_2);
 		
 		mntmNpc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

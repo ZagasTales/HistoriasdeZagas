@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
+import es.thesinsprods.resources.font.MorpheusFont;
 import es.thesinsprods.zagastales.characters.Characters;
 import es.thesinsprods.zagastales.characters.equipment.Weapons;
 import es.thesinsprods.zagastales.diceroll.DiceRoll;
@@ -24,10 +25,13 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.border.BevelBorder;
 import javax.swing.ImageIcon;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class OtroEnfrentadas {
 
 	private JFrame frmHistoriasDeZagas;
+	MorpheusFont mf = new MorpheusFont();
 	public JFrame getFrmHistoriasDeZagas() {
 		return frmHistoriasDeZagas;
 	}
@@ -35,9 +39,6 @@ public class OtroEnfrentadas {
 	public void setFrmHistoriasDeZagas(JFrame frmHistoriasDeZagas) {
 		this.frmHistoriasDeZagas = frmHistoriasDeZagas;
 	}
-
-	private JTextField txtmodificador;
-	private JTextField txtmodificador_1;
 
 	/**
 	 * Launch the application.
@@ -74,14 +75,30 @@ public class OtroEnfrentadas {
 		frmHistoriasDeZagas.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmHistoriasDeZagas.getContentPane().setLayout(null);
 		
+		final JComboBox comboBox_3 = new JComboBox();
+		comboBox_3.setFont(mf.MyFont(0,13));
+		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"-3", "-2", "-1", "0", "1", "2", "3"}));
+		comboBox_3.setSelectedIndex(3);
+		comboBox_3.setBounds(33, 292, 165, 29);
+		frmHistoriasDeZagas.getContentPane().add(comboBox_3);
+		
+		final JComboBox comboBox_7 = new JComboBox();
+		comboBox_7.setFont(mf.MyFont(0,13));
+		comboBox_7.setModel(new DefaultComboBoxModel(new String[] {"-3", "-2", "-1", "0", "1", "2", "3"}));
+		comboBox_7.setSelectedIndex(3);
+		comboBox_7.setBounds(245, 292, 165, 29);
+		frmHistoriasDeZagas.getContentPane().add(comboBox_7);
+		
 		JLabel lblNewLabel = new JLabel("Tirada Enfrentada");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 36));
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setFont(mf.MyFont(0, 36));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 424, 59);
 		frmHistoriasDeZagas.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Atacante");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_1.setForeground(Color.WHITE);
+		lblNewLabel_1.setFont(mf.MyFont(0, 18));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(10, 83, 212, 53);
 		frmHistoriasDeZagas.getContentPane().add(lblNewLabel_1);
@@ -103,12 +120,15 @@ public class OtroEnfrentadas {
 	
 		final ArrayList <String> atributos= new ArrayList<String>();
 		final JComboBox comboBox = new JComboBox();
+		comboBox.setFont(mf.MyFont(0,13));
 		comboBox.setModel(new DefaultComboBoxModel(personajes));
 		comboBox.setBounds(33, 140, 165, 29);
 		frmHistoriasDeZagas.getContentPane().add(comboBox);
 		
 		final JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setFont(mf.MyFont(0,13));
 		final JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setFont(mf.MyFont(0,13));
 		
 		comboBox_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -203,18 +223,22 @@ public class OtroEnfrentadas {
 		frmHistoriasDeZagas.getContentPane().add(comboBox_2);
 		
 		JLabel lblDefensor = new JLabel("Defensor");
+		lblDefensor.setForeground(Color.WHITE);
 		lblDefensor.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDefensor.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblDefensor.setFont(mf.MyFont(0, 18));
 		lblDefensor.setBounds(222, 83, 212, 53);
 		frmHistoriasDeZagas.getContentPane().add(lblDefensor);
 		
 		final JComboBox comboBox_4 = new JComboBox();
+		comboBox_4.setFont(mf.MyFont(0,13));
 		comboBox_4.setModel(new DefaultComboBoxModel(personajes));
 		comboBox_4.setBounds(245, 140, 165, 29);
 		frmHistoriasDeZagas.getContentPane().add(comboBox_4);
 		
 		final JComboBox comboBox_5 = new JComboBox();
+		comboBox_5.setFont(mf.MyFont(0,13));
 		final JComboBox comboBox_6 = new JComboBox();
+		comboBox_6.setFont(mf.MyFont(0,13));
 		final ArrayList <Weapons> defensasList= new ArrayList<Weapons>();
 		final ArrayList <String> defN= new ArrayList<String>();
 		comboBox_5.addActionListener(new ActionListener() {
@@ -312,21 +336,22 @@ public class OtroEnfrentadas {
 		comboBox_6.setBounds(245, 240, 165, 29);
 		frmHistoriasDeZagas.getContentPane().add(comboBox_6);
 		
-		txtmodificador = new JTextField();
-		txtmodificador.setText("-Modificador-");
-		txtmodificador.setHorizontalAlignment(SwingConstants.CENTER);
-		txtmodificador.setBounds(33, 290, 165, 29);
-		frmHistoriasDeZagas.getContentPane().add(txtmodificador);
-		txtmodificador.setColumns(10);
-		
-		txtmodificador_1 = new JTextField();
-		txtmodificador_1.setText("-Modificador-");
-		txtmodificador_1.setHorizontalAlignment(SwingConstants.CENTER);
-		txtmodificador_1.setColumns(10);
-		txtmodificador_1.setBounds(245, 290, 165, 29);
-		frmHistoriasDeZagas.getContentPane().add(txtmodificador_1);
-		
-		JButton btnNewButton = new JButton("Calcular");
+		final JButton btnNewButton = new JButton("Calcular");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				btnNewButton.setIcon(new ImageIcon(CombateDistancia.class.getResource("/images/botones armaduras2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				btnNewButton.setIcon(new ImageIcon(CombateDistancia.class.getResource("/images/botones armaduras.png")));
+			}
+		});
+		btnNewButton.setContentAreaFilled(false);
+		btnNewButton.setBorderPainted(false);
+		btnNewButton.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnNewButton.setIcon(new ImageIcon(CombateDistancia.class.getResource("/images/botones armaduras.png")));
+		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	
 				int tirada1=DiceRoll.LanzaDadoAleatorio20();
@@ -392,18 +417,18 @@ public class OtroEnfrentadas {
 				else if(habilidad2.equals("Supervivencia")){hab2=personaje2.getKnowhowSkills().getSurvival();}
 				else if(habilidad2.equals("Trampas")){hab2=personaje2.getKnowhowSkills().getTraps();}
 				
-				String mod1=txtmodificador.getText();
-				String mod2=txtmodificador_1.getText();
+				String mod1=comboBox_3.getSelectedItem()+"";
+				String mod2=comboBox_7.getSelectedItem()+"";
 				
 				int mods= Integer.parseInt(mod1)+Integer.parseInt(mod2);
 				
 				
 				String result = DiceRoll.EnfrentarTirada(tirada1, atr1, tirada2, atr2, hab1, hab2, mods);
 				
-				JugarOnline.writer.println("Server:La tirada de "+personaje1.getName()+"ha sido de "+tirada1+":Chat");
+				JugarOnline.writer.println("Server:La tirada de "+personaje1.getName()+" ha sido de "+tirada1+":Chat");
 				JugarOnline.writer.flush();
 				
-				JugarOnline.writer.println("Server:La tirada de "+personaje2.getName()+"ha sido de "+tirada2+":Chat");
+				JugarOnline.writer.println("Server:La tirada de "+personaje2.getName()+" ha sido de "+tirada2+":Chat");
 				JugarOnline.writer.flush();
 				
 				JugarOnline.writer.println("Server:El resultado del enfrentamiento es "+result+":Chat");
@@ -411,11 +436,21 @@ public class OtroEnfrentadas {
 							
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnNewButton.setBounds(313, 330, 121, 50);
+		btnNewButton.setFont(mf.MyFont(0, 16));
+		btnNewButton.setBounds(313, 327, 124, 47);
 		frmHistoriasDeZagas.getContentPane().add(btnNewButton);
 		
-		JButton button = new JButton("");
+		final JButton button = new JButton("");
+		button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				button.setIcon(new ImageIcon(CombateDistancia.class.getResource("/images/boton atras2.png")));
+			}
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				button.setIcon(new ImageIcon(CombateDistancia.class.getResource("/images/boton atras.png")));
+			}
+		});
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -436,6 +471,11 @@ public class OtroEnfrentadas {
 		button.setBackground(new Color(139, 69, 19));
 		button.setBounds(10, 335, 99, 45);
 		frmHistoriasDeZagas.getContentPane().add(button);
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(OtroEnfrentadas.class.getResource("/images/background-jugar.jpg")));
+		label.setBounds(0, 0, 444, 393);
+		frmHistoriasDeZagas.getContentPane().add(label);
 	}
 	
 	public Characters Identificar(String nombre){

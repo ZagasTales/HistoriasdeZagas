@@ -41,6 +41,7 @@ import es.thesinsprods.zagastales.characters.skills.SkillOutOfBoundsException;
 import es.thesinsprods.zagastales.characters.skills.SkillPoints;
 import es.thesinsprods.zagastales.juegozagas.ayuda.pnjs.AyudaEquipo;
 import es.thesinsprods.zagastales.juegozagas.inicio.Inicio;
+import es.thesinsprods.zagastales.juegozagas.jugar.master.jugador1.Personaje1;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -234,7 +235,9 @@ public class ModificarEquipo {
 		txtArmadura = new JTextField();
 		txtArmadura.setForeground(new Color(0, 0, 0));
 		txtArmadura.setBackground(Color.WHITE);
+		if(!armor1.getArmor().equals("null")){
 		txtArmadura.setText(armor1.getArmor());
+		}
 		txtArmadura.setFont(mf.MyFont(0, 11));
 		txtArmadura.setEditable(false);
 		txtArmadura.setBounds(40, 91, 205, 20);
@@ -864,83 +867,121 @@ public class ModificarEquipo {
 						if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 							
 							JugarOnline.personaje1.setArmor(personaje.getArmor());
-							}
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje1.getName()+":QuitarArm");
+							JugarOnline.writer.flush();
+							JugarOnline.writer.println("Server:Se ha quitado "+personaje.getArmor().getArmor()+" a "+personaje.getName()+":Chat");
+							JugarOnline.writer.flush();}
 						else if(personaje.getName().equals(JugarOnline.personaje2.getName())){
 							
 							JugarOnline.personaje2.setArmor(personaje.getArmor());
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje2.getName()+":QuitarArm");
+							JugarOnline.writer.flush();
+							JugarOnline.writer.println("Server:Se ha quitado "+personaje.getArmor().getArmor()+" a "+personaje.getName()+":Chat");
+							JugarOnline.writer.flush();
 							}
 
 						else if(personaje.getName().equals(JugarOnline.personaje3.getName())){
 							
 							JugarOnline.personaje3.setArmor(personaje.getArmor());
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje3.getName()+":QuitarArm");
+							JugarOnline.writer.flush();
+							JugarOnline.writer.println("Server:Se ha quitado "+personaje.getArmor().getArmor()+" a "+personaje.getName()+":Chat");
+							JugarOnline.writer.flush();
 							}
 
 						else if(personaje.getName().equals(JugarOnline.personaje4.getName())){
 							
+							
 							JugarOnline.personaje4.setArmor(personaje.getArmor());
-							}
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje4.getName()+":QuitarArm");
+							JugarOnline.writer.flush();
+							JugarOnline.writer.println("Server:Se ha quitado "+personaje.getArmor().getArmor()+" a "+personaje.getName()+":Chat");
+							JugarOnline.writer.flush();
+						}
 
 						else if(personaje.getName().equals(JugarOnline.personaje5.getName())){
 							
 							JugarOnline.personaje5.setArmor(personaje.getArmor());
-							}
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje5.getName()+":QuitarArm");
+							JugarOnline.writer.flush();
+							JugarOnline.writer.println("Server:Se ha quitado "+personaje.getArmor().getArmor()+" a "+personaje.getName()+":Chat");
+							JugarOnline.writer.flush();
+						}
 
 						else if(personaje.getName().equals(JugarOnline.personaje6.getName())){
 							
 							JugarOnline.personaje6.setArmor(personaje.getArmor());
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje6.getName()+":QuitarArm");
+							JugarOnline.writer.flush();
+							JugarOnline.writer.println("Server:Se ha quitado "+personaje.getArmor().getArmor()+" a "+personaje.getName()+":Chat");
+							JugarOnline.writer.flush();
 							}
 
 						else if(personaje.getName().equals(JugarOnline.personaje7.getName())){
 							
 							JugarOnline.personaje7.setArmor(personaje.getArmor());
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje7.getName()+":QuitarArm");
+							JugarOnline.writer.flush();
+							JugarOnline.writer.println("Server:Se ha quitado "+personaje.getArmor().getArmor()+" a "+personaje.getName()+":Chat");
+							JugarOnline.writer.flush();
 							}
 
 						else if(personaje.getName().equals(JugarOnline.personaje8.getName())){
 							
 							JugarOnline.personaje8.setArmor(personaje.getArmor());
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje8.getName()+":QuitarArm");
+							JugarOnline.writer.flush();
+							JugarOnline.writer.println("Server:Se ha quitado "+personaje.getArmor().getArmor()+" a "+personaje.getName()+":Chat");
+							JugarOnline.writer.flush();
 							}
 
 						else if(personaje.getName().equals(JugarOnline.personaje9.getName())){
 							
 							JugarOnline.personaje9.setArmor(personaje.getArmor());
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje9.getName()+":QuitarArm");
+							JugarOnline.writer.flush();
+							JugarOnline.writer.println("Server:Se ha quitado "+personaje.getArmor().getArmor()+" a "+personaje.getName()+":Chat");
+							JugarOnline.writer.flush();
 							}
 
 						else if(personaje.getName().equals(JugarOnline.npc1.getName())){
 							
 							JugarOnline.npc1.setArmor(personaje.getArmor());
-							}
+						}
 
 
 						else if(personaje.getName().equals(JugarOnline.npc2.getName())){
 							
 							JugarOnline.npc2.setArmor(personaje.getArmor());
-							}
+						}
 
 						else if(personaje.getName().equals(JugarOnline.npc3.getName())){
 							
 							JugarOnline.npc3.setArmor(personaje.getArmor());
+							
 							}
 
 						else if(personaje.getName().equals(JugarOnline.npc4.getName())){
 							
 							JugarOnline.npc4.setArmor(personaje.getArmor());
+							
 							}
 
 						else if(personaje.getName().equals(JugarOnline.npc5.getName())){
 							
 							JugarOnline.npc5.setArmor(personaje.getArmor());
-							}
+						}
 
 						else if(personaje.getName().equals(JugarOnline.npc6.getName())){
 							
 							JugarOnline.npc6.setArmor(personaje.getArmor());
-							}
+						}
 
 
 						else if(personaje.getName().equals(JugarOnline.npc7.getName())){
 							
 							JugarOnline.npc7.setArmor(personaje.getArmor());
-							}
+						}
 
 						else if(personaje.getName().equals(JugarOnline.npc8.getName())){
 							
@@ -1008,7 +1049,8 @@ public class ModificarEquipo {
 		txtW1 = new JTextField();
 		txtW1.setForeground(new Color(0, 0, 0));
 		txtW1.setBackground(Color.WHITE);
-		txtW1.setText(weapon1.getWeapon());
+		if(!weapon1.getWeapon().equals("null")){
+		txtW1.setText(weapon1.getWeapon());}
 		txtW1.setEditable(false);
 		txtW1.setFont(mf.MyFont(0, 11));
 		txtW1.setBounds(10, 49, 123, 20);
@@ -1018,7 +1060,8 @@ public class ModificarEquipo {
 		txtW2 = new JTextField();
 		txtW2.setForeground(new Color(0, 0, 0));
 		txtW2.setBackground(Color.WHITE);
-		txtW2.setText(weapon2.getWeapon());
+		if(!weapon2.getWeapon().equals("null")){
+		txtW2.setText(weapon2.getWeapon());}
 		txtW2.setFont(mf.MyFont(0, 11));
 		txtW2.setEditable(false);
 		txtW2.setColumns(10);
@@ -1028,7 +1071,8 @@ public class ModificarEquipo {
 		txtW3 = new JTextField();
 		txtW3.setForeground(new Color(0, 0, 0));
 		txtW3.setBackground(Color.WHITE);
-		txtW3.setText(weapon3.getWeapon());
+		if(!weapon3.getWeapon().equals("null")){;
+		txtW3.setText(weapon3.getWeapon());}
 		txtW3.setFont(mf.MyFont(0, 11));
 		txtW3.setEditable(false);
 		txtW3.setColumns(10);
@@ -1038,7 +1082,8 @@ public class ModificarEquipo {
 		txtW4 = new JTextField();
 		txtW4.setForeground(new Color(0, 0, 0));
 		txtW4.setBackground(Color.WHITE);
-		txtW4.setText(weapon4.getWeapon());
+		if(!weapon4.getWeapon().equals("null")){
+		txtW4.setText(weapon4.getWeapon());}
 		txtW4.setFont(mf.MyFont(0, 11));
 		txtW4.setEditable(false);
 		txtW4.setColumns(10);
@@ -1186,32 +1231,6 @@ public class ModificarEquipo {
 		pnlArmas.add(btnInfoW4);
 
 		final JButton btnQuitarW1 = new JButton("-");
-		btnQuitarW1.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				btnQuitarW1.setIcon(new ImageIcon(ModificarEquipo.class
-						.getResource("/images/botones-2.png")));
-
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				btnQuitarW1.setIcon(new ImageIcon(ModificarEquipo.class
-						.getResource("/images/botones-.png")));
-
-			}
-		});
-		btnQuitarW1.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnQuitarW1.setIcon(new ImageIcon(ModificarEquipo.class
-				.getResource("/images/botones-.png")));
-		btnQuitarW1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null,
-				null, null));
-		btnQuitarW1.setForeground(new Color(255, 255, 255));
-		btnQuitarW1.setBackground(new Color(139, 69, 19));
-		btnQuitarW1.setBorderPainted(false);
-		btnQuitarW1.setContentAreaFilled(false);
-		btnQuitarW1.setFocusPainted(false);
-		btnQuitarW1.setOpaque(false);
 		btnQuitarW1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				txtW1.setText("");
@@ -1229,93 +1248,138 @@ public class ModificarEquipo {
 					
 					if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 						
-						JugarOnline.personaje1.setWeapon1(personaje.getWeapon1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje1.getName()+ ":QuitarWeap1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon1().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje1.setWeapon1(weapon1);
 						}
 					else if(personaje.getName().equals(JugarOnline.personaje2.getName())){
 						
-						JugarOnline.personaje2.setWeapon1(personaje.getWeapon1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje2.getName()+ ":QuitarWeap1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon1().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje2.setWeapon1(weapon1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje3.getName())){
 						
-						JugarOnline.personaje3.setWeapon1(personaje.getWeapon1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje3.getName()+ ":QuitarWeap1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon1().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje3.setWeapon1(weapon1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje4.getName())){
 						
-						JugarOnline.personaje4.setWeapon1(personaje.getWeapon1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje4.getName()+ ":QuitarWeap1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon1().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje4.setWeapon1(weapon1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje5.getName())){
 						
-						JugarOnline.personaje5.setWeapon1(personaje.getWeapon1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje5.getName()+ ":QuitarWeap1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon1().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje5.setWeapon1(weapon1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje6.getName())){
 						
-						JugarOnline.personaje6.setWeapon1(personaje.getWeapon1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje6.getName()+ ":QuitarWeap1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon1().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje6.setWeapon1(weapon1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje7.getName())){
 						
-						JugarOnline.personaje7.setWeapon1(personaje.getWeapon1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje7.getName()+ ":QuitarWeap1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon1().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje7.setWeapon1(weapon1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje8.getName())){
 						
-						JugarOnline.personaje8.setWeapon1(personaje.getWeapon1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje8.getName()+ ":QuitarWeap1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon1().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje8.setWeapon1(weapon1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje9.getName())){
 						
-						JugarOnline.personaje9.setWeapon1(personaje.getWeapon1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje9.getName()+ ":QuitarWeap1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon1().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje9.setWeapon1(weapon1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc1.getName())){
 						
-						JugarOnline.npc1.setWeapon1(personaje.getWeapon1());
+						JugarOnline.npc1.setWeapon1(weapon1);
 						}
 
 
 					else if(personaje.getName().equals(JugarOnline.npc2.getName())){
 						
-						JugarOnline.npc2.setWeapon1(personaje.getWeapon1());
+						JugarOnline.npc2.setWeapon1(weapon1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc3.getName())){
 						
-						JugarOnline.npc3.setWeapon1(personaje.getWeapon1());
+						JugarOnline.npc3.setWeapon1(weapon1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc4.getName())){
 						
-						JugarOnline.npc4.setWeapon1(personaje.getWeapon1());
+						JugarOnline.npc4.setWeapon1(weapon1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc5.getName())){
 						
-						JugarOnline.npc5.setWeapon1(personaje.getWeapon1());
+						JugarOnline.npc5.setWeapon1(weapon1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc6.getName())){
 						
-						JugarOnline.npc6.setWeapon1(personaje.getWeapon1());
+						JugarOnline.npc6.setWeapon1(weapon1);
 						}
 
 
 					else if(personaje.getName().equals(JugarOnline.npc7.getName())){
 						
-						JugarOnline.npc7.setWeapon1(personaje.getWeapon1());
+						JugarOnline.npc7.setWeapon1(weapon1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc8.getName())){
 						
-						JugarOnline.npc8.setWeapon1(personaje.getWeapon1());
+						JugarOnline.npc8.setWeapon1(weapon1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc9.getName())){
 						
-						JugarOnline.npc9.setWeapon1(personaje.getWeapon1());
+						JugarOnline.npc9.setWeapon1(weapon1);
 						}
 					
 					
@@ -1370,96 +1434,141 @@ public class ModificarEquipo {
 					tabla.executeQuery("UPDATE "+ModificarEquipo.tipopj+" SET PROPIEDAD3_ARMA2='' WHERE NOMBRE='"+ModificarEquipo.personaje.getName()+"'");
 					tabla.executeQuery("UPDATE "+ModificarEquipo.tipopj+" SET TIPOARMA2='' WHERE NOMBRE='"+ModificarEquipo.personaje.getName()+"'");
 					tabla.executeQuery("UPDATE "+ModificarEquipo.tipopj+" SET SUBCLASE_ARMA2='"+ModificarEquipo.weapon1.getTipo()+"' WHERE NOMBRE='"+ModificarEquipo.personaje.getName()+"'");
-					
-if(personaje.getName().equals(JugarOnline.personaje1.getName())){
+				
+					if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 						
-						JugarOnline.personaje1.setWeapon2(personaje.getWeapon2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje1.getName()+ ":QuitarWeap2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon2().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje1.setWeapon2(weapon2);
 						}
 					else if(personaje.getName().equals(JugarOnline.personaje2.getName())){
 						
-						JugarOnline.personaje2.setWeapon2(personaje.getWeapon2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje2.getName()+ ":QuitarWeap2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon2().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje2.setWeapon2(weapon2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje3.getName())){
 						
-						JugarOnline.personaje3.setWeapon2(personaje.getWeapon2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje3.getName()+ ":QuitarWeap2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon2().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje3.setWeapon2(weapon2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje4.getName())){
 						
-						JugarOnline.personaje4.setWeapon2(personaje.getWeapon2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje4.getName()+ ":QuitarWeap2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon2().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje4.setWeapon2(weapon2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje5.getName())){
 						
-						JugarOnline.personaje5.setWeapon2(personaje.getWeapon2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje5.getName()+ ":QuitarWeap2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon2().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje5.setWeapon2(weapon2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje6.getName())){
 						
-						JugarOnline.personaje6.setWeapon2(personaje.getWeapon2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje6.getName()+ ":QuitarWeap2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon2().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje6.setWeapon2(weapon2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje7.getName())){
 						
-						JugarOnline.personaje7.setWeapon2(personaje.getWeapon2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje7.getName()+ ":QuitarWeap2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon2().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje7.setWeapon2(weapon2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje8.getName())){
 						
-						JugarOnline.personaje8.setWeapon2(personaje.getWeapon2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje8.getName()+ ":QuitarWeap2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon2().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje8.setWeapon2(weapon2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje9.getName())){
 						
-						JugarOnline.personaje9.setWeapon2(personaje.getWeapon2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje9.getName()+ ":QuitarWeap2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon2().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje9.setWeapon2(weapon2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc1.getName())){
 						
-						JugarOnline.npc1.setWeapon2(personaje.getWeapon2());
+						JugarOnline.npc1.setWeapon2(weapon2);
 						}
 
 
 					else if(personaje.getName().equals(JugarOnline.npc2.getName())){
 						
-						JugarOnline.npc2.setWeapon2(personaje.getWeapon2());
+						JugarOnline.npc2.setWeapon2(weapon2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc3.getName())){
 						
-						JugarOnline.npc3.setWeapon2(personaje.getWeapon2());
+						JugarOnline.npc3.setWeapon2(weapon2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc4.getName())){
 						
-						JugarOnline.npc4.setWeapon2(personaje.getWeapon2());
+						JugarOnline.npc4.setWeapon2(weapon2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc5.getName())){
 						
-						JugarOnline.npc5.setWeapon2(personaje.getWeapon2());
+						JugarOnline.npc5.setWeapon2(weapon2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc6.getName())){
 						
-						JugarOnline.npc6.setWeapon2(personaje.getWeapon2());
+						JugarOnline.npc6.setWeapon2(weapon2);
 						}
 
 
 					else if(personaje.getName().equals(JugarOnline.npc7.getName())){
 						
-						JugarOnline.npc7.setWeapon2(personaje.getWeapon2());
+						JugarOnline.npc7.setWeapon2(weapon2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc8.getName())){
 						
-						JugarOnline.npc8.setWeapon2(personaje.getWeapon2());
+						JugarOnline.npc8.setWeapon2(weapon2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc9.getName())){
 						
-						JugarOnline.npc9.setWeapon2(personaje.getWeapon2());
+						JugarOnline.npc9.setWeapon2(weapon2);
 						}
 				
 				} catch (SQLException e1) {
@@ -1514,95 +1623,140 @@ if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 					tabla.executeQuery("UPDATE "+ModificarEquipo.tipopj+" SET TIPOARMA3='' WHERE NOMBRE='"+ModificarEquipo.personaje.getName()+"'");
 					tabla.executeQuery("UPDATE "+ModificarEquipo.tipopj+" SET SUBCLASE_ARMA3='"+ModificarEquipo.weapon1.getTipo()+"' WHERE NOMBRE='"+ModificarEquipo.personaje.getName()+"'");
 					
-if(personaje.getName().equals(JugarOnline.personaje1.getName())){
+					if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 						
-						JugarOnline.personaje1.setWeapon3(personaje.getWeapon3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje1.getName()+ ":QuitarWeap3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon3().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje1.setWeapon3(weapon3);
 						}
 					else if(personaje.getName().equals(JugarOnline.personaje2.getName())){
 						
-						JugarOnline.personaje2.setWeapon3(personaje.getWeapon3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje2.getName()+ ":QuitarWeap3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon3().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje2.setWeapon3(weapon3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje3.getName())){
 						
-						JugarOnline.personaje3.setWeapon3(personaje.getWeapon3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje3.getName()+ ":QuitarWeap3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon3().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje3.setWeapon3(weapon3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje4.getName())){
 						
-						JugarOnline.personaje4.setWeapon3(personaje.getWeapon3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje4.getName()+ ":QuitarWeap3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon3().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje4.setWeapon3(weapon3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje5.getName())){
 						
-						JugarOnline.personaje5.setWeapon3(personaje.getWeapon3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje5.getName()+ ":QuitarWeap3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon3().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje5.setWeapon3(weapon3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje6.getName())){
 						
-						JugarOnline.personaje6.setWeapon3(personaje.getWeapon3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje6.getName()+ ":QuitarWeap3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon3().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje6.setWeapon3(weapon3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje7.getName())){
 						
-						JugarOnline.personaje7.setWeapon3(personaje.getWeapon3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje7.getName()+ ":QuitarWeap3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon3().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje7.setWeapon3(weapon3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje8.getName())){
 						
-						JugarOnline.personaje8.setWeapon3(personaje.getWeapon3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje8.getName()+ ":QuitarWeap3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon3().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje8.setWeapon3(weapon3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje9.getName())){
 						
-						JugarOnline.personaje9.setWeapon3(personaje.getWeapon3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje9.getName()+ ":QuitarWeap3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon3().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje9.setWeapon3(weapon3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc1.getName())){
 						
-						JugarOnline.npc1.setWeapon3(personaje.getWeapon3());
+						JugarOnline.npc1.setWeapon3(weapon3);
 						}
 
 
 					else if(personaje.getName().equals(JugarOnline.npc2.getName())){
 						
-						JugarOnline.npc2.setWeapon3(personaje.getWeapon3());
+						JugarOnline.npc2.setWeapon3(weapon3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc3.getName())){
 						
-						JugarOnline.npc3.setWeapon3(personaje.getWeapon3());
+						JugarOnline.npc3.setWeapon3(weapon3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc4.getName())){
 						
-						JugarOnline.npc4.setWeapon3(personaje.getWeapon3());
+						JugarOnline.npc4.setWeapon3(weapon3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc5.getName())){
 						
-						JugarOnline.npc5.setWeapon3(personaje.getWeapon3());
+						JugarOnline.npc5.setWeapon3(weapon3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc6.getName())){
 						
-						JugarOnline.npc6.setWeapon3(personaje.getWeapon3());
+						JugarOnline.npc6.setWeapon3(weapon3);
 						}
 
 
 					else if(personaje.getName().equals(JugarOnline.npc7.getName())){
 						
-						JugarOnline.npc7.setWeapon3(personaje.getWeapon3());
+						JugarOnline.npc7.setWeapon3(weapon3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc8.getName())){
 						
-						JugarOnline.npc8.setWeapon3(personaje.getWeapon3());
+						JugarOnline.npc8.setWeapon3(weapon3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc9.getName())){
 						
-						JugarOnline.npc9.setWeapon3(personaje.getWeapon3());
+						JugarOnline.npc9.setWeapon3(weapon3);
 						}
 				
 				} catch (SQLException e1) {
@@ -1657,97 +1811,141 @@ if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 					tabla.executeQuery("UPDATE "+ModificarEquipo.tipopj+" SET TIPOARMA1='' WHERE NOMBRE='"+ModificarEquipo.personaje.getName()+"'");
 					tabla.executeQuery("UPDATE "+ModificarEquipo.tipopj+" SET SUBCLASE_ARMA4='"+ModificarEquipo.weapon1.getTipo()+"' WHERE NOMBRE='"+ModificarEquipo.personaje.getName()+"'");
 					
-if(personaje.getName().equals(JugarOnline.personaje1.getName())){
+					if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 						
-						JugarOnline.personaje1.setWeapon4(personaje.getWeapon4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje1.getName()+ ":QuitarWeap4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon4().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje1.setWeapon4(weapon4);
 						}
 					else if(personaje.getName().equals(JugarOnline.personaje2.getName())){
 						
-						JugarOnline.personaje2.setWeapon4(personaje.getWeapon4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje2.getName()+ ":QuitarWeap4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon4().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje2.setWeapon4(weapon4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje3.getName())){
 						
-						JugarOnline.personaje3.setWeapon4(personaje.getWeapon4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje3.getName()+ ":QuitarWeap4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon4().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje3.setWeapon4(weapon4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje4.getName())){
 						
-						JugarOnline.personaje4.setWeapon4(personaje.getWeapon4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje4.getName()+ ":QuitarWeap4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon4().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje4.setWeapon4(weapon4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje5.getName())){
 						
-						JugarOnline.personaje5.setWeapon4(personaje.getWeapon4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje5.getName()+ ":QuitarWeap4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon4().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje5.setWeapon4(weapon4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje6.getName())){
 						
-						JugarOnline.personaje6.setWeapon4(personaje.getWeapon4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje6.getName()+ ":QuitarWeap4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon4().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje6.setWeapon4(weapon4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje7.getName())){
 						
-						JugarOnline.personaje7.setWeapon4(personaje.getWeapon4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje7.getName()+ ":QuitarWeap4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon4().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje7.setWeapon4(weapon4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje8.getName())){
 						
-						JugarOnline.personaje8.setWeapon4(personaje.getWeapon4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje8.getName()+ ":QuitarWeap4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon4().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje8.setWeapon4(weapon4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje9.getName())){
 						
-						JugarOnline.personaje9.setWeapon4(personaje.getWeapon4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje9.getName()+ ":QuitarWeap4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getWeapon4().getWeapon()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje9.setWeapon4(weapon4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc1.getName())){
 						
-						JugarOnline.npc1.setWeapon4(personaje.getWeapon4());
+						JugarOnline.npc1.setWeapon4(weapon4);
 						}
 
 
 					else if(personaje.getName().equals(JugarOnline.npc2.getName())){
 						
-						JugarOnline.npc2.setWeapon4(personaje.getWeapon4());
+						JugarOnline.npc2.setWeapon4(weapon4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc3.getName())){
 						
-						JugarOnline.npc3.setWeapon4(personaje.getWeapon4());
+						JugarOnline.npc3.setWeapon4(weapon4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc4.getName())){
 						
-						JugarOnline.npc4.setWeapon4(personaje.getWeapon4());
+						JugarOnline.npc4.setWeapon4(weapon4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc5.getName())){
 						
-						JugarOnline.npc5.setWeapon4(personaje.getWeapon4());
+						JugarOnline.npc5.setWeapon4(weapon4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc6.getName())){
 						
-						JugarOnline.npc6.setWeapon4(personaje.getWeapon4());
+						JugarOnline.npc6.setWeapon4(weapon4);
 						}
 
 
 					else if(personaje.getName().equals(JugarOnline.npc7.getName())){
 						
-						JugarOnline.npc7.setWeapon4(personaje.getWeapon4());
+						JugarOnline.npc7.setWeapon4(weapon4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc8.getName())){
 						
-						JugarOnline.npc8.setWeapon4(personaje.getWeapon4());
+						JugarOnline.npc8.setWeapon4(weapon4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc9.getName())){
 						
-						JugarOnline.npc9.setWeapon4(personaje.getWeapon4());
-						}
-					
+						JugarOnline.npc9.setWeapon4(weapon4);
+						} 
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -1849,7 +2047,8 @@ if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 		txtObj1.setForeground(new Color(0, 0, 0));
 		txtObj1.setBackground(Color.WHITE);
 		txtObj1.setEditable(false);
-		txtObj1.setText(misc1.getMisc());
+		if(!misc1.getMisc().equals("null")){
+		txtObj1.setText(misc1.getMisc());}
 		txtObj1.setFont(mf.MyFont(0, 11));
 		txtObj1.setColumns(10);
 		txtObj1.setBounds(10, 49, 123, 20);
@@ -1859,7 +2058,8 @@ if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 		txtObj2.setForeground(new Color(0, 0, 0));
 		txtObj2.setBackground(Color.WHITE);
 		txtObj2.setEditable(false);
-		txtObj2.setText(misc2.getMisc());
+		if(!misc2.getMisc().equals("null")){
+		txtObj2.setText(misc2.getMisc());}
 		txtObj2.setFont(mf.MyFont(0, 11));
 		txtObj2.setColumns(10);
 		txtObj2.setBounds(10, 80, 123, 20);
@@ -1868,7 +2068,8 @@ if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 		txtObj3 = new JTextField();
 		txtObj3.setForeground(new Color(0, 0, 0));
 		txtObj3.setBackground(Color.WHITE);
-		txtObj3.setText(misc3.getMisc());
+		if(!misc3.getMisc().equals("null")){
+		txtObj3.setText(misc3.getMisc());}
 		txtObj3.setEditable(false);
 		txtObj3.setFont(mf.MyFont(0, 11));
 		txtObj3.setColumns(10);
@@ -1879,7 +2080,8 @@ if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 		txtObj4.setForeground(new Color(0, 0, 0));
 		txtObj4.setBackground(Color.WHITE);
 		txtObj4.setEditable(false);
-		txtObj4.setText(misc4.getMisc());
+		if(!misc4.getMisc().equals("null")){
+		txtObj4.setText(misc4.getMisc());}
 		txtObj4.setFont(mf.MyFont(0, 11));
 		txtObj4.setColumns(10);
 		txtObj4.setBounds(10, 142, 123, 20);
@@ -2166,97 +2368,141 @@ if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 					tabla.executeQuery("UPDATE "+ModificarEquipo.tipopj+" SET PROPIEDAD2_OBJETO1='' WHERE NOMBRE='"+ModificarEquipo.personaje.getName()+"'");
 					tabla.executeQuery("UPDATE "+ModificarEquipo.tipopj+" SET PROPIEDAD3_OBJETO1='' WHERE NOMBRE='"+ModificarEquipo.personaje.getName()+"'");
 				
-if(personaje.getName().equals(JugarOnline.personaje1.getName())){
+					if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 						
-						JugarOnline.personaje1.setMisc1(personaje.getMisc1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje1.getName()+ ":QuitarObj1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc1().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje1.setMisc1(misc1);
 						}
 					else if(personaje.getName().equals(JugarOnline.personaje2.getName())){
 						
-						JugarOnline.personaje2.setMisc1(personaje.getMisc1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje2.getName()+ ":QuitarObj1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc1().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje2.setMisc1(misc1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje3.getName())){
 						
-						JugarOnline.personaje3.setMisc1(personaje.getMisc1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje3.getName()+ ":QuitarObj1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc1().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje3.setMisc1(misc1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje4.getName())){
 						
-						JugarOnline.personaje4.setMisc1(personaje.getMisc1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje4.getName()+ ":QuitarObj1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc1().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje4.setMisc1(misc1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje5.getName())){
 						
-						JugarOnline.personaje5.setMisc1(personaje.getMisc1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje5.getName()+ ":QuitarObj1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc1().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje5.setMisc1(misc1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje6.getName())){
 						
-						JugarOnline.personaje6.setMisc1(personaje.getMisc1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje6.getName()+ ":QuitarObj1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc1().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje6.setMisc1(misc1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje7.getName())){
 						
-						JugarOnline.personaje7.setMisc1(personaje.getMisc1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje7.getName()+ ":QuitarObj1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc1().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje7.setMisc1(misc1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje8.getName())){
 						
-						JugarOnline.personaje8.setMisc1(personaje.getMisc1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje8.getName()+ ":QuitarObj1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc1().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje8.setMisc1(misc1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje9.getName())){
 						
-						JugarOnline.personaje9.setMisc1(personaje.getMisc1());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje9.getName()+ ":QuitarObj1");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc1().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje9.setMisc1(misc1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc1.getName())){
 						
-						JugarOnline.npc1.setMisc1(personaje.getMisc1());
+						JugarOnline.npc1.setMisc1(misc1);
 						}
 
 
 					else if(personaje.getName().equals(JugarOnline.npc2.getName())){
 						
-						JugarOnline.npc2.setMisc1(personaje.getMisc1());
+						JugarOnline.npc2.setMisc1(misc1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc3.getName())){
 						
-						JugarOnline.npc3.setMisc1(personaje.getMisc1());
+						JugarOnline.npc3.setMisc1(misc1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc4.getName())){
 						
-						JugarOnline.npc4.setMisc1(personaje.getMisc1());
+						JugarOnline.npc4.setMisc1(misc1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc5.getName())){
 						
-						JugarOnline.npc5.setMisc1(personaje.getMisc1());
+						JugarOnline.npc5.setMisc1(misc1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc6.getName())){
 						
-						JugarOnline.npc6.setMisc1(personaje.getMisc1());
+						JugarOnline.npc6.setMisc1(misc1);
 						}
 
 
 					else if(personaje.getName().equals(JugarOnline.npc7.getName())){
 						
-						JugarOnline.npc7.setMisc1(personaje.getMisc1());
+						JugarOnline.npc7.setMisc1(misc1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc8.getName())){
 						
-						JugarOnline.npc8.setMisc1(personaje.getMisc1());
+						JugarOnline.npc8.setMisc1(misc1);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc9.getName())){
 						
-						JugarOnline.npc9.setMisc1(personaje.getMisc1());
+						JugarOnline.npc9.setMisc1(misc1);
 						}
-					
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -2307,99 +2553,142 @@ if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 					tabla.executeQuery("UPDATE "+ModificarEquipo.tipopj+" SET PROPIEDAD2_OBJETO2='' WHERE NOMBRE='"+ModificarEquipo.personaje.getName()+"'");
 					tabla.executeQuery("UPDATE "+ModificarEquipo.tipopj+" SET PROPIEDAD3_OBJETO2='' WHERE NOMBRE='"+ModificarEquipo.personaje.getName()+"'");
 				
-if(personaje.getName().equals(JugarOnline.personaje1.getName())){
+					if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 						
-						JugarOnline.personaje1.setMisc2(personaje.getMisc2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje1.getName()+ ":QuitarObj2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc2().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje1.setMisc2(misc2);
 						}
 					else if(personaje.getName().equals(JugarOnline.personaje2.getName())){
 						
-						JugarOnline.personaje2.setMisc2(personaje.getMisc2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje2.getName()+ ":QuitarObj2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc2().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje2.setMisc2(misc2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje3.getName())){
 						
-						JugarOnline.personaje3.setMisc2(personaje.getMisc2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje3.getName()+ ":QuitarObj2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc2().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje3.setMisc2(misc2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje4.getName())){
 						
-						JugarOnline.personaje4.setMisc2(personaje.getMisc2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje4.getName()+ ":QuitarObj2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc2().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje4.setMisc2(misc2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje5.getName())){
 						
-						JugarOnline.personaje5.setMisc2(personaje.getMisc2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje5.getName()+ ":QuitarObj2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc2().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje5.setMisc2(misc2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje6.getName())){
 						
-						JugarOnline.personaje6.setMisc2(personaje.getMisc2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje6.getName()+ ":QuitarObj2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc2().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje6.setMisc2(misc2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje7.getName())){
 						
-						JugarOnline.personaje7.setMisc2(personaje.getMisc2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje7.getName()+ ":QuitarObj2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc2().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje7.setMisc2(misc2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje8.getName())){
 						
-						JugarOnline.personaje8.setMisc2(personaje.getMisc2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje8.getName()+ ":QuitarObj2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc2().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje8.setMisc2(misc2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje9.getName())){
 						
-						JugarOnline.personaje9.setMisc2(personaje.getMisc2());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje9.getName()+ ":QuitarObj2");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc2().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje9.setMisc2(misc2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc1.getName())){
 						
-						JugarOnline.npc1.setMisc2(personaje.getMisc2());
+						JugarOnline.npc1.setMisc2(misc2);
 						}
 
 
 					else if(personaje.getName().equals(JugarOnline.npc2.getName())){
 						
-						JugarOnline.npc2.setMisc2(personaje.getMisc2());
+						JugarOnline.npc2.setMisc2(misc2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc3.getName())){
 						
-						JugarOnline.npc3.setMisc2(personaje.getMisc2());
+						JugarOnline.npc3.setMisc2(misc2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc4.getName())){
 						
-						JugarOnline.npc4.setMisc2(personaje.getMisc2());
+						JugarOnline.npc4.setMisc2(misc2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc5.getName())){
 						
-						JugarOnline.npc5.setMisc2(personaje.getMisc2());
+						JugarOnline.npc5.setMisc2(misc2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc6.getName())){
 						
-						JugarOnline.npc6.setMisc2(personaje.getMisc2());
+						JugarOnline.npc6.setMisc2(misc2);
 						}
 
 
 					else if(personaje.getName().equals(JugarOnline.npc7.getName())){
 						
-						JugarOnline.npc7.setMisc2(personaje.getMisc2());
+						JugarOnline.npc7.setMisc2(misc2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc8.getName())){
 						
-						JugarOnline.npc8.setMisc2(personaje.getMisc2());
+						JugarOnline.npc8.setMisc2(misc2);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc9.getName())){
 						
-						JugarOnline.npc9.setMisc2(personaje.getMisc2());
+						JugarOnline.npc9.setMisc2(misc2);
 						}
-				
-					
-				} catch (SQLException e1) {
+					} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
@@ -2449,95 +2738,140 @@ if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 					tabla.executeQuery("UPDATE "+ModificarEquipo.tipopj+" SET PROPIEDAD2_OBJETO3='' WHERE NOMBRE='"+ModificarEquipo.personaje.getName()+"'");
 					tabla.executeQuery("UPDATE "+ModificarEquipo.tipopj+" SET PROPIEDAD3_OBJETO3='' WHERE NOMBRE='"+ModificarEquipo.personaje.getName()+"'");
 				
-if(personaje.getName().equals(JugarOnline.personaje1.getName())){
+					if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 						
-						JugarOnline.personaje1.setMisc3(personaje.getMisc3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje1.getName()+ ":QuitarObj3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc3().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje1.setMisc3(misc3);
 						}
 					else if(personaje.getName().equals(JugarOnline.personaje2.getName())){
 						
-						JugarOnline.personaje2.setMisc3(personaje.getMisc3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje2.getName()+ ":QuitarObj3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc3().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje2.setMisc3(misc3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje3.getName())){
 						
-						JugarOnline.personaje3.setMisc3(personaje.getMisc3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje3.getName()+ ":QuitarObj3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc3().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje3.setMisc3(misc3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje4.getName())){
 						
-						JugarOnline.personaje4.setMisc3(personaje.getMisc3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje4.getName()+ ":QuitarObj3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc3().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje4.setMisc3(misc3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje5.getName())){
 						
-						JugarOnline.personaje5.setMisc3(personaje.getMisc3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje5.getName()+ ":QuitarObj3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc3().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje5.setMisc3(misc3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje6.getName())){
 						
-						JugarOnline.personaje6.setMisc3(personaje.getMisc3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje6.getName()+ ":QuitarObj3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc3().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje6.setMisc3(misc3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje7.getName())){
 						
-						JugarOnline.personaje7.setMisc3(personaje.getMisc3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje7.getName()+ ":QuitarObj3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc3().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje7.setMisc3(misc3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje8.getName())){
 						
-						JugarOnline.personaje8.setMisc3(personaje.getMisc3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje8.getName()+ ":QuitarObj3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc3().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje8.setMisc3(misc3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje9.getName())){
 						
-						JugarOnline.personaje9.setMisc3(personaje.getMisc3());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje9.getName()+ ":QuitarObj3");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc3().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje9.setMisc3(misc3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc1.getName())){
 						
-						JugarOnline.npc1.setMisc3(personaje.getMisc3());
+						JugarOnline.npc1.setMisc3(misc3);
 						}
 
 
 					else if(personaje.getName().equals(JugarOnline.npc2.getName())){
 						
-						JugarOnline.npc2.setMisc3(personaje.getMisc3());
+						JugarOnline.npc2.setMisc3(misc3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc3.getName())){
 						
-						JugarOnline.npc3.setMisc3(personaje.getMisc3());
+						JugarOnline.npc3.setMisc3(misc3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc4.getName())){
 						
-						JugarOnline.npc4.setMisc3(personaje.getMisc3());
+						JugarOnline.npc4.setMisc3(misc3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc5.getName())){
 						
-						JugarOnline.npc5.setMisc3(personaje.getMisc3());
+						JugarOnline.npc5.setMisc3(misc3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc6.getName())){
 						
-						JugarOnline.npc6.setMisc3(personaje.getMisc3());
+						JugarOnline.npc6.setMisc3(misc3);
 						}
 
 
 					else if(personaje.getName().equals(JugarOnline.npc7.getName())){
 						
-						JugarOnline.npc7.setMisc3(personaje.getMisc3());
+						JugarOnline.npc7.setMisc3(misc3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc8.getName())){
 						
-						JugarOnline.npc8.setMisc3(personaje.getMisc3());
+						JugarOnline.npc8.setMisc3(misc3);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc9.getName())){
 						
-						JugarOnline.npc9.setMisc3(personaje.getMisc3());
+						JugarOnline.npc9.setMisc3(misc3);
 						}
 					
 				} catch (SQLException e1) {
@@ -2590,95 +2924,139 @@ if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 					tabla.executeQuery("UPDATE "+ModificarEquipo.tipopj+" SET PROPIEDAD2_OBJETO4='' WHERE NOMBRE='"+ModificarEquipo.personaje.getName()+"'");
 					tabla.executeQuery("UPDATE "+ModificarEquipo.tipopj+" SET PROPIEDAD3_OBJETO4='' WHERE NOMBRE='"+ModificarEquipo.personaje.getName()+"'");
 				
-if(personaje.getName().equals(JugarOnline.personaje1.getName())){
+					if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 						
-						JugarOnline.personaje1.setMisc4(personaje.getMisc4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje1.getName()+ ":QuitarObj4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc4().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje1.setMisc4(misc4);
 						}
 					else if(personaje.getName().equals(JugarOnline.personaje2.getName())){
 						
-						JugarOnline.personaje2.setMisc4(personaje.getMisc4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje2.getName()+ ":QuitarObj4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc4().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje2.setMisc4(misc4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje3.getName())){
 						
-						JugarOnline.personaje3.setMisc4(personaje.getMisc4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje3.getName()+ ":QuitarObj4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc4().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje3.setMisc4(misc4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje4.getName())){
 						
-						JugarOnline.personaje4.setMisc4(personaje.getMisc4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje4.getName()+ ":QuitarObj4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc4().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje4.setMisc4(misc4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje5.getName())){
 						
-						JugarOnline.personaje5.setMisc4(personaje.getMisc4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje5.getName()+ ":QuitarObj4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc4().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje5.setMisc4(misc4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje6.getName())){
 						
-						JugarOnline.personaje6.setMisc4(personaje.getMisc4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje6.getName()+ ":QuitarObj4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc4().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje6.setMisc4(misc4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje7.getName())){
 						
-						JugarOnline.personaje7.setMisc4(personaje.getMisc4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje7.getName()+ ":QuitarObj4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc4().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje7.setMisc4(misc4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje8.getName())){
 						
-						JugarOnline.personaje8.setMisc4(personaje.getMisc4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje8.getName()+ ":QuitarObj4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc4().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje8.setMisc4(misc4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.personaje9.getName())){
 						
-						JugarOnline.personaje9.setMisc4(personaje.getMisc4());
+						
+						JugarOnline.writer.println("Server:"+ JugarOnline.personaje9.getName()+ ":QuitarObj4");
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha quitado "+personaje.getMisc4().getMisc()+" a "+personaje.getName()+":Chat");
+						JugarOnline.writer.flush();
+						JugarOnline.personaje9.setMisc4(misc4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc1.getName())){
 						
-						JugarOnline.npc1.setMisc4(personaje.getMisc4());
+						JugarOnline.npc1.setMisc4(misc4);
 						}
 
 
 					else if(personaje.getName().equals(JugarOnline.npc2.getName())){
 						
-						JugarOnline.npc2.setMisc4(personaje.getMisc4());
+						JugarOnline.npc2.setMisc4(misc4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc3.getName())){
 						
-						JugarOnline.npc3.setMisc4(personaje.getMisc4());
+						JugarOnline.npc3.setMisc4(misc4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc4.getName())){
 						
-						JugarOnline.npc4.setMisc4(personaje.getMisc4());
+						JugarOnline.npc4.setMisc4(misc4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc5.getName())){
 						
-						JugarOnline.npc5.setMisc4(personaje.getMisc4());
+						JugarOnline.npc5.setMisc4(misc4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc6.getName())){
 						
-						JugarOnline.npc6.setMisc4(personaje.getMisc4());
+						JugarOnline.npc6.setMisc4(misc4);
 						}
-
 
 					else if(personaje.getName().equals(JugarOnline.npc7.getName())){
 						
-						JugarOnline.npc7.setMisc4(personaje.getMisc4());
+						JugarOnline.npc7.setMisc4(misc4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc8.getName())){
 						
-						JugarOnline.npc8.setMisc4(personaje.getMisc4());
+						JugarOnline.npc8.setMisc4(misc4);
 						}
 
 					else if(personaje.getName().equals(JugarOnline.npc9.getName())){
 						
-						JugarOnline.npc9.setMisc4(personaje.getMisc4());
+						JugarOnline.npc9.setMisc4(misc4);
 						}
 					
 				} catch (SQLException e1) {
@@ -2701,7 +3079,8 @@ if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 		txtAcc1 = new JTextField();
 		txtAcc1.setForeground(new Color(0, 0, 0));
 		txtAcc1.setBackground(Color.WHITE);
-		txtAcc1.setText(accesories1.getAccesory());
+		if(!accesories1.getAccesory().equals("null")){
+		txtAcc1.setText(accesories1.getAccesory());}
 		txtAcc1.setFont(mf.MyFont(0, 11));
 		txtAcc1.setEditable(false);
 		txtAcc1.setColumns(10);
@@ -2711,7 +3090,8 @@ if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 		txtAcc2 = new JTextField();
 		txtAcc2.setForeground(new Color(0, 0, 0));
 		txtAcc2.setBackground(Color.WHITE);
-		txtAcc2.setText(accesories2.getAccesory());
+		if(!accesories2.getAccesory().equals("null")){
+		txtAcc2.setText(accesories2.getAccesory());}
 		txtAcc2.setFont(mf.MyFont(0, 11));
 		txtAcc2.setEditable(false);
 		txtAcc2.setColumns(10);
@@ -2721,7 +3101,9 @@ if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 		txtAcc3 = new JTextField();
 		txtAcc3.setForeground(new Color(0, 0, 0));
 		txtAcc3.setBackground(Color.WHITE);
+		if(!accesories3.getAccesory().equals("null")){
 		txtAcc3.setText(accesories3.getAccesory());
+		}
 		txtAcc3.setFont(mf.MyFont(0, 11));
 		txtAcc3.setEditable(false);
 		txtAcc3.setColumns(10);
@@ -2731,7 +3113,8 @@ if(personaje.getName().equals(JugarOnline.personaje1.getName())){
 		txtAcc4 = new JTextField();
 		txtAcc4.setForeground(new Color(0, 0, 0));
 		txtAcc4.setBackground(Color.WHITE);
-		txtAcc4.setText(accesories4.getAccesory());
+		if(!accesories1.getAccesory().equals("null")){
+		txtAcc4.setText(accesories4.getAccesory());}
 		txtAcc4.setFont(mf.MyFont(0, 11));
 		txtAcc4.setEditable(false);
 		txtAcc4.setColumns(10);

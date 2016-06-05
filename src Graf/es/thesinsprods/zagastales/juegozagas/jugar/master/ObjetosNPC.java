@@ -161,7 +161,7 @@ public class ObjetosNPC {
 		btnAadir.setOpaque(false);
 		btnAadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Misc objeto = new Misc(textField.getText(), textArea.getText(),
+				Misc objeto = new Misc(textField.getText(), textArea.getText()+" ",
 						false, false,ModificarEquipo.posss);
 				if (ModificarEquipo.getTextField_4().getText().equals("")
 						&& ModificarEquipo.pmisc >= 1) {
@@ -177,45 +177,82 @@ public class ObjetosNPC {
 						if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje1.getName())){
 							
 							JugarOnline.personaje1.setMisc1(ModificarEquipo.misc1);
-							}
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje1.getName()+":DarObj1:"+ModificarEquipo.misc1.getMisc()+":"+ModificarEquipo.misc1.getDescription());
+							JugarOnline.writer.flush();
+							JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc1.getMisc()+" a "+JugarOnline.personaje1.getName()+":Chat");
+							JugarOnline.writer.flush();
+						}
 						else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje2.getName())){
 							
 							JugarOnline.personaje2.setMisc1(ModificarEquipo.misc1);
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje2.getName()+":DarObj1:"+ModificarEquipo.misc1.getMisc()+":"+ModificarEquipo.misc1.getDescription());
+							JugarOnline.writer.flush();
+							JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc1.getMisc()+" a "+JugarOnline.personaje2.getName()+":Chat");
+							JugarOnline.writer.flush();
 							}
 
 						else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje3.getName())){
 							
 							JugarOnline.personaje3.setMisc1(ModificarEquipo.misc1);
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje3.getName()+":DarObj1:"+ModificarEquipo.misc1.getMisc()+":"+ModificarEquipo.misc1.getDescription());
+							JugarOnline.writer.flush();
+							JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc1.getMisc()+" a "+JugarOnline.personaje3.getName()+":Chat");
+							JugarOnline.writer.flush();
 							}
 
 						else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje4.getName())){
 							
 							JugarOnline.personaje4.setMisc1(ModificarEquipo.misc1);
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje4.getName()+":DarObj1:"+ModificarEquipo.misc1.getMisc()+":"+ModificarEquipo.misc1.getDescription());
+							JugarOnline.writer.flush();
+							JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc1.getMisc()+" a "+JugarOnline.personaje4.getName()+":Chat");
+							JugarOnline.writer.flush();
 							}
 
 						else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje5.getName())){
 							
 							JugarOnline.personaje5.setMisc1(ModificarEquipo.misc1);
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje5.getName()+":DarObj1:"+ModificarEquipo.misc1.getMisc()+":"+ModificarEquipo.misc1.getDescription());
+							JugarOnline.writer.flush();
+							JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc1.getMisc()+" a "+JugarOnline.personaje5.getName()+":Chat");
+							JugarOnline.writer.flush();
 							}
 
 						else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje6.getName())){
 							
 							JugarOnline.personaje6.setMisc1(ModificarEquipo.misc1);
-							}
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje6.getName()+":DarObj1:"+ModificarEquipo.misc1.getMisc()+":"+ModificarEquipo.misc1.getDescription());
+							JugarOnline.writer.flush();	
+							JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc1.getMisc()+" a "+JugarOnline.personaje6.getName()+":Chat");
+							JugarOnline.writer.flush();
+						}
+						
 
 						else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje7.getName())){
 							
 							JugarOnline.personaje7.setMisc1(ModificarEquipo.misc1);
-							}
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje7.getName()+":DarObj1:"+ModificarEquipo.misc1.getMisc()+":"+ModificarEquipo.misc1.getDescription());
+							JugarOnline.writer.flush();
+							JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc1.getMisc()+" a "+JugarOnline.personaje7.getName()+":Chat");
+							JugarOnline.writer.flush();
+						}
 
 						else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje8.getName())){
 							
 							JugarOnline.personaje8.setMisc1(ModificarEquipo.misc1);
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje8.getName()+":DarObj1:"+ModificarEquipo.misc1.getMisc()+":"+ModificarEquipo.misc1.getDescription());
+							JugarOnline.writer.flush();
+							JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc1.getMisc()+" a "+JugarOnline.personaje8.getName()+":Chat");
+							JugarOnline.writer.flush();
 							}
 
 						else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje9.getName())){
 							
 							JugarOnline.personaje9.setMisc1(ModificarEquipo.misc1);
+							JugarOnline.writer.println("Server:"+JugarOnline.personaje9.getName()+":DarObj1:"+ModificarEquipo.misc1.getMisc()+":"+ModificarEquipo.misc1.getDescription());
+							JugarOnline.writer.flush();
+							JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc1.getMisc()+" a "+JugarOnline.personaje9.getName()+":Chat");
+							JugarOnline.writer.flush();
 							}
 
 						else if(ModificarEquipo.personaje.getName().equals(JugarOnline.npc1.getName())){
@@ -287,45 +324,81 @@ public class ObjetosNPC {
 							if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje1.getName())){
 								
 								JugarOnline.personaje1.setMisc2(ModificarEquipo.misc2);
+								JugarOnline.writer.println("Server:"+JugarOnline.personaje1.getName()+":DarObj2:"+ModificarEquipo.misc2.getMisc()+":"+ModificarEquipo.misc2.getDescription());
+								JugarOnline.writer.flush();
+								JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc2.getMisc()+" a "+JugarOnline.personaje1.getName()+":Chat");
+								JugarOnline.writer.flush();
 								}
 							else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje2.getName())){
 								
 								JugarOnline.personaje2.setMisc2(ModificarEquipo.misc2);
+								JugarOnline.writer.println("Server:"+JugarOnline.personaje2.getName()+":DarObj2:"+ModificarEquipo.misc2.getMisc()+":"+ModificarEquipo.misc2.getDescription());
+								JugarOnline.writer.flush();
+								JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc2.getMisc()+" a "+JugarOnline.personaje2.getName()+":Chat");
+								JugarOnline.writer.flush();
 								}
 
 							else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje3.getName())){
 								
 								JugarOnline.personaje3.setMisc2(ModificarEquipo.misc2);
+								JugarOnline.writer.println("Server:"+JugarOnline.personaje3.getName()+":DarObj2:"+ModificarEquipo.misc2.getMisc()+":"+ModificarEquipo.misc2.getDescription());
+								JugarOnline.writer.flush();
+								JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc2.getMisc()+" a "+JugarOnline.personaje3.getName()+":Chat");
+								JugarOnline.writer.flush();
 								}
 
 							else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje4.getName())){
 								
 								JugarOnline.personaje4.setMisc2(ModificarEquipo.misc2);
+								JugarOnline.writer.println("Server:"+JugarOnline.personaje4.getName()+":DarObj2:"+ModificarEquipo.misc2.getMisc()+":"+ModificarEquipo.misc2.getDescription());
+								JugarOnline.writer.flush();
+								JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc2.getMisc()+" a "+JugarOnline.personaje4.getName()+":Chat");
+								JugarOnline.writer.flush();
 								}
 
 							else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje5.getName())){
 								
 								JugarOnline.personaje5.setMisc2(ModificarEquipo.misc2);
+								JugarOnline.writer.println("Server:"+JugarOnline.personaje5.getName()+":DarObj2:"+ModificarEquipo.misc2.getMisc()+":"+ModificarEquipo.misc2.getDescription());
+								JugarOnline.writer.flush();
+								JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc2.getMisc()+" a "+JugarOnline.personaje5.getName()+":Chat");
+								JugarOnline.writer.flush();
 								}
 
 							else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje6.getName())){
 								
 								JugarOnline.personaje6.setMisc2(ModificarEquipo.misc2);
+								JugarOnline.writer.println("Server:"+JugarOnline.personaje6.getName()+":DarObj2:"+ModificarEquipo.misc2.getMisc()+":"+ModificarEquipo.misc2.getDescription());
+								JugarOnline.writer.flush();
+								JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc2.getMisc()+" a "+JugarOnline.personaje6.getName()+":Chat");
+								JugarOnline.writer.flush();
 								}
 
 							else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje7.getName())){
 								
 								JugarOnline.personaje7.setMisc2(ModificarEquipo.misc2);
+								JugarOnline.writer.println("Server:"+JugarOnline.personaje7.getName()+":DarObj2:"+ModificarEquipo.misc2.getMisc()+":"+ModificarEquipo.misc2.getDescription());
+								JugarOnline.writer.flush();
+								JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc2.getMisc()+" a "+JugarOnline.personaje7.getName()+":Chat");
+								JugarOnline.writer.flush();
 								}
 
 							else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje8.getName())){
 								
 								JugarOnline.personaje8.setMisc2(ModificarEquipo.misc2);
+								JugarOnline.writer.println("Server:"+JugarOnline.personaje8.getName()+":DarObj2:"+ModificarEquipo.misc2.getMisc()+":"+ModificarEquipo.misc2.getDescription());
+								JugarOnline.writer.flush();
+								JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc2.getMisc()+" a "+JugarOnline.personaje8.getName()+":Chat");
+								JugarOnline.writer.flush();
 								}
 
 							else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje9.getName())){
 								
 								JugarOnline.personaje9.setMisc2(ModificarEquipo.misc2);
+								JugarOnline.writer.println("Server:"+JugarOnline.personaje9.getName()+":DarObj2:"+ModificarEquipo.misc2.getMisc()+":"+ModificarEquipo.misc2.getDescription());
+								JugarOnline.writer.flush();
+								JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc2.getMisc()+" a "+JugarOnline.personaje9.getName()+":Chat");
+								JugarOnline.writer.flush();
 								}
 
 							else if(ModificarEquipo.personaje.getName().equals(JugarOnline.npc1.getName())){
@@ -396,45 +469,81 @@ public class ObjetosNPC {
 								if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje1.getName())){
 									
 									JugarOnline.personaje1.setMisc3(ModificarEquipo.misc3);
+									JugarOnline.writer.println("Server:"+JugarOnline.personaje1.getName()+":DarObj3:"+ModificarEquipo.misc3.getMisc()+":"+ModificarEquipo.misc3.getDescription());
+									JugarOnline.writer.flush();
+									JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc3.getMisc()+" a "+JugarOnline.personaje1.getName()+":Chat");
+									JugarOnline.writer.flush();
 									}
 								else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje2.getName())){
 									
 									JugarOnline.personaje2.setMisc3(ModificarEquipo.misc3);
+									JugarOnline.writer.println("Server:"+JugarOnline.personaje2.getName()+":DarObj3:"+ModificarEquipo.misc3.getMisc()+":"+ModificarEquipo.misc3.getDescription());
+									JugarOnline.writer.flush();
+									JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc3.getMisc()+" a "+JugarOnline.personaje2.getName()+":Chat");
+									JugarOnline.writer.flush();
 									}
 
 								else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje3.getName())){
 									
 									JugarOnline.personaje3.setMisc3(ModificarEquipo.misc3);
+									JugarOnline.writer.println("Server:"+JugarOnline.personaje3.getName()+":DarObj3:"+ModificarEquipo.misc3.getMisc()+":"+ModificarEquipo.misc3.getDescription());
+									JugarOnline.writer.flush();
+									JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc3.getMisc()+" a "+JugarOnline.personaje3.getName()+":Chat");
+									JugarOnline.writer.flush();
 									}
 
 								else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje4.getName())){
 									
 									JugarOnline.personaje4.setMisc3(ModificarEquipo.misc3);
+									JugarOnline.writer.println("Server:"+JugarOnline.personaje4.getName()+":DarObj3:"+ModificarEquipo.misc3.getMisc()+":"+ModificarEquipo.misc3.getDescription());
+									JugarOnline.writer.flush();
+									JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc3.getMisc()+" a "+JugarOnline.personaje4.getName()+":Chat");
+									JugarOnline.writer.flush();
 									}
 
 								else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje5.getName())){
 									
 									JugarOnline.personaje5.setMisc3(ModificarEquipo.misc3);
+									JugarOnline.writer.println("Server:"+JugarOnline.personaje5.getName()+":DarObj3:"+ModificarEquipo.misc3.getMisc()+":"+ModificarEquipo.misc3.getDescription());
+									JugarOnline.writer.flush();
+									JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc3.getMisc()+" a "+JugarOnline.personaje5.getName()+":Chat");
+									JugarOnline.writer.flush();
 									}
 
 								else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje6.getName())){
 									
 									JugarOnline.personaje6.setMisc3(ModificarEquipo.misc3);
+									JugarOnline.writer.println("Server:"+JugarOnline.personaje6.getName()+":DarObj3:"+ModificarEquipo.misc3.getMisc()+":"+ModificarEquipo.misc3.getDescription());
+									JugarOnline.writer.flush();
+									JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc3.getMisc()+" a "+JugarOnline.personaje6.getName()+":Chat");
+									JugarOnline.writer.flush();
 									}
 
 								else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje7.getName())){
 									
 									JugarOnline.personaje7.setMisc3(ModificarEquipo.misc3);
+									JugarOnline.writer.println("Server:"+JugarOnline.personaje7.getName()+":DarObj3:"+ModificarEquipo.misc3.getMisc()+":"+ModificarEquipo.misc3.getDescription());
+									JugarOnline.writer.flush();
+									JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc3.getMisc()+" a "+JugarOnline.personaje7.getName()+":Chat");
+									JugarOnline.writer.flush();
 									}
 
 								else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje8.getName())){
 									
 									JugarOnline.personaje8.setMisc3(ModificarEquipo.misc3);
+									JugarOnline.writer.println("Server:"+JugarOnline.personaje8.getName()+":DarObj3:"+ModificarEquipo.misc3.getMisc()+":"+ModificarEquipo.misc3.getDescription());
+									JugarOnline.writer.flush();
+									JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc3.getMisc()+" a "+JugarOnline.personaje8.getName()+":Chat");
+									JugarOnline.writer.flush();
 									}
 
 								else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje9.getName())){
 									
 									JugarOnline.personaje9.setMisc3(ModificarEquipo.misc3);
+									JugarOnline.writer.println("Server:"+JugarOnline.personaje9.getName()+":DarObj3:"+ModificarEquipo.misc3.getMisc()+":"+ModificarEquipo.misc3.getDescription());
+									JugarOnline.writer.flush();
+									JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc3.getMisc()+" a "+JugarOnline.personaje9.getName()+":Chat");
+									JugarOnline.writer.flush();
 									}
 
 								else if(ModificarEquipo.personaje.getName().equals(JugarOnline.npc1.getName())){
@@ -505,45 +614,81 @@ public class ObjetosNPC {
 									if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje1.getName())){
 										
 										JugarOnline.personaje1.setMisc4(ModificarEquipo.misc4);
+										JugarOnline.writer.println("Server:"+JugarOnline.personaje1.getName()+":DarObj4:"+ModificarEquipo.misc4.getMisc()+":"+ModificarEquipo.misc4.getDescription());
+										JugarOnline.writer.flush();
+										JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc4.getMisc()+" a "+JugarOnline.personaje1.getName()+":Chat");
+										JugarOnline.writer.flush();
 										}
 									else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje2.getName())){
 										
 										JugarOnline.personaje2.setMisc4(ModificarEquipo.misc4);
-										}
+										JugarOnline.writer.println("Server:"+JugarOnline.personaje2.getName()+":DarObj4:"+ModificarEquipo.misc4.getMisc()+":"+ModificarEquipo.misc4.getDescription());
+										JugarOnline.writer.flush();	
+										JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc4.getMisc()+" a "+JugarOnline.personaje2.getName()+":Chat");
+										JugarOnline.writer.flush();
+									}
 
 									else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje3.getName())){
 										
 										JugarOnline.personaje3.setMisc4(ModificarEquipo.misc4);
+										JugarOnline.writer.println("Server:"+JugarOnline.personaje3.getName()+":DarObj4:"+ModificarEquipo.misc4.getMisc()+":"+ModificarEquipo.misc4.getDescription());
+										JugarOnline.writer.flush();
+										JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc4.getMisc()+" a "+JugarOnline.personaje3.getName()+":Chat");
+										JugarOnline.writer.flush();
 										}
 
 									else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje4.getName())){
 										
 										JugarOnline.personaje4.setMisc4(ModificarEquipo.misc4);
+										JugarOnline.writer.println("Server:"+JugarOnline.personaje4.getName()+":DarObj4:"+ModificarEquipo.misc4.getMisc()+":"+ModificarEquipo.misc4.getDescription());
+										JugarOnline.writer.flush();
+										JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc4.getMisc()+" a "+JugarOnline.personaje4.getName()+":Chat");
+										JugarOnline.writer.flush();
 										}
 
 									else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje5.getName())){
 										
 										JugarOnline.personaje5.setMisc4(ModificarEquipo.misc4);
+										JugarOnline.writer.println("Server:"+JugarOnline.personaje5.getName()+":DarObj4:"+ModificarEquipo.misc4.getMisc()+":"+ModificarEquipo.misc4.getDescription());
+										JugarOnline.writer.flush();
+										JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc4.getMisc()+" a "+JugarOnline.personaje5.getName()+":Chat");
+										JugarOnline.writer.flush();
 										}
 
 									else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje6.getName())){
 										
 										JugarOnline.personaje6.setMisc4(ModificarEquipo.misc4);
+										JugarOnline.writer.println("Server:"+JugarOnline.personaje6.getName()+":DarObj4:"+ModificarEquipo.misc4.getMisc()+":"+ModificarEquipo.misc4.getDescription());
+										JugarOnline.writer.flush();
+										JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc4.getMisc()+" a "+JugarOnline.personaje6.getName()+":Chat");
+										JugarOnline.writer.flush();
 										}
 
 									else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje7.getName())){
 										
 										JugarOnline.personaje7.setMisc4(ModificarEquipo.misc4);
+										JugarOnline.writer.println("Server:"+JugarOnline.personaje7.getName()+":DarObj4:"+ModificarEquipo.misc4.getMisc()+":"+ModificarEquipo.misc4.getDescription());
+										JugarOnline.writer.flush();
+										JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc4.getMisc()+" a "+JugarOnline.personaje7.getName()+":Chat");
+										JugarOnline.writer.flush();
 										}
 
 									else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje8.getName())){
 										
 										JugarOnline.personaje8.setMisc4(ModificarEquipo.misc4);
+										JugarOnline.writer.println("Server:"+JugarOnline.personaje8.getName()+":DarObj4:"+ModificarEquipo.misc4.getMisc()+":"+ModificarEquipo.misc4.getDescription());
+										JugarOnline.writer.flush();
+										JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc4.getMisc()+" a "+JugarOnline.personaje8.getName()+":Chat");
+										JugarOnline.writer.flush();
 										}
 
 									else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje9.getName())){
 										
 										JugarOnline.personaje9.setMisc4(ModificarEquipo.misc4);
+										JugarOnline.writer.println("Server:"+JugarOnline.personaje9.getName()+":DarObj4:"+ModificarEquipo.misc4.getMisc()+":"+ModificarEquipo.misc4.getDescription());
+										JugarOnline.writer.flush();
+										JugarOnline.writer.println("Server: Se ha dado el objeto "+ModificarEquipo.misc4.getMisc()+" a "+JugarOnline.personaje9.getName()+":Chat");
+										JugarOnline.writer.flush();
 										}
 
 									else if(ModificarEquipo.personaje.getName().equals(JugarOnline.npc1.getName())){

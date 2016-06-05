@@ -536,45 +536,81 @@ public class ArmaduraNPC {
 					if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje1.getName())){
 						
 						JugarOnline.personaje1.setArmor(ModificarEquipo.armor1);
+						JugarOnline.writer.println("Server:"+JugarOnline.personaje1.getName()+":DarArm:"+ModificarEquipo.armor1.getArmor()+":"+ModificarEquipo.armor1.getArmor());
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha añadido "+ModificarEquipo.armor1.getArmor()+" al personaje "+ JugarOnline.personaje1.getName()+":Chat");
+						JugarOnline.writer.flush();
 						}
 					else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje2.getName())){
 						
 						JugarOnline.personaje2.setArmor(ModificarEquipo.armor1);
+						JugarOnline.writer.println("Server:"+JugarOnline.personaje2.getName()+":DarArm:"+ModificarEquipo.armor1.getArmor()+":"+ModificarEquipo.armor1.getArmor());
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha añadido "+ModificarEquipo.armor1.getArmor()+" al personaje "+ JugarOnline.personaje2.getName()+":Chat");
+						JugarOnline.writer.flush();
 						}
 
 					else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje3.getName())){
 						
 						JugarOnline.personaje3.setArmor(ModificarEquipo.armor1);
+						JugarOnline.writer.println("Server:"+JugarOnline.personaje3.getName()+":DarArm:"+ModificarEquipo.armor1.getArmor()+":"+ModificarEquipo.armor1.getArmor());
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha añadido "+ModificarEquipo.armor1.getArmor()+" al personaje "+ JugarOnline.personaje3.getName()+":Chat");
+						JugarOnline.writer.flush();
 						}
 
 					else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje4.getName())){
 						
 						JugarOnline.personaje4.setArmor(ModificarEquipo.armor1);
+						JugarOnline.writer.println("Server:"+JugarOnline.personaje4.getName()+":DarArm:"+ModificarEquipo.armor1.getArmor()+":"+ModificarEquipo.armor1.getArmor());
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha añadido "+ModificarEquipo.armor1.getArmor()+" al personaje "+ JugarOnline.personaje4.getName()+":Chat");
+						JugarOnline.writer.flush();
 						}
 
 					else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje5.getName())){
 						
 						JugarOnline.personaje5.setArmor(ModificarEquipo.armor1);
+						JugarOnline.writer.println("Server:"+JugarOnline.personaje5.getName()+":DarArm:"+ModificarEquipo.armor1.getArmor()+":"+ModificarEquipo.armor1.getArmor());
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha añadido "+ModificarEquipo.armor1.getArmor()+" al personaje "+ JugarOnline.personaje5.getName()+":Chat");
+						JugarOnline.writer.flush();
 						}
 
 					else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje6.getName())){
 						
 						JugarOnline.personaje6.setArmor(ModificarEquipo.armor1);
+						JugarOnline.writer.println("Server:"+JugarOnline.personaje6.getName()+":DarArm:"+ModificarEquipo.armor1.getArmor()+":"+ModificarEquipo.armor1.getArmor());
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha añadido "+ModificarEquipo.armor1.getArmor()+" al personaje "+ JugarOnline.personaje6.getName()+":Chat");
+						JugarOnline.writer.flush();
 						}
 
 					else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje7.getName())){
 						
 						JugarOnline.personaje7.setArmor(ModificarEquipo.armor1);
-						}
+						JugarOnline.writer.println("Server:"+JugarOnline.personaje7.getName()+":DarArm:"+ModificarEquipo.armor1.getArmor()+":"+ModificarEquipo.armor1.getArmor());
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha añadido "+ModificarEquipo.armor1.getArmor()+" al personaje "+ JugarOnline.personaje7.getName()+":Chat");
+						JugarOnline.writer.flush();	
+					}
 
 					else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje8.getName())){
 						
 						JugarOnline.personaje8.setArmor(ModificarEquipo.armor1);
+						JugarOnline.writer.println("Server:"+JugarOnline.personaje8.getName()+":DarArm:"+ModificarEquipo.armor1.getArmor()+":"+ModificarEquipo.armor1.getArmor());
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha añadido "+ModificarEquipo.armor1.getArmor()+" al personaje "+ JugarOnline.personaje8.getName()+":Chat");
+						JugarOnline.writer.flush();
 						}
 
 					else if(ModificarEquipo.personaje.getName().equals(JugarOnline.personaje9.getName())){
 						
 						JugarOnline.personaje9.setArmor(ModificarEquipo.armor1);
+						JugarOnline.writer.println("Server:"+JugarOnline.personaje9.getName()+":DarArm:"+ModificarEquipo.armor1.getArmor()+":"+ModificarEquipo.armor1.getArmor());
+						JugarOnline.writer.flush();
+						JugarOnline.writer.println("Server:Se ha añadido "+ModificarEquipo.armor1.getArmor()+" al personaje "+ JugarOnline.personaje9.getName()+":Chat");
+						JugarOnline.writer.flush();
 						}
 
 					else if(ModificarEquipo.personaje.getName().equals(JugarOnline.npc1.getName())){
