@@ -64,6 +64,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Desktop;
 
@@ -83,6 +85,11 @@ public class VentanaJugadores {
 	JProgressBar progressBar = new JProgressBar();
 	JProgressBar progressBar_2 = new JProgressBar();
 	JProgressBar progressBar_1 = new JProgressBar();
+	
+	File tonoChat=new File("./Sonidos/Tono Chat.wav");
+    AudioClip sound = Applet.newAudioClip(tonoChat.toURL());
+   
+	
 	public JFrame getFrame() {
 		return frmHistoriasDeZagas;
 	}
@@ -129,6 +136,12 @@ public class VentanaJugadores {
 	                     {
 	                        textArea.append(data[0] + ": " + data[1] + "\n");
 	                        textArea.setCaretPosition(textArea.getDocument().getLength());
+	                        
+	                        if(frmHistoriasDeZagas.getState()==1){
+	 	                       
+	                        	sound.play();
+	                        }
+	                        
 	                     }
 	                     
 	                     else if(data[2].equals(darArm)){
