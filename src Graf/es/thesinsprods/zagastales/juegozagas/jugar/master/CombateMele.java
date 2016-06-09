@@ -508,7 +508,7 @@ public class CombateMele {
 				String mod1=comboBox_3.getSelectedItem()+"";
 				String mod2=comboBox_7.getSelectedItem()+"";
 				
-				int mods= Integer.parseInt(mod1)+Integer.parseInt(mod2);
+				int mods= Integer.parseInt(mod1)-Integer.parseInt(mod2);
 				
 				String result = DiceRoll.EnfrentarTirada(tirada1, atr1, tirada2, atr2, hab1, hab2, mods);
 				

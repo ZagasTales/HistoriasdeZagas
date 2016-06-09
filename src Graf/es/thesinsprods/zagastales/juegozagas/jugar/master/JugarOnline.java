@@ -88,11 +88,13 @@ import javax.swing.border.BevelBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -112,6 +114,9 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.JTree;
 import javax.swing.JList;
 import javax.swing.JToggleButton;
+
+import java.applet.Applet;
+import java.applet.AudioClip;
 import java.awt.Canvas;
 import java.awt.TextField;
 import java.awt.event.KeyAdapter;
@@ -183,8 +188,9 @@ public class JugarOnline {
 	public static ArrayList<String> jugadores = new ArrayList<String>();
 	public static ArrayList<String> npcs = new ArrayList<String>();
 
-	
-	
+	File tonoChat=new File("./Sonidos/Tono Chat.wav");
+    AudioClip sound = Applet.newAudioClip(tonoChat.toURL());
+   
 	  public class IncomingReader implements Runnable
 	    {
 	        @Override
@@ -1843,6 +1849,12 @@ public class JugarOnline {
 	                     {
 	                        textArea.append(data[0] + ": " + data[1] + "\n");
 	                        textArea.setCaretPosition(textArea.getDocument().getLength());
+	                        if(frmHistoriasDeZagas.getState()==1){
+	                       
+	                        	sound.play();
+	                        
+	                        }
+	                        
 	                     } 
 	                     else if (data[2].equals(connect))
 	                     {
@@ -1980,7 +1992,7 @@ public class JugarOnline {
 		frmHistoriasDeZagas.getContentPane().setLayout(null);
 		
 	
-
+		 
 		
 		InetAddress thisIp;
 		thisIp = InetAddress.getLocalHost();
@@ -3305,7 +3317,7 @@ public class JugarOnline {
 				jugador=jugador+"";
 				
 				Object seleccion = JOptionPane.showInputDialog(
-						   null,
+						frmHistoriasDeZagas,
 						   "Calcular Tirada",
 						   "Seleccione cual fue el atributo a utilizar",
 						   JOptionPane.PLAIN_MESSAGE,
@@ -3315,9 +3327,9 @@ public class JugarOnline {
 				seleccion=seleccion+"";
 				
 				Object seleccion1 = JOptionPane.showInputDialog(
-						   null,
+						frmHistoriasDeZagas,
 						   "Calcular Tirada",
-						   "Seleccione cual fue el atributo a utilizar",
+						   "Seleccione el modificador a aplicar",
 						   JOptionPane.PLAIN_MESSAGE,
 						   null,  // null para icono defecto
 						   new Object[] { "0","1","2","3","-1","-2","-3"}, 
@@ -4377,12 +4389,42 @@ if(jugador.equals(npc9.getName())){
 					writer.flush();
 					 writer.println("Información: Modificada la Salud Máxima de "+jugador+" en "+Integer.parseInt(cant)+":Chat");
 			          writer.flush();	
+			          
+			          if(jugador.equals(personaje1.getName())){
+							Personaje1.saludM=Integer.parseInt(cant);
+						}
+						
+						else if(jugador.equals(personaje2.getName())){
+							Personaje2.saludM=Integer.parseInt(cant);
+						}
+						
+						else if(jugador.equals(personaje3.getName())){
+							Personaje3.saludM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje4.getName())){
+							Personaje4.saludM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje5.getName())){
+							Personaje5.saludM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje6.getName())){
+							Personaje6.saludM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje7.getName())){
+							Personaje7.saludM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje8.getName())){
+							Personaje8.saludM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje9.getName())){
+							Personaje9.saludM=Integer.parseInt(cant);}
 				}
 				else if(seleccion.equals("Energía")){
 					writer.println(jugador + ":"+Integer.parseInt(cant)+":ModificarSEM:Energía");
 					writer.flush();
 					 writer.println("Información: Modificada la Energía de "+jugador+" en "+Integer.parseInt(cant)+":Chat");
 			          writer.flush();
+			         
 					
 					if(jugador.equals(personaje1.getName())){
 						personaje1.setEndurance(personaje1.getEndurance()+ Integer.parseInt(cant));
@@ -4425,6 +4467,35 @@ if(jugador.equals(npc9.getName())){
 					writer.flush();
 					writer.println("Información: Modificada la Energía Máxima de "+jugador+" en "+Integer.parseInt(cant)+":Chat");
 			          writer.flush();	
+			          
+			          if(jugador.equals(personaje1.getName())){
+							Personaje1.energiaM=Integer.parseInt(cant);
+						}
+						
+						else if(jugador.equals(personaje2.getName())){
+							Personaje2.energiaM=Integer.parseInt(cant);
+						}
+						
+						else if(jugador.equals(personaje3.getName())){
+							Personaje3.energiaM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje4.getName())){
+							Personaje4.energiaM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje5.getName())){
+							Personaje5.energiaM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje6.getName())){
+							Personaje6.energiaM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje7.getName())){
+							Personaje7.energiaM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje8.getName())){
+							Personaje8.energiaM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje9.getName())){
+							Personaje9.saludM=Integer.parseInt(cant);}
 				}
 				else if(seleccion.equals("Maná")){
 					writer.println(jugador + ":"+Integer.parseInt(cant)+":ModificarSEM:Maná");
@@ -4473,13 +4544,42 @@ if(jugador.equals(npc9.getName())){
 					writer.flush();
 					writer.println("Información: Modificado el Maná Máximo de "+jugador+" en "+Integer.parseInt(cant)+":Chat");
 			          writer.flush();
+			          
+			          if(jugador.equals(personaje1.getName())){
+							Personaje1.manaM=Integer.parseInt(cant);
+						}
+						
+						else if(jugador.equals(personaje2.getName())){
+							Personaje2.manaM=Integer.parseInt(cant);
+						}
+						
+						else if(jugador.equals(personaje3.getName())){
+							Personaje3.manaM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje4.getName())){
+							Personaje4.manaM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje5.getName())){
+							Personaje5.manaM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje6.getName())){
+							Personaje6.manaM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje7.getName())){
+							Personaje7.manaM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje8.getName())){
+							Personaje8.manaM=Integer.parseInt(cant);}
+						
+						else if(jugador.equals(personaje9.getName())){
+							Personaje9.manaM=Integer.parseInt(cant);}
 					}
 			}
 					if(seleccion1.equals("NPC")){
 						
 
 						
-						Object [] personajes= jugadores.toArray();
+						Object [] personajes= npcs.toArray();
 						Object jugador = JOptionPane.showInputDialog(
 								frmHistoriasDeZagas, "Seleccione el personaje al que quiere modificar.",
 								"Modificar S/E/M", JOptionPane.PLAIN_MESSAGE,
@@ -4728,7 +4828,7 @@ if(jugador.equals(npc9.getName())){
 					
 					writer.println(jugador+":"+estado+":Alterar");
 					writer.flush();
-					writer.println("Información: Se ha alterado el estado de "+jugador+ "a "+estado+":Chat");
+					writer.println("Información: Se ha alterado el estado de "+jugador+ " a "+estado+":Chat");
 					writer.flush();
 				}
 				else if(seleccion.equals("NPC")){
@@ -4839,6 +4939,8 @@ if(npc1.getName().equals(jugador)){
 						frmHistoriasDeZagas, "Seleccione el personaje al que cambiar el equipo.",
 						"Alterar Estado", JOptionPane.PLAIN_MESSAGE,
 						null,intermedio.toArray(),null);
+				
+				jugador=jugador+"";
 				
 				if(personaje1.getName().equals(jugador)){
 					
